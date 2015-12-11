@@ -1,0 +1,152 @@
+@import url(http://weloveiconfonts.com/api/?family=iconicfill);
+/* iconicfill */
+
+[class*="iconicfill-"]:before {
+    font-family: 'IconicFill', sans-serif;
+}
+
+.wrap-label{
+    min-height: 30px;
+}
+
+.iconicfill-pen-alt2 {
+
+    font-size: 26px;
+    float: left;
+    color: #ccc;
+    visibility: hidden;
+}
+/* ==== Pen animation ==== */
+
+.move-pen {
+    animation: move-pen 1s ease-in infinite alternate
+}
+
+@keyframes move-pen {
+    from {
+        transform: translateX(-4px) rotate(6deg);
+    }
+    to {
+        transform: translateX(4px) rotate(-3deg);
+    }
+}
+
+/*send button*/
+.spot {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.svg-wrapper {
+    margin-top: 0;
+    position: relative;
+    width: 150px;
+    /*make sure to use same height/width as in the html*/
+    height: 40px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 35px;
+}
+
+#shape {
+    stroke-width: 6px;
+    fill: transparent;
+    stroke: #ccc;
+    stroke-dasharray: 85 400;
+    stroke-dashoffset: -220;
+    transition: 2s all ease;
+}
+
+#text {
+    margin-top: -35px;
+    text-align: center;
+}
+
+#text a {
+    color: #464b4f;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 1.1em;
+}
+
+.svg-wrapper:hover #shape {
+    stroke-dasharray: 50 0;
+    stroke-width: 3px;
+    stroke-dashoffset: 0;
+    stroke: #3F5D7D;
+}
+
+/*fade effect for placeholder*/
+/* Place Holder CSS */
+::-webkit-input-placeholder {
+    opacity: 0.5;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:-moz-placeholder {
+    opacity: 0.5;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+::-moz-placeholder {
+    opacity: 0.5;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:-ms-input-placeholder {
+    opacity: 0.5;
+    -ms-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+
+/* Place Holder CSS for Focus */
+:hover::-webkit-input-placeholder {
+    opacity: 0.75;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:hover:-moz-placeholder {
+    opacity: 0.75;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:hover::-moz-placeholder {
+    opacity: 0.75;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:hover:-ms-input-placeholder {
+    opacity: 0.75;
+    -ms-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+
+/* Place Holder CSS for Focus */
+:focus::-webkit-input-placeholder {
+    opacity: 0;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:focus:-moz-placeholder {
+    opacity: 0;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:focus::-moz-placeholder {
+    opacity: 0;
+    -moz-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+:focus:-ms-input-placeholder {
+    opacity: 0;
+    -ms-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+
+
+/*btn send*/
+
