@@ -34,40 +34,30 @@ a {
 
 /* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★ */
 /* ★ Typography                 */
-/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-
-PROBAR CABIN*/
+/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
 
 @font-face {
-    font-family: 'Cabin';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: local('Cabin Regular'), local('Cabin-Regular'), url(http://fonts.gstatic.com/s/cabin/v7/yQOMOX5hR0-6LTD879t-PQ.woff2) format('woff2');
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(http://fonts.gstatic.com/s/Roboto/v7/yQOMOX5hR0-6LTD879t-PQ.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 /* latin */
 @font-face {
-    font-family: 'Cabin';
+    font-family: 'Roboto-bold';
     font-style: normal;
     font-weight: 700;
-    src: local('Cabin Bold'), local('Cabin-Bold'), url(http://fonts.gstatic.com/s/cabin/v7/82B-3YlzWJm8zbCrVEmc_vesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(http://fonts.gstatic.com/s/Roboto/v7/82B-3YlzWJm8zbCrVEmc_vesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 @font-face {
-    font-family: segoeui;
+    font-family: 'Roboto-bold';
     font-weight: normal;
     font-style: normal;
-    src: url("fonts/segoeui.eot");
-    src: url("fonts/segoeui.eot?#iefix") format("embedded-opentype"), url("fonts/segoeui.woff") format("woff"), url("fonts/segoeui.ttf") format("truetype"), url("fonts/segoeui.svg#segoeui") format("svg");
-}
-
-@font-face {
-    font-family: segoeuib;
-    font-weight: normal;
-    font-style: normal;
-    src: url("fonts/segoeuib.eot");
-    src: url("fonts/segoeuib.eot?#iefix") format("embedded-opentype"), url("fonts/segoeuib.woff") format("woff"), url("fonts/segoeuib.ttf") format("truetype"), url("fonts/segoeuib.svg#segoeuib") format("svg");
+    src: url("fonts/'Roboto-bold'.eot");
+    src: url("fonts/'Roboto-bold'.eot?#iefix") format("embedded-opentype"), url("fonts/'Roboto-bold'.woff") format("woff"), url("fonts/'Roboto-bold'.ttf") format("truetype"), url("fonts/'Roboto-bold'.svg#'Roboto-bold'") format("svg");
 }
 
 .heading {
@@ -78,24 +68,24 @@ PROBAR CABIN*/
 }
 
 .heading.h-01 {
-    font-family: segoeuib, Arial, sans-serif;
+    font-family: 'Roboto-bold', Arial, sans-serif;
     font-size: 80px;
-    font-weight: normal;
+    font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
 }
 
 .heading.h-02 {
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 19px;
     font-weight: normal;
     line-height: 1;
 }
 
 .heading.h-03 {
-    font-family: segoeuib, Arial, sans-serif;
+    font-family: 'Roboto-bold', Arial, sans-serif;
     font-size: 18px;
-    font-weight: normal;
+    font-weight: 700;
     line-height: 1;
 }
 
@@ -103,7 +93,7 @@ PROBAR CABIN*/
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 30px;
     color: #464b4f;
     line-height: 42px;
@@ -113,7 +103,7 @@ PROBAR CABIN*/
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 18px;
     color: #888a8b;
     line-height: 30px;
@@ -123,7 +113,7 @@ PROBAR CABIN*/
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 14px;
     line-height: 1;
 }
@@ -139,14 +129,14 @@ PROBAR CABIN*/
 .button.main {
     background: #7b77c9;
     color: white;
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 14px;
 }
 
 .button.white {
     background: white;
     color: #888a8b;
-    font-family: segoeui, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 14px;
 }
 
@@ -171,8 +161,9 @@ PROBAR CABIN*/
 
 #page-home {
     text-align: center;
-    background-color: #3F5D7D;
-    background-image: url(../images/transparent-back.png);
+    background-color: #c0dfd9;
+    color:#e9ece5;
+    background-image: url("/images/transparent-back.png");
 }
 
 #page-home .brand-logo {
@@ -180,13 +171,13 @@ PROBAR CABIN*/
 }
 
 #page-home .brand-logo #brand-logo {
-    height: 135px;
-    width: 135px;
+    height: 200px;
+    width: 210px;
 }
 
 #page-home .brand-logo #brand-logo * {
     position: relative;
-    fill: white;
+    fill: #e9ece5;
     -webkit-transform-origin: center top;
     -moz-transform-origin: center top;
     -ms-transform-origin: center top;
@@ -197,15 +188,7 @@ PROBAR CABIN*/
     transition: all 0.4s ease;
 }
 
-#page-home .brand-logo #brand-logo #circle-alt {
-    opacity: 0;
-}
-
 #page-home .brand-logo #brand-logo:hover #circle {
-    fill: #2e3134;
-}
-
-#page-home .brand-logo #brand-logo:hover #circle-alt {
     opacity: 1;
     fill: #464b4f;
     -webkit-transform: scale(0.75) translateY(9px);
@@ -220,8 +203,35 @@ PROBAR CABIN*/
     -moz-transform: scale(0.75) translateY(3px);
     -ms-transform: scale(0.75) translateY(3px);
     -o-transform: scale(0.75) translateY(3px);
-    transform: scale(0.75) translateY(3px);
+    transform:  scale(0.75) translateY(3px);
+
 }
+/*
+
+    -webkit-transform: ;
+    -moz-transform: ;
+    -ms-transform: ;
+    -o-transform: ;
+    transform:  ;
+}
+
+/*
+
+#page-home .brand-logo #brand-logo:hover #icon{
+
+    display: inline-block;
+    -webkit-transform: translateZ(0);;
+    -moz-transform:translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform:translateZ(0);
+    transform: translateZ(0);
+    background: #2098d1;
+
+}
+*/
+
+
+
 
 #page-home .h-01 {
     color: white;
@@ -411,7 +421,8 @@ PROBAR CABIN*/
 #page-work {
     position: relative;
     text-align: center;
-    background: #3F5D7D;
+    background: #c0dfd9;
+    background-image: url("/images/transparent-back.png");
 }
 
 #page-work .h-01 {
@@ -497,7 +508,7 @@ PROBAR CABIN*/
 
 #page-work #work-detail {
     display: none;
-    background: #3F5D7D;
+    background: #c0dfd9;
     text-align: left;
     position: absolute;
     top: 0;
@@ -530,6 +541,12 @@ PROBAR CABIN*/
 
 #page-contactform {
     text-align: center;
+    background: url("/images/agu-bg.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
 #page-contactform .h-01 {
@@ -539,7 +556,7 @@ PROBAR CABIN*/
 #page-contactform .copy-01 {
     margin-bottom: 50px;
     padding: 0 60px;
-    color: #888a8b;
+    color: #e9ece5;
 }
 
 #page-contactform #photo-grid:after {
@@ -585,11 +602,16 @@ PROBAR CABIN*/
     margin-top: 66px;
     padding: 23px 48px;
 }
+#page-contactform input, #page-contactform textarea, #page-contactform .heading{
+    color: #e9ece5;
+}
 
 #page-footer {
     text-align: center;
-    background: #3F5D7D;
+    background: #c0dfd9;
     padding-bottom: 90px;
+    background-image: url("/images/bg2.jpg");
+    background-position: 0px 900px;
 }
 
 #page-footer .social-links {
@@ -741,7 +763,7 @@ PROBAR CABIN*/
         position: relative;
         display: block;
         margin: 30px 0;
-        font-family: segoeuib, Arial, sans-serif;
+        font-family: 'Roboto-bold', Arial, sans-serif;
         font-size: 14px;
         color: white;
         text-align: center;
@@ -849,6 +871,7 @@ PROBAR CABIN*/
 
 body {
     -webkit-tap-highlight-color: transparent;
+    letter-spacing: 3px;
 }
 
 /*CONTACT FORM*/
@@ -888,7 +911,7 @@ body {
 
 .form-control:focus {
     box-shadow: none;
-    border-color: #3F5D7D;
+    border-color: #c0dfd9;
 }
 
 .js-hide-label {
