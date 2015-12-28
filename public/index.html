@@ -34,10 +34,14 @@
 <section id="page-home">
     <div class="site-inner">
         <header>
-            <div class="brand-logo"><img src="images/brand-logo.svg" class="inject-me"/></div>
+            <div class="brand-logo">
+                <div id="circle">
+                    <img src="images/brand-logo.svg" class="inject-me"/>
+                </div>
+            </div>
         </header>
 
-        <h1 class="heading h-01">Web Developer</h1>
+        <h1 class="heading h-01" data-text="Web Developer">Web Developer</h1>
 
         <p class="sub-header copy-02">I'm glad that you visited my site where he can get to know me and my work.</p>
         <a href="#" class="arrow-down"><img src="images/arrow-down.svg" class="inject-me"/></a>
@@ -92,57 +96,166 @@
 
         <a href="#" class="mobile-filter-select">Filter</a>
         <nav id="work-filter">
-            <a href="#" class="filter-link active" data-group="all">All Works</a>
-            <a href="#" class="filter-link" data-group="landingpage">Landing Page</a>
-            <a href="#" class="filter-link" data-group="webdesign">Web Design</a>
-            <a href="#" class="filter-link" data-group="icondesign">Icon Design</a>
-            <a href="#" class="filter-link" data-group="template">Template</a>
+            <div class="svg-wrapper">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150"/>
+                    <div id="text">
+                        <a href="#" id="btn-send" class="filter-link active" data-group="all"><span class="spot"></span>All
+                            Works</a>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150"/>
+                    <div id="text">
+                        <a href="#" id="btn-send" class="filter-link active" data-group="webdesign"><span
+                                class="spot"></span>Development</a>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150"/>
+                    <div id="text">
+                        <a href="#" id="btn-send" class="filter-link active" data-group="icondesign"><span
+                                class="spot"></span>Design</a>
+                    </div>
+                </svg>
+            </div>
+            <div class="svg-wrapper">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150"/>
+                    <div id="text">
+                        <a href="#" id="btn-send" class="filter-link active" data-group="template"><span
+                                class="spot"></span>Templates</a>
+                    </div>
+                </svg>
+            </div>
         </nav>
 
         <section id="work-grid" class="site-inner">
 
-            <div class="work-item" data-groups='["all", "webdesign"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/web-one.jpg"/></figure>
-                <h2 class="heading h-02">Positionly gain more traffic</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-techo.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">TECHO - Colecta 2015</h2>
 
-                <p class="copy-03">Web Design</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
-            <div class="work-item" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/icon-one.jpg"/></figure>
-                <h2 class="heading h-02">Flag - User Dashboard</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-mmx.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
 
-                <p class="copy-03">Icon Design</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
-            <div class="work-item" data-groups='["all", "webdesign"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/web-two.jpg"/></figure>
-                <h2 class="heading h-02">Google Maps - developers</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-mc.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User 2Dashboard</h2>
 
-                <p class="copy-03">Web Design</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
-            <div class="work-item" data-groups='["all", "landingpage"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/landing-one.jpg"/></figure>
-                <h2 class="heading h-02">Djed Landing Page</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-picea.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
 
-                <p class="copy-03">Landing Page</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
-            <div class="work-item" data-groups='["all", "template"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/template-one.jpg"/></figure>
-                <h2 class="heading h-02">MG3 Website</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-on.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
 
-                <p class="copy-03">Template</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
-            <div class="work-item" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
-                <figure class="image-container"><img src="images/work/icon-two.jpg"/></figure>
-                <h2 class="heading h-02">Mixpanel Career</h2>
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-snap.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
 
-                <p class="copy-03">Icon Design</p>
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
             </div>
 
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-stm.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
+
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
+            </div>
+
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-td.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
+
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
+            </div>
+
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-tb.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
+
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
+            </div>
+
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-caja.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
+
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
+            </div>
+
+            <div class="work-item view view-second" data-groups='["all", "icondesign"]' data-url="http://dribbble.com">
+                <figure class="image-container"><img height="300" width="200"  src="images/work/logo/logo-galat.png"/></figure>
+                <div class="mask"></div>
+                <div class="content">
+                    <h2 class="heading h-02">Flag - User Dashboard</h2>
+
+                    <p>Some description</p>
+                    <a href="#" class="info">Read More</a>
+                </div>
+            </div>
             <div class="shuffle__sizer"></div>
         </section>
     </div>
