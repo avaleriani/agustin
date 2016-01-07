@@ -1,11 +1,12 @@
 @import url(http://weloveiconfonts.com/api/?family=iconicfill);
+
 /* iconicfill */
 
 [class*="iconicfill-"]:before {
     font-family: 'IconicFill', sans-serif;
 }
 
-.wrap-label{
+.wrap-label {
     min-height: 30px;
 }
 
@@ -17,6 +18,7 @@
     visibility: hidden;
     margin-left: 5%;
 }
+
 /* ==== Pen animation ==== */
 
 .move-pen {
@@ -39,16 +41,19 @@
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :-moz-placeholder {
     opacity: 0.5;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 ::-moz-placeholder {
     opacity: 0.5;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :-ms-input-placeholder {
     opacity: 0.5;
     -ms-transition: opacity 0.35s ease-in-out;
@@ -61,16 +66,19 @@
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :hover:-moz-placeholder {
     opacity: 0.75;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :hover::-moz-placeholder {
     opacity: 0.75;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :hover:-ms-input-placeholder {
     opacity: 0.75;
     -ms-transition: opacity 0.35s ease-in-out;
@@ -83,22 +91,24 @@
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :focus:-moz-placeholder {
     opacity: 0;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :focus::-moz-placeholder {
     opacity: 0;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
+
 :focus:-ms-input-placeholder {
     opacity: 0;
     -ms-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
 }
-
 
 /*btn send*/
 
@@ -109,6 +119,7 @@
     top: 0;
     left: 0;
 }
+
 .svg-wrapper {
     margin-top: 40px;
     position: relative;
@@ -118,7 +129,7 @@
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
-    overflow:hidden;
+    overflow: hidden;
     cursor: pointer;
 
 }
@@ -151,8 +162,7 @@
     stroke: #c0dfd9;
 }
 
-
-.ripple-effect{
+.ripple-effect {
     position: absolute;
     border-radius: 50%;
     width: 10px;
@@ -160,7 +170,6 @@
     background: #cccccc;
     animation: ripple-animation 2s;
 }
-
 
 @keyframes ripple-animation {
     from {
@@ -190,7 +199,8 @@
     background: #fff;
     margin: 10px;
 }
-.view .mask,.view .content {
+
+.view .mask, .view .content {
     width: 300px;
     height: 200px;
     position: absolute;
@@ -198,10 +208,12 @@
     top: 0;
     left: 0;
 }
+
 .view img {
     display: block;
     position: relative;
 }
+
 .view h2 {
     text-transform: uppercase;
     color: #fff;
@@ -212,6 +224,7 @@
     background: rgba(0, 0, 0, 0.8);
     margin: 20px 0 0 0;
 }
+
 .view p {
     font-family: Georgia, serif;
     font-style: italic;
@@ -221,6 +234,7 @@
     padding: 10px 20px 20px;
     text-align: center;
 }
+
 .view a.info {
     display: inline-block;
     text-decoration: none;
@@ -232,6 +246,7 @@
     -moz-box-shadow: 0 0 1px #000;
     box-shadow: 0 0 1px #000;
 }
+
 .view a.info:hover {
     -webkit-box-shadow: 0 0 5px #000;
     -moz-box-shadow: 0 0 5px #000;
@@ -241,8 +256,9 @@
 .view-second img {
     transition: all 0.2s ease-in;
 }
+
 .view-second .mask {
-    background-color: rgba(115,146,184, 0.7);
+    background-color: rgba(115, 146, 184, 0.7);
     width: 300px;
     padding: 60px;
     height: 300px;
@@ -250,6 +266,7 @@
     transform: translate(265px, 145px) rotate(45deg);
     transition: all 0.2s ease-in-out;
 }
+
 .view-second h2 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     background: transparent;
@@ -257,30 +274,41 @@
     transform: translate(200px, -200px);
     transition: all 0.2s ease-in-out;
 }
+
 .view-second p {
     transform: translate(-200px, 200px);
     transition: all 0.2s ease-in-out;
 }
+
 .view-second a.info {
     transform: translate(0px, 100px);
     transition: all 0.2s 0.1s ease-in-out;
 }
 
 .view-second:hover .mask {
-    opacity:1;
+    opacity: 1;
     transform: translate(-80px, -125px) rotate(45deg);
 }
+
 .view-second:hover h2 {
-    transform: translate(0px,0px);
+    transform: translate(0px, 0px);
     transition-delay: 0.3s;
 }
+
 .view-second:hover p {
-    transform: translate(0px,0px);
+    transform: translate(0px, 0px);
     transition-delay: 0.4s;
 }
+
 .view-second:hover a.info {
-    transform: translate(0px,0px);
+    transform: translate(0px, 0px);
     transition-delay: 0.5s;
+}
+
+.work-button-mobile {
+    transform: translate(0px, 0px);
+    transition-delay: 0.5s;
+    opacity: 0.7;
 }
 
 /* END WORK HOVER  */
