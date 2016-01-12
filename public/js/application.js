@@ -96,7 +96,7 @@
                         type: "POST",
                         url: $(form).attr("action"),
                         data: formData
-                    }).done(function (response) {
+                    }).done(function () {
                         $(formMessages).removeClass("error");
                         $(formMessages).addClass("success");
                         $(formMessages).text('You have successfully subscribed!');
@@ -116,6 +116,19 @@
     };
 
     $(document).ready(function () {
+
+        $(".project-box").click(function (e) {
+            e.preventDefault();
+
+            $('<img src="' + $(this).attr("data-largesrc") + '">').appendTo("#avimg");
+
+            $("#avtitle").html($(this).attr("data-title"));
+            $("#avtext").html($(this).attr("data-description"));
+
+
+            avgrund.activate();
+            return false;
+        });
         //If is touchscreen, the "+ More" button in works is always visible
         {
             if (true) {

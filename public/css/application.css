@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 body {
     background: url(../images/bg-tile.png);
 }
@@ -34,34 +35,6 @@ a {
     margin-left: -29.375em;
 }
 
-/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★ */
-/* ★ Typography                 */
-/* ★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
-
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Roboto Regular'), local('Roboto-Regular'), url(http://fonts.gstatic.com/s/Roboto/v7/yQOMOX5hR0-6LTD879t-PQ.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-/* latin */
-@font-face {
-    font-family: 'Roboto-bold';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Roboto Bold'), local('Roboto-Bold'), url(http://fonts.gstatic.com/s/Roboto/v7/82B-3YlzWJm8zbCrVEmc_vesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-@font-face {
-    font-family: 'Roboto-bold';
-    font-weight: normal;
-    font-style: normal;
-    src: url("fonts/'Roboto-bold'.eot");
-    src: url("fonts/'Roboto-bold'.eot?#iefix") format("embedded-opentype"), url("fonts/'Roboto-bold'.woff") format("woff"), url("fonts/'Roboto-bold'.ttf") format("truetype"), url("fonts/'Roboto-bold'.svg#'Roboto-bold'") format("svg");
-}
 
 .heading {
     color: #464b4f;
@@ -166,7 +139,7 @@ a {
     text-align: center;
     background-color: #89bdd3;
     color: #e9ece5;
-    background-image: url("/images/transparent-back.png");
+    background-image: url("../images/transparent-back.png");
 }
 
 #page-home .brand-logo #brand-logo {
@@ -639,7 +612,7 @@ a {
     position: relative;
     text-align: center;
     background-color: #89bdd3;
-    background-image: url("/images/transparent-back.png");
+    background-image: url("../images/transparent-back.png");
 }
 
 #page-work .h-01 {
@@ -817,7 +790,7 @@ a {
     text-align: center;
     background: #89bdd3;
     padding-bottom: 90px;
-    background-image: url("/images/bg2.jpg");
+    background-image: url("../images/bg2.jpg");
     background-position: 0px 1075px;
 }
 
@@ -996,25 +969,8 @@ a {
         padding: 0;
     }
 
-    #page-work #work-filter a.active:after {
-        content: "";
-        display: block;
-        height: 3px;
-        width: 60px;
-        text-align: center;
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        margin-left: -31px;
-        height: 3px;
-        width: 60px;
-        background: #7b77c9;
-    }
-
     #page-work #work-grid {
-        left: 50%;
-        margin-left: -150px;
-        width: 300px;
+        width: 320px;
     }
 
     #page-work .button {
