@@ -121,3 +121,99 @@
     -o-transition: none;
     transition: none;
 }
+
+/* CSS SOCIAL ICONS FONT  */
+@font-face {
+    font-family: 'pe-icon-social';
+    src: url('fonts/pe-icon-social.eot?-96eskg');
+    src: url('fonts/pe-icon-social.eot?#iefix-96eskg') format('embedded-opentype'),
+    url('fonts/pe-icon-social.woff?-96eskg') format('woff'),
+    url('fonts/pe-icon-social.ttf?-96eskg') format('truetype'),
+    url('fonts/pe-icon-social.svg?-96eskg#pe-icon-social') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="pe-so-"], [class*=" pe-so-"] {
+    left: 1px;
+    display: inline-block;
+    font-family: 'pe-icon-social';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pe-so-codepen:before {
+    content: "\e60b";
+}
+
+.pe-so-facebook:before {
+    content: "\e617";
+}
+
+.pe-so-github:before {
+    content: "\e61e";
+}
+
+.pe-so-google-plus:before {
+    content: "\e620";
+}
+
+.pe-so-instagram:before {
+    content: "\e626";
+}
+
+.pe-so-linkedin:before {
+    content: "\e62c";
+}
+
+.pe-so-pinterest:before {
+    content: "\e638";
+}
+
+.pe-so-reddit:before {
+    content: "\e63d";
+}
+
+.pe-so-skype:before {
+    content: "\e644";
+}
+
+.pe-so-stack-overflow:before {
+    content: "\e649";
+}
+
+.pe-so-tumblr:before {
+    content: "\e64f";
+}
+
+.pe-so-twitter:before {
+    content: "\e651";
+}
+
+.pe-so-wikipedia:before {
+    content: "\e659";
+}
+
+.pe-so-wordpress-1:before {
+    content: "\e65b";
+}
+
+.pe-so-wordpress-2:before {
+    content: "\e65c";
+}
+
+.pe-so-youtube-1:before {
+    content: "\e661";
+}
+
+.pe-so-youtube-2:before {
+    content: "\e662";
+}

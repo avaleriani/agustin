@@ -116,6 +116,24 @@
     };
 
     $(document).ready(function () {
+        $(".year").text(new Date().getFullYear());
+
+        $(document).on({
+            mouseenter: function () {
+                $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
+                $(this).find(".hexagon").css("background-color", "#000000");
+                $(this).find(".hexagon-icon-position").css("color", "#ffffff");
+            },
+
+            mouseleave: function () {
+                $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
+                $(this).find(".hexagon").css("background-color", "#ffffff");
+                $(this).find(".hexagon-icon-position").css("color", "#000000");
+            }
+        }, '.hexagon-wrapper');
+
+
+
 
         $(".project-box").click(function (e) {
             e.preventDefault();
@@ -127,8 +145,13 @@
 
 
             avgrund.activate();
+            $("#avpopup").scrollTo();
             return false;
         });
+
+        jQuery.fn.scrollTo = function () {
+            //TODO:ver como hacer para que siempre se muestre el proyecto. Primero rellenar de contenido alguno
+        }
         //If is touchscreen, the "+ More" button in works is always visible
         {
             if (true) {
