@@ -133,8 +133,6 @@
         }, '.hexagon-wrapper');
 
 
-
-
         $(".project-box").click(function (e) {
             e.preventDefault();
 
@@ -145,12 +143,25 @@
 
 
             avgrund.activate();
-            $("#avpopup").scrollTo();
+            $("#avpopup").center();
             return false;
         });
 
-        jQuery.fn.scrollTo = function () {
-            //TODO:ver como hacer para que siempre se muestre el proyecto. Primero rellenar de contenido alguno
+        jQuery.fn.center = function (parent) {
+            //TODO:ver como hacer para que siempre se muestre el proyect0 centrado. Primero rellenar de contenido alguno
+
+            if (parent) {
+                parent = this.parent();
+            } else {
+                parent = window;
+            }
+            console.log($(parent).height());
+            this.css({
+                "position": "absolute",
+                "top": (($(window).width() / 2) + "px"),
+                "left": (($(window).width() / 2) + "px")
+            });
+            return this;
         }
         //If is touchscreen, the "+ More" button in works is always visible
         {
