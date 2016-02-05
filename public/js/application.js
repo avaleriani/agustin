@@ -5,6 +5,10 @@
         $(svgInjector);
         $(worksFilter);
         $(formSubscribe);
+        $('.view').on('click', function (e) {
+            e.preventDefault();
+            return false;
+        });
         $('.arrow-down').on('click', function (e) {
             e.preventDefault();
             return $("html,body").animate({
@@ -141,28 +145,19 @@
             $("#avtitle").html($(this).attr("data-title"));
             $("#avtext").html($(this).attr("data-description"));
 
-
-            avgrund.activate();
             $("#avpopup").center();
+            avgrund.activate();
+
             return false;
         });
 
         jQuery.fn.center = function (parent) {
-            //TODO:ver como hacer para que siempre se muestre el proyect0 centrado. Primero rellenar de contenido alguno
-
-            if (parent) {
-                parent = this.parent();
-            } else {
-                parent = window;
-            }
-            console.log($(parent).height());
-            this.css({
-                "position": "absolute",
-                "top": (($(window).width() / 2) + "px"),
-                "left": (($(window).width() / 2) + "px")
-            });
+            this.css("position", "absolute");
+            this.css("top", ($(window).height() / 2) - (this.outerHeight() / 2));
+            this.css("left", ($(window).width() / 2) - (this.outerWidth() / 2));
             return this;
         }
+
         //If is touchscreen, the "+ More" button in works is always visible
         {
             if (true) {
