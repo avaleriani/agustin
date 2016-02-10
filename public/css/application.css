@@ -137,7 +137,7 @@ a {
 
 #page-home {
     text-align: center;
-    background-color: #89bdd3;
+    background-color: #0c0a20;
     color: #e9ece5;
     background-image: url("../images/transparent-back.png");
 }
@@ -611,7 +611,7 @@ a {
 #page-work {
     position: relative;
     text-align: center;
-    background-color: #89bdd3;
+    background-color: #0c0a20;
     background-image: url("../images/transparent-back.png");
 }
 
@@ -787,11 +787,7 @@ a {
 }
 
 #page-footer {
-    background: #89bdd3;
-    padding-bottom: 90px;
-    background-image: url("../images/bg2.jpg");
-    background-position: 0px 1075px;
-
+    background: #0c0a20;
     text-align: center
 }
 
