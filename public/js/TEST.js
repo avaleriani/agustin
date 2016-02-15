@@ -1,19 +1,6 @@
 $(document).ready(function () {
 
-    /* var controller = new ScrollMagic.Controller();
-
-     new ScrollMagic.Scene({
-     duration: 50,  // the scene should last for a scroll distance of 100px
-     offset: 50      // start this scene after scrolling for 50px
-     })
-     ;
-     var scene = new ScrollMagic.Scene({
-     triggerElement: ".section"
-     })
-     .setTween("#animate1", 0.5, {backgroundColor: "green", scale: 2.5}) // trigger a TweenMax.to tween
-     .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-     .addTo(controller);
-     */
+    var controller = new ScrollMagic.Controller();
 
     var p1 = {x: 510, y: 560};
     var p2 = {x: 1365, y: 560};
@@ -78,12 +65,15 @@ $(document).ready(function () {
 
 
     var duration = 1400,
-        c1 = 'black',
-        c2 = 'white';
+        c1 = '#000000',
+        c2 = '#ffffff';
+
 
     createLine(p1, p2, c2)
         .appendTo('body')
-        .animate({width: calculateLenght(p1, p2) + "px"}, duration);
+        .animate({
+            width: calculateLenght(p1, p2) + "px"
+        }, duration);
 
     createLine(p2, p3, c2)
         .appendTo('body')
@@ -197,13 +187,13 @@ $(document).ready(function () {
         }, duration);
 
     createLine(p22, p24, c2)
-     .appendTo('body')
+        .appendTo('body')
         .animate({
             width: calculateLenght(p22, p24) + "px"
         }, duration);
 
     createLine(p23, p25, c2)
-     .appendTo('body')
+        .appendTo('body')
         .animate({
             width: calculateLenght(p23, p25) + "px"
         }, duration);
@@ -306,10 +296,10 @@ $(document).ready(function () {
 });
 
 
-function createLineElement(point, color, angle) {
+function createLineElement(point, color, angle, lenght) {
     var line = document.createElement("div");
     var styles = 'border: 1px solid ' + color + '; '
-        + 'width: 0px; '
+        + 'width: ' + lenght + 'px; '
         + 'height: 0px; '
         + 'position: absolute; '
         + '-moz-transform: rotate(' + angle + 'rad); '
@@ -338,7 +328,7 @@ function createLine(pointA, pointB, color) {
     var angle = Math.PI - Math.atan2(-b, a);
 
 
-    return createLineElement(point, color, angle);
+    return createLineElement(point, color, angle, lenght);
 }
 
 function calculateLenght(p1, p2) {
