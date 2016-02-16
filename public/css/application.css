@@ -1140,3 +1140,159 @@ body {
     -o-transition: -o-transform .25s ease;
     transition: transform .25s ease;
 }
+
+.drawed_line {
+    opacity: 0;
+    height: 0;
+    position: absolute;
+}
+
+.triggers .trigger {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    opacity: 0;
+}
+
+#trigger1 {
+    top: 540px;
+}
+
+#trigger2 {
+    top: 690px;
+}
+
+#trigger3 {
+    top: 910px;
+}
+
+#trigger4 {
+    top: 960px;
+}
+
+#trigger5 {
+    top: 990px;
+}
+
+#trigger6 {
+    top: 1020px;
+}
+
+#trigger7 {
+    top: 1050px;
+}
+
+#trigger8 {
+    top: 1200px;
+}
+
+#trigger9 {
+    top: 1600px;
+}
+
+#trigger10 {
+    top: 1690px;
+}
+
+#trigger11 {
+    top: 1710px;
+}
+
+#trigger12 {
+    top: 1730px;
+}
+
+#trigger13 {
+    top: 1810px;
+}
+
+#trigger14 {
+    top: 2100px;
+}
+
+#trigger15 {
+    top: 2200px;
+}
+
+#trigger16 {
+    top: 2250px;
+}
+
+#trigger17 {
+    top: 2370px;
+}
+
+#trigger18 {
+    top: 2370px;
+}
+
+#trigger19 {
+    top: 2600px;
+}
+
+#trigger20 {
+    top: 2900px;
+}
+
+#trigger21 {
+    top: 3100px;
+}
+
+#trigger22 {
+    top: 3200px;
+}
+
+#trigger23 {
+    top: 3250px;
+}
+
+#trigger24 {
+    top: 3300px;
+}
+
+#trigger25 {
+    top: 3450px;
+}
+
+#trigger26 {
+    top: 3460px;
+}
+
+#trigger27 {
+    top: 3550px;
+}
+
+#trigger28 {
+    top: 3600px;
+}
+
+#trigger29 {
+    top: 3630px;
+}
+
+#trigger30 {
+    top: 3680px;
+}
+
+#trigger31 {
+    top: 4000px;
+}
+
+#trigger32 {
+    top: 4050px;
+}
+
+#trigger33 {
+    top: 4060px;
+}
+
+#trigger34 {
+    top: 4300px;
+}
+
+#trigger35 {
+    top: 4300px;
+}
+
+
+
