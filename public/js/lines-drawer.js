@@ -161,7 +161,6 @@ function scrollAnimate() {
             //.addIndicators()
             .addTo(controller);
         counter = counter + 1;
-        console.log("#point_" + counter);
     });
 
 }

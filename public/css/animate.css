@@ -149,7 +149,7 @@
 }
 
 #text a {
-    color: #e9ece5;
+    color: #888a8b;;
     text-decoration: none;
     font-weight: 400;
     font-size: 18px;
@@ -226,12 +226,11 @@
 }
 
 .view p {
-    font-family: Georgia, serif;
-    font-style: italic;
+    min-height: 50px;
     font-size: 12px;
     position: relative;
     color: #fff;
-    padding: 10px 20px 20px;
+    padding: 0px 5px 20px;
     text-align: center;
 }
 

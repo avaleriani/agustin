@@ -791,6 +791,10 @@ a {
     text-align: center
 }
 
+#page-footer h2 {
+    color: #888a8b;
+}
+
 #page-footer .social-links {
     display: inline-block;
     margin: 90px 0;
@@ -1035,7 +1039,7 @@ body {
 
 .form-label {
     font-size: 14px;
-    color: #ccc;
+    color: #888a8b;
     padding-top: 5px;
     display: block;
     opacity: 1;

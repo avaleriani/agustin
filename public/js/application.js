@@ -50,17 +50,13 @@
                 return $mobileFilterBtn.removeClass('opened');
             }
         });
-        $workItem.on('click', function () {
-            var url;
-            url = $(this).data('url');
-            return window.location.href = url;
-        });
         $grid.shuffle({
             itemSelector: $workItem,
             sizer: $sizer
         });
         $btns = $filter.children();
         return $btns.on('click', function (e) {
+            //todo::make it work
             var $this, group, isActive;
             e.preventDefault();
             $this = $(this);

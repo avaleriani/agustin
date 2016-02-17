@@ -20,9 +20,7 @@ $('.form-control').focusin(function () {
         obj.next().transition({y: '0px'}, 500, 'in')
     }
     obj.next().visibilityToggle();
-});
-
-$('.form-control').focusout(function () {
+}).focusout(function () {
     var obj = $(this).parent().find('.pencil-name');
     if ($(this).val() == '') {
         obj.transition({y: '0px', opacity: 0}, 500, 'in');
@@ -61,6 +59,28 @@ $('.form-control').focusout(function () {
             }, 2000);
         });
 
-    });
 
+        var emailUrl = '/mail/sender.php'
+        //  $('#contact-form').on('submit', function (e) {
+        $('#btn-send').on('click', function (e) {
+            e.preventDefault();
+            var data = {
+                name: $("#name").val(),
+                email: $("#email").val(),
+                subject: $("#subject").val(),
+                message: $("#message").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: emailUrl,
+                data: data,
+                success: function () {
+                    alert("si");
+                },
+                error: function () {
+                    alert("no");
+                }
+            });
+        });
+    });
 })(window, jQuery);
