@@ -27,29 +27,11 @@
     };
 
     worksFilter = function () {
-        var $btns, $filter, $grid, $mobileFilterBtn, $sizer, $workItem;
+        var $btns, $filter, $grid, $sizer, $workItem;
         $filter = $('#work-filter');
         $grid = $('#work-grid');
         $sizer = $grid.find('.shuffle__sizer');
         $workItem = $('.work-item');
-        $mobileFilterBtn = $('.mobile-filter-select');
-        $mobileFilterBtn.on('click', function (e) {
-            e.preventDefault();
-            $filter.slideToggle();
-            return $(this).toggleClass('opened');
-        });
-        $(window).resize(function () {
-            if ($(window).width() > 768) {
-                if ($filter.is(':visible')) {
-
-                } else {
-                    return $filter.slideDown();
-                }
-            } else {
-                $filter.slideUp();
-                return $mobileFilterBtn.removeClass('opened');
-            }
-        });
         $grid.shuffle({
             itemSelector: $workItem,
             sizer: $sizer
@@ -69,6 +51,7 @@
                     $('#work-filter .active').removeClass('active');
                 }
                 $this.toggleClass('active');
+                console.log($grid.shuffle('shuffle', group));
                 return $grid.shuffle('shuffle', group);
             }
         });

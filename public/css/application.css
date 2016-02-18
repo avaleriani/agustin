@@ -788,7 +788,8 @@ a {
 
 #page-footer {
     background: #0c0a20;
-    text-align: center
+    text-align: center;
+    padding-bottom: 35px;
 }
 
 #page-footer h2 {

@@ -164,10 +164,3 @@ function scrollAnimate() {
     });
 
 }
-
-//TODO::borrar
-document.onmousemove = function (e) {
-    var x = e.pageX;
-    var y = e.pageY;
-    document.title = x + "-" + y;
-};
