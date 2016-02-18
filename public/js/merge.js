@@ -1,5 +1,6 @@
 (function () {
 
+    var originalTitle = document.title;
     var container = document.documentElement,
         popup = document.querySelector('.avgrund-popup'),
         cover = document.querySelector('.avgrund-cover'),
@@ -33,6 +34,7 @@
             removeClass(popup, 'no-transition');
             addClass(container, 'avgrund-active');
         }, 0);
+        //document.title =  TODO:: get titulo del proyecto y ponerlo aca.
 
         currentState = state;
     }
@@ -46,6 +48,7 @@
         $("#avimg").html('');
         $("#avtitle").html('');
         $("#avtext").html('');
+        document.title = originalTitle;
 
     }
 

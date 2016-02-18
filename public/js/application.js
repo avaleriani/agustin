@@ -43,59 +43,18 @@
             e.preventDefault();
             $this = $(this);
             isActive = $this.hasClass('active');
-            if ($this.hasClass('active')) {
+
+            if (isActive) {
                 return false;
             } else {
-                group = (isActive ? 'all' : $this.data('group'));
-                if (!isActive) {
-                    $('#work-filter .active').removeClass('active');
-                }
+                group = $this.find('a').attr('data-group')
+                $('#work-filter .active').removeClass('active');
+                console.log(group);
                 $this.toggleClass('active');
-                console.log($grid.shuffle('shuffle', group));
                 return $grid.shuffle('shuffle', group);
             }
         });
-    };
 
-    formSubscribe = function () {
-        var form, formMessages, hasHtml5Validation;
-        form = $('#subscribe');
-        formMessages = $('.form-result');
-        hasHtml5Validation = function () {
-            return typeof document.createElement("input").checkValidity === "function";
-        };
-        if (hasHtml5Validation()) {
-            return form.submit(function (e) {
-                var formData;
-                if (!this.checkValidity()) {
-                    e.preventDefault();
-                    $(this).addClass("invalid");
-                    return $("#status").html("invalid");
-                } else {
-                    $(this).removeClass("invalid");
-                    e.preventDefault();
-                    formData = $(form).serialize();
-                    return $.ajax({
-                        type: "POST",
-                        url: $(form).attr("action"),
-                        data: formData
-                    }).done(function () {
-                        $(formMessages).removeClass("error");
-                        $(formMessages).addClass("success");
-                        $(formMessages).text('You have successfully subscribed!');
-                        return $("#email").val("");
-                    }).fail(function (data) {
-                        $(formMessages).removeClass("success");
-                        $(formMessages).addClass("error");
-                        if (data.responseText !== "") {
-                            return $(formMessages).text(data.responseText);
-                        } else {
-                            return $(formMessages).text("Oops! An error occured please check your email address.");
-                        }
-                    });
-                }
-            });
-        }
     };
 
     $(document).ready(function () {

@@ -613,6 +613,7 @@ a {
     text-align: center;
     background-color: #0c0a20;
     background-image: url("../images/transparent-back.png");
+    min-height: 1210px;
 }
 
 #page-work .h-01 {
@@ -794,6 +795,8 @@ a {
 
 #page-footer h2 {
     color: #888a8b;
+    text-transform: uppercase;
+
 }
 
 #page-footer .social-links {
@@ -836,7 +839,7 @@ a {
 }
 
 #page-footer .copy-02 {
-    margin-bottom: 17px;
+    margin-bottom: 12px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {

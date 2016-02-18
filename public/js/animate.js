@@ -61,7 +61,7 @@ $('.form-control').focusin(function () {
 
 
         var emailUrl = '/mail/sender.php'
-        //  $('#contact-form').on('submit', function (e) {
+        //todo:: change success animation
         $('#btn-send').on('click', function (e) {
             e.preventDefault();
             var data = {

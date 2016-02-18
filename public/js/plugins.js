@@ -1,16 +1,382 @@
 // SVG Injector by iconics
 !function(t,e){"use strict";var r="file:"===t.location.protocol,n=e.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure","1.1"),o={},i=0,a=[],s={},l=function(t){return t.cloneNode(!0)},u=function(t,e){a[t]=a[t]||[],a[t].push(e)},c=function(t){for(var e=0,r=a[t].length;r>e;e++)!function(e){setTimeout(function(){a[t][e](l(o[t]))},0)}(e)},f=function(e,n){if(void 0!==o[e])o[e]instanceof SVGSVGElement?n(o[e].cloneNode(!0)):u(e,n);else{if(!t.XMLHttpRequest)return n("Browser does not support XMLHttpRequest"),!1;o[e]={},u(e,n);var i=new XMLHttpRequest;i.onreadystatechange=function(){if(4===i.readyState){if(404===i.status||null===i.responseXML)return n("Unable to load SVG file: "+e),r&&n("Note: SVG injection ajax calls do not work locally without adjusting security setting in your browser. Or consider using a local webserver."),n(),!1;if(!(200===i.status||r&&0===i.status))return n("There was a problem injecting the SVG: "+i.status+" "+i.statusText),!1;if(i.responseXML instanceof Document)o[e]=i.responseXML.documentElement;else if(DOMParser&&DOMParser instanceof Function){var t;try{var a=new DOMParser;t=a.parseFromString(i.responseText,"text/xml")}catch(s){t=void 0}if(!t||t.getElementsByTagName("parsererror").length)return n("Unable to parse SVG file: "+e),!1;o[e]=t.documentElement}c(e)}},i.open("GET",e),i.overrideMimeType&&i.overrideMimeType("text/xml"),i.send()}},p=function(e,r,o,a){var l=e.getAttribute("data-src")||e.getAttribute("src");return/svg$/i.test(l)?n?(e.setAttribute("src",""),void f(l,function(n){if(void 0===n||"string"==typeof n)return a(n),!1;var o=e.getAttribute("id");o&&n.setAttribute("id",o);var u=e.getAttribute("title");u&&n.setAttribute("title",u);var c=e.getAttribute("class");if(c){var f=[n.getAttribute("class"),"iconic-injected-svg",c].join(" ");n.setAttribute("class",f)}var p=e.getAttribute("style");p&&n.setAttribute("style",p);var d=[].filter.call(e.attributes,function(t){return/^data-\w[\w\-]*$/.test(t.name)});Array.prototype.forEach.call(d,function(t){t.name&&t.value&&n.setAttribute(t.name,t.value)});for(var v,h=n.querySelectorAll("defs clipPath[id]"),g=0,y=h.length;y>g;g++){v=h[g].id+"-"+i;for(var m=n.querySelectorAll('[clip-path*="'+h[g].id+'"]'),b=0,A=m.length;A>b;b++)m[b].setAttribute("clip-path","url(#"+v+")");h[g].id=v}n.removeAttribute("xmlns:a");for(var w,S,x=n.querySelectorAll("script"),j=[],T=0,G=x.length;G>T;T++)S=x[T].getAttribute("type"),S&&"application/ecmascript"!==S&&"application/javascript"!==S||(w=x[T].innerText||x[T].textContent,j.push(w),n.removeChild(x[T]));if(j.length>0&&("always"===r||"once"===r&&!s[l])){for(var M=0,E=j.length;E>M;M++)new Function(j[M])(t);s[l]=!0}e.parentNode.replaceChild(n,e),i++,a(n)})):void(o?(e.setAttribute("src",o+"/"+l.split("/").pop().replace(".svg",".png")),a(null)):a("This browser does not support SVG and no PNG fallback was defined.")):void a("Attempted to inject a file with a non-svg extension: "+l)};Array.prototype.forEach||(Array.prototype.forEach=function(t,e){if(void 0===this||null===this||"function"!=typeof t)throw new TypeError;var r,n=this.length>>>0;for(r=0;n>r;++r)r in this&&t.call(e,this[r],r,this)});var d=function(t,e,r){e=e||{};var n=e.evalScripts||"always",o=e.pngFallback||!1,i=e.each;if(void 0!==t.length){var a=0;Array.prototype.forEach.call(t,function(e){p(e,n,o,function(e){i&&"function"==typeof i&&i(e),r&&t.length===++a&&r(a)})})}else null!==t?p(t,n,o,function(t){i&&"function"==typeof i&&i(t),r&&r(1)}):r&&r(0)};"object"==typeof module&&"object"==typeof module.exports?module.exports=exports=d:"function"==typeof define&&define.amd?define(function(){return d}):"object"==typeof t&&(t.SVGInjector=d)}(window,document);
 //# sourceMappingURL=./svg-injector.map.js
-
 /*!
  * Shuffle.js by @Vestride
  * Categorize, sort, and filter a responsive grid of items.
  * Dependencies: jQuery 1.9+, Modernizr 2.6.2+
  * @license MIT license
- * @version 2.1.2
+ * @version 3.1.1
  */
-!function(a){"function"==typeof define&&define.amd?define(["jquery","modernizr"],a):a(window.jQuery,window.Modernizr)}(function(a,b,c){"use strict";function d(a){return a?a.replace(/([A-Z])/g,function(a,b){return"-"+b.toLowerCase()}).replace(/^ms-/,"-ms-"):""}function e(b,c,d){var e,f,g,h=null,i=0;d=d||{};var j=function(){i=d.leading===!1?0:a.now(),h=null,g=b.apply(e,f),e=f=null};return function(){var k=a.now();i||d.leading!==!1||(i=k);var l=c-(k-i);return e=this,f=arguments,0>=l||l>c?(clearTimeout(h),h=null,i=k,g=b.apply(e,f),e=f=null):h||d.trailing===!1||(h=setTimeout(j,l)),g}}if("object"!=typeof b)throw new Error("Shuffle.js requires Modernizr.\nhttp://vestride.github.io/Shuffle/#dependencies");var f=b.prefixed("transition"),g=b.prefixed("transitionDelay"),h=b.prefixed("transitionDuration"),i={WebkitTransition:"webkitTransitionEnd",transition:"transitionend"}[f],j=b.prefixed("transform"),k=d(j),l=b.csstransforms&&b.csstransitions,m=b.csstransforms3d,n="shuffle",o="all",p="groups",q=1,r=.001,s=0,t=function(b,c){c=c||{},a.extend(this,t.options,c,t.settings),this.$el=a(b),this.$window=a(window),this.unique="shuffle_"+s++,this._fire(t.EventType.LOADING),this._init(),setTimeout(a.proxy(function(){this.initialized=!0,this._fire(t.EventType.DONE)},this),16)};return t.EventType={LOADING:"loading",DONE:"done",SHRINK:"shrink",SHRUNK:"shrunk",FILTER:"filter",FILTERED:"filtered",SORTED:"sorted",LAYOUT:"layout",REMOVED:"removed"},t.prototype={_init:function(){var b,c,d=this,e=a.proxy(d._onResize,d),g=d.throttle?d.throttle(e,d.throttleTime):e,h=d.initialSort?d.initialSort:null;d._layoutList=[],d._shrinkList=[],d._setVars(),d._resetCols(),d._addClasses(),d._initItems(),d.$window.on("resize."+n+"."+d.unique,g),b=d.$el.css(["paddingLeft","paddingRight","position"]),c=d._getOuterWidth(d.$el[0]),"static"===b.position&&(d.$el[0].style.position="relative"),d.offset={left:parseInt(b.paddingLeft,10)||0,top:parseInt(b.paddingTop,10)||0},d._setColumns(parseInt(c,10)),d.shuffle(d.group,h),d.supported&&setTimeout(function(){d._setTransitions(),d.$el[0].style[f]="height "+d.speed+"ms "+d.easing},0)},_addClasses:function(){this.$el.addClass(n),this.$items.addClass("shuffle-item filtered")},_setVars:function(){var b=this,c=b.columnWidth;b.$items=b._getItems(),0===c&&null!==b.sizer&&(c=b.sizer),"string"==typeof c?b.$sizer=b.$el.find(c):c&&c.nodeType&&1===c.nodeType?b.$sizer=a(c):c&&c.jquery&&(b.$sizer=c),b.$sizer&&b.$sizer.length&&(b.useSizer=!0,b.sizer=b.$sizer[0])},_filter:function(b,d){var e=this,f=d!==c,g=f?d:e.$items,h=a();return b=b||e.lastFilter,e._fire(t.EventType.FILTER),a.isFunction(b)?g.each(function(){var c=a(this);b.call(c[0],c,e)&&(h=h.add(c))}):(e.group=b,b===o?h=g:g.each(function(){var c=a(this),d=c.data(p),f=e.delimeter&&!a.isArray(d)?d.split(e.delimeter):d;a.inArray(b,f)>-1&&(h=h.add(c))})),e._toggleFilterClasses(g,h),g=null,d=null,h},_toggleFilterClasses:function(b,c){var d="concealed",e="filtered";b.filter(c).each(function(){var b=a(this);b.hasClass(d)&&b.removeClass(d),b.hasClass(e)||b.addClass(e)}),b.not(c).each(function(){var b=a(this);b.hasClass(d)||b.addClass(d),b.hasClass(e)&&b.removeClass(e)})},_initItems:function(a){a=a||this.$items,a.css(this.itemCss).data("position",{x:0,y:0})},_updateItemCount:function(){this.visibleItems=this.$items.filter(".filtered").length},_setTransition:function(a){a.style[f]=k+" "+this.speed+"ms "+this.easing+", opacity "+this.speed+"ms "+this.easing},_setTransitions:function(a){var b=this;a=a||b.$items,a.each(function(){b._setTransition(this)})},_setSequentialDelay:function(b){var c=this;c.supported&&a.each(b,function(b,d){d.style[g]="0ms,"+(b+1)*c.sequentialFadeDelay+"ms",a(d).on(i+"."+c.unique,function(b){var d=b.currentTarget;d===b.target&&(d.style[g]="0ms",a(d).off(i+"."+c.unique))})})},_getItems:function(){return this.$el.children(this.itemSelector)},_getPreciseDimension:function(b,c){var d;return d=window.getComputedStyle?window.getComputedStyle(b,null)[c]:a(b).css(c),parseFloat(d)},_getOuterWidth:function(b,c){var d=b.offsetWidth;if(c){var e=a(b).css(["marginLeft","marginRight"]),f=parseFloat(e.marginLeft)||0,g=parseFloat(e.marginRight)||0;d+=f+g}return d},_getOuterHeight:function(b,c){var d=b.offsetHeight;if(c){var e=a(b).css(["marginTop","marginBottom"]),f=parseFloat(e.marginTop)||0,g=parseFloat(e.marginBottom)||0;d+=f+g}return d},_getColumnSize:function(b,c){var d;return d=a.isFunction(this.columnWidth)?this.columnWidth(c):this.useSizer?this._getPreciseDimension(this.sizer,"width"):this.columnWidth?this.columnWidth:this.$items.length>0?this._getOuterWidth(this.$items[0],!0):c,0===d&&(d=c),d+b},_getGutterSize:function(b){var c;return c=a.isFunction(this.gutterWidth)?this.gutterWidth(b):this.useSizer?this._getPreciseDimension(this.sizer,"marginLeft"):this.gutterWidth},_setColumns:function(a){var b=a||this._getOuterWidth(this.$el[0]),c=this._getGutterSize(b),d=this._getColumnSize(c,b),e=(b+c)/d;Math.abs(Math.round(e)-e)<.03&&(e=Math.round(e)),this.cols=Math.max(Math.floor(e),1),this.containerWidth=b,this.colWidth=d},_setContainerSize:function(){this.$el.css("height",Math.max.apply(Math,this.colYs))},_fire:function(a,b){this.$el.trigger(a+"."+n,b&&b.length?b:[this])},_layout:function(b,c,d){var e=this;c=c||e._filterEnd,a.each(b,function(b,f){var g=a(f),h=g.data(),i=h.position,j=e._getItemPosition(g);if(g.data("position",j),j.x!==i.x||j.y!==i.y||h.scale!==q){var k={$item:g,x:j.x,y:j.y,scale:q};d?(k.skipTransition=!0,k.opacity=0):(k.opacity=1,k.callback=c),e.styleQueue.push(k),e._layoutList.push(g[0])}}),e._processStyleQueue(),e._setContainerSize()},_resetCols:function(){var a=this.cols;for(this.colYs=[];a--;)this.colYs.push(0)},_reLayout:function(){this._resetCols(),this.lastSort?this.sort(this.lastSort,!0):this._layout(this.$items.filter(".filtered").get(),this._filterEnd)},_getItemPosition:function(a){var b=this,c=b._getOuterWidth(a[0],!0),d=c/b.colWidth;Math.abs(Math.round(d)-d)<.03&&(d=Math.round(d));var e=Math.min(Math.ceil(d),b.cols);if(1===e)return b._placeItem(a,b.colYs);var f,g,h=b.cols+1-e,i=[];for(g=0;h>g;g++)f=b.colYs.slice(g,g+e),i[g]=Math.max.apply(Math,f);return b._placeItem(a,i)},_placeItem:function(a,b){for(var c=this,d=Math.min.apply(Math,b),e=0,f=0,g=b.length;g>f;f++)if(b[f]>=d-c.buffer&&b[f]<=d+c.buffer){e=f;break}var h={x:Math.round(c.colWidth*e+c.offset.left),y:Math.round(d+c.offset.top)},i=d+c._getOuterHeight(a[0],!0),j=c.cols+1-g;for(f=0;j>f;f++)c.colYs[e+f]=i;return h},_shrink:function(b,c){var d=this,e=b||d.$items.filter(".concealed");c=c||d._shrinkEnd,e.length&&(d._fire(t.EventType.SHRINK),e.each(function(){var b=a(this),e=b.data(),f=e.scale===r;if(!f){var g={$item:b,x:e.position.x,y:e.position.y,scale:r,opacity:0,callback:c};d.styleQueue.push(g),d._shrinkList.push(b[0])}}))},_onResize:function(){if(this.enabled&&!this.destroyed){var a=this._getOuterWidth(this.$el[0]);a!==this.containerWidth&&this.resized()}},_getItemTransformString:function(a,b,c){return m?"translate3d("+a+"px, "+b+"px, 0) scale3d("+c+", "+c+", 1)":"translate("+a+"px, "+b+"px) scale("+c+", "+c+")"},_getStylesForTransition:function(a){var b={opacity:a.opacity};return this.supported?a.x!==c&&(b[j]=this._getItemTransformString(a.x,a.y,a.scale)):(b.left=a.x,b.top=a.y),1===a.opacity&&(b.visibility="visible"),b},_transition:function(a){a.$item.data("scale",a.scale);var b=this._getStylesForTransition(a);this._startItemAnimation(a.$item,b,a.callback)},_startItemAnimation:function(b,c,d){var e=1===c.opacity,f=a.proxy(this._handleItemAnimationEnd,this,d||a.noop,b[0],e);this.supported?(b.css(c),this.initialized?b.on(i+".shuffleitem",f):f()):("visibility"in c&&(b.css("visibility",c.visibility),delete c.visibility),b.stop(!0).animate(c,this.speed,"swing",f))},_handleItemAnimationEnd:function(b,c,d,e){if(e){if(e.target!==c)return;a(c).off(".shuffleitem")}this._layoutList.length>0&&a.inArray(c,this._layoutList)>-1?(this._fire(t.EventType.LAYOUT),b.call(this),this._layoutList.length=0):this._shrinkList.length>0&&a.inArray(c,this._shrinkList)>-1&&(b.call(this),this._shrinkList.length=0),d||(c.style.visibility="hidden")},_processStyleQueue:function(){var b=this;a.each(this.styleQueue,function(a,c){c.skipTransition?b._skipTransition(c.$item[0],function(){c.$item.css(b._getStylesForTransition(c))}):b._transition(c)}),b.styleQueue.length=0},_shrinkEnd:function(){this._fire(t.EventType.SHRUNK)},_filterEnd:function(){this._fire(t.EventType.FILTERED)},_sortEnd:function(){this._fire(t.EventType.SORTED)},_skipTransition:function(b,c,d){var e=b.style[h];b.style[h]="0ms",a.isFunction(c)?c():b.style[c]=d;var f=b.offsetWidth;f=null,b.style[h]=e},_addItems:function(a,b,d){var e=this;e.supported||(b=!1),a.addClass("shuffle-item"),e._initItems(a),e._setTransitions(a),e.$items=e._getItems(),a.css("opacity",0);var f=e._filter(c,a),g=f.get();e._updateItemCount(),b?(e._layout(g,null,!0),d&&e._setSequentialDelay(f),e._revealAppended(f)):e._layout(g)},_revealAppended:function(b){var c=this;setTimeout(function(){b.each(function(b,d){c._transition({$item:a(d),opacity:1,scale:q})})},c.revealAppendedDelay)},shuffle:function(a,b){var c=this;c.enabled&&(a||(a=o),c._filter(a),c.lastFilter=a,c._updateItemCount(),c._shrink(),b&&(c.lastSort=b),c._reLayout())},sort:function(a,b){var c=this,d=c.$items.filter(".filtered").sorted(a);b||c._resetCols(),c._layout(d,function(){b&&c._filterEnd(),c._sortEnd()}),c.lastSort=a},resized:function(a){this.enabled&&(a||this._setColumns(),this._reLayout())},layout:function(){this.update(!0)},update:function(a){this.resized(a)},appended:function(a,b,c){b=b===!1?!1:!0,c=c===!1?!1:!0,this._addItems(a,b,c)},disable:function(){this.enabled=!1},enable:function(a){this.enabled=!0,a!==!1&&this.update()},remove:function(a){if(a.length&&a.jquery){var b=this;return b._shrink(a,function(){var b=this;a.remove(),setTimeout(function(){b.$items=b._getItems(),b.layout(),b._updateItemCount(),b._fire(t.EventType.REMOVED,[a,b]),a=null},0)}),b._processStyleQueue(),b}},destroy:function(){var a=this;a.$window.off("."+a.unique),a.$el.removeClass(n).removeAttr("style").removeData(n),a.$items.removeAttr("style").removeClass("concealed filtered shuffle-item"),a.$window=null,a.$items=null,a.$el=null,a.$sizer=null,a.sizer=null,a.destroyed=!0}},t.options={group:o,speed:250,easing:"ease-out",itemSelector:"",sizer:null,gutterWidth:0,columnWidth:0,delimeter:null,buffer:0,initialSort:null,throttle:e,throttleTime:300,sequentialFadeDelay:150,supported:l},t.settings={$sizer:null,useSizer:!1,itemCss:{position:"absolute",top:0,left:0},offset:{top:0,left:0},revealAppendedDelay:300,enabled:!0,destroyed:!1,initialized:!1,styleQueue:[]},a.fn.shuffle=function(b){var c=Array.prototype.slice.call(arguments,1);return this.each(function(){var d=a(this),e=d.data(n);e||(e=new t(d,b),d.data(n,e)),"string"==typeof b&&e[b]&&e[b].apply(e,c)})},a.fn.sorted=function(b){var d=a.extend({},a.fn.sorted.defaults,b),e=this.get(),f=!1;return e.length?d.randomize?a.fn.sorted.randomize(e):(d.by!==a.noop&&null!==d.by&&d.by!==c&&e.sort(function(b,e){if(f)return 0;var g=d.by(a(b)),h=d.by(a(e));return g===c&&h===c?(f=!0,0):"sortFirst"===g||"sortLast"===h?-1:"sortLast"===g||"sortFirst"===h?1:h>g?-1:g>h?1:0}),f?this.get():(d.reverse&&e.reverse(),e)):[]},a.fn.sorted.defaults={reverse:!1,by:null,randomize:!1},a.fn.sorted.randomize=function(a){var b,c,d=a.length;if(!d)return a;for(;--d;)c=Math.floor(Math.random()*(d+1)),b=a[c],a[c]=a[d],a[d]=b;return a},t});
+!function (a) {
+    "function" == typeof define && define.amd ? define(["jquery", "modernizr"], a) : "object" == typeof exports ? module.exports = a(require("jquery"), window.Modernizr) : window.Shuffle = a(window.jQuery, window.Modernizr)
+}(function (a, b, c) {
+    "use strict";
+    function d(a) {
+        return a ? a.replace(/([A-Z])/g, function (a, b) {
+            return "-" + b.toLowerCase()
+        }).replace(/^ms-/, "-ms-") : ""
+    }
 
+    function e(b, c, d) {
+        var e, f, g, h = null, i = 0;
+        d = d || {};
+        var j = function () {
+            i = d.leading === !1 ? 0 : a.now(), h = null, g = b.apply(e, f), e = f = null
+        };
+        return function () {
+            var k = a.now();
+            i || d.leading !== !1 || (i = k);
+            var l = c - (k - i);
+            return e = this, f = arguments, 0 >= l || l > c ? (clearTimeout(h), h = null, i = k, g = b.apply(e, f), e = f = null) : h || d.trailing === !1 || (h = setTimeout(j, l)), g
+        }
+    }
+
+    function f(a, b, c) {
+        for (var d = 0, e = a.length; e > d; d++)if (b.call(c, a[d], d, a) === {})return
+    }
+
+    function g(b, c, d) {
+        return setTimeout(a.proxy(b, c), d)
+    }
+
+    function h(a) {
+        return Math.max.apply(Math, a)
+    }
+
+    function i(a) {
+        return Math.min.apply(Math, a)
+    }
+
+    function j(b) {
+        return a.isNumeric(b) ? b : 0
+    }
+
+    function k(a) {
+        var b, c, d = a.length;
+        if (!d)return a;
+        for (; --d;)c = Math.floor(Math.random() * (d + 1)), b = a[c], a[c] = a[d], a[d] = b;
+        return a
+    }
+
+    if ("object" != typeof b)throw new Error("Shuffle.js requires Modernizr.\nhttp://vestride.github.io/Shuffle/#dependencies");
+    var l = b.prefixed("transition"), m = b.prefixed("transitionDelay"), n = b.prefixed("transitionDuration"), o = {
+        WebkitTransition: "webkitTransitionEnd",
+        transition: "transitionend"
+    }[l], p = b.prefixed("transform"), q = d(p), r = b.csstransforms && b.csstransitions, s = b.csstransforms3d, t = !!window.getComputedStyle, u = "shuffle", v = "all", w = "groups", x = 1, y = .001, z = window.getComputedStyle || function () {
+        }, A = function (a, b) {
+        this.x = j(a), this.y = j(b)
+    };
+    A.equals = function (a, b) {
+        return a.x === b.x && a.y === b.y
+    };
+    var B = function () {
+        if (!t)return !1;
+        var a = document.body || document.documentElement, b = document.createElement("div");
+        b.style.cssText = "width:10px;padding:2px;-webkit-box-sizing:border-box;box-sizing:border-box;", a.appendChild(b);
+        var c = z(b, null).width, d = "10px" === c;
+        return a.removeChild(b), d
+    }(), C = 0, D = a(window), E = function (b, c) {
+        c = c || {}, a.extend(this, E.options, c, E.settings), this.$el = a(b), this.element = b, this.unique = "shuffle_" + C++, this._fire(E.EventType.LOADING), this._init(), g(function () {
+            this.initialized = !0, this._fire(E.EventType.DONE)
+        }, this, 16)
+    };
+    return E.EventType = {
+        LOADING: "loading",
+        DONE: "done",
+        LAYOUT: "layout",
+        REMOVED: "removed"
+    }, E.ClassName = {
+        BASE: u,
+        SHUFFLE_ITEM: "shuffle-item",
+        FILTERED: "filtered",
+        CONCEALED: "concealed"
+    }, E.options = {
+        group: v,
+        speed: 250,
+        easing: "ease-out",
+        itemSelector: "",
+        sizer: null,
+        gutterWidth: 0,
+        columnWidth: 0,
+        delimeter: null,
+        buffer: 0,
+        columnThreshold: t ? .01 : .1,
+        initialSort: null,
+        throttle: e,
+        throttleTime: 300,
+        sequentialFadeDelay: 150,
+        supported: r
+    }, E.settings = {
+        useSizer: !1,
+        itemCss: {position: "absolute", top: 0, left: 0, visibility: "visible"},
+        revealAppendedDelay: 300,
+        lastSort: {},
+        lastFilter: v,
+        enabled: !0,
+        destroyed: !1,
+        initialized: !1,
+        _animations: [],
+        _transitions: [],
+        _isMovementCanceled: !1,
+        styleQueue: []
+    }, E.Point = A, E._getItemTransformString = function (a, b) {
+        return s ? "translate3d(" + a.x + "px, " + a.y + "px, 0) scale3d(" + b + ", " + b + ", 1)" : "translate(" + a.x + "px, " + a.y + "px) scale(" + b + ")"
+    }, E._getNumberStyle = function (b, c, d) {
+        if (t) {
+            d = d || z(b, null);
+            var e = E._getFloat(d[c]);
+            return B || "width" !== c ? B || "height" !== c || (e += E._getFloat(d.paddingTop) + E._getFloat(d.paddingBottom) + E._getFloat(d.borderTopWidth) + E._getFloat(d.borderBottomWidth)) : e += E._getFloat(d.paddingLeft) + E._getFloat(d.paddingRight) + E._getFloat(d.borderLeftWidth) + E._getFloat(d.borderRightWidth), e
+        }
+        return E._getFloat(a(b).css(c))
+    }, E._getFloat = function (a) {
+        return j(parseFloat(a))
+    }, E._getOuterWidth = function (a, b) {
+        var c = z(a, null), d = E._getNumberStyle(a, "width", c);
+        if (b) {
+            var e = E._getNumberStyle(a, "marginLeft", c), f = E._getNumberStyle(a, "marginRight", c);
+            d += e + f
+        }
+        return d
+    }, E._getOuterHeight = function (a, b) {
+        var c = z(a, null), d = E._getNumberStyle(a, "height", c);
+        if (b) {
+            var e = E._getNumberStyle(a, "marginTop", c), f = E._getNumberStyle(a, "marginBottom", c);
+            d += e + f
+        }
+        return d
+    }, E._skipTransition = function (a, b, c) {
+        var d = a.style[n];
+        a.style[n] = "0ms", b.call(c);
+        var e = a.offsetWidth;
+        e = null, a.style[n] = d
+    }, E.prototype._init = function () {
+        this.$items = this._getItems(), this.sizer = this._getElementOption(this.sizer), this.sizer && (this.useSizer = !0), this.$el.addClass(E.ClassName.BASE), this._initItems(), D.on("resize." + u + "." + this.unique, this._getResizeFunction());
+        var a = this.$el.css(["position", "overflow"]), b = E._getOuterWidth(this.element);
+        this._validateStyles(a), this._setColumns(b), this.shuffle(this.group, this.initialSort), this.supported && g(function () {
+            this._setTransitions(), this.element.style[l] = "height " + this.speed + "ms " + this.easing
+        }, this)
+    }, E.prototype._getResizeFunction = function () {
+        var b = a.proxy(this._onResize, this);
+        return this.throttle ? this.throttle(b, this.throttleTime) : b
+    }, E.prototype._getElementOption = function (a) {
+        return "string" == typeof a ? this.$el.find(a)[0] || null : a && a.nodeType && 1 === a.nodeType ? a : a && a.jquery ? a[0] : null
+    }, E.prototype._validateStyles = function (a) {
+        "static" === a.position && (this.element.style.position = "relative"), "hidden" !== a.overflow && (this.element.style.overflow = "hidden")
+    }, E.prototype._filter = function (a, b) {
+        a = a || this.lastFilter, b = b || this.$items;
+        var c = this._getFilteredSets(a, b);
+        return this._toggleFilterClasses(c.filtered, c.concealed), this.lastFilter = a, "string" == typeof a && (this.group = a), c.filtered
+    }, E.prototype._getFilteredSets = function (b, c) {
+        var d = a(), e = a();
+        return b === v ? d = c : f(c, function (c) {
+            var f = a(c);
+            this._doesPassFilter(b, f) ? d = d.add(f) : e = e.add(f)
+        }, this), {filtered: d, concealed: e}
+    }, E.prototype._doesPassFilter = function (b, c) {
+        if (a.isFunction(b))return b.call(c[0], c, this);
+        var d = c.data(w), e = this.delimeter && !a.isArray(d) ? d.split(this.delimeter) : d;
+        return a.inArray(b, e) > -1
+    }, E.prototype._toggleFilterClasses = function (a, b) {
+        a.removeClass(E.ClassName.CONCEALED).addClass(E.ClassName.FILTERED), b.removeClass(E.ClassName.FILTERED).addClass(E.ClassName.CONCEALED)
+    }, E.prototype._initItems = function (a) {
+        a = a || this.$items, a.addClass([E.ClassName.SHUFFLE_ITEM, E.ClassName.FILTERED].join(" ")), a.css(this.itemCss).data("point", new A).data("scale", x)
+    }, E.prototype._updateItemCount = function () {
+        this.visibleItems = this._getFilteredItems().length
+    }, E.prototype._setTransition = function (a) {
+        a.style[l] = q + " " + this.speed + "ms " + this.easing + ", opacity " + this.speed + "ms " + this.easing
+    }, E.prototype._setTransitions = function (a) {
+        a = a || this.$items, f(a, function (a) {
+            this._setTransition(a)
+        }, this)
+    }, E.prototype._setSequentialDelay = function (a) {
+        this.supported && f(a, function (a, b) {
+            a.style[m] = "0ms," + (b + 1) * this.sequentialFadeDelay + "ms"
+        }, this)
+    }, E.prototype._getItems = function () {
+        return this.$el.children(this.itemSelector)
+    }, E.prototype._getFilteredItems = function () {
+        return this.$items.filter("." + E.ClassName.FILTERED)
+    }, E.prototype._getConcealedItems = function () {
+        return this.$items.filter("." + E.ClassName.CONCEALED)
+    }, E.prototype._getColumnSize = function (b, c) {
+        var d;
+        return d = a.isFunction(this.columnWidth) ? this.columnWidth(b) : this.useSizer ? E._getOuterWidth(this.sizer) : this.columnWidth ? this.columnWidth : this.$items.length > 0 ? E._getOuterWidth(this.$items[0], !0) : b, 0 === d && (d = b), d + c
+    }, E.prototype._getGutterSize = function (b) {
+        var c;
+        return c = a.isFunction(this.gutterWidth) ? this.gutterWidth(b) : this.useSizer ? E._getNumberStyle(this.sizer, "marginLeft") : this.gutterWidth
+    }, E.prototype._setColumns = function (a) {
+        var b = a || E._getOuterWidth(this.element), c = this._getGutterSize(b), d = this._getColumnSize(b, c), e = (b + c) / d;
+        Math.abs(Math.round(e) - e) < this.columnThreshold && (e = Math.round(e)), this.cols = Math.max(Math.floor(e), 1), this.containerWidth = b, this.colWidth = d
+    }, E.prototype._setContainerSize = function () {
+        this.$el.css("height", this._getContainerSize())
+    }, E.prototype._getContainerSize = function () {
+        return h(this.positions)
+    }, E.prototype._fire = function (a, b) {
+        this.$el.trigger(a + "." + u, b && b.length ? b : [this])
+    }, E.prototype._resetCols = function () {
+        var a = this.cols;
+        for (this.positions = []; a--;)this.positions.push(0)
+    }, E.prototype._layout = function (a, b) {
+        f(a, function (a) {
+            this._layoutItem(a, !!b)
+        }, this), this._processStyleQueue(), this._setContainerSize()
+    }, E.prototype._layoutItem = function (b, c) {
+        var d = a(b), e = d.data(), f = e.point, g = e.scale, h = {
+            width: E._getOuterWidth(b, !0),
+            height: E._getOuterHeight(b, !0)
+        }, i = this._getItemPosition(h);
+        A.equals(f, i) && g === x || (e.point = i, e.scale = x, this.styleQueue.push({
+            $item: d,
+            point: i,
+            scale: x,
+            opacity: c ? 0 : 1,
+            skipTransition: c || 0 === this.speed,
+            callfront: function () {
+                c || d.css("visibility", "visible")
+            },
+            callback: function () {
+                c && d.css("visibility", "hidden")
+            }
+        }))
+    }, E.prototype._getItemPosition = function (a) {
+        for (var b = this._getColumnSpan(a.width, this.colWidth, this.cols), c = this._getColumnSet(b, this.cols), d = this._getShortColumn(c, this.buffer), e = new A(Math.round(this.colWidth * d), Math.round(c[d])), f = c[d] + a.height, g = this.cols + 1 - c.length, h = 0; g > h; h++)this.positions[d + h] = f;
+        return e
+    }, E.prototype._getColumnSpan = function (a, b, c) {
+        var d = a / b;
+        return Math.abs(Math.round(d) - d) < this.columnThreshold && (d = Math.round(d)), Math.min(Math.ceil(d), c)
+    }, E.prototype._getColumnSet = function (a, b) {
+        if (1 === a)return this.positions;
+        for (var c = b + 1 - a, d = [], e = 0; c > e; e++)d[e] = h(this.positions.slice(e, e + a));
+        return d
+    }, E.prototype._getShortColumn = function (a, b) {
+        for (var c = i(a), d = 0, e = a.length; e > d; d++)if (a[d] >= c - b && a[d] <= c + b)return d;
+        return 0
+    }, E.prototype._shrink = function (b) {
+        var c = b || this._getConcealedItems();
+        f(c, function (b) {
+            var c = a(b), d = c.data();
+            d.scale !== y && (d.scale = y, this.styleQueue.push({
+                $item: c,
+                point: d.point,
+                scale: y,
+                opacity: 0,
+                callback: function () {
+                    c.css("visibility", "hidden")
+                }
+            }))
+        }, this)
+    }, E.prototype._onResize = function () {
+        if (this.enabled && !this.destroyed) {
+            var a = E._getOuterWidth(this.element);
+            a !== this.containerWidth && this.update()
+        }
+    }, E.prototype._getStylesForTransition = function (a) {
+        var b = {opacity: a.opacity};
+        return this.supported ? b[p] = E._getItemTransformString(a.point, a.scale) : (b.left = a.point.x, b.top = a.point.y), b
+    }, E.prototype._transition = function (b) {
+        var c = this._getStylesForTransition(b);
+        this._startItemAnimation(b.$item, c, b.callfront || a.noop, b.callback || a.noop)
+    }, E.prototype._startItemAnimation = function (b, c, d, e) {
+        function f(b) {
+            b.target === b.currentTarget && (a(b.target).off(o, f), g._removeTransitionReference(h), e())
+        }
+
+        var g = this, h = {$element: b, handler: f};
+        if (d(), !this.initialized)return b.css(c), void e();
+        if (this.supported)b.css(c), b.on(o, f), this._transitions.push(h); else {
+            var i = b.stop(!0).animate(c, this.speed, "swing", e);
+            this._animations.push(i.promise())
+        }
+    }, E.prototype._processStyleQueue = function (b) {
+        this.isTransitioning && this._cancelMovement();
+        var c = a();
+        f(this.styleQueue, function (a) {
+            a.skipTransition ? this._styleImmediately(a) : (c = c.add(a.$item), this._transition(a))
+        }, this), c.length > 0 && this.initialized && this.speed > 0 ? (this.isTransitioning = !0, this.supported ? this._whenCollectionDone(c, o, this._movementFinished) : this._whenAnimationsDone(this._movementFinished)) : b || g(this._layoutEnd, this), this.styleQueue.length = 0
+    }, E.prototype._cancelMovement = function () {
+        this.supported ? f(this._transitions, function (a) {
+            a.$element.off(o, a.handler)
+        }) : (this._isMovementCanceled = !0, this.$items.stop(!0), this._isMovementCanceled = !1), this._transitions.length = 0, this.isTransitioning = !1
+    }, E.prototype._removeTransitionReference = function (b) {
+        var c = a.inArray(b, this._transitions);
+        c > -1 && this._transitions.splice(c, 1)
+    }, E.prototype._styleImmediately = function (a) {
+        E._skipTransition(a.$item[0], function () {
+            a.$item.css(this._getStylesForTransition(a))
+        }, this)
+    }, E.prototype._movementFinished = function () {
+        this.isTransitioning = !1, this._layoutEnd()
+    }, E.prototype._layoutEnd = function () {
+        this._fire(E.EventType.LAYOUT)
+    }, E.prototype._addItems = function (a, b, c) {
+        this._initItems(a), this._setTransitions(a), this.$items = this._getItems(), this._shrink(a), f(this.styleQueue, function (a) {
+            a.skipTransition = !0
+        }), this._processStyleQueue(!0), b ? this._addItemsToEnd(a, c) : this.shuffle(this.lastFilter)
+    }, E.prototype._addItemsToEnd = function (a, b) {
+        var c = this._filter(null, a), d = c.get();
+        this._updateItemCount(), this._layout(d, !0), b && this.supported && this._setSequentialDelay(d), this._revealAppended(d)
+    }, E.prototype._revealAppended = function (b) {
+        g(function () {
+            f(b, function (b) {
+                var c = a(b);
+                this._transition({$item: c, opacity: 1, point: c.data("point"), scale: x})
+            }, this), this._whenCollectionDone(a(b), o, function () {
+                a(b).css(m, "0ms"), this._movementFinished()
+            })
+        }, this, this.revealAppendedDelay)
+    }, E.prototype._whenCollectionDone = function (b, c, d) {
+        function e(b) {
+            b.target === b.currentTarget && (a(b.target).off(c, e), f++, f === g && (h._removeTransitionReference(i), d.call(h)))
+        }
+
+        var f = 0, g = b.length, h = this, i = {$element: b, handler: e};
+        b.on(c, e), this._transitions.push(i)
+    }, E.prototype._whenAnimationsDone = function (b) {
+        a.when.apply(null, this._animations).always(a.proxy(function () {
+            this._animations.length = 0, this._isMovementCanceled || b.call(this)
+        }, this))
+    }, E.prototype.shuffle = function (a, b) {
+        this.enabled && (a || (a = v), this._filter(a), this._updateItemCount(), this._shrink(), this.sort(b))
+    }, E.prototype.sort = function (a) {
+        if (this.enabled) {
+            this._resetCols();
+            var b = a || this.lastSort, c = this._getFilteredItems().sorted(b);
+            this._layout(c), this.lastSort = b
+        }
+    }, E.prototype.update = function (a) {
+        this.enabled && (a || this._setColumns(), this.sort())
+    }, E.prototype.layout = function () {
+        this.update(!0)
+    }, E.prototype.appended = function (a, b, c) {
+        this._addItems(a, b === !0, c !== !1)
+    }, E.prototype.disable = function () {
+        this.enabled = !1
+    }, E.prototype.enable = function (a) {
+        this.enabled = !0, a !== !1 && this.update()
+    }, E.prototype.remove = function (b) {
+        function c() {
+            b.remove(), this.$items = this._getItems(), this._updateItemCount(), this._fire(E.EventType.REMOVED, [b, this]), b = null
+        }
+
+        b.length && b.jquery && (this._toggleFilterClasses(a(), b), this._shrink(b), this.sort(), this.$el.one(E.EventType.LAYOUT + "." + u, a.proxy(c, this)))
+    }, E.prototype.destroy = function () {
+        D.off("." + this.unique), this.$el.removeClass(u).removeAttr("style").removeData(u), this.$items.removeAttr("style").removeData("point").removeData("scale").removeClass([E.ClassName.CONCEALED, E.ClassName.FILTERED, E.ClassName.SHUFFLE_ITEM].join(" ")), this.$items = null, this.$el = null, this.sizer = null, this.element = null, this._transitions = null, this.destroyed = !0
+    }, a.fn.shuffle = function (b) {
+        var c = Array.prototype.slice.call(arguments, 1);
+        return this.each(function () {
+            var d = a(this), e = d.data(u);
+            e ? "string" == typeof b && e[b] && e[b].apply(e, c) : (e = new E(this, b), d.data(u, e))
+        })
+    }, a.fn.sorted = function (b) {
+        var d = a.extend({}, a.fn.sorted.defaults, b), e = this.get(), f = !1;
+        return e.length ? d.randomize ? k(e) : (a.isFunction(d.by) && e.sort(function (b, e) {
+            if (f)return 0;
+            var g = d.by(a(b)), h = d.by(a(e));
+            return g === c && h === c ? (f = !0, 0) : h > g || "sortFirst" === g || "sortLast" === h ? -1 : g > h || "sortLast" === g || "sortFirst" === h ? 1 : 0
+        }), f ? this.get() : (d.reverse && e.reverse(), e)) : []
+    }, a.fn.sorted.defaults = {reverse: !1, by: null, randomize: !1}, E
+});
 /**
  * @preserve FastClick: polyfill to remove click delays on browsers with touch UIs.
  *
