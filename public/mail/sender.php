@@ -2,6 +2,7 @@
 require 'phpmailer.php';
 require 'smtp.php';
 
+header('Content-type:application/json');
 /* Get input variables  */
 if ($_POST) {
     $name = $_POST['name'];
@@ -9,10 +10,7 @@ if ($_POST) {
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
-
     $mail = new PHPMailer;
-
-    $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
@@ -35,7 +33,7 @@ if ($_POST) {
     if (!$mail->send()) {
         echo json_encode([
             "status" => "error",
-            "message" => 'Oops! Something went wrong!' . $mail->ErrorInfo
+            "message" => 'Something went wrong!'
         ], JSON_PRETTY_PRINT);
     } else {
         echo json_encode([

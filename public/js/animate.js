@@ -74,11 +74,18 @@ $('.form-control').focusin(function () {
                 type: "POST",
                 url: emailUrl,
                 data: data,
-                success: function () {
-                    alert("si");
+                success: function (data) {
+                    if (data.status == 'error') {
+                        $("#hidden-contactform").velocity({height: "650px"}, {duration: 2500, easing: "easeOutExpo"});
+                        $(".hidden-text-success").velocity({opacity: "1"}, {duration: 1500, easing: "easeOutExpo"});
+                        ;
+                    }
+                    else {
+                        alert("todo piolin");
+                    }
                 },
                 error: function () {
-                    alert("no");
+                    alert('ajax fail');
                 }
             });
         });

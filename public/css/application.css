@@ -3,6 +3,7 @@
 
 body {
     background: url(../images/bg-tile.png);
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 img.inject-me {
@@ -617,13 +618,13 @@ a {
 }
 
 #page-work .h-01 {
-    color: white;
+    color: #FFFFFF;
     margin-bottom: 50px;
 }
 
 #page-work .h-02 {
-    color: white;
-    margin: 30px 0 15px 0;
+    color: #FFFFFF;
+    margin: 12px 0 15px 0;
 }
 
 #page-work .copy-03, #page-work .filter-link, #page-work #page-signup .form-result, #page-signup #page-work .form-result {
@@ -787,10 +788,22 @@ a {
     color: #464b4f;
 }
 
+#hidden-contactform {
+    width: 100%;
+    height: 0;
+    z-index: 5;
+    display: block;
+    position: absolute;
+    top: 135px;
+    left: 0;
+    background-color: #FFFFFF;
+}
+
 #page-footer {
     background: #0c0a20;
     text-align: center;
     padding-bottom: 35px;
+    background-image: url("../images/transparent-back.png");
 }
 
 #page-footer h2 {
@@ -840,6 +853,7 @@ a {
 
 #page-footer .copy-02 {
     margin-bottom: 12px;
+    font-size: 12px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -938,7 +952,7 @@ a {
 
     #page-work .mobile-filter-select {
         position: relative;
-        display: block;
+        display: none;
         margin: 30px 0;
         font-family: 'Roboto-bold', Arial, sans-serif;
         font-size: 14px;
@@ -1020,7 +1034,6 @@ a {
 
     #page-footer .copy-02 {
         margin-bottom: 10px;
-        font-size: 12px;
         line-height: 12px;
     }
 }
@@ -1105,7 +1118,7 @@ body {
     width: inherit;
     content: '';
     transform: rotateZ(60deg);
-    z-index: 1000000;
+    z-index: 3;
     border-top: 1px solid black;
     border-bottom: 1px solid #000000;
 }
@@ -1119,7 +1132,7 @@ body {
     width: inherit;
     content: '';
     transform: rotateZ(-60deg);
-    z-index: 1000000;
+    z-index: 3;
     border-top: 1px solid black;
     border-bottom: 1px solid #000000;
 }
@@ -1127,7 +1140,7 @@ body {
 .hexagon-icon-position {
     color: #000;
     position: relative;
-    z-index: 100000000;
+    z-index: 4;
     top: 12px;
     -webkit-transition: -webkid-transform .25s ease;
     -moz-transition: -moz-transform .25s ease;
@@ -1149,6 +1162,11 @@ body {
     transition: transform .25s ease;
 }
 
+.hidden-email {
+    opacity: 0;
+    margin: auto;
+}
+
 .drawed_line {
     opacity: 0;
     height: 0;
@@ -1162,12 +1180,16 @@ body {
     opacity: 0;
 }
 
+#trigger0 {
+    top: 590px;
+}
+
 #trigger1 {
-    top: 540px;
+    top: 710px;
 }
 
 #trigger2 {
-    top: 690px;
+    top: 730px;
 }
 
 #trigger3 {
@@ -1239,7 +1261,7 @@ body {
 }
 
 #trigger20 {
-    top: 2900px;
+    top: 2600px;
 }
 
 #trigger21 {

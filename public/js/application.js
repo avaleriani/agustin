@@ -38,7 +38,6 @@
         });
         $btns = $filter.children();
         return $btns.on('click', function (e) {
-            //todo::make it work
             var $this, group, isActive;
             e.preventDefault();
             $this = $(this);
@@ -49,7 +48,6 @@
             } else {
                 group = $this.find('a').attr('data-group')
                 $('#work-filter .active').removeClass('active');
-                console.log(group);
                 $this.toggleClass('active');
                 return $grid.shuffle('shuffle', group);
             }

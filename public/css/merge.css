@@ -6,18 +6,6 @@
     transform: scale(0.9);
 }
 
-.avgrund-cover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
 .avgrund-active .avgrund-cover {
     visibility: visible;
     opacity: 1;
@@ -49,25 +37,50 @@
 
 .avgrund-popup {
     position: absolute;
-    width: 90%;
-    height: 80%;
-    left: 50%;
-    top: 50%;
-
+    width: 65%;
+    height: 40%;
     visibility: hidden;
     opacity: 0;
     z-index: 2;
     padding: 20px;
 
-    background: white;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
-    border-radius: 3px;
 
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
     -o-transform: scale(0.8);
     transform: scale(0.8);
+}
+
+.avgrund-popup .avgrund-container {
+    width: 100%;
+    height: 100%;
+}
+
+.avgrund-popup .avgrund-container .avinfo {
+
+    width: 85%;
+    height: 100%;
+    position: relative;
+    float: left;
+    background-color: white;
+
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+.avgrund-popup .avgrund-container .avimage {
+    position: absolute;
+    width: 40%;
+    top: 13%;
+    height: 64%;
+    left: 55%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+#avimg img {
+    max-width: 100% !important;
+    height: auto;
+    display: inline-block;
 }
 
 .avgrund-active .avgrund-popup {
@@ -138,7 +151,6 @@
     left: 1px;
     display: inline-block;
     font-family: 'pe-icon-social';
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

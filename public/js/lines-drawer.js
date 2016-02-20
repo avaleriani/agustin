@@ -2,9 +2,12 @@ var lines = [];
 var cont = 0;
 $(document).ready(function () {
 
-
-    createAllLines();
-    scrollAnimate();
+    if (window.innerWidth == '1920') { //todo:: fix mobile
+        createAllLines();
+        scrollAnimate();
+    } else {
+        alert(window.innerWidth); //todo: borrar esto
+    }
 });
 
 function createAllLines() {
@@ -48,8 +51,8 @@ function createAllLines() {
     var p35 = {x: 950, y: 4400};
     var p36 = {x: 950, y: 4462};
     var p37 = {x: 950, y: 4550};
-    var p38 = {x: 890, y: 4525};
-    var p39 = {x: 1005, y: 4525};
+    var p38 = {x: 890, y: 4500};
+    var p39 = {x: 1005, y: 4500};
 
     var c1 = '#000000',
         c2 = '#ffffff';
@@ -97,12 +100,24 @@ function createAllLines() {
 
 }
 
-function createLineElement(point, color, angle, lenght) {
+function createLineElement(point, color, lenght, a, b) {
     var line = document.createElement("div");
     var p = calculateRatio(point);
+    var height = 0;
+    var angle = Math.PI - Math.atan2(-b, a);
 
+    /* todo: ver como hacer para que esto funcione
+
+     if (angle.toPrecision(1 + 4) == 1.5708) {
+     height = lenght;
+     lenght = 0;
+     angle = 0;
+     console.log(height);
+     }
+     */
     var styles = 'border: 1px solid ' + color + '; '
         + 'width: ' + lenght + 'px; '
+        + 'height: ' + height + 'px;'
         + '-moz-transform: rotate(' + angle + 'rad); '
         + '-webkit-transform: rotate(' + angle + 'rad); '
         + '-o-transform: rotate(' + angle + 'rad); '
@@ -114,6 +129,11 @@ function createLineElement(point, color, angle, lenght) {
     line.setAttribute('class', 'drawed_line');
     lines.push($(line));
     cont = cont + 1;
+
+    if (angle == Math.PI - Math.atan(-b, a)) {
+        console.log(styles);
+    }
+
     return $(line);
 }
 
@@ -137,10 +157,8 @@ function createLine(pointA, pointB, color) {
 
     var a = pointA.x - pointB.x,
         b = pointA.y - pointB.y;
-    var angle = Math.PI - Math.atan2(-b, a);
 
-
-    return createLineElement(point, color, angle, length);
+    return createLineElement(point, color, length, a, b);
 }
 
 function calculateLenght(p1, p2) {
@@ -151,14 +169,19 @@ function calculateLenght(p1, p2) {
 
 
 function scrollAnimate() {
-    var duration = 1000;
+    var duration = 750;
     var counter = 0;
     var controller = new ScrollMagic.Controller();
 
     $.each(lines, function (e) {
+        var $obj = $("#point_" + counter);
+        var height = $obj.css('height');
+        var width = $obj.css('width');
+        $obj.css('height', '0');
+        $obj.css('width', '0');
         var scene = new ScrollMagic.Scene({triggerElement: '#trigger' + counter})
-            .setVelocity("#point_" + counter, {'opacity': 1, duration: duration})
-            //.addIndicators()
+            .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
+            // .addIndicators()
             .addTo(controller);
         counter = counter + 1;
     });
