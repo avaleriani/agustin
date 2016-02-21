@@ -1,5 +1,6 @@
 var lines = [];
 var cont = 0;
+
 $(document).ready(function () {
 
     if (window.innerWidth == '1920') { //todo:: fix mobile
@@ -99,67 +100,53 @@ function createAllLines() {
     createLine(p37, p39, c2).appendTo(appendId);
 
 }
+// TODO:: ver como hacer para que las lineas sean mobile, supongo que multiplicando por un numero magico que de 0 en la resolucion que lo hice
 
-function createLineElement(point, color, lenght, a, b) {
+function createLine(pointA, pointB, color) {
+
+    var length, height, width, float = 'left';
     var line = document.createElement("div");
-    var p = calculateRatio(point);
-    var height = 0;
-    var angle = Math.PI - Math.atan2(-b, a);
+    var pointX = pointA.x;
 
-    /* todo: ver como hacer para que esto funcione
+    length = calculateLenght(pointA, pointB);
+    if (calculateDirection(pointA, pointB) == 'horizontal') {
+        height = '2px';
+        width = length;
+    } else {
+        height = length;
+        width = '2px';
+    }
+    if (calculateLor(pointA, pointB) == 'right') {
+        float = 'right';
+        if (pointA.x > pointB.x) {
+            float = 'right';
+            console.log(pointA.x, width, window.innerWidth);
+            pointX = window.innerWidth - width - pointB.x - 19;
+        }
+    }
 
-     if (angle.toPrecision(1 + 4) == 1.5708) {
-     height = lenght;
-     lenght = 0;
-     angle = 0;
-     console.log(height);
-     }
-     */
     var styles = 'border: 1px solid ' + color + '; '
-        + 'width: ' + lenght + 'px; '
+        + 'width: ' + width + 'px; '
         + 'height: ' + height + 'px;'
-        + '-moz-transform: rotate(' + angle + 'rad); '
-        + '-webkit-transform: rotate(' + angle + 'rad); '
-        + '-o-transform: rotate(' + angle + 'rad); '
-        + '-ms-transform: rotate(' + angle + 'rad); '
-        + 'top: ' + p.y + 'px; '
-        + 'left: ' + p.x + 'px; '
-    line.setAttribute('style', styles)
+        + 'top: ' + pointA.y + 'px; '
+        + float + ': ' + pointX + 'px; '
+        + 'float: ' + float + '; ';
+    line.setAttribute('style', styles);
     line.setAttribute('id', "point_" + cont);
     line.setAttribute('class', 'drawed_line');
     lines.push($(line));
     cont = cont + 1;
 
-    if (angle == Math.PI - Math.atan(-b, a)) {
-        console.log(styles);
-    }
-
     return $(line);
 }
-
-function calculateRatio(point) {
-    var screenW = screen.width;
-    /* TODO:: ver como hacer para que las lineas sean mobile, supongo que multiplicando por un numero magico que de 0 en la resolucion que lo hice
-     point.y
-     point.x
-     */
-    return point;
+//test
+document.onmousemove = function (e) {
+    cursorX = e.pageX;
+    cursorY = e.pageY;
+    $('title').html('x:' + cursorX + ' - y:' + cursorY);
 }
 
-function createLine(pointA, pointB, color) {
-
-    var length = calculateLenght(pointA, pointB);
-
-    var sx = (pointA.x + pointB.x) / 2,
-        sy = (pointA.y + pointB.y) / 2;
-
-    var point = {x: sx - length / 2, y: sy};
-
-    var a = pointA.x - pointB.x,
-        b = pointA.y - pointB.y;
-
-    return createLineElement(point, color, length, a, b);
-}
+//test
 
 function calculateLenght(p1, p2) {
     var pa = p1.x - p2.x,
@@ -167,9 +154,25 @@ function calculateLenght(p1, p2) {
     return Math.sqrt(pa * pa + pb * pb);
 }
 
+function calculateDirection(p1, p2) {
+    var pa = p1.x - p2.x;
+    if (pa == 0) {
+        return 'vertical';
+    } else {
+        return 'horizontal';
+    }
+}
+
+function calculateLor(p1, p2) {
+    if (p1.x > p2.x) {
+        return 'right';
+    } else {
+        return 'left';
+    }
+}
 
 function scrollAnimate() {
-    var duration = 750;
+    var duration = 600;
     var counter = 0;
     var controller = new ScrollMagic.Controller();
 

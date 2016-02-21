@@ -513,7 +513,10 @@ av by Agustin Valeriani. - built on 2016-02-02
 
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    <script>
+        window.ScrollMagic || document.write('<script src="js/libs/ScrollMagic.min.js"><\/script>');
+    </script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script> -->
 
     <script src="js/velocity.js"></script>
     <script src="js/scrollmagic.velocity.plugin.js"></script>
