@@ -2,7 +2,7 @@
 Hello, visitor!
 You can check the source code on GitHub!
 Hope you like it :)
-av by Agustin Valeriani. - built on 2016-02-02
+AV by Agustin Valeriani. - built on 2016-02-02
 * https://github.com/avaleriani/myweb
 * Copyright (c) 2016 Agustin Valeriani; Licensed MIT
 -->
@@ -28,7 +28,42 @@ av by Agustin Valeriani. - built on 2016-02-02
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/imgages/favicon/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"
+          href="http://www.agustinvaleriani.com/imgages/favicon/apple-touch-icon-152x152.png"/>
+    <link rel="icon" type="image/png" href="http://www.agustinvaleriani.com/imgages/favicon/favicon-196x196.png"
+          sizes="196x196"/>
+    <link rel="icon" type="image/png" href="http://www.agustinvaleriani.com/imgages/favicon/favicon-96x96.png"
+          sizes="96x96"/>
+    <link rel="icon" type="image/png" href="http://www.agustinvaleriani.com/imgages/favicon/favicon-32x32.png"
+          sizes="32x32"/>
+    <link rel="icon" type="image/png" href="http://www.agustinvaleriani.com/imgages/favicon/favicon-16x16.png"
+          sizes="16x16"/>
+    <link rel="icon" type="image/png" href="http://www.agustinvaleriani.com/imgages/favicon/favicon-128.png"
+          sizes="128x128"/>
+    <meta name="application-name" content="AV"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="http://www.agustinvaleriani.com/imgages/favicon/mstile-144x144.png"/>
+    <meta name="msapplication-square70x70logo"
+          content="http://www.agustinvaleriani.com/imgages/favicon/mstile-70x70.png"/>
+    <meta name="msapplication-square150x150logo"
+          content="http://www.agustinvaleriani.com/imgages/favicon/mstile-150x150.png"/>
+    <meta name="msapplication-wide310x150logo"
+          content="http://www.agustinvaleriani.com/imgages/favicon/mstile-310x150.png"/>
+    <meta name="msapplication-square310x310logo"
+          content="http://www.agustinvaleriani.com/imgages/favicon/mstile-310x310.png"/>
 
     <link href="css/plugins.css" rel="stylesheet"/>
     <link href="css/application.css" rel="stylesheet"/>
@@ -461,7 +496,7 @@ av by Agustin Valeriani. - built on 2016-02-02
                 <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"></i></div>
             </a>
         </div>
-        <p class="copy-02">Copyright © <span class="year"></span>. All Rights Reserved.</p>
+        <p class="copy-02">©<span class="year"></span>. AV.</p>
     </section>
 
     <div class="triggers">
@@ -526,12 +561,22 @@ av by Agustin Valeriani. - built on 2016-02-02
     <script src="js/merge.js"></script>
     <script src="js/lines-drawer.js"></script>
 
-
     <script>
-        //analytics
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-65615399-2', 'auto');
+        ga('send', 'pageview');
     </script>
-
 </section>
-
 </body>
 </html>

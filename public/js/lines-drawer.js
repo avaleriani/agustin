@@ -6,8 +6,6 @@ $(document).ready(function () {
     if (window.innerWidth == '1920') { //todo:: fix mobile
         createAllLines();
         scrollAnimate();
-    } else {
-        alert(window.innerWidth); //todo: borrar esto
     }
 });
 
@@ -139,7 +137,7 @@ function createLine(pointA, pointB, color) {
 
     return $(line);
 }
-//test
+//test todo:borrar
 document.onmousemove = function (e) {
     cursorX = e.pageX;
     cursorY = e.pageY;
@@ -172,7 +170,7 @@ function calculateLor(p1, p2) {
 }
 
 function scrollAnimate() {
-    var duration = 600;
+    var duration = 400;
     var counter = 0;
     var controller = new ScrollMagic.Controller();
 
