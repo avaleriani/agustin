@@ -184,3 +184,5 @@ var linesDrawer = {
         }
     }
 };
+
+module.exports = linesDrawer;

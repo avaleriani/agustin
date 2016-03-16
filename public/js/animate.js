@@ -159,3 +159,5 @@ var animate = {
         }
     }
 };
+
+module.exports = animate;

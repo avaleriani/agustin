@@ -11,7 +11,7 @@ var workViewer = {
             activate: this.activate,
             deactivate: this.deactivate,
             disableBlur: this.disableBlur
-        }
+        };
         this.deactivateEscape();
         this.deactivateOnClickOutside();
     },
@@ -69,3 +69,6 @@ var workViewer = {
         element.className = element.className.replace(name, '');
     }
 };
+
+
+module.exports = workViewer;
