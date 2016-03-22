@@ -6,7 +6,7 @@ var workViewer = {
     cover: document.querySelector('.avgrund-cover'),
 
     init: function () {
-        this.addClass(container, 'avgrund-ready');
+        this.addClass(this.container, 'avgrund-ready');
         window.avgrund = {
             activate: this.activate,
             deactivate: this.deactivate,
