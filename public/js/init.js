@@ -1,7 +1,8 @@
 var linesDrawer = require('../js/lines-drawer.js');
 var app = require('../js/application.js');
-var animate = require('../js/animate.js');
 var workViewer = require('../js/work-viewer.js');
+var animate = require('../js/animate.js');
+
 
 (function (window, $) {
     $(function () {

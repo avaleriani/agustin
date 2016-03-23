@@ -126,7 +126,7 @@ var animate = {
             $("#avtext").html($(this).attr("data-description"));
 
             $("#avpopup").center();
-            avgrund.activate();
+            window.avgrund.activate();
 
             return false;
         });
