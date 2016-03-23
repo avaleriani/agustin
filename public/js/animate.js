@@ -1,6 +1,7 @@
 var animate = {
     inputAnimation: function () {
         $('.form-control').focusin(function () {
+            console.log($(this));
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
                 obj.transition({y: '15px', opacity: 1}, 500, 'out');
@@ -15,7 +16,6 @@ var animate = {
             }
             obj.next().visibilityToggle();
         });
-
 
         $.support.placeholder = (function () {
             var i = document.createElement('input');
@@ -102,6 +102,7 @@ var animate = {
                 data: data,
                 success: function (data) {
                     if (data.status == 'error') {
+                        $("#hidden-contactform").css("display", "block");
                         $("#hidden-contactform").velocity({height: "650px"}, {duration: 2500, easing: "easeOutExpo"});
                         $(".hidden-text-success").velocity({opacity: "1"}, {duration: 1500, easing: "easeOutExpo"});
                     }
@@ -151,7 +152,7 @@ var animate = {
     hideMoreBtnMobile: function () {
         //If is touchscreen, the "+ More" button in works is always visible
         {
-            if (true) {
+            if (!!('ontouchstart' in window)) {
                 $(".info").addClass("work-button-mobile");
             } else {
                 $(".info").removeClass("work-button-mobile");
