@@ -1,3 +1,4 @@
+var $ = require("../node_modules/jquery");
 var linesDrawer = require('../js/lines-drawer.js');
 var app = require('../js/application.js');
 var workViewer = require('../js/work-viewer.js');

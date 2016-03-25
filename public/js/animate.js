@@ -1,7 +1,7 @@
+var $ = require("../node_modules/jquery");
 var animate = {
     inputAnimation: function () {
         $('.form-control').focusin(function () {
-            console.log($(this));
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
                 obj.transition({y: '15px', opacity: 1}, 500, 'out');
@@ -85,9 +85,19 @@ var animate = {
         });
     },
 
+    showEmailSendFinished: function () {
+        $("#hidden-contactform").css("display", "block").velocity({height: "650px"}, {
+            duration: 2500,
+            easing: "easeOutExpo"
+        });
+        $(".hidden-text-success").velocity({opacity: "1"}, {duration: 1500, easing: "easeOutExpo"});
+    },
+
     emailSend: function () {
-        var emailUrl = '/mail/sender.php'
-        //todo:: change success animation
+        var emailUrl = '/mail/sender.php';
+        var message = $(".hidden-email-message");
+        var image = $(".hidden-email-image");
+
         $('#btn-send').on('click', function (e) {
             e.preventDefault();
             var data = {
@@ -102,16 +112,19 @@ var animate = {
                 data: data,
                 success: function (data) {
                     if (data.status == 'error') {
-                        $("#hidden-contactform").css("display", "block");
-                        $("#hidden-contactform").velocity({height: "650px"}, {duration: 2500, easing: "easeOutExpo"});
-                        $(".hidden-text-success").velocity({opacity: "1"}, {duration: 1500, easing: "easeOutExpo"});
+                        message.html("Sorry, there's been an error, please try again or directly email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                        image.attr('src', 'images/error.png');
                     }
                     else {
-                        alert("todo piolin");
+                        message.html("Thanks! I'll be in touch shortly.");
+                        image.attr('src', 'images/success.png');
                     }
+                    animate.showEmailSendFinished();
                 },
                 error: function () {
-                    alert('ajax fail');
+                    message.html("Sorry, there's been an error, please try again or directly email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                    image.attr('src', 'images/error.png');
+                    animate.showEmailSendFinished();
                 }
             });
         });

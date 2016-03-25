@@ -1,3 +1,4 @@
+
 var shortid = require('../node_modules/shortid');
 var linesDrawer = {
     lines: [],
@@ -163,7 +164,7 @@ var linesDrawer = {
         var counter = 0;
         var controller = new ScrollMagic.Controller();
 
-        $.each(lines, function () {
+        $.each(linesDrawer.lines, function () {
             var $obj = $("#point_" + counter);
             var height = $obj.css('height');
             var width = $obj.css('width');
@@ -171,7 +172,6 @@ var linesDrawer = {
             $obj.css('width', '0');
             new ScrollMagic.Scene({triggerElement: '#trigger' + counter})
                 .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
-                // .addIndicators()
                 .addTo(controller);
             counter = counter + 1;
         });

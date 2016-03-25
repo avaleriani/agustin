@@ -1,3 +1,4 @@
+
 var app = {
     loadApplication: function () {
         $('.view').on('click', function (e) {

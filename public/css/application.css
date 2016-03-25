@@ -808,6 +808,12 @@ a {
     background-color: #0c0a20;
 }
 
+#hidden-email-image {
+    width: 125px;
+    padding-top: 130px;
+    padding-bottom: 40px;
+}
+
 #page-footer {
     background: #0c0a20;
     text-align: center;

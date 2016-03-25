@@ -1,3 +1,4 @@
+
 var workViewer = {
     currentState: null,
     originalTitle: document.title,
