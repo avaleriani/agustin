@@ -1,6 +1,6 @@
+var shortid = require('shortid');
 var linesDrawer = {
     lines: [],
-    cont: 0,
 
     createAllLines: function (appendId) {
         var p1 = {x: 510, y: 560};
@@ -90,6 +90,7 @@ var linesDrawer = {
     },
 
     createLine: function (pointA, pointB, color) {
+        var uuid = shortid.generate();
         var length, height, width, float = 'left';
         var line = document.createElement("div");
         var pointX = pointA.x;
@@ -106,7 +107,6 @@ var linesDrawer = {
             float = 'right';
             if (pointA.x > pointB.x) {
                 float = 'right';
-                console.log(pointA.x, width, window.innerWidth);
                 pointX = window.innerWidth - width - pointB.x - 19;
             }
         }
@@ -118,10 +118,9 @@ var linesDrawer = {
             + float + ': ' + pointX + 'px; '
             + 'float: ' + float + '; ';
         line.setAttribute('style', styles);
-        line.setAttribute('id', "point_" + cont);
+        line.setAttribute('id', "point_" + uuid);
         line.setAttribute('class', 'drawed_line');
-        lines.push($(line));
-        cont = cont + 1;
+        this.lines.push($(line));
 
         return $(line);
     },
@@ -141,6 +140,7 @@ var linesDrawer = {
         }
     },
 
+    //Calculate if line direction is left or right
     calculateLoR: function (p1, p2) {
         if (p1.x > p2.x) {
             return 'right';
@@ -149,6 +149,7 @@ var linesDrawer = {
         }
     },
 
+    //calculate if line direction is up or down
     calculateUoD: function (p1, p2) {
         if (p1.y > p2.y) {
             return 'up';
@@ -162,13 +163,13 @@ var linesDrawer = {
         var counter = 0;
         var controller = new ScrollMagic.Controller();
 
-        $.each(lines, function (e) {
+        $.each(lines, function () {
             var $obj = $("#point_" + counter);
             var height = $obj.css('height');
             var width = $obj.css('width');
             $obj.css('height', '0');
             $obj.css('width', '0');
-            var scene = new ScrollMagic.Scene({triggerElement: '#trigger' + counter})
+            new ScrollMagic.Scene({triggerElement: '#trigger' + counter})
                 .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
                 // .addIndicators()
                 .addTo(controller);
