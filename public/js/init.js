@@ -26,4 +26,4 @@ var animate = require('../js/animate.js');
         animate.hexagonRotate();
         $(".year").text(new Date().getFullYear());
     });
-})(window, jQuery);
+})(window, $);

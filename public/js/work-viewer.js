@@ -1,4 +1,4 @@
-
+var $ = require("../node_modules/jquery");
 var workViewer = {
     currentState: null,
     originalTitle: document.title,

@@ -1,4 +1,4 @@
-
+var $ = require("../node_modules/jquery");
 var app = {
     loadApplication: function () {
         $('.view').on('click', function (e) {
