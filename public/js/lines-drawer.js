@@ -1,4 +1,4 @@
-var shortid = require('shortid');
+var shortid = require('../node_modules/shortid');
 var linesDrawer = {
     lines: [],
 
