@@ -1,20 +1,24 @@
-jQuery.fn.visible = function () {
+var $ = require("../../node_modules/jquery");
+
+$.fn.visible = function () {
     return this.css('visibility', 'visible');
 };
 
-jQuery.fn.invisible = function () {
+$.fn.invisible = function () {
     return this.css('visibility', 'hidden');
 };
 
-jQuery.fn.visibilityToggle = function () {
+$.fn.visibilityToggle = function () {
     return this.css('visibility', function (i, visibility) {
         return (visibility == 'visible') ? 'hidden' : 'visible';
     });
 };
 
-jQuery.fn.center = function (parent) {
+$.fn.center = function () {
     this.css("position", "absolute");
     this.css("top", ($(window).height() / 2) - (this.outerHeight() / 2));
     this.css("left", ($(window).width() / 2) - (this.outerWidth() / 2));
     return this;
 };
+
+module.exports = $;

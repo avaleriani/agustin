@@ -1,5 +1,6 @@
 var $ = require("../node_modules/jquery");
 var shortid = require('../node_modules/shortid');
+var scrollMagic = require('../node_modules/scrollmagic');
 var linesDrawer = {
     lines: [],
 
@@ -162,7 +163,7 @@ var linesDrawer = {
     scrollAnimate: function () {
         var duration = 400;
         var counter = 0;
-        var controller = new ScrollMagic.Controller();
+        var controller = new scrollMagic.ScrollMagic.Controller();
 
         $.each(linesDrawer.lines, function () {
             var $obj = $("#point_" + counter);
@@ -170,7 +171,7 @@ var linesDrawer = {
             var width = $obj.css('width');
             $obj.css('height', '0');
             $obj.css('width', '0');
-            new ScrollMagic.Scene({triggerElement: '#trigger' + counter})
+            new scrollMagic.ScrollMagic.Scene({triggerElement: '#trigger' + counter})
                 .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
                 .addTo(controller);
             counter = counter + 1;
@@ -179,8 +180,8 @@ var linesDrawer = {
 
     mouseCoordenatesOnTitle: function () {
         document.onmousemove = function (e) {
-            cursorX = e.pageX;
-            cursorY = e.pageY;
+            var cursorX = e.pageX;
+            var cursorY = e.pageY;
             $('title').html('x:' + cursorX + ' - y:' + cursorY);
         }
     }
