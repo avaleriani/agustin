@@ -13,12 +13,14 @@
     "url": "http://agustinvaleriani.com"
   },
   "homepage": "http://agustinvaleriani.com",
-  "dependencies": {},
+  "dependencies": {
+    "shortid": "^2.2.4",
+    "jquery": "^2.2.2"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "shortid": "^2.2.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,5 +1,6 @@
 var $ = require("../node_modules/jquery");
 var shortid = require('../node_modules/shortid');
+
 var linesDrawer = {
     lines: [],
 
