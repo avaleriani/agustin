@@ -1,8 +1,11 @@
-var $ = require("../node_modules/jquery");
+var $ = require("../js/libs/jquery-fn.js");
+require("../node_modules/script-loader");
+require("../js/libs/modernizr");
 var linesDrawer = require('../js/lines-drawer.js');
 var app = require('../js/application.js');
 var workViewer = require('../js/work-viewer.js');
 var animate = require('../js/animate.js');
+
 
 
 (function (window, $) {

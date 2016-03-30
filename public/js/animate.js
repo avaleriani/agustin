@@ -1,10 +1,12 @@
 var $ = require("../node_modules/jquery");
+var velocity = require("../node_modules/velocity-animate");
+
 var animate = {
     inputAnimation: function () {
         $('.form-control').focusin(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
-                obj.transition({y: '15px', opacity: 1}, 500, 'out');
+                obj.velocity.transition.slideLeftBigin({y: '15px', opacity: 1}, 500, 'out');
                 obj.next().transition({y: '0px'}, 500, 'in')
             }
             obj.next().visibilityToggle();

@@ -1,6 +1,9 @@
 var $ = require("../node_modules/jquery");
+var svgIng = require("../node_modules/svg-injector");
+var shufflejs = require("../node_modules/shufflejs");
 var app = {
     loadApplication: function () {
+        var touch = !!( 'ontouchstart' in document.documentElement || navigator.msMaxTouchPoints > 0 );
         $('.view').on('click', function (e) {
             e.preventDefault();
             return false;
@@ -11,7 +14,7 @@ var app = {
                 scrollTop: $("#page-work").offset().top
             });
         });
-        if (Modernizr.touch) {
+        if (touch) {
             return FastClick.attach(document.body);
         }
     },
@@ -19,33 +22,33 @@ var app = {
     svgInjector: function () {
         var mySVGsToInject;
         mySVGsToInject = document.querySelectorAll('img.inject-me');
-        return SVGInjector(mySVGsToInject);
+        return svgIng.SVGInjector(mySVGsToInject);
     },
 
     worksFilter: function () {
-        var $btns, $filter, $grid, $sizer, $workItem;
-        $filter = $('#work-filter');
-        $grid = $('#work-grid');
-        $sizer = $grid.find('.shuffle__sizer');
-        $workItem = $('.work-item');
-        $grid.shuffle({
-            itemSelector: $workItem,
-            sizer: $sizer
+        var btns, filter, grid, sizer, workItem;
+        filter = $('#work-filter');
+        grid = $('#work-grid');
+        sizer = grid.find('.shuffle__sizer');
+        workItem = $('.work-item');
+        grid.shufflejs.shuffle({
+            itemSelector: workItem,
+            sizer: sizer
         });
-        $btns = $filter.children();
-        return $btns.on('click', function (e) {
-            var $this, group, isActive;
+        btns = filter.children();
+        return btns.on('click', function (e) {
+            var esto, group, isActive;
             e.preventDefault();
-            $this = $(this);
-            isActive = $this.hasClass('active');
+            esto = $(this);
+            isActive = esto.hasClass('active');
 
             if (isActive) {
                 return false;
             } else {
-                group = $this.find('a').attr('data-group')
+                group = esto.find('a').attr('data-group')
                 $('#work-filter .active').removeClass('active');
-                $this.toggleClass('active');
-                return $grid.shuffle('shuffle', group);
+                esto.toggleClass('active');
+                return grid.shuffle('shuffle', group);
             }
         });
 
