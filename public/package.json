@@ -13,7 +13,10 @@
     "url": "http://agustinvaleriani.com"
   },
   "homepage": "http://agustinvaleriani.com",
-  "dependencies": {},
+  "dependencies": {
+    "shortid": "^2.2.4",
+    "jquery": "^2.2.2"
+  },
   "devDependencies": {
     "jquery": "^2.2.2",
     "scrollmagic": "^2.0.5",
