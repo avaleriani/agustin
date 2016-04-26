@@ -1,20 +1,23 @@
 var $ = require("../node_modules/jquery");
+window.jQuery = window.$ = $;
 var velocity = require("../node_modules/velocity-animate");
+delete window.jQuery;
+delete window.$;
 
 var animate = {
     inputAnimation: function () {
         $('.form-control').focusin(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
-                obj.velocity.transition.slideLeftBigin({y: '15px', opacity: 1}, 500, 'out');
-                obj.next().transition({y: '0px'}, 500, 'in')
+                obj.velocity({y: '15px', opacity: 1}, 500, 'out');
+                obj.next().velocity({y: '0px'}, 500, 'in');
             }
             obj.next().visibilityToggle();
         }).focusout(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
-                obj.transition({y: '0px', opacity: 0}, 500, 'in');
-                obj.next().transition({y: '15px'}, 500, 'out');
+                obj.velocity({y: '0px', opacity: 0}, 500, 'in');
+                obj.next().velocity({y: '15px'}, 500, 'out');
             }
             obj.next().visibilityToggle();
         });

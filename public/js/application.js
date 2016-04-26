@@ -26,7 +26,7 @@ var app = {
     },
 
     worksFilter: function () {
-        var btns, filter, grid, sizer, workItem;
+        var btns, filter, grid, sizer;
         filter = $('#work-filter');
         grid = $('#work-grid');
         sizer = grid.find('.shuffle__sizer');
