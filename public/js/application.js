@@ -1,5 +1,5 @@
 var $ = require("../node_modules/jquery");
-var svgIng = require("../node_modules/svg-injector");
+var SVGInjector = require("../node_modules/svg-injector");
 var shufflejs = require("../node_modules/shufflejs");
 var app = {
     loadApplication: function () {
@@ -22,7 +22,7 @@ var app = {
     svgInjector: function () {
         var mySVGsToInject;
         mySVGsToInject = document.querySelectorAll('img.inject-me');
-        return svgIng.SVGInjector(mySVGsToInject);
+        return SVGInjector(mySVGsToInject);
     },
 
     worksFilter: function () {
@@ -30,9 +30,8 @@ var app = {
         filter = $('#work-filter');
         grid = $('#work-grid');
         sizer = grid.find('.shuffle__sizer');
-        workItem = $('.work-item');
-        grid.shufflejs.shuffle({
-            itemSelector: workItem,
+        new shufflejs(grid, {
+            itemSelector: '.work-item',
             sizer: sizer
         });
         btns = filter.children();
@@ -48,7 +47,7 @@ var app = {
                 group = esto.find('a').attr('data-group')
                 $('#work-filter .active').removeClass('active');
                 esto.toggleClass('active');
-                return grid.shuffle('shuffle', group);
+                return shufflejs('shuffle', group);
             }
         });
 

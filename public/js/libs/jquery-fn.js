@@ -1,3 +1,4 @@
+
 var $ = require("../../node_modules/jquery");
 
 $.fn.visible = function () {
