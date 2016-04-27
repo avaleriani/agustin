@@ -30,8 +30,9 @@ var app = {
         filter = $('#work-filter');
         grid = $('#work-grid');
         sizer = grid.find('.shuffle__sizer');
-        new shufflejs(grid, {
+        var shfl =  new shufflejs(grid, {
             itemSelector: '.work-item',
+            easing: 'easeInOutBack',
             sizer: sizer
         });
         btns = filter.children();
@@ -44,10 +45,10 @@ var app = {
             if (isActive) {
                 return false;
             } else {
-                group = esto.find('a').attr('data-group')
+                group = esto.find('a').attr('data-group');
                 $('#work-filter .active').removeClass('active');
                 esto.toggleClass('active');
-                return shufflejs('shuffle', group);
+                shfl.filter(group);
             }
         });
 
