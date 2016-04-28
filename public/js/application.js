@@ -26,16 +26,16 @@ var app = {
     },
 
     worksFilter: function () {
-        var btns, filter, grid, sizer;
-        filter = $('#work-filter');
-        grid = $('#work-grid');
-        sizer = grid.find('.shuffle__sizer');
-        var shfl =  new shufflejs(grid, {
+        var btns;
+        var filterContainer = $('#work-filter');
+        var grid = $('#work-grid');
+        var sizer = grid.find('.shuffle__sizer');
+        var shfl = new shufflejs(grid, {
             itemSelector: '.work-item',
             easing: 'easeInOutBack',
             sizer: sizer
         });
-        btns = filter.children();
+        btns = filterContainer.children();
         return btns.on('click', function (e) {
             var esto, group, isActive;
             e.preventDefault();
@@ -51,7 +51,31 @@ var app = {
                 shfl.filter(group);
             }
         });
+    },
 
+    typingEffect: function () {
+        setInterval(function () {
+            $('.blinking').animate({
+                opacity: 0
+            }, 'fast', 'swing').animate({
+                opacity: 1
+            }, 'fast', 'swing');
+        }, 800);
+
+        var effect = $('.blinking').val();
+        this.type({effect: effect, captionLength: 0});
+    },
+
+    type: function (parameters) {
+        var effect = parameters.effect;
+        var captionLength = parameters.captionLength;
+        $('.typing').html(effect.substr(0, captionLength++));
+        if (captionLength < caption.length + 1) {
+            setTimeout('type()', 50);
+        } else {
+            captionLength = 0;
+            caption = '';
+        }
     }
 };
 

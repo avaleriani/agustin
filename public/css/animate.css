@@ -159,7 +159,14 @@
     stroke-dasharray: 50 0;
     stroke-width: 3px;
     stroke-dashoffset: 0;
-    stroke: #c0dfd9;
+    stroke: #c0dfd9; /* btn colors*/
+}
+
+.active #shape {
+    stroke-dasharray: 50 0;
+    stroke-width: 3px;
+    stroke-dashoffset: 0;
+    stroke: #c0dfd9; /* btn colors*/
 }
 
 .ripple-effect {
@@ -312,3 +319,15 @@
 
 /* END WORK HOVER  */
 
+.handy {
+    display: block;
+    right: 45px;
+    position: relative;
+    font-size: 28px;
+    color: #ffffff;
+    top: 40px;
+}
+
+.active {
+
+}

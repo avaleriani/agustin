@@ -27,8 +27,8 @@ AV by Agustin Valeriani. - built on 2016-03-02
     <meta name="author" content="Agustin Valeriani"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<!---
-    <!-- Social: Twitter -->
+    <!---
+        <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@agvaleriani">
     <meta name="twitter:creator" content="@agvaleriani">
@@ -82,11 +82,13 @@ AV by Agustin Valeriani. - built on 2016-03-02
                 </div>
             </header>
 
-            <h1 class="heading h-01" data-text="Web Developer">Hello.</h1>
+            <h1 class="heading h-01 typing" data-text="Web Developer">Hello.<span class="blinking">|</span></h1>
 
-            <p class="sub-header copy-02" id="step1"></p>
-            <a href="#" class="arrow-down"><i class="lrn lnr-pointer-right"></i><img src="images/arrow-down.svg"
+            <div class="sub-header copy-02" id="step1">
+                <a href="#" class="arrow-down"><span class="lnr lnr-pointer-right handy"></span></svg><img
+                        src="images/arrow-down.svg"
                                                                                      class="inject-me"/></a>
+            </div>
         </div>
     </section>
 
@@ -95,12 +97,11 @@ AV by Agustin Valeriani. - built on 2016-03-02
         <div class="site-inner">
             <p class="copy-01"> I'm a Agustin a Buenos Aires based web developer. I use powerful and modern open source
                 technologies to create unique solutions.
-                I like to work on anything from graphic and UI design, to backend web programming. I've recently fallen
-                in love with SASS, Laravel, starting with Ruby on Rails, and basically everything else that comes with
+                I like to work on anything from frontend to backend. I've recently fallen
+                in love with SASS, Laravel, starting with React, and basically everything else that comes with
                 the object oriented territory.
             </p>
-            <br>
-            <br>
+
             <br>
             <br>
             <br>
@@ -173,7 +174,7 @@ AV by Agustin Valeriani. - built on 2016-03-02
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                         <rect id="shape" height="40" width="150"/>
                         <div id="text">
-                            <a href="#" id="btn-filter-design" class="filter-link" data-group="maintenance"><span
+                            <a href="#" id="btn-filter-front" class="filter-link" data-group="maintenance"><span
                                     class="spot"></span>Maintenance</a>
                         </div>
                     </svg>
@@ -182,7 +183,7 @@ AV by Agustin Valeriani. - built on 2016-03-02
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                         <rect id="shape" height="40" width="150"/>
                         <div id="text">
-                            <a href="#" id="btn-filter-front" class="filter-link" data-group="fun"><span
+                            <a href="#" id="btn-filter-fun" class="filter-link" data-group="fun"><span
                                     class="spot"></span>For fun</a>
                         </div>
                     </svg>
@@ -535,9 +536,9 @@ AV by Agustin Valeriani. - built on 2016-03-02
     <script src="js/libs/plugins.js"></script>
 
 
-   <script src="build/js/build.min.js"></script>
+    <script src="build/js/build.min.js"></script>
 
-     <script>
+    <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {

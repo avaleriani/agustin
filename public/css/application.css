@@ -300,19 +300,9 @@ a {
 
 /* end animation logo */
 
-#page-home .brand-logo #brand-logo .iconA, #page-home .brand-logo #brand-logo:hover .iconV {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    display: inline-block;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
+/*  BORRAR y cambiar por velocity ?? hover animation icon A*/
 
 #page-home .brand-logo #brand-logo:hover .iconA {
-
     animation: icona linear 0.9s;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
@@ -333,8 +323,10 @@ a {
     -ms-animation-iteration-count: 1;
     -ms-transform-origin: 50% 50%;
     -ms-animation-fill-mode: forwards; /*IE 10+*/
+
 }
 
+/* hover animation icon V*/
 #page-home .brand-logo #brand-logo:hover .iconV {
     animation: iconv linear 0.9s;
     animation-iteration-count: 1;
@@ -649,10 +641,6 @@ a {
 
 #page-work .filter-link {
     color: #ffffff;
-}
-
-#page-work .work-item:nth-child(3n) {
-    margin-right: 0;
 }
 
 #page-work .work-item figure {
