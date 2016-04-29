@@ -1,6 +1,7 @@
-var $ = require("../node_modules/jquery");
-var SVGInjector = require("../node_modules/svg-injector");
-var shufflejs = require("../node_modules/shufflejs");
+var $ = require("jquery");
+var SVGInjector = require("svg-injector");
+var shufflejs = require("shufflejs");
+
 var app = {
     loadApplication: function () {
         var touch = !!( 'ontouchstart' in document.documentElement || navigator.msMaxTouchPoints > 0 );
@@ -32,8 +33,9 @@ var app = {
         var sizer = grid.find('.shuffle__sizer');
         var shfl = new shufflejs(grid, {
             itemSelector: '.work-item',
-            easing: 'easeInOutBack',
-            sizer: sizer
+            easing: 'ease-in-out',
+            sizer: sizer,
+            speed:600
         });
         btns = filterContainer.children();
         return btns.on('click', function (e) {
@@ -51,31 +53,6 @@ var app = {
                 shfl.filter(group);
             }
         });
-    },
-
-    typingEffect: function () {
-        setInterval(function () {
-            $('.blinking').animate({
-                opacity: 0
-            }, 'fast', 'swing').animate({
-                opacity: 1
-            }, 'fast', 'swing');
-        }, 800);
-
-        var effect = $('.blinking').val();
-        this.type({effect: effect, captionLength: 0});
-    },
-
-    type: function (parameters) {
-        var effect = parameters.effect;
-        var captionLength = parameters.captionLength;
-        $('.typing').html(effect.substr(0, captionLength++));
-        if (captionLength < caption.length + 1) {
-            setTimeout('type()', 50);
-        } else {
-            captionLength = 0;
-            caption = '';
-        }
     }
 };
 

@@ -3,10 +3,11 @@ var $ = require("../js/libs/jquery-fn.js");
 var app = require('../js/application.js');
 var workViewer = require('../js/work-viewer.js');
 var animate = require('../js/animate.js');
+var fastClick = require('fastclick');
 
 
 (function (window, $) {
-    $(function () {
+        fastClick.attach(document.body);
         app.svgInjector();
         workViewer.init();
         app.loadApplication();
@@ -17,8 +18,8 @@ var animate = require('../js/animate.js');
             //          linesDrawer.scrollAnimate();
             //linesDrawer.mouseCoordenatesOnTitle();
         }
-        app.typingEffect();
         app.worksFilter();
+        animate.typingEffect();
         animate.workModalClick();
         animate.hideMoreBtnMobile();
         animate.inputAnimation();
@@ -27,5 +28,4 @@ var animate = require('../js/animate.js');
         animate.hexagonRotate();
         
         $(".year").text(new Date().getFullYear());
-    });
 })(window, $);

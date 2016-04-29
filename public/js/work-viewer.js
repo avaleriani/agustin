@@ -7,19 +7,19 @@ var workViewer = {
     cover: document.querySelector('.avgrund-cover'),
 
     init: function () {
-        this.addClass(this.container, 'avgrund-ready');
+        var that = this;
+        that.addClass(that.container, 'avgrund-ready');
         window.avgrund = {
-            activate: this.activate,
-            deactivate: this.deactivate,
-            disableBlur: this.disableBlur
+            activate: that.activate,
+            deactivate: that.deactivate,
+            disableBlur: that.disableBlur
         };
-        this.deactivateEscape(event);
-        this.deactivateOnClickOutside(event);
     },
 
     activate: function (state) {
-        document.addEventListener('keyup', workViewer.deactivateEscape(workViewer), false);
-        document.addEventListener('click', workViewer.deactivateOnClickOutside(workViewer), false);
+        //todo: hacer que se cierre la ventana con un evento al 
+        document.addEventListener('keyup', workViewer.deactivateEscape(event), false);
+        document.addEventListener('click', workViewer.deactivateOnClickOutside(event), false);
 
         workViewer.removeClass(workViewer.popup, workViewer.currentState);
         workViewer.addClass(workViewer.popup, 'no-transition');
@@ -36,8 +36,8 @@ var workViewer = {
     },
 
     deactivate: function () {
-        document.removeEventListener('keyup', workViewer.deactivateEscape, false);
-        document.removeEventListener('click', workViewer.deactivateOnClickOutside, false);
+        document.removeEventListener('keyup', workViewer.deactivateEscape(event), false);
+        document.removeEventListener('click', workViewer.deactivateOnClickOutside(event), false);
 
         workViewer.removeClass(workViewer.container, 'avgrund-active');
 
@@ -59,14 +59,17 @@ var workViewer = {
         element.className = element.className.replace(name, '');
     },
 
-    deactivateEscape: function (event) {
-        if (event.keyCode === 27) {
+    deactivateEscape: function (e) {
+        console.log("aa");
+        var code = e.keyCode || e.which;
+        if (code === 27) {
             workViewer.deactivate();
         }
     },
 
-    deactivateOnClickOutside: function (event) {
-        if (event.target === this.cover) {
+    deactivateOnClickOutside: function (e) {
+        console.log("aab");
+        if (e.target === this.cover) {
             workViewer.deactivate();
         }
     }

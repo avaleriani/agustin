@@ -787,7 +787,7 @@ a {
     background-color: #FFFFFF;
 }
 
-#hidden-email-title {
+.hidden-email-title {
     width: 50px;
     height: 50px;
     -webkit-border-radius: 25px;
@@ -796,7 +796,12 @@ a {
     background-color: #0c0a20;
 }
 
-#hidden-email-image {
+.hidden-email-message{
+    line-height: 25px;
+font-size: 18px;
+}
+
+.hidden-email-image {
     width: 125px;
     padding-top: 130px;
     padding-bottom: 40px;

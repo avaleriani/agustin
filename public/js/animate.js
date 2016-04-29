@@ -1,8 +1,10 @@
-var $ = require("../node_modules/jquery");
+var $ = require("jquery");
 window.jQuery = window.$ = $;
-var velocity = require("../node_modules/velocity-animate");
+var velocity = require("velocity-animate");
 delete window.jQuery;
 delete window.$;
+var scrollMagic = require("scrollmagic");
+var theaterJS = require("theaterjs");
 
 var animate = {
     inputAnimation: function () {
@@ -176,6 +178,48 @@ var animate = {
                 $(".info").removeClass("work-button-mobile");
             }
         }
+    },
+
+    typingEffect: function () {
+        var controller = new scrollMagic.Controller();
+
+        var theater = theaterJS();
+        theater.on('type:start, erase:start', function(){
+            var actor = theater.getCurrentActor();
+            actor.$element.classList.add('is-typing');
+        });
+
+        //todo: luego de animar el logo cuando cargas la pagina, que escriba el hello.
+        theater.addActor('typing');
+        theater.addScene('typing:Hello.', 400);
+        
+        //typing about
+        var s1 = new scrollMagic.Scene({triggerElement: "#about", duration: 200})
+            .addTo(controller)
+            .on("start", function (e) {
+                theater.addActor('about');
+                theater.addScene('about:About.', 900);
+            });
+        s1.offset(-300);
+
+        //typing work
+        var s2 = new scrollMagic.Scene({triggerElement: "#work", duration: 200})
+            .addTo(controller)
+            .on("start", function (e) {
+                theater.addActor('work');
+                theater.addScene('work:Work.', 900);
+            });
+        s2.offset(-300);
+
+        //typing contact
+        var s3 = new scrollMagic.Scene({triggerElement: "#contact", duration: 200})
+            .addTo(controller)
+            .on("start", function (e) {
+                theater.addActor('contact', {accuracy: 0.6});
+                theater.addScene('contact:Contact.', 900);
+            });
+        s3.offset(-300);
+
     }
 };
 

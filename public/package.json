@@ -18,11 +18,13 @@
     "jquery": "^2.2.2"
   },
   "devDependencies": {
+    "fastclick": "^1.0.6",
     "jquery": "^2.2.2",
     "scrollmagic": "^2.0.5",
     "shortid": "^2.2.4",
     "shufflejs": "^4.0.0",
     "svg-injector": "^1.1.3",
+    "theaterjs": "^3.0.0",
     "velocity-animate": "^1.2.3",
     "webpack": "^1.12.14"
   },
