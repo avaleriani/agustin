@@ -1,6 +1,5 @@
 var $ = require("../node_modules/jquery");
 var workViewer = {
-    currentState: null,
     originalTitle: document.title,
     container: document.documentElement,
     popup: document.querySelector('.avgrund-popup'),
@@ -17,27 +16,22 @@ var workViewer = {
     },
 
     activate: function (state) {
-        //todo: hacer que se cierre la ventana con un evento al 
-        document.addEventListener('keyup', workViewer.deactivateEscape(event), false);
-        document.addEventListener('click', workViewer.deactivateOnClickOutside(event), false);
+        //todo: hacer que se cierre la ventana con un evento al apretar escape o fuera del cuadro.
+        document.addEventListener('keyup', workViewer.deactivateEscape, false);
+        document.addEventListener('click', workViewer.deactivateOnClickOutside, false);
 
-        workViewer.removeClass(workViewer.popup, workViewer.currentState);
         workViewer.addClass(workViewer.popup, 'no-transition');
-        workViewer.addClass(workViewer.popup, state);
-
 
         setTimeout(function () {
             workViewer.removeClass(workViewer.popup, 'no-transition');
             workViewer.addClass(workViewer.container, 'avgrund-active');
         }, 0);
         //document.title =  TODO:: get titulo del proyecto y ponerlo aca.
-
-        workViewer.currentState = state;
     },
 
     deactivate: function () {
-        document.removeEventListener('keyup', workViewer.deactivateEscape(event), false);
-        document.removeEventListener('click', workViewer.deactivateOnClickOutside(event), false);
+        document.removeEventListener('keyup', workViewer.deactivateEscape, false);
+        document.removeEventListener('click', workViewer.deactivateOnClickOutside, false);
 
         workViewer.removeClass(workViewer.container, 'avgrund-active');
 
@@ -60,7 +54,6 @@ var workViewer = {
     },
 
     deactivateEscape: function (e) {
-        console.log("aa");
         var code = e.keyCode || e.which;
         if (code === 27) {
             workViewer.deactivate();
@@ -68,8 +61,7 @@ var workViewer = {
     },
 
     deactivateOnClickOutside: function (e) {
-        console.log("aab");
-        if (e.target === this.cover) {
+        if (e.target === workViewer.cover) {
             workViewer.deactivate();
         }
     }
