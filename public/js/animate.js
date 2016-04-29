@@ -36,27 +36,27 @@ var animate = {
 
             $('.form-group').find('input, textarea').on('keyup blur focus', function (e) {
 
-                var $this = $(this),
-                    $parent = $this.parent().find("label");
+                var that = $(this),
+                    parent = that.parent().find("label");
 
                 if (e.type == 'keyup') {
-                    if ($this.val() == '') {
-                        $parent.addClass('js-hide-label');
+                    if (that.val() == '') {
+                        parent.addClass('js-hide-label');
                     } else {
-                        $parent.removeClass('js-hide-label');
+                        parent.removeClass('js-hide-label');
                     }
                 }
                 else if (e.type == 'blur') {
-                    if ($this.val() == '') {
-                        $parent.addClass('js-hide-label');
+                    if (that.val() == '') {
+                        parent.addClass('js-hide-label');
                     }
                     else {
-                        $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+                        parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
                     }
                 }
                 else if (e.type == 'focus') {
-                    if ($this.val() !== '') {
-                        $parent.removeClass('js-unhighlight-label');
+                    if (that.val() !== '') {
+                        parent.removeClass('js-unhighlight-label');
                     }
                 }
             });
@@ -67,27 +67,26 @@ var animate = {
         $('.svg-wrapper').on('click', function (event) {
             event.preventDefault();
 
-            var $div = $('<div/>'),
+            var divCreated = $('<div/>'),
                 btnOffset = $(this).offset(),
                 xPos = event.pageX - btnOffset.left,
                 yPos = event.pageY - btnOffset.top;
 
 
-            $div.addClass('ripple-effect');
-            var $ripple = $(".ripple-effect");
+            divCreated.addClass('ripple-effect');
+            var ripple = $(".ripple-effect");
 
-            $ripple.css("height", $(this).height());
-            $ripple.css("width", $(this).height());
-            $div
-                .css({
-                    top: yPos - ($ripple.height() / 2),
-                    left: xPos - ($ripple.width() / 2),
+            ripple.css("height", $(this).height());
+            ripple.css("width", $(this).height());
+            divCreated.css({
+                    top: yPos - (ripple.height() / 2),
+                    left: xPos - (ripple.width() / 2),
                     background: $(this).data("ripple-color")
                 })
                 .appendTo($(this));
 
             window.setTimeout(function () {
-                $div.remove();
+                divCreated.remove();
             }, 2000);
         });
     },
@@ -119,7 +118,7 @@ var animate = {
                 data: data,
                 success: function (data) {
                     if (data.status == 'error') {
-                        message.html("Sorry, there's been an error, please try again or directly email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                        message.html("Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
                         image.attr('src', 'images/error.png');
                     }
                     else {
@@ -129,7 +128,7 @@ var animate = {
                     animate.showEmailSendFinished();
                 },
                 error: function () {
-                    message.html("Sorry, there's been an error, please try again or directly email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                    message.html("Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
                     image.attr('src', 'images/error.png');
                     animate.showEmailSendFinished();
                 }
@@ -171,13 +170,11 @@ var animate = {
 
     hideMoreBtnMobile: function () {
         //If is touchscreen, the "+ More" button in works is always visible
-        {
             if (!!('ontouchstart' in window)) {
                 $(".info").addClass("work-button-mobile");
             } else {
                 $(".info").removeClass("work-button-mobile");
             }
-        }
     },
 
     typingEffect: function () {
@@ -191,35 +188,31 @@ var animate = {
 
         //todo: luego de animar el logo cuando cargas la pagina, que escriba el hello.
         theater.addActor('typing');
-        theater.addScene('typing:Hello.', 400);
+        theater.addScene('typing:Hello.', 300);
         
         //typing about
-        var s1 = new scrollMagic.Scene({triggerElement: "#about", duration: 200})
+        var s1 = new scrollMagic.Scene({triggerElement: "#about", duration: 200, offset: -100, reverse:false})
             .addTo(controller)
             .on("start", function (e) {
                 theater.addActor('about');
-                theater.addScene('about:About.', 900);
+                theater.addScene('about:About.', 500);
             });
-        s1.offset(-300);
 
         //typing work
-        var s2 = new scrollMagic.Scene({triggerElement: "#work", duration: 200})
+        var s2 = new scrollMagic.Scene({triggerElement: "#work", duration: 200, offset: -100, reverse:false})
             .addTo(controller)
             .on("start", function (e) {
                 theater.addActor('work');
-                theater.addScene('work:Work.', 900);
+                theater.addScene('work:Work.', 500);
             });
-        s2.offset(-300);
 
         //typing contact
-        var s3 = new scrollMagic.Scene({triggerElement: "#contact", duration: 200})
+        var s3 = new scrollMagic.Scene({triggerElement: "#contact", duration: 200, offset: -100, reverse:false})
             .addTo(controller)
             .on("start", function (e) {
-                theater.addActor('contact', {accuracy: 0.6});
-                theater.addScene('contact:Contact.', 900);
+                theater.addActor('contact', {accuracy: 0.3});
+                theater.addScene('contact:Contact.', 500);
             });
-        s3.offset(-300);
-
     }
 };
 

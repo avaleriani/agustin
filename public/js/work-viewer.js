@@ -1,4 +1,3 @@
-var $ = require("../node_modules/jquery");
 var workViewer = {
     originalTitle: document.title,
     container: document.documentElement,
@@ -15,8 +14,7 @@ var workViewer = {
         };
     },
 
-    activate: function (state) {
-        //todo: hacer que se cierre la ventana con un evento al apretar escape o fuera del cuadro.
+    activate: function () {
         document.addEventListener('keyup', workViewer.deactivateEscape, false);
         document.addEventListener('click', workViewer.deactivateOnClickOutside, false);
 
@@ -35,9 +33,9 @@ var workViewer = {
 
         workViewer.removeClass(workViewer.container, 'avgrund-active');
 
-        $("#avimg").html('');
-        $("#avtitle").html('');
-        $("#avtext").html('');
+        document.querySelector('#avimg').innerHTML = '';
+        document.querySelector('#avtitle').innerHTML = '';
+        document.querySelector('#avtext').innerHTML = '';
         document.title = workViewer.originalTitle;
     },
 
