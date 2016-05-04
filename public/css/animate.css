@@ -149,24 +149,28 @@
 }
 
 #text a {
-    color: #888a8b;;
+    color: #818baa;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 18px;
+    /* -webkit-font-smoothing: antialiased; */
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1;
 }
 
 .svg-wrapper:hover #shape {
     stroke-dasharray: 50 0;
     stroke-width: 3px;
     stroke-dashoffset: 0;
-    stroke: #c0dfd9; /* btn colors*/
+    stroke: #E3B673; /* btn colors*/
 }
 
 .active #shape {
     stroke-dasharray: 50 0;
     stroke-width: 3px;
     stroke-dashoffset: 0;
-    stroke: #c0dfd9; /* btn colors*/
+    stroke: #FFEFFF; /* btn colors*/
 }
 
 .ripple-effect {
@@ -195,7 +199,7 @@
     width: 270px;
     height: 180px;
     float: left;
-    border: 10px solid #fff;
+    /*order: 10px solid #FFEFFF; WHITE BORDER FOR WORK ITEMS */
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -203,8 +207,8 @@
     -moz-box-shadow: 1px 1px 2px #e6e6e6;
     box-shadow: 1px 1px 2px #e6e6e6;
     cursor: pointer;
-    background: #fff;
-    margin: 20px;
+    background: #e9ece5;
+    margin: 15px;
 }
 
 .view .mask, .view .content {
@@ -223,11 +227,14 @@
 
 .view h2 {
     text-transform: uppercase;
-    color: #fff;
+    color: #919193;
     text-align: center;
     position: relative;
     font-size: 17px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
     background: rgba(0, 0, 0, 0.8);
     margin: 20px 0 0 0;
 }
@@ -236,7 +243,7 @@
     min-height: 50px;
     font-size: 11px;
     position: relative;
-    color: #fff;
+    color: #e9ece5;
     padding: 0 5px 20px;
     text-align: center;
 }
@@ -246,7 +253,7 @@
     text-decoration: none;
     padding: 7px 14px;
     background: #000;
-    color: #fff;
+    color: #919193;
     text-transform: uppercase;
     -webkit-box-shadow: 0 0 1px #000;
     -moz-box-shadow: 0 0 1px #000;
@@ -264,7 +271,7 @@
 }
 
 .view-second .mask {
-    background-color: rgba(115, 146, 184, 0.7);
+    background-color: rgba(145, 145, 147, 0.9);
     width: 300px;
     padding: 60px;
     height: 300px;
@@ -274,7 +281,6 @@
 }
 
 .view-second h2 {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     background: transparent;
     margin: 20px 40px 0px 40px;
     transform: translate(200px, -200px);
@@ -284,6 +290,8 @@
 .view-second p {
     transform: translate(-200px, 200px);
     transition: all 0.2s ease-in-out;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
 }
 
 .view-second a.info {
@@ -324,6 +332,6 @@
     right: 45px;
     position: relative;
     font-size: 28px;
-    color: #ffffff;
+    color: #919193;
     top: 40px;
 }
