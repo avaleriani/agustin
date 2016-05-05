@@ -6,7 +6,6 @@ var workViewer = {
 
     init: function () {
         var that = this;
-        that.addClass(that.container, 'avgrund-ready');
         window.avgrund = {
             activate: that.activate,
             deactivate: that.deactivate,

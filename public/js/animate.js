@@ -100,6 +100,8 @@ var animate = {
     },
 
     emailSend: function () {
+        var successMsg = "Thanks! I'll be in touch shortly.";
+        var errorMsg = "Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
         var emailUrl = '/mail/sender.php';
         var message = $(".hidden-email-message");
         var image = $(".hidden-email-image");
@@ -118,17 +120,17 @@ var animate = {
                 data: data,
                 success: function (data) {
                     if (data.status == 'error') {
-                        message.html("Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                        message.html(errorMsg);
                         image.attr('src', 'images/error.png');
                     }
                     else {
-                        message.html("Thanks! I'll be in touch shortly.");
+                        message.html(successMsg);
                         image.attr('src', 'images/success.png');
                     }
                     animate.showEmailSendFinished();
                 },
                 error: function () {
-                    message.html("Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>");
+                    message.html(errorMsg);
                     image.attr('src', 'images/error.png');
                     animate.showEmailSendFinished();
                 }
@@ -157,12 +159,12 @@ var animate = {
             mouseenter: function () {
                 $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
                 $(this).find(".hexagon").css("background-color", "#000000");
-                $(this).find(".hexagon-icon-position").css("color", "#ffffff");
+                $(this).find(".hexagon-icon-position").css("color", "#E3B673");
             },
 
             mouseleave: function () {
                 $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-                $(this).find(".hexagon").css("background-color", "#ffffff");
+                $(this).find(".hexagon").css("background-color", "#E3B673");
                 $(this).find(".hexagon-icon-position").css("color", "#000000");
             }
         }, '.hexagon-wrapper');
@@ -170,49 +172,57 @@ var animate = {
 
     hideMoreBtnMobile: function () {
         //If is touchscreen, the "+ More" button in works is always visible
-            if (!!('ontouchstart' in window)) {
-                $(".info").addClass("work-button-mobile");
-            } else {
-                $(".info").removeClass("work-button-mobile");
-            }
+        if (!!('ontouchstart' in window)) {
+            $(".info").addClass("work-button-mobile");
+        } else {
+            $(".info").removeClass("work-button-mobile");
+        }
     },
 
     typingEffect: function () {
         var controller = new scrollMagic.Controller();
 
         var theater = theaterJS();
-        theater.on('type:start, erase:start', function(){
+        theater.on('type:start, erase:start', function () {
             var actor = theater.getCurrentActor();
             actor.$element.classList.add('is-typing');
         });
 
-        //todo: luego de animar el logo cuando cargas la pagina, que escriba el hello.
         theater.addActor('typing');
-        theater.addScene('typing:Hello.', 300);
-        
+        theater.addScene('typing:Hello', 200);
+
         //typing about
-        var s1 = new scrollMagic.Scene({triggerElement: "#about", duration: 200, offset: -100, reverse:false})
+        var s1 = new scrollMagic.Scene({triggerElement: "#about", duration: 200, offset: -150, reverse: false})
             .addTo(controller)
-            .on("start", function (e) {
+            .on("start", function () {
                 theater.addActor('about');
-                theater.addScene('about:About.', 500);
+                theater.addScene('about:About.', 300);
             });
 
         //typing work
-        var s2 = new scrollMagic.Scene({triggerElement: "#work", duration: 200, offset: -100, reverse:false})
+        var s2 = new scrollMagic.Scene({triggerElement: "#work", duration: 200, offset: -150, reverse: false})
             .addTo(controller)
-            .on("start", function (e) {
+            .on("start", function () {
                 theater.addActor('work');
-                theater.addScene('work:Work.', 500);
+                theater.addScene('work:Work.', 300);
             });
 
         //typing contact
-        var s3 = new scrollMagic.Scene({triggerElement: "#contact", duration: 200, offset: -100, reverse:false})
+        var s3 = new scrollMagic.Scene({triggerElement: "#contact", duration: 200, offset: -150, reverse: false})
             .addTo(controller)
-            .on("start", function (e) {
-                theater.addActor('contact', {accuracy: 0.3});
-                theater.addScene('contact:Contact.', 500);
+            .on("start", function () {
+                theater.addActor('contact', {accuracy: 0.4});
+                theater.addScene('contact:Contact.', 300);
             });
+    },
+
+    scrollArrow: function () {
+        $('.arrow-down').on('click', function (e) {
+            e.preventDefault();
+            return $("html,body").animate({
+                scrollTop: $("#page-about").offset().top
+            });
+        });
     }
 };
 

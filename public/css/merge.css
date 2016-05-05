@@ -15,7 +15,7 @@
     z-index: 1;
     visibility: hidden;
     opacity: 0;
-    background: rgba( 0, 0, 0, 0.5 );
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .avgrund-active .avgrund-cover {
@@ -55,7 +55,6 @@
     opacity: 0;
     z-index: 2;
     padding: 20px;
-
 
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);

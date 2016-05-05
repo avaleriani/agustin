@@ -4,16 +4,10 @@ var shufflejs = require("shufflejs");
 
 var app = {
     loadApplication: function () {
-        var touch = !!( 'ontouchstart' in document.documentElement || navigator.msMaxTouchPoints > 0 );
+        var touch = !!( 'ontouchstart' in document.documentElement || navigator.msMaxTouchPoints > 0 ); //the best I can do to dettect touchscreen
         $('.view').on('click', function (e) {
             e.preventDefault();
             return false;
-        });
-        $('.arrow-down').on('click', function (e) {
-            e.preventDefault();
-            return $("html,body").animate({
-                scrollTop: $("#page-work").offset().top
-            });
         });
         if (touch) {
             return FastClick.attach(document.body);
@@ -35,7 +29,7 @@ var app = {
             itemSelector: '.work-item',
             easing: 'ease-in-out',
             sizer: sizer,
-            speed:600
+            speed: 600
         });
         btns = filterContainer.children();
         return btns.on('click', function (e) {

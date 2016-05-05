@@ -8,9 +8,10 @@
 #454648 - dark grey
 */
 
-
 body {
     font-family: 'Roboto', Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: 3px;
 }
 
 img.inject-me {
@@ -148,6 +149,7 @@ a {
     text-align: center;
     background-color: #454648;
     color: #e9ece5;
+    background-image: url('../images/test.jpg');
 }
 
 #page-home .brand-logo #brand-logo {
@@ -167,17 +169,13 @@ a {
     transition: all 0.4s ease;
 }
 
-
-/*CIRCLE*/
-
 #page-home .brand-logo {
-    padding: 65px 0 170px 0;
+    padding: 65px 0 150px 0;
 }
 
 #page-home .brand-logo #circle {
     height: 240px;
 }
-
 
 #page-home .h-01 {
     color: #E3B673;
@@ -187,7 +185,7 @@ a {
 #page-home .copy-02 {
     color: #E3B673;
     margin-bottom: 180px;
-    padding: 0 240px;
+    padding-top: 90px;
 }
 
 #page-home #arrow-down {
@@ -305,7 +303,7 @@ a {
 }
 
 #page-about .h-01 {
-    margin: 104px 0 90px 0;
+    margin: 15px 0 90px 0;
 }
 
 #page-about .h-03 {
@@ -408,14 +406,14 @@ a {
 }
 
 #page-work .work-item figure {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
+    filter: sepia(100%);
+    -webkit-filter: sepia(100%);
+    -moz-filter: sepia(100%);
+    -ms-filter: sepia(100%);
+    -o-filter: sepia(100%);
 }
 
-#page-work .work-item figure:hover > img {
+#page-work .work-item figure:hover {
     filter: blur(15px);
     -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
@@ -547,7 +545,7 @@ a {
     position: absolute;
     top: 135px;
     left: 0;
-    background-color: #F;
+    background-color: #FFFEFF;
 }
 
 .hidden-email-title {
@@ -559,9 +557,12 @@ a {
     background-color: #454648;
 }
 
-.hidden-email-message{
+.hidden-email-message {
     line-height: 25px;
-font-size: 18px;
+    font-size: 18px;
+    max-width: 600px;
+    margin: auto;
+    padding-top: 65px;
 }
 
 .hidden-email-image {
@@ -810,11 +811,11 @@ font-size: 18px;
         margin-bottom: 10px;
         line-height: 12px;
     }
-}
 
-body {
-    -webkit-tap-highlight-color: transparent;
-    letter-spacing: 3px;
+    .hidden-email-image {
+        width: 125px;
+        padding-top: 130px;
+    }
 }
 
 /*CONTACT FORM*/
@@ -939,6 +940,10 @@ body {
 .hidden-email {
     opacity: 0;
     margin: auto;
+}
+
+.hidden {
+    display: none;
 }
 
 .drawed_line {

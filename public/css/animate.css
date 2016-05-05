@@ -328,10 +328,10 @@
 /* END WORK HOVER  */
 
 .handy {
-    display: block;
     right: 45px;
     position: relative;
     font-size: 28px;
     color: #919193;
     top: 40px;
+    display: none;
 }
