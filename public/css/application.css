@@ -156,7 +156,7 @@ a {
 
 #page-home .brand-logo #brand-logo * {
     position: relative;
-    fill: #e9ece5;
+    fill: #E3B673;
     -webkit-transform-origin: center top;
     -moz-transform-origin: center top;
     -ms-transform-origin: center top;
@@ -384,7 +384,7 @@ a {
 }
 
 #page-work .copy-03, #page-work .filter-link, #page-work #page-signup .form-result, #page-signup #page-work .form-result {
-    color: #818baa;
+    color: #E3B673;
 }
 
 #page-work .shuffle__sizer {
@@ -408,7 +408,6 @@ a {
 }
 
 #page-work .work-item figure {
-    background-color: #e9ece5; /*BORRAR??*/
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -416,12 +415,12 @@ a {
     -o-filter: grayscale(100%);
 }
 
-#page-work .work-item figure:hover {
-    filter: grayscale(0%);
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    -ms-filter: grayscale(0%);
-    -o-filter: grayscale(0%);
+#page-work .work-item figure:hover > img {
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -ms-filter: blur(15px);
+    -o-filter: blur(15px);
 }
 
 #page-work .work-item figure img {
@@ -537,7 +536,7 @@ a {
 }
 
 #page-contactform input, #page-contactform textarea, #page-contactform .heading {
-    color: #464b4f;
+    color: #919193;
 }
 
 #hidden-contactform {
@@ -548,7 +547,7 @@ a {
     position: absolute;
     top: 135px;
     left: 0;
-    background-color: #E3B673;
+    background-color: #F;
 }
 
 .hidden-email-title {
