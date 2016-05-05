@@ -80,7 +80,7 @@ a {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 30px;
+    font-size: 27px;
     color: #464b4f;
     line-height: 42px;
 }
@@ -298,7 +298,7 @@ a {
 
 #page-about .copy-01 {
     text-align: center;
-    margin-bottom: 42px;
+    margin-bottom: 25px;
     padding: 0 20px;
 }
 
