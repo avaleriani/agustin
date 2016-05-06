@@ -101,7 +101,7 @@ var animate = {
 
     emailSend: function () {
         var successMsg = "Thanks! I'll be in touch shortly.";
-        var errorMsg = "Sorry, there's been an error, please try again or email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
+        var errorMsg = "Sorry, there's been an error, please email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
         var emailUrl = '/mail/sender.php';
         var message = $(".hidden-email-message");
         var image = $(".hidden-email-image");
@@ -135,22 +135,6 @@ var animate = {
                     animate.showEmailSendFinished();
                 }
             });
-        });
-    },
-
-    workModalClick: function () {
-        $(".project-box").click(function (e) {
-            e.preventDefault();
-
-            $('<img src="' + $(this).attr("data-largesrc") + '">').appendTo("#avimg");
-
-            $("#avtitle").html($(this).attr("data-title"));
-            $("#avtext").html($(this).attr("data-description"));
-
-            $("#avpopup").center();
-            window.avgrund.activate();
-
-            return false;
         });
     },
 

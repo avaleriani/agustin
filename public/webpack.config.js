@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     cache: true,
     debug: true,
-    devtool: 'source-map', //eval for dev
+    devtool: 'eval',//'source-map', //eval for dev
     entry: './js/init.js',
     output: {
         path: Path.join(__dirname, "build"),

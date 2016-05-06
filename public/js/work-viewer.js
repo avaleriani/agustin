@@ -1,58 +1,37 @@
 var workViewer = {
-    overlay: document.querySelector('div.overlay'),
-    closeBttn: overlay.querySelector('button.overlay-close'),
-    transEndEventNames: {
-        'WebkitTransition': 'webkitTransitionEnd',
-        'MozTransition': 'transitionend',
-        'OTransition': 'oTransitionEnd',
-        'msTransition': 'MSTransitionEnd',
-        'transition': 'transitionend'
-    },
-    transEndEventName: transEndEventNames[Modernizr.prefixed('transition')],
-    support: {transitions: Modernizr.csstransitions},
 
     init: function () {
-        var thath = this;
-        window.avgrund = {
-            activate: that.activate,
-            deactivate: that.deactivate
-        };
+       var elements =  document.querySelectorAll('.work-item');
 
-    },
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', workViewer.activate, false);
+        }
 
-    activate: function () {
-        document.addEventListener('keyup', workViewer.deactivateEscape, false);
-        this.overlay.classList.add('open');
-    },
+        var elem2 =  document.querySelectorAll('.overlay-close');
 
-    deactivate: function () {
-        var that = this;
-        document.removeEventListener('keyup', workViewer.deactivateEscape, false);
-
-        if (this.overlay.classList.contains('open')) {
-
-            this.overlay.classList.remove('open');
-            this.overlay.classList.add('close');
-            var onEndTransitionFn = function (ev) {
-                if (that.support.transitions) {
-                    if (ev.propertyName !== 'visibility') return;
-                    this.removeEventListener(that.transEndEventName, onEndTransitionFn);
-                }
-                that.overlay.classList.remove('close');
-            };
-            if (this.support.transitions) {
-                that.overlay.addEventListener(that.transEndEventName, onEndTransitionFn);
-            }
-            else {
-                onEndTransitionFn();
-            }
+        for (i = 0; i < elem2.length; i++) {
+           // elem2[i].addEventListener('click', workViewer.deactivate(elements[i].nextElementSibling), false);
+            elem2[i].addEventListener('click', workViewer.deactivate, false);
         }
     },
 
-    deactivateEscape: function (e) {
+    activate: function () {
+        var currElem = this.nextElementSibling;
+        if(!currElem.classList.contains('open')){//if it's closed
+            document.addEventListener('keyup', workViewer.deactivateWithEscape, false);
+            currElem.classList.add('open');
+        }
+    },
+
+    deactivate: function () {
+        this.parentElement.classList.remove('open');
+    },
+
+    deactivateWithEscape: function (e) {
         var code = e.keyCode || e.which;
         if (code === 27) {
-            workViewer.deactivate();
+            var elems = document.querySelector(".open");
+            elems.classList.remove('open');
         }
     }
 };

@@ -1,6 +1,6 @@
 //var linesDrawer = require('../js/lines-drawer.js');
 var app = require('../js/application.js');
-var scrollAnimation = require('../js/scroll/animation.js'); //todo: hacer
+var scrollAnimation = require('../js/scroll-animation.js'); //todo: hacer
 var workViewer = require('../js/work-viewer.js');
 var animate = require('../js/animate.js');
 var fastClick = require('fastclick');
@@ -20,9 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //linesDrawer.mouseCoordenatesOnTitle();
     }
     app.worksFilter();
-    app.worksFilter();
     animate.typingEffect();
-    animate.workModalClick();
     animate.hideMoreBtnMobile();
     animate.inputAnimation();
     animate.rippleEffect();
