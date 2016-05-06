@@ -8,20 +8,21 @@ var theaterJS = require("theaterjs");
 
 var animate = {
     inputAnimation: function () {
-        $('.form-control').focusin(function () {
+        var that = this;
+            $('.form-control').focusin(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
                 obj.velocity({y: '15px', opacity: 1}, 500, 'out');
                 obj.next().velocity({y: '0px'}, 500, 'in');
             }
-            obj.next().toggle();
+                that.visibilityToggle(obj.next());
         }).focusout(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
                 obj.velocity({y: '0px', opacity: 0}, 500, 'in');
                 obj.next().velocity({y: '15px'}, 500, 'out');
             }
-            obj.next().toggle();
+                that.visibilityToggle(obj.next());
         });
 
         $.support.placeholder = (function () {
@@ -62,6 +63,15 @@ var animate = {
             });
         }
     },
+
+    visibilityToggle: function(obj){
+
+if ( obj.css('visibility') == 'hidden' ){
+    obj.css('visibility','visible');     
+}else{
+    obj.css('visibility','hidden');
+}
+},
 
     rippleEffect: function () {
         $('.svg-wrapper').on('click', function (event) {

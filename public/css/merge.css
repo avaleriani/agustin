@@ -41,6 +41,7 @@
     overflow: hidden;
     right: 10px;
     top: 10px;
+    cursor:pointer;
 }
 
 .overlay-close:hover::before, .overlay-close:hover::after {
