@@ -1,0 +1,348 @@
+@import url(http://weloveiconfonts.com/api/?family=iconicfill);
+
+.img-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+/* iconicfill */
+
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+}
+
+.wrap-label {
+  min-height: 30px;
+}
+
+.iconicfill-pen-alt2 {
+  font-size: 26px;
+  float: left;
+  color: #ccc;
+  visibility: hidden;
+  margin-left: 5%;
+}
+
+/* ==== Pen animation ==== */
+
+.move-pen {
+  animation: move-pen 1s ease-in infinite alternate;
+}
+
+@keyframes move-pen {
+  from {
+    transform: translateX(-4px) rotate(6deg);
+  }
+
+  to {
+    transform: translateX(4px) rotate(-3deg);
+  }
+}
+
+/*fade effect for placeholder*/
+
+/* Place Holder CSS */
+
+::-webkit-input-placeholder {
+  opacity: 0.5;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:-moz-placeholder {
+  opacity: 0.5;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+::-moz-placeholder {
+  opacity: 0.5;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:-ms-input-placeholder {
+  opacity: 0.5;
+  -ms-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+/* Place Holder CSS for Focus */
+
+:hover::-webkit-input-placeholder {
+  opacity: 0.75;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:hover:-moz-placeholder {
+  opacity: 0.75;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:hover::-moz-placeholder {
+  opacity: 0.75;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:hover:-ms-input-placeholder {
+  opacity: 0.75;
+  -ms-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+/* Place Holder CSS for Focus */
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:focus:-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:focus::-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+:focus:-ms-input-placeholder {
+  opacity: 0;
+  -ms-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+
+/*btn send*/
+
+.spot {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.svg-wrapper {
+  margin-top: 40px;
+  position: relative;
+  width: 150px;
+  /*make sure to use same height/width as in the html*/
+  height: 40px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#shape {
+  stroke-width: 4px;
+  fill: transparent;
+  stroke: #ccc;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -220;
+  transition: 1.5s all ease;
+}
+
+#text {
+  margin-top: -35px;
+  text-align: center;
+}
+
+#text a {
+  color: #818baa;
+  text-decoration: none;
+  /* -webkit-font-smoothing: antialiased; */
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.svg-wrapper:hover #shape {
+  stroke-dasharray: 50 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #E3B673;
+  /* btn colors*/
+}
+
+.active #shape {
+  stroke-dasharray: 50 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #FFEFFF;
+  /* btn colors*/
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #cccccc;
+  animation: ripple-animation 2s;
+}
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: scale(100);
+    opacity: 0;
+  }
+}
+
+/* WORK HOVER  */
+
+.view {
+  width: 270px;
+  height: 180px;
+  float: left;
+  /*order: 10px solid #FFEFFF; WHITE BORDER FOR WORK ITEMS */
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+  -moz-box-shadow: 1px 1px 2px #e6e6e6;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: pointer;
+  background: #e9ece5;
+  margin: 15px;
+}
+
+.view .mask,.view .content {
+  width: 270px;
+  height: 180px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.view img {
+  display: block;
+  position: relative;
+}
+
+.view h2 {
+  text-transform: uppercase;
+  color: #919193;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 20px 0 0 0;
+}
+
+.view p {
+  min-height: 50px;
+  font-size: 11px;
+  position: relative;
+  color: #e9ece5;
+  padding: 0 5px 5px;
+  text-align: center;
+}
+
+.view a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #000;
+  color: #919193;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0 0 1px #000;
+  -moz-box-shadow: 0 0 1px #000;
+  box-shadow: 0 0 1px #000;
+}
+
+.view a.info:hover {
+  -webkit-box-shadow: 0 0 5px #000;
+  -moz-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
+}
+
+.view-second img {
+  transition: all 0.2s ease-in;
+}
+
+.view-second .mask {
+  background-color: rgba(145, 145, 147, 0.9);
+  width: 300px;
+  padding: 60px;
+  height: 300px;
+  opacity: 0;
+  transform: translate(265px, 145px) rotate(45deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.view-second h2 {
+  background: transparent;
+  margin: 20px 40px 0px 40px;
+  transform: translate(200px, -200px);
+  transition: all 0.2s ease-in-out;
+}
+
+.view-second p {
+  transform: translate(-200px, 200px);
+  transition: all 0.2s ease-in-out;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 10px;
+}
+
+.view-second a.info {
+  transform: translate(0px, 100px);
+  transition: all 0.2s 0.1s ease-in-out;
+}
+
+.view-second:hover .mask {
+  opacity: 1;
+  transform: translate(-80px, -125px) rotate(45deg);
+}
+
+.view-second:hover h2 {
+  transform: translate(0px, 0px);
+  transition-delay: 0.3s;
+}
+
+.view-second:hover p {
+  transform: translate(0px, 0px);
+  transition-delay: 0.4s;
+}
+
+.view-second:hover a.info {
+  transform: translate(0px, 0px);
+  transition-delay: 0.5s;
+}
+
+.work-button-mobile {
+  transform: translate(0px, 0px);
+  transition-delay: 0.5s;
+  opacity: 0.7;
+}
+
+/* END WORK HOVER  */
+
+.handy {
+  right: 45px;
+  position: relative;
+  font-size: 28px;
+  color: #919193;
+  top: 40px;
+  display: none;
+}
