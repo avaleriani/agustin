@@ -1,5 +1,10 @@
 @import url(http://weloveiconfonts.com/api/?family=iconicfill);
 
+.img-responsive {
+    width: 100%;
+    height: 100%;
+}
+
 /* iconicfill */
 
 [class*="iconicfill-"]:before {
@@ -244,7 +249,7 @@
     font-size: 11px;
     position: relative;
     color: #e9ece5;
-    padding: 0 5px 20px;
+    padding: 0 5px 5px;
     text-align: center;
 }
 

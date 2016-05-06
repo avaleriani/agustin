@@ -14,14 +14,14 @@ var animate = {
                 obj.velocity({y: '15px', opacity: 1}, 500, 'out');
                 obj.next().velocity({y: '0px'}, 500, 'in');
             }
-            obj.next().visibilityToggle();
+            obj.next().toggle();
         }).focusout(function () {
             var obj = $(this).parent().find('.pencil-name');
             if ($(this).val() == '') {
                 obj.velocity({y: '0px', opacity: 0}, 500, 'in');
                 obj.next().velocity({y: '15px'}, 500, 'out');
             }
-            obj.next().visibilityToggle();
+            obj.next().toggle();
         });
 
         $.support.placeholder = (function () {
