@@ -10,7 +10,6 @@ var workViewer = {
         var elem2 =  document.querySelectorAll('.overlay-close');
 
         for (i = 0; i < elem2.length; i++) {
-           // elem2[i].addEventListener('click', workViewer.deactivate(elements[i].nextElementSibling), false);
             elem2[i].addEventListener('click', workViewer.deactivate, false);
         }
     },
@@ -20,11 +19,13 @@ var workViewer = {
         if(!currElem.classList.contains('open')){//if it's closed
             document.addEventListener('keyup', workViewer.deactivateWithEscape, false);
             currElem.classList.add('open');
+            currElem.querySelector("overlay-title").classList.add('overlay-title-effect');
         }
     },
 
     deactivate: function () {
         this.parentElement.classList.remove('open');
+        document.getElementsByClassName("overlay-title").classList.remove('overlay-title-effect');
     },
 
     deactivateWithEscape: function (e) {
@@ -32,6 +33,7 @@ var workViewer = {
         if (code === 27) {
             var elems = document.querySelector(".open");
             elems.classList.remove('open');
+            elems.querySelector("overlay-title").classList.remove('overlay-title-effect');
         }
     }
 };

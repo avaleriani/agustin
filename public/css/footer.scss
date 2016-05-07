@@ -1,0 +1,40 @@
+
+#page-footer {
+  background: #454648;
+  text-align: center;
+  padding-bottom: 35px;
+  h2 {
+    color: #888a8b;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .social-links {
+    display: inline-block;
+    margin: 90px 0;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    svg {
+      height: 50px;
+      width: 50px;
+      * {
+        fill: #dbdbdb;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+    }
+    #icon-twitter:hover * {
+      fill: #00b0f0;
+    }
+    #icon-instagram:hover * {
+      fill: #30648e;
+    }
+  }
+  .copy-02 {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,120 @@
+
+.view {
+  width: 270px;
+  height: 180px;
+  float: left;
+  /*order: 10px solid #FFEFFF; WHITE BORDER FOR WORK ITEMS */
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+  -moz-box-shadow: 1px 1px 2px #e6e6e6;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: pointer;
+  background: #e9ece5;
+  margin: 15px;
+  .mask, .content {
+    width: 270px;
+    height: 180px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+  img {
+    display: block;
+    position: relative;
+  }
+  h2 {
+    text-transform: uppercase;
+    color: #919193;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0;
+  }
+  p {
+    min-height: 50px;
+    font-size: 11px;
+    position: relative;
+    color: #e9ece5;
+    padding: 0 5px 5px;
+    text-align: center;
+  }
+  a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #919193;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 0 1px #000;
+    -moz-box-shadow: 0 0 1px #000;
+    box-shadow: 0 0 1px #000;
+    &:hover {
+      -webkit-box-shadow: 0 0 5px #000;
+      -moz-box-shadow: 0 0 5px #000;
+      box-shadow: 0 0 5px #000;
+    }
+  }
+}
+
+.view-second {
+  img {
+    transition: all 0.2s ease-in;
+  }
+  .mask {
+    background-color: rgba(145, 145, 147, 0.9);
+    width: 300px;
+    padding: 60px;
+    height: 300px;
+    opacity: 0;
+    transform: translate(265px, 145px) rotate(45deg);
+    transition: all 0.2s ease-in-out;
+  }
+  h2 {
+    background: transparent;
+    margin: 20px 40px 0px 40px;
+    transform: translate(200px, -200px);
+    transition: all 0.2s ease-in-out;
+  }
+  p {
+    transform: translate(-200px, 200px);
+    transition: all 0.2s ease-in-out;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+  }
+  a.info {
+    transform: translate(0px, 100px);
+    transition: all 0.2s 0.1s ease-in-out;
+  }
+  &:hover {
+    .mask {
+      opacity: 1;
+      transform: translate(-80px, -125px) rotate(45deg);
+    }
+    h2 {
+      transform: translate(0px, 0px);
+      transition-delay: 0.3s;
+    }
+    p {
+      transform: translate(0px, 0px);
+      transition-delay: 0.4s;
+    }
+    a.info {
+      transform: translate(0px, 0px);
+      transition-delay: 0.5s;
+    }
+  }
+}
+
+.work-button-mobile {
+  transform: translate(0px, 0px);
+  transition-delay: 0.5s;
+  opacity: 0.7;
+}

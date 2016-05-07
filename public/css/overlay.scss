@@ -1,0 +1,147 @@
+/* Overlay style */
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(227, 182, 115, 0.9);
+  z-index: 99;
+}
+
+.overlay-container {
+  margin-top: 150px;
+  background-color: #ffffff;
+  padding-left: 30px;
+  padding-right: 30px;
+  min-height: 550px;
+}
+
+.overlay-title {
+  font-size: 23px;
+  display: inline-block;
+  padding: 15px 20px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.overlay-title-effect:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  width: 100%;
+  left: 0;
+}
+
+.overlay-description {
+  max-width: 60%;
+  float: left;
+}
+
+.overlay-imagecontainer {
+  max-width: 40%;
+  float: right;
+}
+
+/* Overlay closing cross */
+
+.overlay-close {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  &:hover {
+    &::before, &::after {
+      background: #919193;
+    }
+  }
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #000;
+  }
+  &::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  &::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+/* Effects */
+
+.overlay-door {
+  visibility: hidden;
+  width: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: width 0.5s 0.3s, visibility 0s 0.8s;
+  transition: width 0.5s 0.3s, visibility 0s 0.8s;
+  &.open {
+    visibility: visible;
+    width: 100%;
+    -webkit-transition: width 0.5s;
+    transition: width 0.5s;
+  }
+  nav {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0;
+    -webkit-transition: opacity 0.3s 0.5s;
+    transition: opacity 0.3s 0.5s;
+  }
+  .overlay-close {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s 0.5s;
+    transition: opacity 0.3s 0.5s;
+  }
+  &.open {
+    nav, .overlay-close {
+      opacity: 1;
+      -webkit-transition-delay: 0.5s;
+      transition-delay: 0.5s;
+    }
+  }
+  &.close {
+    nav, .overlay-close {
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+  }
+}
+
+@media screen and (max-height: 30.5em) {
+  .overlay nav {
+    height: 70%;
+    font-size: 34px;
+  }
+}
+

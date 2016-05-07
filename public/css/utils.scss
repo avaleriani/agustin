@@ -1,0 +1,68 @@
+/* COLORS */
+
+$colorGrey: #919193;
+$colorWhite: #FFFEFF;
+$colorOrange: #E3B673;
+$colorDarkGrey: #454648;
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+img.inject-me {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.img-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+.handy { /*todo: en deshuso, ver si no hay que borrarlo o agrego la animacion*/
+  right: 45px;
+  position: relative;
+  font-size: 28px;
+  color: #919193;
+  top: 40px;
+  display: none;
+}
+
+/* RESPONSIVE MIXINS */
+
+$smartphone: 480px;
+$tabletPortrait: 767px;
+$tabletLandscape: 1024px;
+$desktop: 1174px;
+$largeScreen: 1400px;
+@mixin respondTo($media) {
+  @if $media == smartphone {
+    @media (max-width: $smartphone) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+      @content;
+    }
+  } @else if $media == smallScreen {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}

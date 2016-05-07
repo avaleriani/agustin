@@ -1,0 +1,50 @@
+
+#contact-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+#message {
+  resize: none;
+  height: 150px !important;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #888a8b;
+  padding-top: 5px;
+  display: block;
+  opacity: 1;
+  -webkit-transition: .333s ease top, .333s ease opacity;
+  transition: .333s ease top, .333s ease opacity;
+}
+
+.form-control {
+  outline: none !important;
+  border-radius: 0;
+  border-color: #ccc;
+  border-width: 0 0 2px 0;
+  border-style: none none solid none;
+  box-shadow: none;
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  background-color: transparent;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+  &:focus {
+    box-shadow: none;
+    border-color: #E3B673;
+  }
+}
+
+.js-hide-label {
+  opacity: 0;
+}
+
+.hidden-email {
+  opacity: 0;
+  margin: auto;
+}

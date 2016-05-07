@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'pe-icon-social';
+  src: url('fonts/pe-icon-social.eot?-96eskg');
+  src: url('fonts/pe-icon-social.eot?#iefix-96eskg') format("embedded-opentype"), url('fonts/pe-icon-social.woff?-96eskg') format("woff"), url('fonts/pe-icon-social.ttf?-96eskg') format("truetype"), url('fonts/pe-icon-social.svg?-96eskg#pe-icon-social') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="pe-so-"], [class*=" pe-so-"] {
+  left: 1px;
+  display: inline-block;
+  font-family: 'pe-icon-social';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pe-so-facebook:before {
+  content: "\e617";
+}
+
+.pe-so-github:before {
+  content: "\e61e";
+}
+
+.pe-so-google-plus:before {
+  content: "\e620";
+}
+
+.pe-so-instagram:before {
+  content: "\e626";
+}
+
+.pe-so-linkedin:before {
+  content: "\e62c";
+}
+
+.pe-so-stack-overflow:before {
+  content: "\e649";
+}
+
+.pe-so-twitter:before {
+  content: "\e651";
+}
+
+.pe-so-wikipedia:before {
+  content: "\e659";
+}
