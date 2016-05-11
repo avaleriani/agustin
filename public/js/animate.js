@@ -102,10 +102,6 @@ if ( obj.css('visibility') == 'hidden' ){
     },
 
     showEmailSendFinished: function () {
-        $("#hidden-contactform").css("display", "block").velocity({height: "650px"}, {
-            duration: 2500,
-            easing: "easeOutExpo"
-        });
         $(".hidden-text-success").velocity({opacity: "1"}, {duration: 1500, easing: "easeOutExpo"});
     },
 
@@ -118,6 +114,10 @@ if ( obj.css('visibility') == 'hidden' ){
 
         $('#btn-send').on('click', function (e) {
             e.preventDefault();
+            $("#hidden-contactform").css("display", "block").velocity({height: "650px"}, {
+                duration: 1500,
+                easing: "easeOutExpo"
+            });
             var data = {
                 name: $("#name").val(),
                 email: $("#email").val(),
