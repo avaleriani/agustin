@@ -25,7 +25,7 @@ var workViewer = {
 
     deactivate: function () {
         this.parentElement.classList.remove('open');
-        document.getElementsByClassName("overlay-title").classList.remove('overlay-title-effect');
+        this.getElementsByClassName("overlay-title").classList.remove('overlay-title-effect');
     },
 
     deactivateWithEscape: function (e) {

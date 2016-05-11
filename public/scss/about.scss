@@ -6,22 +6,37 @@
     padding: 0 20px;
   }
   .h-01 {
+    @include respondTo(smartphone){
+      margin: 40px 0 40px 0;
+    }
+    @include respondTo(tablet){
     margin: 15px 0 90px 0;
+    }
     padding-top: 35px;
     text-align: center;
   }
   .h-03 {
-    margin-bottom: 18px;
+    @include respondTo(smartphone){
+      margin-bottom: 10px;
+    }
+    @include respondTo(tablet){
+   margin-bottom: 18px;
+    }
     text-align: center;
   }
   .columns {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+    @include respondTo(smartphone){
+      display: block;
+    }
+    @include respondTo(tablet){
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
     -webkit-box-align: stretch;
     -moz-box-align: stretch;
     box-align: stretch;
@@ -51,16 +66,28 @@
     margin-right: 50px;
   }
   aside {
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 285px;
-    float: left;
-    margin-right: 20px;
+   @include respondTo(smartphone){
+      float: none;
+      width: 100%;
+      padding: 0 20px;
+      margin: 0 0 30px 0;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+   }
+    @include respondTo(tablet){
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 285px;
+      float: left;
+      margin-right: 20px;
+    }
     &:last-child {
       margin: 0;
     }

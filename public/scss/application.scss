@@ -1,4 +1,3 @@
-
 .site-inner {
   position: relative;
   margin-left: auto;
@@ -102,128 +101,13 @@
 }
 
 .section {
-  padding: 75px 0;
+  padding: 65px 0;
   .h-01 {
     text-align: center;
   }
 }
 
-#work-grid {
-  max-width: 900px;
-  @include respondTo(smartphone){
-    max-width: 300px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .site-inner {
-    width: 47.9375em;
-  }
-  #page-home .copy-02 {
-    padding: 0 140px;
-  }
-  #page-about .columns {
-    padding: 0 40px;
-  }
-  #page-work {
-    overflow: hidden;
-  }
-  #work-grid {
-    left: 50%;
-    margin-left: -310px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  #page-container {
-    overflow: hidden;
-  }
-  .section {
-    padding: 50px 0;
-  }
-  .site-inner {
-    width: 100%;
-  }
-  .h-01 {
-    font-size: 36px !important;
-  }
-  #page-home {
-    .h-01 {
-      margin-bottom: 20px;
-    }
-    .copy-02 {
-      padding: 0 40px;
-      margin-bottom: 30px;
-    }
-  }
-  #page-about {
-    .h-01 {
-      margin: 40px 0 40px 0;
-    }
-    .h-03 {
-      margin-bottom: 10px;
-    }
-    .copy-01 {
-      font-size: 18px;
-      line-height: 24px;
-    }
-    .copy-02 {
-      line-height: 24px;
-    }
-    .columns {
-      display: block;
-    }
-    aside {
-      float: none;
-      width: 100%;
-      padding: 0 20px;
-      margin: 0 0 30px 0;
-      text-align: center;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-  }
-  #page-work {
-    .h-01 {
-      margin-bottom: 20px;
-    }
-    #work-filter {
-      display: none;
-    }
-    .button {
-      margin-top: 0;
-    }
-  }
-  #page-contactform {
-    .h-01 {
-      margin: 0 0 40px 0;
-    }
-    .copy-01 {
-      font-size: 18px;
-      line-height: 24px;
-      padding: 0 20px;
-    }
-    .button {
-      margin-top: 40px;
-    }
-  }
-  #page-footer {
-    .social-links {
-      margin: 40px 0;
-    }
-    .copy-02 {
-      margin-bottom: 10px;
-      line-height: 12px;
-    }
-  }
-  .hidden-email-image {
-    width: 125px;
-    padding-top: 130px;
-  }
-}
-
-
-.hidden {
-  display: none;
+.grid-box {
+  margin: auto;
+  max-width: 87%;
 }
