@@ -1,5 +1,11 @@
 
 .view {
+  @include respondTo(smartphone){
+    margin: 7%;
+  }
+  @include respondTo(smallScreen){
+    margin: 15px;
+  }
   width: 270px;
   height: 180px;
   float: left;
@@ -12,7 +18,6 @@
   box-shadow: 1px 1px 2px #e6e6e6;
   cursor: pointer;
   background: #e9ece5;
-  margin: 15px;
   .mask, .content {
     width: 270px;
     height: 180px;
