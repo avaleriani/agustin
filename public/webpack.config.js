@@ -7,8 +7,8 @@ module.exports = {
     modules: true,
     reasons: true,
     errorDetails: false,
-    devtool: 'eval',
-    //devtool: 'source-map', //eval for dev
+    //devtool: 'eval',
+    devtool: 'source-map', //eval for dev
     entry: './js/init.js',
     output: {
         path: Path.join(__dirname, "build"),
@@ -22,12 +22,16 @@ module.exports = {
     module:{
         loaders:[
             { test: /\.(png|jpg|jpeg|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000000' },
-            {test: /\.scss$/,loader: "style!css?url=false!sass"}
+            { test: /\.scss$/,loader: "style!css?url=false!sass" }
         ]
     },
     plugins:[
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            children: true,
+            async: true
         })
     ]
 };
