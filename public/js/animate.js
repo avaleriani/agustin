@@ -112,7 +112,7 @@ if ( obj.css('visibility') == 'hidden' ){
     emailSend: function () {
         var successMsg = "Thanks! I'll be in touch shortly.";
         var errorMsg = "Sorry, there's been an error, please email me at <a href='#'mailto='hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
-        var emailUrl = '/mail/sender.php';
+        var emailUrl = '../../mail/sender.php';
         var message = $(".hidden-email-message");
         var image = $(".hidden-email-image");
 
