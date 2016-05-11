@@ -63,67 +63,7 @@ Hope you like it :)
           content="http://www.agustinvaleriani.com/images/favicon/mstile-310x150.png"/>
     <meta name="msapplication-square310x310logo"
           content="http://www.agustinvaleriani.com/images/favicon/mstile-310x310.png"/>
-
-
-    <style>
-        .hidden{
-            display:none;
-        }
-
-        .la-anim-5 {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 12px;
-            background: #E3B673;
-            -webkit-transform: translate3d(-103%, 0, 0);
-            transform: translate3d(-103%, 0, 0);
-            pointer-events: none;
-        }
-
-        .la-anim-5::before,
-        .la-anim-5::after {
-            position: absolute;
-            content: '';
-        }
-
-        .la-anim-5::before {
-            bottom: 100%;
-            left: -10%;
-            width: 110%;
-            height: 6px;
-            background: #fb738f;
-            -webkit-transform: skew(-45deg);
-            transform: skew(-45deg);
-            -webkit-transform-origin: 0 100%;
-            transform-origin: 0 100%;
-        }
-
-        .la-anim-5::after {
-            top: 0;
-            left: 100%;
-            width: 6px;
-            height: 100%;
-            background: #d23d5b;
-            -webkit-transform: skew(0,-45deg);
-            transform: skew(0,-45deg);
-            -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        .la-anim-5.la-animate {
-            bottom: -20px;
-            z-index: 100;
-            -webkit-transition: -webkit-transform 5s ease-in, bottom 0.3s 5.7s;
-            transition: transform 5s ease-in, bottom 0.3s 5.7s;
-            -webkit-transform: translate3d(0%, 0, 0);
-            transform: translate3d(0%, 0, 0);
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
 </head>
 <body>
 <div id="loader" class="la-anim-5"></div>
@@ -276,7 +216,7 @@ Hope you like it :)
                     <div class="overlay-container">
                         <div class="overlay-title">Colecta Techo 2015</div>
                         <div class="overlay-imagecontainer">
-                            <img src="images/work/tb/main.png" class="img-responsive" alt="project-img">
+                            <img src="images/work/techo/techo.jpg" class="img-responsive" alt="project-img">
                         </div>
                         <div class="overlay-description">
                             <p>
@@ -296,9 +236,17 @@ Hope you like it :)
                                 Technologies i've used for this project:
                             </div>
                             <div class="overlay-icons">
-                                <span>icon1</span>
-                                <span>icon2</span>
-                                <span>icon3</span>
+                                <!--todo:: reemplazar estos devicons por sus respectivos svg de la pagina-->
+                                <i class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
+                                <i class="devicon-css3-plain icon-skill"></i>
+                                <i class="devicon-git-plain colored icon-skill"></i>
+                                <i class="devicon-html5-plain-wordmark colored icon-skill"></i>
+                                <i class="devicon-javascript-plain colored icon-skill"></i>
+                                <i class="devicon-jquery-plain colored icon-skill"></i>
+                                <i class="devicon-mysql-plain-wordmark colored icon-skill"></i>
+                                <i class="devicon-php-plain colored icon-skill"></i>
+                                <i class="devicon-phpstorm-plain colored icon-skill"></i>
+                                <i class="devicon-trello-plain-wordmark icon-skill"></i>
                             </div>
                         </div>
 

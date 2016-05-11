@@ -13,20 +13,13 @@
     "url": "http://agustinvaleriani.com"
   },
   "homepage": "http://agustinvaleriani.com",
-  "dependencies": {
-    "extract-text-webpack-plugin": "^1.0.1",
-    "jquery": "^2.2.2",
-    "shortid": "^2.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "fastclick": "^1.0.6",
     "file-loader": "^0.8.5",
     "jquery": "^2.2.2",
     "node-sass": "^3.7.0",
-    "nprogress": "^0.2.0",
-    "pace-progress": "^1.0.2",
     "sass-loader": "^3.2.0",
     "scrollmagic": "^2.0.5",
     "shortid": "^2.2.4",

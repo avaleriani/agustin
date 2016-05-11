@@ -52,7 +52,20 @@
 .overlay-imagecontainer {
   max-width: 40%;
   float: right;
+  opacity: 0;
 }
+
+
+.overlay-icons{
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+}
+.icon-skill{
+  font-size: 45px;
+}
+
 
 /* Overlay closing cross */
 
@@ -112,7 +125,7 @@
     -webkit-transition: width 0.5s;
     transition: width 0.5s;
   }
-  &.open .overlay-description, &.open .overlay-title{
+  &.open .overlay-description, &.open .overlay-title, &.open .overlay-imagecontainer{
     opacity: 1;
     transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
