@@ -11,7 +11,7 @@
 }
 
 .overlay-container {
-  margin-top: 150px;
+  margin-top: 7%;
   background-color: #FFFEFF;
   padding-left: 10%;
   padding-right: 10%;
@@ -23,9 +23,20 @@
   font-size: 23px;
   display: inline-block;
   padding: 15px 20px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   position: relative;
   opacity: 0;
+
+  &::after{
+    content:'';
+    display:inline-block;
+    vertical-align:top;
+    opacity:.5;
+    width:0;
+    height:2px;
+    background:$colorOrange;
+    transition:0.7s ease;
+  }
 }
 
 .overlay-title-effect:after {
@@ -131,6 +142,17 @@
     transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -webkit-transition: opacity 1s ease-in-out;
+  }
+  &.open .overlay-title{
+    color:#000;
+    animation:1.5s 0.7s float infinite ease;
+
+    &::after{
+      width:100%;
+      opacity:1;
+      transition-delay:2s;
+      -webkit-transition-delay: 2s;
+    }
   }
   nav {
     position: absolute;
