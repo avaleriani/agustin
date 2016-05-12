@@ -29,4 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
     animate.hexagonRotate();
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
+
+    setTimeout(function(){
+        document.getElementById("page-container").classList.remove("hidden");
+        document.getElementById("loader").classList.remove("la-animate");
+    }, 1000);
 });

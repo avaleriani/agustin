@@ -64,6 +64,8 @@ Hope you like it :)
     <meta name="msapplication-square310x310logo"
           content="http://www.agustinvaleriani.com/images/favicon/mstile-310x310.png"/>
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+
 </head>
 <body>
 <div id="loader" class="la-anim-5"></div>
@@ -558,17 +560,8 @@ Hope you like it :)
 
     <div id="lines-container"></div>
 
+    <script type="text/javascript">document.getElementById("loader").classList.add("la-animate");</script>
     <script src="build/js/build.min.js"></script>
-    <script type="text/javascript">
-        //todo: implement loader and bottom loading bar
-        document.getElementById("loader").classList.add("la-animate");
-        setTimeout(function () {
-               //     document.getElementById("page-container").classList.remove("hidden");
-                    document.getElementById("loader").classList.remove("la-animate");
-                }, 300
-        );
-    </script>
-
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
