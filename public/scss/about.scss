@@ -16,19 +16,19 @@
     text-align: center;
   }
   .h-03 {
-    @include respondTo(smartphone){
+    @include respondTo(mobile){
       margin-bottom: 10px;
     }
-    @include respondTo(tablet){
+    @include respondTo(screen){
    margin-bottom: 18px;
     }
     text-align: center;
   }
   .columns {
-    @include respondTo(smartphone){
+    @include respondTo(mobile){
       display: block;
     }
-    @include respondTo(tablet){
+    @include respondTo(screen){
       display: -webkit-box;
       display: -moz-box;
       display: box;
@@ -66,17 +66,16 @@
     margin-right: 50px;
   }
   aside {
-   @include respondTo(smartphone){
-      float: none;
-      width: 100%;
+  float: none;
+  width: 100%;
       padding: 0 20px;
       margin: 0 0 30px 0;
       text-align: center;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-   }
-    @include respondTo(tablet){
+   
+    @include respondTo(screen){
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       box-flex: 1;

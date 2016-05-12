@@ -42,26 +42,14 @@ a {
 
 /* RESPONSIVE MIXINS */
 
-$smartphone: 480px;
-$tabletPortrait: 767px;
-$tabletLandscape: 1024px;
-$desktop: 1174px;
-$largeScreen: 1400px;
+$screen: 760px;
 @mixin respondTo($media) {
-  @if $media == smartphone {
-    @media (max-width: $smartphone) {
+  @if $media == mobile {
+    @media (max-width: $screen) {
       @content;
     }
-  } @else if $media == tablet {
-    @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
-      @content;
-    }
-  } @else if $media == smallScreen {
-    @media (max-width: $desktop) {
-      @content;
-    }
-  } @else if $media == desktop {
-    @media (min-width: $desktop) {
+  }@else if $media == screen {
+    @media (min-width: $screen) {
       @content;
     }
   }
