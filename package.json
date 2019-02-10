@@ -1,0 +1,47 @@
+{
+  "name": "agustinvaleriani",
+  "version": "1.3.0",
+  "description": "AV - Portfolio",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avaleriani/myweb"
+  },
+  "docs": "http://agustinvaleriani.com",
+  "demo": "http://agustinvaleriani.com",
+  "bugs": {
+    "url": "http://agustinvaleriani.com"
+  },
+  "homepage": "http://agustinvaleriani.com",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "fastclick": "^1.0.6",
+    "file-loader": "^0.8.5",
+    "jquery": "^2.2.2",
+    "scrollmagic": "^2.0.5",
+    "shortid": "^2.2.4",
+    "shufflejs": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "svg-injector": "^1.1.3",
+    "theaterjs": "^3.0.0",
+    "url-loader": "^0.5.7",
+    "velocity-animate": "^1.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agustin Valeriani",
+  "license": "ISC",
+  "keywords": [
+    "personal",
+    "web",
+    "development",
+    "portfolio",
+    "agustin",
+    "valeriani",
+    "coding"
+  ],
+  "dependencies": {
+    "webpack": "^4.29.3"
+  }
+}

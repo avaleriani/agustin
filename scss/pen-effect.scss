@@ -1,0 +1,32 @@
+@import url(http://weloveiconfonts.com/api/?family=iconicfill); //todo, change pen to an image,no tiene sentido cargar una fuente entera por 1 iconito
+
+.move-pen {
+  animation: move-pen 1s ease-in infinite alternate;
+}
+
+@keyframes move-pen {
+  from {
+    transform: translateX(-4px) rotate(6deg);
+  }
+
+  to {
+    transform: translateX(4px) rotate(-3deg);
+  }
+}
+
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+}
+
+.wrap-label {
+  min-height: 30px;
+}
+
+.iconicfill-pen-alt2 {
+  font-size: 26px;
+  float: left;
+  color: #ccc;
+  visibility: hidden;
+  margin-left: 5%;
+}
+
