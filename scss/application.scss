@@ -1,0 +1,108 @@
+.site-inner {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+.site-inner-abs {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 58.75em;
+  margin-left: -29.375em;
+}
+
+.heading {
+  color: #919193;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  min-height: 50px;
+  &.h-01 {
+    font-family: 'Roboto-bold', Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    min-height: 90px;
+  }
+  &.h-02 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1;
+  }
+  &.h-03 {
+    font-family: 'Roboto-bold', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
+
+.copy-01 {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 27px;
+  color: #464b4f;
+  line-height: 42px;
+}
+
+.copy-02 {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 18px;
+  color: #888a8b;
+  line-height: 30px;
+  text-align: center;
+}
+
+.copy-03, #page-work .filter-link {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.button {
+  display: inline-block;
+  padding: 23px 63px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &.main {
+    background: #7b77c9;
+    color: #E3B673;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+  }
+  &.white {
+    background: #E3B673;
+    color: #888a8b;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+  }
+  &.rounded {
+    border-radius: 3px;
+  }
+  &:hover {
+    opacity: 0.7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=” $value * 100 “)";
+    filter: alpha(opacity=70);
+    zoom: 1;
+  }
+}
+
+.section {
+  padding: 65px 0;
+  .h-01 {
+    text-align: center;
+  }
+}

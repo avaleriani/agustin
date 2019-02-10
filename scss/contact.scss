@@ -1,0 +1,53 @@
+
+#page-contactform {
+  text-align: center;
+  .h-01 {
+    margin-bottom: 43px;
+  }
+  .copy-01 {
+    margin-bottom: 50px;
+    padding: 0 60px;
+    color: #e9ece5;
+  }
+  .button {
+    margin-top: 66px;
+    padding: 23px 48px;
+  }
+  input, textarea, .heading {
+    color: #919193;
+  }
+}
+
+#hidden-contactform {
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  display: none;
+  position: absolute;
+  top: 135px;
+  left: 0;
+  background-color: #FFFEFF;
+}
+
+.hidden-email-title {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: #454648;
+}
+
+.hidden-email-message {
+  line-height: 25px;
+  font-size: 18px;
+  max-width: 600px;
+  margin: auto;
+  padding-top: 65px;
+}
+
+.hidden-email-image {
+  width: 125px;
+  padding-top: 130px;
+  padding-bottom: 40px;
+}

@@ -1,0 +1,100 @@
+#page-about {
+  .copy-01 {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0 20px;
+  }
+  .h-01 {
+    @include respondTo(smartphone){
+      margin: 40px 0 40px 0;
+    }
+    @include respondTo(tablet){
+    margin: 15px 0 90px 0;
+    }
+    padding-top: 35px;
+    text-align: center;
+  }
+  .h-03 {
+    @include respondTo(mobile){
+      margin-bottom: 10px;
+    }
+    @include respondTo(screen){
+   margin-bottom: 18px;
+    }
+    text-align: center;
+  }
+  .columns {
+    @include respondTo(mobile){
+      display: block;
+    }
+    @include respondTo(screen){
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+    -webkit-box-align: stretch;
+    -moz-box-align: stretch;
+    box-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    -ms-align-items: stretch;
+    -o-align-items: stretch;
+    align-items: stretch;
+    -ms-flex-align: stretch;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  aside {
+  float: none;
+  width: 100%;
+      padding: 0 20px;
+      margin: 0 0 30px 0;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+   
+    @include respondTo(screen){
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 285px;
+      float: left;
+      margin-right: 20px;
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.me-img {
+  max-width: 100px;
+  height: 128px;
+  padding-bottom: 30px;
+  margin: auto;
+}
