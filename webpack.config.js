@@ -5,17 +5,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = env => {
   const isProd = env === "production";
   const cssFilename = 'static/css/[name].[contenthash:8].css';
   const folderName = 'build';
-  const publicPath = 'public';
-  const appSrc = 'src';
+  const publicPath = './';
+  const appSrc = '/src';
   const cssRegex = /\.css$/;
   const cssModuleRegex = /\.module\.css$/;
   const sassRegex = /\.(scss|sass)$/;
@@ -88,7 +85,7 @@ module.exports = env => {
     } : {},
     entry: {
       app: './src/index.js',
-      devtool: isProd ? 'source-map' : 'eval-source-map'
+      // devtool: isProd ? 'source-map' : 'eval'
     },
     output: {
       path: isProd ? path.resolve(__dirname, folderName) : undefined,
@@ -136,11 +133,6 @@ module.exports = env => {
         })
       ]
     },
-    runtimeChunk: true,
-    splitChunks: {
-      chunks: 'all',
-      name: false
-    },
     module: {
       strictExportPresence: true,
       rules: [
@@ -151,7 +143,7 @@ module.exports = env => {
               loader: require.resolve('url-loader'),
               options: {
                 limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]'
+                name: 'static/images/[name].[hash:8].[ext]'
               }
             },
             {
@@ -159,10 +151,6 @@ module.exports = env => {
               include: appSrc,
               loader: require.resolve('babel-loader'),
               options: {
-                customize: require.resolve(
-                  'babel-preset-react-app/webpack-overrides'
-                ),
-
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -185,15 +173,9 @@ module.exports = env => {
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
               options: {
-                babelrc: false,
+                babelrc: true,
                 configFile: false,
                 compact: false,
-                presets: [
-                  [
-                    require.resolve('babel-preset-react-app/dependencies'),
-                    { helpers: true }
-                  ]
-                ],
                 cacheDirectory: true,
                 cacheCompression: isProd,
                 sourceMaps: false
@@ -213,8 +195,7 @@ module.exports = env => {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isProd,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent
+                modules: true
               })
             },
             {
@@ -235,8 +216,7 @@ module.exports = env => {
                 {
                   importLoaders: 2,
                   sourceMap: isProd,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent
+                  modules: true
                 },
                 'sass-loader'
               )
@@ -253,7 +233,6 @@ module.exports = env => {
       ]
     },
     plugins: [
-      new InterpolateHtmlPlugin(env),
       new webpack.DefinePlugin(env),
       new CleanWebpackPlugin([folderName], {}),
       new HtmlWebpackPlugin(
@@ -281,20 +260,10 @@ module.exports = env => {
             : undefined
         )
       ),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: isProd ? {
-          warnings: false,
-          comparisons: false
-        } : {},
-        output: isProd ? {
-          comments: false
-        } : {},
-        sourceMap: isProd
-      }),
-      new ExtractTextPlugin({
-        filename: cssFilename
-      }),
-      new CaseSensitivePathsPlugin()
+      new MiniCssExtractPlugin({
+        filename: cssFilename,
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+      })
     ]
   }
 };
