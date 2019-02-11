@@ -15,6 +15,56 @@ module.exports = env => {
   const cssFilename = 'static/css/[name].[contenthash:8].css';
   const folderName = 'build';
   const publicPath = 'public';
+  const appSrc = 'src';
+  const cssRegex = /\.css$/;
+  const cssModuleRegex = /\.module\.css$/;
+  const sassRegex = /\.(scss|sass)$/;
+  const sassModuleRegex = /\.module\.(scss|sass)$/;
+  const shouldUseRelativeAssetPaths = publicPath === './';
+
+  const getStyleLoaders = (cssOptions, preProcessor) => {
+    const loaders = [
+      !isProd && require.resolve('style-loader'),
+      isProd && {
+        loader: MiniCssExtractPlugin.loader,
+        options: Object.assign(
+          {},
+          shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
+        )
+      },
+      {
+        loader: require.resolve('css-loader'),
+        options: cssOptions
+      },
+      {
+        loader: require.resolve('postcss-loader'),
+        options: {
+          ident: 'postcss',
+          plugins: () => [
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
+              autoprefixer: {
+                flexbox: 'no-2009'
+              },
+              stage: 3
+            })
+          ],
+          sourceMap: isProd
+        }
+      }
+    ].filter(Boolean);
+    if (preProcessor) {
+      loaders.push({
+        loader: require.resolve(preProcessor),
+        options: {
+          sourceMap: isProd
+        }
+      });
+    }
+    return loaders;
+  };
+
+
   return {
     bail: isProd,
     mode: env,
@@ -89,84 +139,116 @@ module.exports = env => {
     runtimeChunk: true,
     splitChunks: {
       chunks: 'all',
-      name: false,
+      name: false
     },
     module: {
       strictExportPresence: true,
       rules: [
         {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader"
-          }
-        },
-        {
-          test: /\.s[c|a]ss$/,
-          use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
-        },
-        {
-          exclude: [
-            /\.html$/,
-            /\.(js|jsx)$/,
-            /\.css$/,
-            /\.json$/,
-            /\.bmp$/,
-            /\.gif$/,
-            /\.jpe?g$/,
-            /\.png$/
-          ],
-          loader: require.resolve('file-loader'),
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]'
-          }
-        },
-        {
-          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-          loader: require.resolve('url-loader'),
-          options: {
-            limit: 10000,
-            name: 'static/media/[name].[hash:8].[ext]'
-          }
-        },
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract(
-            Object.assign(
-              {
-                fallback: require.resolve('style-loader'),
-                use: [
-                  {
-                    loader: require.resolve('css-loader'),
-                    options: {
-                      importLoaders: 1,
-                      minimize: true,
-                      sourceMap: true
+          oneOf: [
+            {
+              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+              loader: require.resolve('url-loader'),
+              options: {
+                limit: 10000,
+                name: 'static/media/[name].[hash:8].[ext]'
+              }
+            },
+            {
+              test: /\.(js|mjs|jsx|ts|tsx)$/,
+              include: appSrc,
+              loader: require.resolve('babel-loader'),
+              options: {
+                customize: require.resolve(
+                  'babel-preset-react-app/webpack-overrides'
+                ),
+
+                plugins: [
+                  [
+                    require.resolve('babel-plugin-named-asset-import'),
+                    {
+                      loaderMap: {
+                        svg: {
+                          ReactComponent: '@svgr/webpack?-svgo![path]'
+                        }
+                      }
                     }
-                  },
-                  {
-                    loader: require.resolve('postcss-loader'),
-                    options: {
-                      ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-                      plugins: () => [
-                        require('postcss-flexbugs-fixes'),
-                        autoprefixer({
-                          browsers: [
-                            '>1%',
-                            'last 4 versions',
-                            'Firefox ESR',
-                            'not ie < 9' // React doesn't support IE8 anyway
-                          ],
-                          flexbox: 'no-2009'
-                        })
-                      ]
-                    }
-                  }
-                ]
-              },
-              extractTextPluginOptions
-            )
-          )
+                  ]
+                ],
+                cacheDirectory: true,
+                cacheCompression: isProd,
+                compact: isProd
+              }
+            },
+            {
+              test: /\.(js|mjs)$/,
+              exclude: /@babel(?:\/|\\{1,2})runtime/,
+              loader: require.resolve('babel-loader'),
+              options: {
+                babelrc: false,
+                configFile: false,
+                compact: false,
+                presets: [
+                  [
+                    require.resolve('babel-preset-react-app/dependencies'),
+                    { helpers: true }
+                  ]
+                ],
+                cacheDirectory: true,
+                cacheCompression: isProd,
+                sourceMaps: false
+              }
+            },
+            {
+              test: cssRegex,
+              exclude: cssModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isProd
+              }),
+              sideEffects: true
+            },
+            {
+              test: cssModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isProd,
+                modules: true,
+                getLocalIdent: getCSSModuleLocalIdent
+              })
+            },
+            {
+              test: sassRegex,
+              exclude: sassModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isProd
+                },
+                'sass-loader'
+              ),
+              sideEffects: true
+            },
+            {
+              test: sassModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isProd,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent
+                },
+                'sass-loader'
+              )
+            },
+            {
+              loader: require.resolve('file-loader'),
+              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+              options: {
+                name: 'static/media/[name].[hash:8].[ext]'
+              }
+            }
+          ]
         }
       ]
     },
@@ -174,25 +256,31 @@ module.exports = env => {
       new InterpolateHtmlPlugin(env),
       new webpack.DefinePlugin(env),
       new CleanWebpackPlugin([folderName], {}),
-      new HtmlWebpackPlugin({
-        inject: !isProd,
-        template: `${ publicPath }/index.html`,
-        minify: isProd ? {
-
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          keepClosingSlash: true,
-          minifyJS: true,
-          minifyCSS: true,
-          minifyURLs: true
-        } : {},
-        hash: true,
-        filename: 'index.html'
-      }),
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            inject: true,
+            template: `${ publicPath }/index.html`
+          },
+          isProd
+            ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+              }
+            }
+            : undefined
+        )
+      ),
       new webpack.optimize.UglifyJsPlugin({
         compress: isProd ? {
           warnings: false,
