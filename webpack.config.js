@@ -1,33 +1,32 @@
 const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = env => {
   const isProd = env === "production";
   const cssFilename = 'static/css/[name].[contenthash:8].css';
-  const folderName = 'build';
-  const publicPath = './';
-  const appSrc = '/src';
+  const appBuild = resolveApp('build');
+  const appPublic = resolveApp('public');
+  const appHtml = resolveApp('public/index.html');
+  const appSrc = resolveApp('src');
   const cssRegex = /\.css$/;
   const cssModuleRegex = /\.module\.css$/;
   const sassRegex = /\.(scss|sass)$/;
   const sassModuleRegex = /\.module\.(scss|sass)$/;
-  const shouldUseRelativeAssetPaths = publicPath === './';
 
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
       !isProd && require.resolve('style-loader'),
       isProd && {
-        loader: MiniCssExtractPlugin.loader,
-        options: Object.assign(
-          {},
-          shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
-        )
+        loader: MiniCssExtractPlugin.loader
       },
       {
         loader: require.resolve('css-loader'),
@@ -69,10 +68,12 @@ module.exports = env => {
       hints: !isProd ? false : "warning"
     },
     devServer: !isProd ? {
-      contentBase: path.join(__dirname, folderName),
-      publicPath: publicPath,
+      contentBase: appPublic,
+      watchContentBase: true,
+      publicPath: '/',
       hot: true,
-      quiet: true,
+      inline: true,
+      quiet: false,
       watchOptions: {
         ignored: /node_modules/
       },
@@ -81,17 +82,18 @@ module.exports = env => {
       clientLogLevel: 'none',
       host: process.env.HOST || '0.0.0.0',
       compress: true,
-      port: 9000
+      port: 3000,
+      historyApiFallback: true
     } : {},
     entry: {
-      app: './src/index.js',
-      // devtool: isProd ? 'source-map' : 'eval'
+      app: './src/index.js'
     },
     output: {
-      path: isProd ? path.resolve(__dirname, folderName) : undefined,
-      filename: 'static/js/[name].[chunkhash:8].js',
-      chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-      pathinfo: !isProd
+      path: isProd ? path.resolve(__dirname, appBuild) : undefined,
+      filename: 'static/js/[name].[hash:8].js',
+      chunkFilename: 'static/js/[name].[hash:8].chunk.js',
+      pathinfo: !isProd,
+      publicPath: '/'
     },
     optimization: {
       minimize: isProd,
@@ -139,7 +141,7 @@ module.exports = env => {
         {
           oneOf: [
             {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+              test: [/\.bmp$/, /\.gif$/, /\.jpeg$/, /\.jpg$/, /\.png$/],
               loader: require.resolve('url-loader'),
               options: {
                 limit: 10000,
@@ -178,7 +180,7 @@ module.exports = env => {
                 compact: false,
                 cacheDirectory: true,
                 cacheCompression: isProd,
-                sourceMaps: false
+                sourceMaps: isProd
               }
             },
             {
@@ -234,13 +236,13 @@ module.exports = env => {
     },
     plugins: [
       new webpack.DefinePlugin(env),
-      new CleanWebpackPlugin([folderName], {}),
+      new CleanWebpackPlugin([appBuild], {}),
       new HtmlWebpackPlugin(
         Object.assign(
           {},
           {
             inject: true,
-            template: `${ publicPath }/index.html`
+            template: appHtml
           },
           isProd
             ? {
@@ -262,7 +264,7 @@ module.exports = env => {
       ),
       new MiniCssExtractPlugin({
         filename: cssFilename,
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+        chunkFilename: 'static/css/[name].[hash:8].chunk.css'
       })
     ]
   }

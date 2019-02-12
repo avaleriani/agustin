@@ -133,18 +133,18 @@ var animate = {
                     $("#mail-loader").hide();
                     if (data.status == 'error') {
                         message.html(errorMsg);
-                        image.attr('src', 'images/error.png');
+                        image.attr('src', '/assets/images/error.png');
                     }
                     else {
                         message.html(successMsg);
-                        image.attr('src', 'images/success.png');
+                        image.attr('src', '/assets/images/success.png');
                     }
                     animate.showEmailSendFinished();
                 },
                 error: function () {
                     $("#mail-loader").hide();
                     message.html(errorMsg);
-                    image.attr('src', 'images/error.png');
+                    image.attr('src', '/assets/images/error.png');
                     animate.showEmailSendFinished();
                 }
             });
