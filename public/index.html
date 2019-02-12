@@ -81,11 +81,7 @@ _  ___ |__ |/ /
             height: 12px;
             background: #E3B673;
             pointer-events: none;
-            -webkit-transform: translate3d(0%, 0, 0);
             transform: translate3d(0%, 0, 0);
-
-            -webkit-animation: progress 5s;
-            -moz-animation: progress 5s;
             animation: progress 5s;
         }
 
@@ -97,9 +93,7 @@ _  ___ |__ |/ /
             width: 110%;
             height: 6px;
             background: #FFEBCE;
-            -webkit-transform: skew(-45deg);
             transform: skew(-45deg);
-            -webkit-transform-origin: 0 100%;
             transform-origin: 0 100%;
         }
 
@@ -111,11 +105,8 @@ _  ___ |__ |/ /
             width: 6px;
             height: 100%;
             background: #919193;
-            -webkit-transform: skew(0deg, -45deg);
             transform: skew(0deg, -45deg);
-            -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
-            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
 
@@ -349,16 +340,16 @@ _  ___ |__ |/ /
                                 </div>
                                 <div class="overlay-icons">
                                     <!--todo:: reemplazar estos devicons por sus respectivos svg de la pagina-->
-                                    <i class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                                    <i class="devicon-css3-plain icon-skill"></i>
-                                    <i class="devicon-git-plain colored icon-skill"></i>
-                                    <i class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                                    <i class="devicon-javascript-plain colored icon-skill"></i>
-                                    <i class="devicon-jquery-plain colored icon-skill"></i>
-                                    <i class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                                    <i class="devicon-php-plain colored icon-skill"></i>
-                                    <i class="devicon-phpstorm-plain colored icon-skill"></i>
-                                    <i class="devicon-trello-plain-wordmark icon-skill"></i>
+                                    <i class="devicon-bootstrap-plain-wordmark colored icon-skill"/>
+                                    <i class="devicon-css3-plain icon-skill"/>
+                                    <i class="devicon-git-plain colored icon-skill"/>
+                                    <i class="devicon-html5-plain-wordmark colored icon-skill"/>
+                                    <i class="devicon-javascript-plain colored icon-skill"/>
+                                    <i class="devicon-jquery-plain colored icon-skill"/>
+                                    <i class="devicon-mysql-plain-wordmark colored icon-skill"/>
+                                    <i class="devicon-php-plain colored icon-skill"/>
+                                    <i class="devicon-phpstorm-plain colored icon-skill"/>
+                                    <i class="devicon-trello-plain-wordmark icon-skill"/>
                                 </div>
                             </div>
                         </div>
@@ -903,14 +894,16 @@ _  ___ |__ |/ /
                     </div>
                 </div>
                 <div class="row">
-                    <div class="">
-                        <form id="contact-form" class="form" action="#" method="POST" role="form">
+                    <div>
+                        <form id="contact-form" target="hidden_iframe" enctype="text/plain" class="form"
+                              action="https://docs.google.com/forms/d/e/1FAIpQLSeSoi-nfiHKjDX_bI9YN5ZDiowjG1YCxAhKxk7a4Qj9U1eG7g/formResponse?"
+                              method="POST" role="form">
                             <div class="form-group">
                                 <div class="wrap-label">
                                     <label class="pencil-name form-label" for="name">Your Name</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="text" class="form-control" id="name" name="name"
+                                <input type="text" class="form-control" id="name" name="entry.1592497313"
                                        placeholder="Your name"
                                        tabindex="1" required>
                             </div>
@@ -919,26 +912,26 @@ _  ___ |__ |/ /
                                     <label class="pencil-name form-label" for="email">Your Email</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="email" class="form-control" id="email" name="email"
+                                <input type="email" class="form-control" id="email" name="entry.335030587"
                                        placeholder="Your Email"
                                        tabindex="2" required>
                             </div>
                             <div class="form-group">
                                 <div class="wrap-label">
-                                    <label class="pencil-name form-label" for="name">Subject</label>
+                                    <label class="pencil-name form-label" for="subject">Subject</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="text" class="form-control" id="subject" name="subject"
+                                <input type="text" class="form-control" id="subject" name="entry.1421954823"
                                        placeholder="Subject"
                                        tabindex="3">
                             </div>
                             <div class="form-group">
                                 <div class="wrap-label">
-                                    <label class="pencil-name form-label" for="name">Message</label>
+                                    <label class="pencil-name form-label" for="message">Message</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <textarea rows="5" cols="50" name="message" class="form-control" id="message"
-                                          placeholder="Message..." tabindex="4" required></textarea>
+                                <textarea rows="5" cols="50" name="entry.1116466754" class="form-control" id="message"
+                                          placeholder="Message..." tabindex="4" required/>
                             </div>
                             <div class="svg-wrapper">
                                 <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
@@ -971,38 +964,37 @@ _  ___ |__ |/ /
         <h2 class="hidden">Status: I'm currently looking for a full-time remote job.</h2>
         <div class="social-links">
             <a class="hexagon-wrapper" href="https://www.facebook.com/agustinvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-facebook"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-facebook"/></div>
             </a>
             <a class="hexagon-wrapper" href="https://linkedin.com/in/aguvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-linkedin"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-linkedin"/></div>
             </a>
             <a class="hexagon-wrapper" href="https://github.com/avaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-github"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-github"/></div>
             </a>
             <a class="hexagon-wrapper" href="https://twitter.com/agvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-twitter"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-twitter"/></div>
             </a>
             <a class="hexagon-wrapper" href="https://www.instagram.com/zagustinn/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"/></div>
             </a>
             <a class="hexagon-wrapper" href="http://codepen.io/avaleriani/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-codepen"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-codepen"/></div>
             </a>
             <a class="hexagon-wrapper" href="http://stackoverflow.com/users/2628378/agu-v/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-stack-overflow"></i></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-stack-overflow"/></div>
             </a>
         </div>
-        <p class="copy-02">©<span id="year"></span>. AV.</p>
+        <p class="copy-02">©<span id="year"/>. AV.</p>
     </section>
-
-    <div id="lines-container"></div>
 
     <script type="text/javascript">
       var readyStateCheckInterval = setInterval(function() {
+        console.log(document.readyState)
         if (document.readyState === "complete") {
-          clearInterval(readyStateCheckInterval);
           document.getElementById("page-container").classList.remove("hidden");
           document.getElementById("loader").classList.add("hidden");
+          clearInterval(readyStateCheckInterval);
         }
       }, 10);
     </script>
