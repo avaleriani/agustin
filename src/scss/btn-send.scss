@@ -20,7 +20,8 @@
   cursor: pointer;
 }
 
-#shape {
+.shape {
+  display: block;
   stroke-width: 4px;
   fill: transparent;
   stroke: #ccc;
@@ -29,14 +30,13 @@
   transition: 1.5s all ease;
 }
 
-#text {
+.text {
+  display: block;
   margin-top: -35px;
   text-align: center;
   a {
     color: $colorDarkGrey;
     text-decoration: none;
-    /* -webkit-font-smoothing: antialiased; */
-    -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 14px;
@@ -44,14 +44,14 @@
   }
 }
 
-.svg-wrapper:hover #shape {
+.svg-wrapper:hover .shape {
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
   stroke: #E3B673;
 }
 
-.active #shape {
+.active .shape {
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;

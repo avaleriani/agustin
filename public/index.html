@@ -21,15 +21,13 @@ _  ___ |__ |/ /
 <html lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Agu Valeriani | Software Engineer</title>
     <meta name="description" content="Agustin Valeriani is a Software Engineer."/>
     <meta name="keywords"
           content="Agu Valeriani,Front-end,back-end,development,software,engineer,HTML,HTML 5,CSS,CSS3,javascript,jQuery,Object Oriented,Responsive Design, PHP, sql, PostgresSql, mysql, Web Design, User Experience, Mobile Interface"/>
     <meta name="author" content="Agustin Valeriani"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -257,38 +255,38 @@ _  ___ |__ |/ /
             <nav id="work-filter">
                 <div class="svg-wrapper">
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                        <rect id="shape" height="40" width="150"/>
-                        <div id="text">
-                            <a href="#" id="btn-filter-all" class="filter-link active" data-group="all"><span
-                                    class="spot"></span>All</a>
-                        </div>
+                        <rect class="shape" height="40" width="150"/>
+                        <span class="text">
+                            <a href="#" id="btn-filter-all" class="filter-link active" data-group="all">
+                                <span class="spot"></span>All</a>
+                        </span>
                     </svg>
                 </div>
                 <div class="svg-wrapper">
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                        <rect id="shape" height="40" width="150"/>
-                        <div id="text">
+                        <rect class="shape" height="40" width="150"/>
+                        <span class="text">
                             <a href="#" id="btn-filter-full" class="filter-link" data-group="full"><span
                                     class="spot"></span>Full stack</a>
-                        </div>
+                        </span>
                     </svg>
                 </div>
                 <div class="svg-wrapper">
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                        <rect id="shape" height="40" width="150"/>
-                        <div id="text">
+                        <rect class="shape" height="40" width="150"/>
+                        <span class="text">
                             <a href="#" id="btn-filter-front" class="filter-link" data-group="maintenance"><span
                                     class="spot"></span>Maintenance</a>
-                        </div>
+                        </span>
                     </svg>
                 </div>
                 <div class="svg-wrapper">
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                        <rect id="shape" height="40" width="150"/>
-                        <div id="text">
+                        <rect class="shape" height="40" width="150"/>
+                        <span class="text">
                             <a href="#" id="btn-filter-fun" class="filter-link" data-group="fun"><span
                                     class="spot"></span>For fun</a>
-                        </div>
+                        </span>
                     </svg>
                 </div>
             </nav>
@@ -340,16 +338,16 @@ _  ___ |__ |/ /
                                 </div>
                                 <div class="overlay-icons">
                                     <!--todo:: reemplazar estos devicons por sus respectivos svg de la pagina-->
-                                    <i class="devicon-bootstrap-plain-wordmark colored icon-skill"/>
-                                    <i class="devicon-css3-plain icon-skill"/>
-                                    <i class="devicon-git-plain colored icon-skill"/>
-                                    <i class="devicon-html5-plain-wordmark colored icon-skill"/>
-                                    <i class="devicon-javascript-plain colored icon-skill"/>
-                                    <i class="devicon-jquery-plain colored icon-skill"/>
-                                    <i class="devicon-mysql-plain-wordmark colored icon-skill"/>
-                                    <i class="devicon-php-plain colored icon-skill"/>
-                                    <i class="devicon-phpstorm-plain colored icon-skill"/>
-                                    <i class="devicon-trello-plain-wordmark icon-skill"/>
+                                    <i class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
+                                    <i class="devicon-css3-plain icon-skill"></i>
+                                    <i class="devicon-git-plain colored icon-skill"></i>
+                                    <i class="devicon-html5-plain-wordmark colored icon-skill"></i>
+                                    <i class="devicon-javascript-plain colored icon-skill"></i>
+                                    <i class="devicon-jquery-plain colored icon-skill"></i>
+                                    <i class="devicon-mysql-plain-wordmark colored icon-skill"></i>
+                                    <i class="devicon-php-plain colored icon-skill"></i>
+                                    <i class="devicon-phpstorm-plain colored icon-skill"></i>
+                                    <i class="devicon-trello-plain-wordmark icon-skill"></i>
                                 </div>
                             </div>
                         </div>
@@ -461,7 +459,7 @@ _  ___ |__ |/ /
                             </div>
                         </div>
                     </div>
-                    <!--maria casado--->
+                    <!--maria casado-->
                     <div class="work-item view view-second" data-groups='["all", "full"]'>
                         <div class="project-box">
                             <figure class="image-container"><img height="200" width="300"
@@ -895,15 +893,13 @@ _  ___ |__ |/ /
                 </div>
                 <div class="row">
                     <div>
-                        <form id="contact-form" target="hidden_iframe" enctype="text/plain" class="form"
-                              action="https://docs.google.com/forms/d/e/1FAIpQLSeSoi-nfiHKjDX_bI9YN5ZDiowjG1YCxAhKxk7a4Qj9U1eG7g/formResponse?"
-                              method="POST" role="form">
+                        <form id="contact-form" target="hidden_iframe" enctype="text/plain" class="form" method="POST" role="form">
                             <div class="form-group">
                                 <div class="wrap-label">
                                     <label class="pencil-name form-label" for="name">Your Name</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="text" class="form-control" id="name" name="entry.1592497313"
+                                <input type="text" class="form-control" id="name" name="name"
                                        placeholder="Your name"
                                        tabindex="1" required>
                             </div>
@@ -912,7 +908,7 @@ _  ___ |__ |/ /
                                     <label class="pencil-name form-label" for="email">Your Email</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="email" class="form-control" id="email" name="entry.335030587"
+                                <input type="email" class="form-control" id="email" name="email"
                                        placeholder="Your Email"
                                        tabindex="2" required>
                             </div>
@@ -921,7 +917,7 @@ _  ___ |__ |/ /
                                     <label class="pencil-name form-label" for="subject">Subject</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <input type="text" class="form-control" id="subject" name="entry.1421954823"
+                                <input type="text" class="form-control" id="subject" name="subject"
                                        placeholder="Subject"
                                        tabindex="3">
                             </div>
@@ -930,15 +926,15 @@ _  ___ |__ |/ /
                                     <label class="pencil-name form-label" for="message">Message</label>
                                     <div class="iconicfill-pen-alt2 move-pen"></div>
                                 </div>
-                                <textarea rows="5" cols="50" name="entry.1116466754" class="form-control" id="message"
-                                          placeholder="Message..." tabindex="4" required/>
+                                <textarea rows="5" cols="50" name="message" class="form-control" id="message"
+                                          placeholder="Message..." tabindex="4" required></textarea>
                             </div>
                             <div class="svg-wrapper">
                                 <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                                    <rect id="shape" height="40" width="150"/>
-                                    <div id="text">
+                                    <rect class="shape" height="40" width="150"/>
+                                    <div class="text">
                                         <a href="#" id="btn-send" tabindex="5">
-                                            <span class="spot">Send</span>
+                                            <span class="spot"></span>Send
                                         </a>
                                     </div>
                                 </svg>
@@ -964,33 +960,32 @@ _  ___ |__ |/ /
         <h2 class="hidden">Status: I'm currently looking for a full-time remote job.</h2>
         <div class="social-links">
             <a class="hexagon-wrapper" href="https://www.facebook.com/agustinvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-facebook"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-facebook"></i></div>
             </a>
             <a class="hexagon-wrapper" href="https://linkedin.com/in/aguvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-linkedin"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-linkedin"></i></div>
             </a>
             <a class="hexagon-wrapper" href="https://github.com/avaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-github"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-github"></i></div>
             </a>
             <a class="hexagon-wrapper" href="https://twitter.com/agvaleriani">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-twitter"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-twitter"></i></div>
             </a>
             <a class="hexagon-wrapper" href="https://www.instagram.com/zagustinn/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"></i></div>
             </a>
             <a class="hexagon-wrapper" href="http://codepen.io/avaleriani/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-codepen"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-codepen"></i></div>
             </a>
             <a class="hexagon-wrapper" href="http://stackoverflow.com/users/2628378/agu-v/">
-                <div class="hexagon"><i class="hexagon-icon-position pe-so-stack-overflow"/></div>
+                <div class="hexagon"><i class="hexagon-icon-position pe-so-stack-overflow"></i></div>
             </a>
         </div>
-        <p class="copy-02">©<span id="year"/>. AV.</p>
+        <p class="copy-02">©<span id="year"></span>. AV.</p>
     </section>
 
     <script type="text/javascript">
       var readyStateCheckInterval = setInterval(function() {
-        console.log(document.readyState)
         if (document.readyState === "complete") {
           document.getElementById("page-container").classList.remove("hidden");
           document.getElementById("loader").classList.add("hidden");
