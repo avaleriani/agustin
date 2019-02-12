@@ -15,20 +15,22 @@
   padding-top: 5px;
   display: block;
   opacity: 1;
-  -webkit-transition: .333s ease top, .333s ease opacity;
   transition: .333s ease top, .333s ease opacity;
 }
 
 .form-control {
   outline: none !important;
   border-radius: 0;
-  border-bottom: 2px solid #ccc;
+  border-color: #ccc;
+  border-width: 0 0 2px;
+  border-style: none none solid;
   box-shadow: none;
   width: 90%;
   height: 40px;
   line-height: 40px;
   background-color: transparent;
-  margin: 0 5% 5% 15px;
+  margin: 0 5% 15px;
+
   &:focus {
     box-shadow: none;
     border-color: #E3B673;
