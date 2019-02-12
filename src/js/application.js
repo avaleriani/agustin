@@ -27,7 +27,7 @@ export const app = {
 
   worksFilter: function() {
     const grid = document.getElementById('work-grid');
-    const sizer = document.getElementsByClassName('.shuffle__sizer')[0];
+    const sizer = document.getElementsByClassName('shuffle__sizer')[0];
     const btns = document.getElementsByClassName('svg-wrapper');
     const shfl = new Shuffle(grid, {
       itemSelector: '.work-item',
@@ -37,20 +37,17 @@ export const app = {
     });
 
     Array.from(btns).forEach((btn) => {
-
-      console.log(btn)
-      btn.onclick((e) => {
-        let that, group, isActive;
+      btn.addEventListener("click", (e) => {
+        let group, isActive;
         e.preventDefault();
-        that = $(this);
-        isActive = that.hasClass('active');
+        isActive = btn.classList.contains('active');
 
         if (isActive) {
           return false;
         } else {
-          group = that.find('a').attr('data-group');
+          group = btn.getElementsByTagName('a')[0].getAttribute('data-group');
           $('.active').removeClass('active');
-          that.toggleClass('active');
+          btn.classList.toggle('active');
           shfl.filter(group);
         }
       });

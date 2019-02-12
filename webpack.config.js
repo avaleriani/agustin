@@ -251,7 +251,8 @@ module.exports = env => {
           isProd
             ? {
               minify: {
-                removeComments: true,
+                removeComments: false,
+                removeEmptyElements: false,
                 collapseWhitespace: true,
                 removeRedundantAttributes: true,
                 useShortDoctype: true,
