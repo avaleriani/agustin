@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const safePostCssParser = require('postcss-safe-parser');
@@ -93,7 +94,7 @@ module.exports = env => {
       filename: 'static/js/[name].[hash:8].js',
       chunkFilename: 'static/js/[name].[hash:8].chunk.js',
       pathinfo: !isProd,
-      publicPath: '/'
+      publicPath: isProd ? 'agustin/' : '/'
     },
     optimization: {
       minimize: isProd,
@@ -237,6 +238,9 @@ module.exports = env => {
     plugins: [
       new webpack.DefinePlugin(env),
       new CleanWebpackPlugin([appBuild], {}),
+      new CopyWebpackPlugin([
+        { from: appPublic }
+      ]),
       new HtmlWebpackPlugin(
         Object.assign(
           {},

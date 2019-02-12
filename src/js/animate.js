@@ -11,14 +11,14 @@ var animate = {
         var that = this;
         $('.form-control').focusin(function () {
             var obj = $(this).parent().find('.pencil-name');
-            if ($(this).val() == '') {
+            if ($(this).val() === '') {
                 obj.velocity({y: '15px', opacity: 1}, 500, 'out');
                 obj.next().velocity({y: '0px'}, 500, 'in');
             }
             that.visibilityToggle(obj.next());
         }).focusout(function () {
             var obj = $(this).parent().find('.pencil-name');
-            if ($(this).val() == '') {
+            if ($(this).val() === '') {
                 obj.velocity({y: '0px', opacity: 0}, 500, 'in');
                 obj.next().velocity({y: '15px'}, 500, 'out');
             }
@@ -40,22 +40,22 @@ var animate = {
                 var that = $(this),
                     parent = that.parent().find("label");
 
-                if (e.type == 'keyup') {
-                    if (that.val() == '') {
+                if (e.type === 'keyup') {
+                    if (that.val() === '') {
                         parent.addClass('js-hide-label');
                     } else {
                         parent.removeClass('js-hide-label');
                     }
                 }
-                else if (e.type == 'blur') {
-                    if (that.val() == '') {
+                else if (e.type === 'blur') {
+                    if (that.val() === '') {
                         parent.addClass('js-hide-label');
                     }
                     else {
                         parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
                     }
                 }
-                else if (e.type == 'focus') {
+                else if (e.type === 'focus') {
                     if (that.val() !== '') {
                         parent.removeClass('js-unhighlight-label');
                     }
@@ -66,7 +66,7 @@ var animate = {
 
     visibilityToggle: function (obj) {
 
-        if (obj.css('visibility') == 'hidden') {
+        if (obj.css('visibility') === 'hidden') {
             obj.css('visibility', 'visible');
         } else {
             obj.css('visibility', 'hidden');
@@ -131,7 +131,7 @@ var animate = {
                 data: data,
                 success: function (data) {
                     $("#mail-loader").hide();
-                    if (data.status == 'error') {
+                    if (data.status === 'error') {
                         message.html(errorMsg);
                         image.attr('src', '/assets/images/error.png');
                     }
