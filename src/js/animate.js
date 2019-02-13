@@ -151,10 +151,6 @@ var animate = {
   },
 
   emailSend: function() {
-    var successMsg = "Thanks! I'll be in touch shortly.";
-    var message = $(".hidden-email-message");
-    var image = $(".hidden-email-image");
-
     $('#btn-send').on('click', function(e) {
       e.preventDefault();
 
