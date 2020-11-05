@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
   workViewer.init();
   animate.scrollArrow();
   if (window.innerWidth === '1920') { //todo:: fix mobile
-    // TODO:: ver como hacer para que las lineas sean mobile, supongo que multiplicando por un numero magico que de 0 en la resolucion que lo
+    // TODO:: check how the lines can work on mobile, maybe making it responsive based on resolution.
     // hice = window.innerWidth * 1920
     //          linesDrawer.createAllLine
     // s('#lines-container');
