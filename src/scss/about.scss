@@ -5,29 +5,29 @@
     padding: 0 20px;
   }
   .h-01 {
-    @include respondTo(smartphone){
+    @include respondTo(smartphone) {
       margin: 40px 0 40px 0;
     }
-    @include respondTo(tablet){
-    margin: 15px 0 90px 0;
+    @include respondTo(tablet) {
+      margin: 15px 0 90px 0;
     }
     padding-top: 35px;
     text-align: center;
   }
   .h-03 {
-    @include respondTo(mobile){
+    @include respondTo(mobile) {
       margin-bottom: 10px;
     }
-    @include respondTo(screen){
-   margin-bottom: 18px;
+    @include respondTo(screen) {
+      margin-bottom: 18px;
     }
     text-align: center;
   }
   .columns {
-    @include respondTo(mobile){
+    @include respondTo(mobile) {
       display: block;
     }
-    @include respondTo(screen){
+    @include respondTo(screen) {
       display: flex;
     }
     align-items: stretch;
@@ -37,16 +37,16 @@
     margin-right: 50px;
   }
   aside {
-  float: none;
-  width: 100%;
-      padding: 0 20px;
-      margin: 0 0 30px 0;
-      text-align: center;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-   
-    @include respondTo(screen){
+    float: none;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 0 30px 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    @include respondTo(screen) {
       flex: 1;
       width: 285px;
       float: left;

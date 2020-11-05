@@ -1,4 +1,3 @@
-
 #contact-form {
   max-width: 600px;
   margin: auto;
@@ -15,7 +14,7 @@
   padding-top: 5px;
   display: block;
   opacity: 1;
-  transition: .333s ease top, .333s ease opacity;
+  transition: 0.333s ease top, 0.333s ease opacity;
 }
 
 .form-control {
@@ -33,7 +32,7 @@
 
   &:focus {
     box-shadow: none;
-    border-color: #E3B673;
+    border-color: #e3b673;
   }
 }
 
@@ -57,7 +56,8 @@
   height: 180px;
   margin: 65px auto auto auto;
 
-  &:after, &:before {
+  &:after,
+  &:before {
     position: absolute;
     content: "";
   }

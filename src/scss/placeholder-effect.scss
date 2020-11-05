@@ -1,11 +1,11 @@
-
 ::-webkit-input-placeholder {
   opacity: 0.5;
   -webkit-transition: opacity 0.35s ease-in-out;
   transition: opacity 0.35s ease-in-out;
 }
 
-:-moz-placeholder, ::-moz-placeholder {
+:-moz-placeholder,
+::-moz-placeholder {
   opacity: 0.5;
   -moz-transition: opacity 0.35s ease-in-out;
   transition: opacity 0.35s ease-in-out;
@@ -23,7 +23,8 @@
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
   }
-  &:-moz-placeholder, &::-moz-placeholder {
+  &:-moz-placeholder,
+  &::-moz-placeholder {
     opacity: 0.75;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
@@ -41,7 +42,8 @@
     -webkit-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;
   }
-  &:-moz-placeholder, &::-moz-placeholder {
+  &:-moz-placeholder,
+  &::-moz-placeholder {
     opacity: 0;
     -moz-transition: opacity 0.35s ease-in-out;
     transition: opacity 0.35s ease-in-out;

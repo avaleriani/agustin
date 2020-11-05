@@ -1,4 +1,3 @@
-
 .spot {
   position: absolute;
   width: 100%;
@@ -38,7 +37,7 @@
     color: $colorDarkGrey;
     text-decoration: none;
     text-rendering: optimizeLegibility;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     font-size: 14px;
     line-height: 1;
   }
@@ -48,12 +47,12 @@
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: #E3B673;
+  stroke: #e3b673;
 }
 
 .active .shape {
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: #FFEFFF;
+  stroke: #ffefff;
 }
