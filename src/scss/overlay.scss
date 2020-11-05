@@ -12,7 +12,7 @@
 
 .overlay-container {
   margin-top: 70px;
-  background-color: #FFFEFF;
+  background-color: #fffeff;
   padding-left: 10%;
   padding-right: 10%;
   min-height: 550px;
@@ -53,10 +53,10 @@
   max-width: 450px;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     vertical-align: baseline;
-    opacity: .8;
+    opacity: 0.8;
     width: 0;
     height: 2px;
     background: $colorOrange;
@@ -113,12 +113,14 @@
   top: 10px;
   cursor: pointer;
   &:hover {
-    &::before, &::after {
+    &::before,
+    &::after {
       background: #919193;
     }
   }
-  &::before, &::after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
     height: 2px;
     width: 100%;
@@ -159,7 +161,9 @@
     -webkit-transition: width 0.5s;
     transition: width 0.5s;
   }
-  &.open .overlay-description, &.open .overlay-title, &.open .overlay-imagecontainer {
+  &.open .overlay-description,
+  &.open .overlay-title,
+  &.open .overlay-imagecontainer {
     opacity: 1;
     transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
@@ -193,14 +197,16 @@
     transition: opacity 0.3s 0.5s;
   }
   &.open {
-    nav, .overlay-close {
+    nav,
+    .overlay-close {
       opacity: 1;
       -webkit-transition-delay: 0.5s;
       transition-delay: 0.5s;
     }
   }
   &.close {
-    nav, .overlay-close {
+    nav,
+    .overlay-close {
       -webkit-transition-delay: 0s;
       transition-delay: 0s;
     }
@@ -213,4 +219,3 @@
     font-size: 34px;
   }
 }
-

@@ -1,16 +1,16 @@
-require('./scss/main.scss');
-import {app} from './js/application.js';
-var workViewer = require('./js/work-viewer.js');
-var animate = require('./js/animate.js');
-import 'typeface-roboto';
+require("./scss/main.scss");
+import { app } from "./js/application.js";
+var workViewer = require("./js/work-viewer.js");
+var animate = require("./js/animate.js");
+import "typeface-roboto";
 
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   app.loadApplication();
   app.svgInjector();
   workViewer.init();
   animate.scrollArrow();
-  if (window.innerWidth === '1920') { //todo:: fix mobile
+  if (window.innerWidth === "1920") {
+    //todo:: fix mobile
     // TODO:: check how the lines can work on mobile, maybe making it responsive based on resolution.
     // hice = window.innerWidth * 1920
     //          linesDrawer.createAllLine

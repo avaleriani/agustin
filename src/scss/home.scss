@@ -6,10 +6,10 @@
   .brand-logo {
     #brand-logo {
       width: 210px;
-      border: solid #E3B673 5px;
+      border: solid #e3b673 5px;
       * {
         position: relative;
-        fill: #E3B673;
+        fill: #e3b673;
         transform-origin: center top;
         transition: all 0.4s ease;
       }
@@ -20,13 +20,14 @@
     }
   }
   .h-01 {
-    color: #E3B673;
+    color: #e3b673;
     margin-bottom: 50px;
   }
   .copy-02 {
-    color: #E3B673;
+    color: #e3b673;
     margin-bottom: 180px;
     padding-top: 90px;
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31), 0 -1px rgba(0, 0, 0, 0.31);
+    text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
+      0 -1px rgba(0, 0, 0, 0.31);
   }
 }

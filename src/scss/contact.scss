@@ -1,4 +1,3 @@
-
 #page-contactform {
   text-align: center;
   .h-01 {
@@ -13,7 +12,9 @@
     margin-top: 66px;
     padding: 23px 48px;
   }
-  input, textarea, .heading {
+  input,
+  textarea,
+  .heading {
     color: #919193;
   }
 }
@@ -26,7 +27,7 @@
   position: absolute;
   top: 135px;
   left: 0;
-  background-color: #FFFEFF;
+  background-color: #fffeff;
 }
 
 .hidden-email-title {

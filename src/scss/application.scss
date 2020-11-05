@@ -20,7 +20,7 @@
   text-rendering: optimizeLegibility;
   min-height: 50px;
   &.h-01 {
-    font-family: 'Roboto-bold', Arial, sans-serif;
+    font-family: "Roboto-bold", Arial, sans-serif;
     font-size: 60px;
     font-weight: 700;
     line-height: 1;
@@ -28,13 +28,13 @@
     min-height: 90px;
   }
   &.h-02 {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     font-size: 19px;
     font-weight: normal;
     line-height: 1;
   }
   &.h-03 {
-    font-family: 'Roboto-bold', Arial, sans-serif;
+    font-family: "Roboto-bold", Arial, sans-serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
@@ -45,7 +45,7 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 27px;
   color: #464b4f;
   line-height: 42px;
@@ -55,18 +55,19 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   color: #888a8b;
   line-height: 30px;
   text-align: center;
 }
 
-.copy-03, #page-work .filter-link {
+.copy-03,
+#page-work .filter-link {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   line-height: 1;
 }
@@ -79,14 +80,14 @@
   transition: all 0.3s ease-in-out;
   &.main {
     background: #7b77c9;
-    color: #E3B673;
-    font-family: 'Roboto', Arial, sans-serif;
+    color: #e3b673;
+    font-family: "Roboto", Arial, sans-serif;
     font-size: 14px;
   }
   &.white {
-    background: #E3B673;
+    background: #e3b673;
     color: #888a8b;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     font-size: 14px;
   }
   &.rounded {
