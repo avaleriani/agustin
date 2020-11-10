@@ -209,40 +209,44 @@ var animate = {
   },
 
   typingEffect: function () {
-    var controller = new scrollMagic.Controller();
+    try {
+      var controller = new scrollMagic.Controller();
 
-    var theater = theaterJS();
-    theater.on("type:start, erase:start", function () {
-      var actor = theater.getCurrentActor();
-      actor.$element.classList.add("is-typing");
-    });
-
-    theater.addActor("typing");
-    theater.addScene("typing:Hello", 200);
-
-    //typing about
-    var s1 = new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: false })
-      .addTo(controller)
-      .on("start", function () {
-        theater.addActor("about");
-        theater.addScene("about:About.", 300);
+      var theater = theaterJS();
+      theater.on("type:start, erase:start", function () {
+        var actor = theater.getCurrentActor();
+        actor.$element.classList.add("is-typing");
       });
 
-    //typing work
-    var s2 = new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: false })
-      .addTo(controller)
-      .on("start", function () {
-        theater.addActor("work");
-        theater.addScene("work:Work.", 300);
-      });
+      theater.addActor("typing");
+      theater.addScene("typing:Hello", 200);
 
-    //typing contact
-    var s3 = new scrollMagic.Scene({ triggerElement: "#contact", duration: 200, offset: -150, reverse: false })
-      .addTo(controller)
-      .on("start", function () {
-        theater.addActor("contact", { accuracy: 0.4 });
-        theater.addScene("contact:Contact.", 300);
-      });
+      //typing about
+      new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: false })
+        .addTo(controller)
+        .on("start", function () {
+          theater.addActor("about");
+          theater.addScene("about:About.", 300);
+        });
+
+      //typing work
+      new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: false })
+        .addTo(controller)
+        .on("start", function () {
+          theater.addActor("work");
+          theater.addScene("work:Work.", 300);
+        });
+
+      //typing contact
+      new scrollMagic.Scene({ triggerElement: "#contact", duration: 200, offset: -150, reverse: false })
+        .addTo(controller)
+        .on("start", function () {
+          theater.addActor("contact", { accuracy: 0.4 });
+          theater.addScene("contact:Contact.", 300);
+        });
+    } catch (e) {
+      console.log("No element for typing");
+    }
   },
 
   scrollArrow: function () {

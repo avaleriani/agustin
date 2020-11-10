@@ -33,29 +33,31 @@ export const app = {
     const grid = document.getElementById("work-grid");
     const sizer = document.getElementsByClassName("shuffle__sizer")[0];
     const btns = document.getElementsByClassName("svg-wrapper");
-    const shfl = new Shuffle(grid, {
-      itemSelector: ".work-item",
-      easing: "ease-in-out",
-      sizer: sizer,
-      speed: 600,
-    });
-
-    Array.from(btns).forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        let group, isActive;
-        e.preventDefault();
-        isActive = btn.classList.contains("active");
-
-        if (isActive) {
-          return false;
-        } else {
-          group = btn.getElementsByTagName("a")[0].getAttribute("data-group");
-          $(".active").removeClass("active");
-          btn.classList.toggle("active");
-          shfl.filter(group);
-        }
+    if (grid) {
+      const shfl = new Shuffle(grid, {
+        itemSelector: ".work-item",
+        easing: "ease-in-out",
+        sizer: sizer,
+        speed: 600,
       });
-    });
+
+      Array.from(btns).forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          let group, isActive;
+          e.preventDefault();
+          isActive = btn.classList.contains("active");
+
+          if (isActive) {
+            return false;
+          } else {
+            group = btn.getElementsByTagName("a")[0].getAttribute("data-group");
+            $(".active").removeClass("active");
+            btn.classList.toggle("active");
+            shfl.filter(group);
+          }
+        });
+      });
+    }
   },
 
   centerGrid: function () {
@@ -68,7 +70,11 @@ export const app = {
       margin = (count - 1) * 15;
       total = count * 270 + margin;
     }
-    document.getElementById("work-grid").style.width = total + "px";
-    document.getElementById("grid-box-container").style.width = total + "px";
+    if (document.getElementById("work-grid")) {
+      document.getElementById("work-grid").style.width = total + "px";
+    }
+    if (document.getElementById("grid-box-container")) {
+      document.getElementById("grid-box-container").style.width = total + "px";
+    }
   },
 };
