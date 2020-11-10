@@ -16,7 +16,6 @@ module.exports = (env) => {
   const cssFilename = "static/css/[name].[contenthash:8].css";
   const appBuild = resolveApp("build");
   const appPublic = resolveApp("public");
-  const appHtml = resolveApp("public/index.html");
   const appSrc = resolveApp("src");
   const cssRegex = /\.css$/;
   const cssModuleRegex = /\.module\.css$/;
@@ -244,8 +243,36 @@ module.exports = (env) => {
         Object.assign(
           {},
           {
+            filename: "uses.html",
             inject: true,
-            template: appHtml,
+            template: resolveApp("public/uses.html"),
+          },
+          isProd
+            ? {
+                minify: {
+                  removeComments: false,
+                  removeEmptyElements: false,
+                  collapseWhitespace: true,
+                  removeRedundantAttributes: true,
+                  useShortDoctype: true,
+                  removeEmptyAttributes: true,
+                  removeStyleLinkTypeAttributes: true,
+                  keepClosingSlash: true,
+                  minifyJS: true,
+                  minifyCSS: true,
+                  minifyURLs: true,
+                },
+              }
+            : undefined
+        )
+      ),
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            filename: "index.html",
+            inject: true,
+            template: resolveApp("public/index.html"),
           },
           isProd
             ? {

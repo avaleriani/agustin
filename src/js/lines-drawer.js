@@ -1,4 +1,4 @@
-//deprecated in favor of library lines-draw. This file will be deleted.
+//TODO: deprecated in favor of library lines-draw. This file will be deleted.
 
 var $ = require("../node_modules/jquery");
 var shortid = require("../node_modules/shortid");

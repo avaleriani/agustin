@@ -1,0 +1,54 @@
+#page-uses {
+  text-align: left;
+  min-height: 100vh;
+  color: #e9ece5;
+  background-color: #000000;
+  padding: 0 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h1 {
+      color: #e3b673;
+      text-align: left;
+      font-size: 30px;
+      margin: 0;
+    }
+
+    span {
+      font-size: 12px;
+      padding-left: 10px;
+    }
+  }
+  .uses-list {
+    color: #e3b673;
+    margin-bottom: 180px;
+    padding-top: 90px;
+    text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
+      0 -1px rgba(0, 0, 0, 0.31);
+
+    h1 {
+      font-size: 25px;
+      color: #e9ece5;
+    }
+
+    h3 {
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        text-align: left;
+        margin-bottom: 5px;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
