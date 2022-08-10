@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "pe-icon-social";
+  font-family: "pe-icon-social", sans-serif;
   src: url("./fonts/pe-icon-social.eot");
   src: url("./fonts/pe-icon-social.eot") format("embedded-opentype"), url("./fonts/pe-icon-social.woff") format("woff"),
     url("./fonts/pe-icon-social.ttf") format("truetype"), url("./fonts/pe-icon-social.svg") format("svg");
@@ -11,7 +11,7 @@
 [class*=" pe-so-"] {
   left: 1px;
   display: inline-block;
-  font-family: "pe-icon-social";
+  font-family: "pe-icon-social", sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

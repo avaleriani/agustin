@@ -13,3 +13,4 @@ Please check my other pinned projects for more up to date code samples.
 ## :heavy_plus_sign: Changelog
 
 - :date: 05.11.2020 => Created /uses page to show the tools I use for work.
+- :date: 11.08.2022 => A11y, packages and performance updates.

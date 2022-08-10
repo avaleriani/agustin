@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "devicons";
+  font-family: "devicons", sans-serif;;
   src: url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.eot?xqxft6");
   src: url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.eot?#iefixxqxft6")
       format("embedded-opentype"),
@@ -11,7 +11,7 @@
 }
 
 .devicons {
-  font-family: "devicons";
+  font-family: "devicons", sans-serif;;
   speak: none;
   font-style: normal;
   font-weight: normal;

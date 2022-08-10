@@ -19,7 +19,7 @@ _  ___ |__ |/ /
     <meta name="description" content="Agustin Valeriani is a Software Engineer." />
     <meta
       name="keywords"
-      content="Agu Valeriani,react, front, back, angular,Front-end,back-end,development,software,engineer,HTML,HTML 5,CSS,CSS3,javascript,jQuery,Object Oriented,Responsive Design, PHP, sql, PostgresSql, mysql, Web Design, User Experience, Mobile Interface"
+      content="Agu Valeriani,react, front, back, nextjs, react, angular, Front-end ,back-end,development,software,engineer,HTML,HTML 5,CSS,CSS3,javascript,jQuery,Object Oriented,Responsive Design, PHP, sql, PostgresSql, mysql, Web Design, User Experience, Mobile Interface"
     />
     <meta name="author" content="Agustin Valeriani" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -28,8 +28,8 @@ _  ___ |__ |/ /
 
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@agvaleriani" />
-    <meta name="twitter:creator" content="@agvaleriani" />
+    <meta name="twitter:site" content="@aguvaleriani" />
+    <meta name="twitter:creator" content="@aguvaleriani" />
     <meta name="twitter:title" content="Portfolio of Agustin Valeriani - Software Engineer" />
     <meta name="twitter:description" content="Interactive portfolio of Agustin Valeriani" />
     <meta
@@ -174,9 +174,9 @@ _  ___ |__ |/ /
             </div>
           </header>
 
-          <h1 class="heading h-01" id="typing"></h1>
+          <h2 class="heading h-01" id="typing"></h2>
 
-          <div class="sub-header copy-02" id="step1">
+          <h1 class="sub-header copy-02" id="step1">
             Agustin Valeriani
             <br />
             Software Engineer
@@ -186,13 +186,13 @@ _  ___ |__ |/ /
               <span class="lnr lnr-pointer-right handy"></span>
               <img src="assets/images/arrow-down.svg" class="inject-me" alt="arrow" />
             </a>
-          </div>
+          </h1>
         </div>
       </section>
 
       <!-- ABOUT -->
       <section id="page-about" class="section">
-        <h1 class="heading h-01" id="about"></h1>
+        <h2 class="heading h-01" id="about"></h2>
         <div class="site-inner">
           <p class="copy-01">
             I'm Agustin a software engineer specializing in web development. I use powerful and modern open source
@@ -250,7 +250,7 @@ _  ___ |__ |/ /
       <section id="page-work" class="section">
         <div class="my-work-container">
           <div class="site-inner">
-            <h1 class="heading h-01" id="work"></h1>
+            <h2 class="heading h-01" id="work"></h2>
           </div>
 
           <a href="#" class="mobile-filter-select">Filter</a>
@@ -804,7 +804,7 @@ _  ___ |__ |/ /
           <div class="container">
             <div class="row">
               <div class="text-center">
-                <h1 class="heading h-01" id="contact"></h1>
+                <h2 class="heading h-01" id="contact"></h2>
               </div>
             </div>
             <div class="row">
@@ -934,13 +934,10 @@ _  ___ |__ |/ /
       </section>
 
       <script type="text/javascript">
-        var readyStateCheckInterval = setInterval(function () {
-          if (document.readyState === "complete") {
-            document.getElementById("page-container").classList.remove("hidden");
-            document.getElementById("loader").classList.add("hidden");
-            clearInterval(readyStateCheckInterval);
-          }
-        }, 10);
+        document.addEventListener("DOMContentLoaded", () => {
+          document.getElementById("page-container").classList.remove("hidden");
+          document.getElementById("loader").classList.add("hidden");
+        }, false);
       </script>
       <script>
         (function (i, s, o, g, r, a, m) {
