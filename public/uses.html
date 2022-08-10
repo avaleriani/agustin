@@ -255,13 +255,10 @@ _  ___ |__ |/ /
       </section>
 
       <script type="text/javascript">
-        var readyStateCheckInterval = setInterval(function () {
-          if (document.readyState === "complete") {
-            document.getElementById("page-container").classList.remove("hidden");
-            document.getElementById("loader").classList.add("hidden");
-            clearInterval(readyStateCheckInterval);
-          }
-        }, 10);
+        document.addEventListener("DOMContentLoaded", () => {
+          document.getElementById("page-container").classList.remove("hidden");
+          document.getElementById("loader").classList.add("hidden");
+        }, false);
       </script>
       <script>
         (function (i, s, o, g, r, a, m) {
