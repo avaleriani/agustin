@@ -2,8 +2,6 @@ const webpack = require("webpack");
 const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -34,26 +32,14 @@ module.exports = (env) => {
       },
       {
         loader: require.resolve("postcss-loader"),
-        options: {
-          ident: "postcss",
-          plugins: () => [
-            require("postcss-flexbugs-fixes"),
-            require("postcss-preset-env")({
-              autoprefixer: {
-                flexbox: "no-2009",
-              },
-              stage: 3,
-            }),
-          ],
-          sourceMap: isProd,
-        },
+        options: {},
       },
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push({
         loader: require.resolve(preProcessor),
         options: {
-          sourceMap: isProd,
+          
         },
       });
     }
@@ -62,24 +48,14 @@ module.exports = (env) => {
 
   return {
     bail: isProd,
-    mode: env,
+    mode: "production",
     performance: {
       hints: !isProd ? false : "warning",
     },
     devServer: !isProd
       ? {
-          contentBase: appPublic,
-          watchContentBase: true,
-          publicPath: "/",
           hot: true,
-          inline: true,
-          quiet: false,
-          watchOptions: {
-            ignored: /node_modules/,
-          },
           https: true,
-          overlay: false,
-          clientLogLevel: "none",
           host: process.env.HOST || "0.0.0.0",
           compress: true,
           port: 3000,
@@ -91,38 +67,16 @@ module.exports = (env) => {
     },
     output: {
       path: isProd ? path.resolve(__dirname, appBuild) : undefined,
-      filename: "static/js/[name].[hash:8].js",
-      chunkFilename: "static/js/[name].[hash:8].chunk.js",
+      filename: "static/js/[name].[fullhash:8].js",
+      chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
       pathinfo: !isProd,
       publicPath: "/",
+      clean: true,
     },
     optimization: {
       minimize: isProd,
       minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            parse: {
-              ecma: 8,
-            },
-            compress: {
-              ecma: 5,
-              warnings: false,
-              comparisons: false,
-              inline: 2,
-            },
-            mangle: {
-              safari10: true,
-            },
-            output: {
-              ecma: 5,
-              comments: false,
-              ascii_only: true,
-            },
-          },
-          parallel: true,
-          cache: true,
-          sourceMap: isProd,
-        }),
+        new TerserPlugin(),
         new OptimizeCSSAssetsPlugin({
           cssProcessorOptions: {
             parser: safePostCssParser,
@@ -146,7 +100,7 @@ module.exports = (env) => {
               loader: require.resolve("url-loader"),
               options: {
                 limit: 10000,
-                name: "static/images/[name].[hash:8].[ext]",
+                name: "static/images/[name].[fullhash:8].[ext]",
               },
             },
             {
@@ -189,7 +143,7 @@ module.exports = (env) => {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isProd,
+                
               }),
               sideEffects: true,
             },
@@ -197,7 +151,7 @@ module.exports = (env) => {
               test: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isProd,
+                
                 modules: true,
               }),
             },
@@ -207,7 +161,7 @@ module.exports = (env) => {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  sourceMap: isProd,
+                  
                 },
                 "sass-loader"
               ),
@@ -218,7 +172,7 @@ module.exports = (env) => {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  sourceMap: isProd,
+                  
                   modules: true,
                 },
                 "sass-loader"
@@ -228,7 +182,7 @@ module.exports = (env) => {
               loader: require.resolve("file-loader"),
               exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
               options: {
-                name: "static/media/[name].[hash:8].[ext]",
+                name: "static/media/[name].[fullhash:8].[ext]",
               },
             },
           ],
@@ -237,8 +191,6 @@ module.exports = (env) => {
     },
     plugins: [
       new webpack.DefinePlugin(env),
-      new CleanWebpackPlugin([appBuild], {}),
-      new CopyWebpackPlugin([{ from: appPublic }]),
       new HtmlWebpackPlugin(
         Object.assign(
           {},
@@ -295,7 +247,7 @@ module.exports = (env) => {
       ),
       new MiniCssExtractPlugin({
         filename: cssFilename,
-        chunkFilename: "static/css/[name].[hash:8].chunk.css",
+        chunkFilename: "static/css/[name].[fullhash:8].chunk.css",
       }),
     ],
   };
