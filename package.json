@@ -11,8 +11,7 @@
   "scripts": {
     "dev": "webpack-dev-server --open --hot --env development",
     "build": "webpack --env production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "yarn build && gh-pages -d dist"
   },
   "author": "Agustin Valeriani",
   "license": "ISC",
@@ -20,6 +19,7 @@
     "personal",
     "web",
     "development",
+    "frontend",
     "portfolio",
     "agustin",
     "valeriani",
@@ -31,6 +31,7 @@
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.1",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

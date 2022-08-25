@@ -6,19 +6,33 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = (env) => {
   const isProd = env === "production";
   const cssFilename = "static/css/[name].[contenthash:8].css";
-  const appBuild = resolveApp("build");
-  const appPublic = resolveApp("public");
+  const appBuild = resolveApp("dist");
   const appSrc = resolveApp("src");
   const cssRegex = /\.css$/;
   const cssModuleRegex = /\.module\.css$/;
   const sassRegex = /\.(scss|sass)$/;
   const sassModuleRegex = /\.module\.(scss|sass)$/;
+
+  const minifyOpts = {
+    removeComments: false,
+    removeEmptyElements: false,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true,
+  };
 
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
@@ -38,9 +52,7 @@ module.exports = (env) => {
     if (preProcessor) {
       loaders.push({
         loader: require.resolve(preProcessor),
-        options: {
-          
-        },
+        options: {},
       });
     }
     return loaders;
@@ -55,7 +67,7 @@ module.exports = (env) => {
     devServer: !isProd
       ? {
           hot: true,
-          https: true,
+          https: false,
           host: process.env.HOST || "0.0.0.0",
           compress: true,
           port: 3000,
@@ -97,7 +109,7 @@ module.exports = (env) => {
           oneOf: [
             {
               test: [/\.bmp$/, /\.gif$/, /\.jpeg$/, /\.jpg$/, /\.png$/],
-              loader: require.resolve("url-loader"),
+              loader: "url-loader",
               options: {
                 limit: 10000,
                 name: "static/images/[name].[fullhash:8].[ext]",
@@ -126,7 +138,7 @@ module.exports = (env) => {
               },
             },
             {
-              test: /\.(js|mjs)$/,
+              test: /\.(js)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve("babel-loader"),
               options: {
@@ -143,7 +155,6 @@ module.exports = (env) => {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                
               }),
               sideEffects: true,
             },
@@ -151,7 +162,7 @@ module.exports = (env) => {
               test: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                
+
                 modules: true,
               }),
             },
@@ -161,7 +172,6 @@ module.exports = (env) => {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  
                 },
                 "sass-loader"
               ),
@@ -172,18 +182,15 @@ module.exports = (env) => {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  
+
                   modules: true,
                 },
                 "sass-loader"
               ),
             },
             {
-              loader: require.resolve("file-loader"),
-              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
-              options: {
-                name: "static/media/[name].[fullhash:8].[ext]",
-              },
+              test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+              type: "asset/resource",
             },
           ],
         },
@@ -197,23 +204,11 @@ module.exports = (env) => {
           {
             filename: "uses.html",
             inject: true,
-            template: resolveApp("public/uses.html"),
+            template: resolveApp("src/uses.html"),
           },
           isProd
             ? {
-                minify: {
-                  removeComments: false,
-                  removeEmptyElements: false,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true,
-                },
+                minify: minifyOpts,
               }
             : undefined
         )
@@ -224,27 +219,18 @@ module.exports = (env) => {
           {
             filename: "index.html",
             inject: true,
-            template: resolveApp("public/index.html"),
+            template: resolveApp("src/index.html"),
           },
           isProd
             ? {
-                minify: {
-                  removeComments: false,
-                  removeEmptyElements: false,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true,
-                },
+                minify: minifyOpts,
               }
             : undefined
         )
       ),
+      new CopyPlugin({
+        patterns: [{ from: "src/assets", to: "assets" }],
+      }),
       new MiniCssExtractPlugin({
         filename: cssFilename,
         chunkFilename: "static/css/[name].[fullhash:8].chunk.css",
