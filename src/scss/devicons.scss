@@ -1,17 +1,14 @@
 @font-face {
-  font-family: "devicons", sans-serif;;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.eot?xqxft6");
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.eot?#iefixxqxft6")
-      format("embedded-opentype"),
-    url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.woff?xqxft6") format("woff"),
-    url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.ttf?xqxft6") format("truetype"),
-    url("https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/fonts/devicons.svg?xqxft6#devicons") format("svg");
+  font-family: "devicons", sans-serif;
+  src: url("./devicons.eot");
+  src: url("./devicons.eot") format("embedded-opentype"), url("./devicons.woff") format("woff"),
+    url("./devicons.ttf") format("truetype"), url("./devicons.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 .devicons {
-  font-family: "devicons", sans-serif;;
+  font-family: "devicons", sans-serif;
   speak: none;
   font-style: normal;
   font-weight: normal;
