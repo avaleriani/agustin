@@ -82,7 +82,6 @@ module.exports = (env) => {
       filename: "static/js/[name].[fullhash:8].js",
       chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
       pathinfo: !isProd,
-      publicPath: "/",
       clean: true,
     },
     optimization: {
