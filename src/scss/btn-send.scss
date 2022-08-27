@@ -23,7 +23,7 @@
   display: block;
   stroke-width: 4px;
   fill: transparent;
-  stroke: #ccc;
+  stroke: $colorCerebralGrey;
   stroke-dasharray: 85 400;
   stroke-dashoffset: -220;
   transition: 1.5s all ease;
@@ -47,12 +47,12 @@
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: #e3b673;
+  stroke: $colorOrange;
 }
 
 .active .shape {
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: #ffefff;
+  stroke: $colorSoftWhite;
 }

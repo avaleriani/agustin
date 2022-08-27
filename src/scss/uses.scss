@@ -1,8 +1,8 @@
 #page-uses {
   text-align: left;
   min-height: 100vh;
-  color: #e9ece5;
-  background-color: #070606;
+  color: $colorSoftWhite;
+  background-color: $colorBlack;
   padding: 0 20%;
   height: 100%;
   display: flex;
@@ -15,7 +15,7 @@
     align-items: center;
 
     h1 {
-      color: #e3b673;
+      color: $colorOrange;
       text-align: left;
       font-size: 30px;
       margin: 0;
@@ -27,7 +27,7 @@
     }
   }
   .uses-list {
-    color: #e3b673;
+    color: $colorOrange;
     margin-bottom: 180px;
     padding-top: 90px;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
@@ -35,7 +35,7 @@
 
     h1 {
       font-size: 25px;
-      color: #e9ece5;
+      color: $colorSoftWhite;
     }
 
     h3 {

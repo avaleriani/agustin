@@ -1,17 +1,17 @@
-var $ = require("jquery");
+const $ = require("jquery");
 window.jQuery = window.$ = $;
-var velocity = require("velocity-animate");
+require("velocity-animate");
 delete window.jQuery;
 delete window.$;
-var scrollMagic = require("scrollmagic");
-var theaterJS = require("theaterjs");
+const scrollMagic = require("scrollmagic");
+const theaterJS = require("theaterjs");
 
-var animate = {
+const animate = {
   inputAnimation: function () {
-    var that = this;
+    const that = this;
     $(".form-control")
       .focusin(function () {
-        var obj = $(this).parent().find(".pencil-name");
+        const obj = $(this).parent().find(".pencil-name");
         if ($(this).val() === "") {
           obj.velocity({ y: "15px", opacity: 1 }, 500, "out");
           obj.next().velocity({ y: "0px" }, 500, "in");
@@ -19,7 +19,7 @@ var animate = {
         that.visibilityToggle(obj.next());
       })
       .focusout(function () {
-        var obj = $(this).parent().find(".pencil-name");
+        const obj = $(this).parent().find(".pencil-name");
         if ($(this).val() === "") {
           obj.velocity({ y: "0px", opacity: 0 }, 500, "in");
           obj.next().velocity({ y: "15px" }, 500, "out");
@@ -28,7 +28,7 @@ var animate = {
       });
 
     $.support.placeholder = (function () {
-      var i = document.createElement("input");
+      const i = document.createElement("input");
       return "placeholder" in i;
     })();
 
@@ -40,7 +40,7 @@ var animate = {
       $(".form-group")
         .find("input, textarea")
         .on("keyup blur focus", function (e) {
-          var that = $(this),
+          const that = $(this),
             parent = that.parent().find("label");
 
           if (e.type === "keyup") {
@@ -76,13 +76,13 @@ var animate = {
     $(".svg-wrapper").on("click", function (event) {
       event.preventDefault();
 
-      var divCreated = $("<div/>"),
+      const divCreated = $("<div/>"),
         btnOffset = $(this).offset(),
         xPos = event.pageX - btnOffset.left,
         yPos = event.pageY - btnOffset.top;
 
       divCreated.addClass("ripple-effect");
-      var ripple = $(".ripple-effect");
+      const ripple = $(".ripple-effect");
 
       ripple.css("height", $(this).height());
       ripple.css("width", $(this).height());
@@ -105,11 +105,11 @@ var animate = {
   },
 
   postToGoogle: function (data) {
-    var successMsg = "Thanks! I'll be in touch shortly.";
-    var errorMsg =
+    const successMsg = "Thanks! I'll be in touch shortly.";
+    const errorMsg =
       "Sorry, there's been an error, please email me at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
-    var message = $(".hidden-email-message");
-    var image = $(".hidden-email-image");
+    const message = $(".hidden-email-message");
+    const image = $(".hidden-email-image");
     $.ajax({
       url: "https://docs.google.com/forms/d/1U6VHwNJcCFZqyBwxjwsUvFNQyIOLhiJaCN4FOX8vwXM/formResponse",
       data: {
@@ -210,11 +210,11 @@ var animate = {
 
   typingEffect: function () {
     try {
-      var controller = new scrollMagic.Controller();
+      const controller = new scrollMagic.Controller();
 
-      var theater = theaterJS();
+      const theater = theaterJS();
       theater.on("type:start, erase:start", function () {
-        var actor = theater.getCurrentActor();
+        const actor = theater.getCurrentActor();
         actor.$element.classList.add("is-typing");
       });
 

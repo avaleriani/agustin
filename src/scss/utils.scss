@@ -4,6 +4,15 @@ $colorGrey: #919193;
 $colorWhite: #fffeff;
 $colorOrange: #e3b673;
 $colorDarkGrey: #454648;
+$colorBlack: #070606;
+$colorPurple: #7b77c9;
+$colorBlue: #015871;
+$colorSoftWhite: #e9ece5;
+$colorMetal: #888a8b;
+$colorBlackBay: #464b4f;
+$colorHighBlue: #89bdd3;
+$colorCerebralGrey: #cccccc;
+
 
 body {
   font-family: "Roboto", Arial, sans-serif;
@@ -40,7 +49,7 @@ a {
   right: 45px;
   position: relative;
   font-size: 28px;
-  color: #919193;
+  color: $colorGrey;
   top: 40px;
   display: none;
 }

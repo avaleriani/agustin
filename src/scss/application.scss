@@ -14,7 +14,7 @@
 }
 
 .heading {
-  color: #919193;
+  color: $colorGrey;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -45,7 +45,7 @@
   text-rendering: optimizeLegibility;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 27px;
-  color: #464b4f;
+  color: $colorBlackBay;
   line-height: 42px;
 }
 
@@ -53,7 +53,7 @@
   text-rendering: optimizeLegibility;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
-  color: #888a8b;
+  color: $colorMetal;
   line-height: 30px;
   text-align: center;
 }
@@ -75,14 +75,14 @@
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &.main {
-    background: #7b77c9;
-    color: #e3b673;
+    background: $colorPurple;
+    color: $colorOrange;
     font-family: "Roboto", Arial, sans-serif;
     font-size: 14px;
   }
   &.white {
-    background: #e3b673;
-    color: #888a8b;
+    background: $colorOrange;
+    color: $colorMetal;
     font-family: "Roboto", Arial, sans-serif;
     font-size: 14px;
   }
