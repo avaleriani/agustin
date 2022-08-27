@@ -20,21 +20,19 @@
   text-rendering: optimizeLegibility;
   min-height: 50px;
   &.h-01 {
-    font-family: "Roboto-bold", Arial, sans-serif;
     font-size: 60px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1;
     text-transform: uppercase;
     min-height: 90px;
   }
   &.h-02 {
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: $fontMain;
     font-size: 19px;
     font-weight: normal;
     line-height: 1;
   }
   &.h-03 {
-    font-family: "Roboto-bold", Arial, sans-serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
@@ -43,7 +41,7 @@
 
 .copy-01 {
   text-rendering: optimizeLegibility;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: $fontMain;
   font-size: 27px;
   color: $colorBlackBay;
   line-height: 42px;
@@ -51,7 +49,7 @@
 
 .copy-02 {
   text-rendering: optimizeLegibility;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: $fontMain;
   font-size: 18px;
   color: $colorMetal;
   line-height: 30px;
@@ -63,7 +61,7 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: $fontMain;
   font-size: 14px;
   line-height: 1;
 }
@@ -77,13 +75,13 @@
   &.main {
     background: $colorPurple;
     color: $colorOrange;
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: $fontMain;
     font-size: 14px;
   }
   &.white {
     background: $colorOrange;
     color: $colorMetal;
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: $fontMain;
     font-size: 14px;
   }
   &.rounded {
