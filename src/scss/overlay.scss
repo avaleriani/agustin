@@ -12,7 +12,7 @@
 
 .overlay-container {
   margin-top: 70px;
-  background-color: #fffeff;
+  background-color: $colorWhite;
   padding-left: 10%;
   padding-right: 10%;
   min-height: 550px;
@@ -115,7 +115,7 @@
   &:hover {
     &::before,
     &::after {
-      background: #919193;
+      background: $colorGrey;
     }
   }
   &::before,
@@ -127,7 +127,7 @@
     top: 50%;
     left: 0;
     margin-top: -1px;
-    background: #070606;
+    background: $colorBlack;
   }
   &::before {
     -webkit-transform: rotate(45deg);
@@ -170,7 +170,7 @@
     -webkit-transition: opacity 1s ease-in-out;
   }
   &.open .overlay-title-effect {
-    color: #070606;
+    color: $colorBlack;
     font-weight: 800;
     animation: 1.5s 0.7s float infinite ease;
     height: auto;

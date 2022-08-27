@@ -1,33 +1,81 @@
 #page-home {
   text-align: center;
   height: 100%;
-  color: #e9ece5;
-  background-color: #070606;
+  color: $colorSoftWhite;
+  background-color: $colorBlack;
+
   .brand-logo {
     #brand-logo {
       width: 210px;
-      border: solid #e3b673 5px;
+      border: solid $colorOrange 5px;
       * {
         position: relative;
-        fill: #e3b673;
+        fill: $colorOrange;
         transform-origin: center top;
         transition: all 0.4s ease;
       }
     }
-    padding: 65px 0 80px 0;
+    padding: 65px 0 20px 0;
     #circle {
       height: 240px;
     }
   }
+
   .h-01 {
-    color: #e3b673;
+    color: $colorOrange;
     margin-bottom: 50px;
   }
+
   .copy-02 {
-    color: #e3b673;
+    color: $colorOrange;
     margin-bottom: 180px;
-    padding-top: 90px;
+    padding-top: 60px;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
       0 -1px rgba(0, 0, 0, 0.31);
+  }
+
+  .ocean {
+    height: 5%;
+    width: 100%;
+    position: absolute;
+    bottom: 160px;
+    left: 0;
+    background-color: $colorBlack;
+    transform: rotate(180deg);
+  }
+
+  .wave {
+    background: url(../assets/images/icons/SVG/wave.svg) repeat-x;
+    position: absolute;
+    top: -158px;
+    width: 6400px;
+    height: 158px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .wave:nth-of-type(2) {
+    top: -128px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+  }
+
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+
+  @keyframes swell {
+    0%,
+    100% {
+      transform: translate3d(0, -25px, 0);
+    }
+    50% {
+      transform: translate3d(0, 5px, 0);
+    }
   }
 }

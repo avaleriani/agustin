@@ -1,9 +1,10 @@
 #page-work {
   position: relative;
   text-align: center;
-  background-color: #454648;
+  background-color: $colorDarkGrey;
   min-height: 1210px;
   height: auto;
+
   .grid-box {
     margin: auto;
     max-width: 1125px;
@@ -18,34 +19,42 @@
       max-width: 270px;
     }
   }
+
   .h-01 {
-    color: #e3b673;
+    color: $colorOrange;
     margin-bottom: 50px;
   }
+
   .h-02 {
     visibility: hidden;
-    color: #e9ece5;
+    color: $colorSoftWhite;
     margin: 15px 0 -25px 0;
     font-weight: 800;
   }
+
   .copy-03,
   .filter-link {
-    color: #e3b673;
+    color: $colorOrange;
   }
+
   .shuffle__sizer {
     display: none;
     width: 270px;
     margin-left: 15px;
   }
+
   .mobile-filter-select {
     display: none;
   }
+
   #work-filter {
     margin-bottom: 40px;
   }
+
   .filter-link {
-    color: #e3b673;
+    color: $colorOrange;
   }
+
   .work-item {
     figure {
       filter: sepia(100%);
@@ -79,17 +88,19 @@
     &:hover {
       .h-02 {
         visibility: visible;
-        color: #070606;
+        color: $colorBlack;
         transition: color 750ms linear;
       }
     }
   }
+
   .button {
     margin-top: 40px;
   }
+
   #work-detail {
     display: none;
-    background: #89bdd3;
+    background: $colorHighBlue;
     text-align: left;
     position: absolute;
     top: 0;
@@ -98,6 +109,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+
     .close-icon {
       cursor: pointer;
       display: block;
@@ -111,8 +123,9 @@
       position: absolute;
       top: 0;
       right: 0;
-      color: #e3b673;
+      color: $colorOrange;
     }
+
     .inner {
       padding: 70px 0;
     }

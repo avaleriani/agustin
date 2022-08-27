@@ -1,10 +1,9 @@
 .view {
   width: 270px;
   height: 180px;
-  /*order: 10px solid #FFEFFF; WHITE BORDER FOR WORK ITEMS */
   overflow: hidden;
   cursor: pointer;
-  background: #e9ece5;
+  background: $colorSoftWhite;
   margin-top: 15px;
   .mask,
   .content {
@@ -21,7 +20,7 @@
   }
   h2 {
     text-transform: uppercase;
-    color: #919193;
+    color: $colorGrey;
     text-align: center;
     position: relative;
     font-size: 17px;
@@ -33,7 +32,7 @@
     min-height: 50px;
     font-size: 11px;
     position: relative;
-    color: #e9ece5;
+    color: $colorSoftWhite;
     padding: 0 5px 5px;
     text-align: center;
   }
@@ -41,16 +40,16 @@
     display: inline-block;
     text-decoration: none;
     padding: 7px 14px;
-    background: #070606;
-    color: #919193;
+    background: $colorBlack;
+    color: $colorGrey;
     text-transform: uppercase;
-    -webkit-box-shadow: 0 0 1px #070606;
-    -moz-box-shadow: 0 0 1px #070606;
-    box-shadow: 0 0 1px #070606;
+    -webkit-box-shadow: 0 0 1px $colorBlack;
+    -moz-box-shadow: 0 0 1px $colorBlack;
+    box-shadow: 0 0 1px $colorBlack;
     &:hover {
-      -webkit-box-shadow: 0 0 5px #070606;
-      -moz-box-shadow: 0 0 5px #070606;
-      box-shadow: 0 0 5px #070606;
+      -webkit-box-shadow: 0 0 5px $colorBlack;
+      -moz-box-shadow: 0 0 5px $colorBlack;
+      box-shadow: 0 0 5px $colorBlack;
     }
   }
 }

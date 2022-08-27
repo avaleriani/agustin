@@ -6,7 +6,7 @@
   .copy-01 {
     margin-bottom: 50px;
     padding: 0 60px;
-    color: #e9ece5;
+    color: $colorSoftWhite;
   }
   .button {
     margin-top: 66px;
@@ -15,7 +15,7 @@
   input,
   textarea,
   .heading {
-    color: #919193;
+    color: $colorGrey;
   }
 }
 
@@ -27,7 +27,7 @@
   position: absolute;
   top: 135px;
   left: 0;
-  background-color: #fffeff;
+  background-color: $colorWhite;
 }
 
 .hidden-email-title {
@@ -36,7 +36,7 @@
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: #454648;
+  background-color: $colorDarkGrey;
 }
 
 .hidden-email-message {

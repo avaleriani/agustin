@@ -8,8 +8,8 @@
 }
 
 .hexagon {
-  background-color: #e3b673;
-  border: 1px solid #070606;
+  background-color: $colorOrange;
+  border: 1px solid $colorBlack;
   height: 100%;
   width: calc(100% * 0.57735);
   display: inline-block;
@@ -23,8 +23,8 @@
     content: "";
     transform: rotateZ(60deg);
     z-index: 3;
-    border-top: 1px solid #070606;
-    border-bottom: 1px solid #070606;
+    border-top: 1px solid $colorBlack;
+    border-bottom: 1px solid $colorBlack;
   }
   &:after {
     position: absolute;
@@ -36,13 +36,13 @@
     content: "";
     transform: rotateZ(-60deg);
     z-index: 3;
-    border-top: 1px solid #070606;
-    border-bottom: 1px solid #070606;
+    border-top: 1px solid $colorBlack;
+    border-bottom: 1px solid $colorBlack;
   }
 }
 
 .hexagon-icon-position {
-  color: #070606;
+  color: $colorBlack;
   position: relative;
   z-index: 4;
   top: 12px;

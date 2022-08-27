@@ -10,7 +10,7 @@
 
 .form-label {
   font-size: 14px;
-  color: #888a8b;
+  color: $colorMetal;
   padding-top: 5px;
   display: block;
   opacity: 1;
@@ -20,7 +20,7 @@
 .form-control {
   outline: none !important;
   border-radius: 0;
-  border-color: #ccc;
+  border-color: $colorCerebralGrey;
   border-width: 0 0 2px;
   border-style: none none solid;
   box-shadow: none;
@@ -32,7 +32,7 @@
 
   &:focus {
     box-shadow: none;
-    border-color: #e3b673;
+    border-color: $colorOrange;
   }
 }
 
