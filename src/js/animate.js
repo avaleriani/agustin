@@ -185,14 +185,14 @@ var animate = {
       {
         mouseenter: function () {
           $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-          $(this).find(".hexagon").css("background-color", "#000000");
+          $(this).find(".hexagon").css("background-color", "#070606");
           $(this).find(".hexagon-icon-position").css("color", "#E3B673");
         },
 
         mouseleave: function () {
           $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
           $(this).find(".hexagon").css("background-color", "#E3B673");
-          $(this).find(".hexagon-icon-position").css("color", "#000000");
+          $(this).find(".hexagon-icon-position").css("color", "#070606");
         },
       },
       ".hexagon-wrapper"

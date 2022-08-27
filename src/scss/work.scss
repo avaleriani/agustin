@@ -6,14 +6,27 @@
   height: auto;
   .grid-box {
     margin: auto;
+    max-width: 1125px;
+    position: relative;
+    @media screen and (max-width: 1124px) {
+      max-width: 838px;
+    }
+    @media screen and (max-width: 838px) {
+      max-width: 553px;
+    }
+    @media screen and (max-width: 553px) {
+      max-width: 270px;
+    }
   }
   .h-01 {
     color: #e3b673;
     margin-bottom: 50px;
   }
   .h-02 {
+    visibility: hidden;
     color: #e9ece5;
-    margin: 5px 0 -25px 0;
+    margin: 15px 0 -25px 0;
+    font-weight: 800;
   }
   .copy-03,
   .filter-link {
@@ -61,6 +74,14 @@
       -ms-transform: scale(1.1) translateX(5px);
       -o-transform: scale(1.1) translateX(5px);
       transform: scale(1.1) translateX(5px);
+    }
+
+    &:hover {
+      .h-02 {
+        visibility: visible;
+        color: #070606;
+        transition: color 750ms linear;
+      }
     }
   }
   .button {

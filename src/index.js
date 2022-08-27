@@ -1,7 +1,7 @@
 require("./scss/main.scss");
 import { app } from "./js/application.js";
-var workViewer = require("./js/work-viewer.js");
-var animate = require("./js/animate.js");
+const workViewer = require("./js/work-viewer.js");
+const animate = require("./js/animate.js");
 import "typeface-roboto";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
   workViewer.init();
   animate.scrollArrow();
   // if (window.innerWidth === "1920") {
-    // TODO: fix mobile
-    // TODO/: check how the lines can work on mobile, maybe making it responsive based on resolution.
-    // hice = window.innerWidth * 1920
-    //          linesDrawer.createAllLine
-    // s('#lines-container');
-    //          linesDrawer.scrollAnimate();
-    //l     inesDrawer.mouseCoordinatesOnTitle();
+  // TODO: fix mobile
+  // TODO/: check how the lines can work on mobile, maybe making it responsive based on resolution.
+  // hice = window.innerWidth * 1920
+  //          linesDrawer.createAllLine
+  // s('#lines-container');
+  //          linesDrawer.scrollAnimate();
+  //l     inesDrawer.mouseCoordinatesOnTitle();
   // }
   app.worksFilter();
   animate.typingEffect();

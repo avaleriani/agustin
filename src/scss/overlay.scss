@@ -127,7 +127,7 @@
     top: 50%;
     left: 0;
     margin-top: -1px;
-    background: #000;
+    background: #070606;
   }
   &::before {
     -webkit-transform: rotate(45deg);
@@ -170,7 +170,8 @@
     -webkit-transition: opacity 1s ease-in-out;
   }
   &.open .overlay-title-effect {
-    color: #000;
+    color: #070606;
+    font-weight: 800;
     animation: 1.5s 0.7s float infinite ease;
     height: auto;
     min-height: 40px;
