@@ -19,6 +19,7 @@ var workViewer = {
       //if it's closed
       document.addEventListener("keyup", workViewer.deactivateWithEscape, false);
       currElem.classList.add("open");
+      document.body.style.overflowY = 'hidden';
       currElem.querySelector(".overlay-title-text").classList.add("overlay-title-effect");
     }
   },
@@ -26,6 +27,7 @@ var workViewer = {
   deactivate: function () {
     var elem = document.querySelector(".open");
     elem.classList.remove("open");
+    document.body.style.overflowY = 'auto';
     elem.querySelector(".overlay-title-text").classList.remove("overlay-title-effect");
   },
 

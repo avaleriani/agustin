@@ -49,7 +49,7 @@ var linesDrawer = {
     var p38 = { x: 890, y: 4500 };
     var p39 = { x: 1005, y: 4500 };
 
-    var c1 = "#000000",
+    var c1 = "#070606",
       c2 = "#ffffff";
 
     this.createLine(p1, p2, c2).appendTo(appendId);

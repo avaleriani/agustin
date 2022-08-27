@@ -5,7 +5,6 @@ import Shuffle from "shufflejs";
 
 export const app = {
   loadApplication: function () {
-    const that = this;
     const touch = !!("ontouchstart" in document.documentElement || navigator.msMaxTouchPoints > 0);
     $(".view").on("click", function (e) {
       e.preventDefault();
@@ -14,14 +13,6 @@ export const app = {
     if (touch) {
       return fastClick.attach(document.body);
     }
-    this.centerGrid();
-    window.addEventListener(
-      "resize",
-      function () {
-        that.centerGrid();
-      },
-      true
-    );
   },
 
   svgInjector: function () {
@@ -47,9 +38,7 @@ export const app = {
           e.preventDefault();
           isActive = btn.classList.contains("active");
 
-          if (isActive) {
-            return false;
-          } else {
+          if (!isActive) {
             group = btn.getElementsByTagName("a")[0].getAttribute("data-group");
             $(".active").removeClass("active");
             btn.classList.toggle("active");
@@ -57,24 +46,6 @@ export const app = {
           }
         });
       });
-    }
-  },
-
-  centerGrid: function () {
-    const width = window.innerWidth;
-    let count = 0;
-    let margin = (count - 1) * 15;
-    let total = 1127;
-    if (width < total) {
-      count = Math.floor(width / 270);
-      margin = (count - 1) * 15;
-      total = count * 270 + margin;
-    }
-    if (document.getElementById("work-grid")) {
-      document.getElementById("work-grid").style.width = total + "px";
-    }
-    if (document.getElementById("grid-box-container")) {
-      document.getElementById("grid-box-container").style.width = total + "px";
     }
   },
 };

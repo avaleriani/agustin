@@ -12,7 +12,7 @@ const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = (env) => {
   const isProd = env === "production";
-  const cssFilename = "static/css/[name].[contenthash:8].css";
+  const cssFilename = "assets/css/[name].[contenthash:8].css";
   const appBuild = resolveApp("dist");
   const appSrc = resolveApp("src");
   const cssRegex = /\.css$/;
@@ -79,8 +79,8 @@ module.exports = (env) => {
     },
     output: {
       path: isProd ? path.resolve(__dirname, appBuild) : undefined,
-      filename: "static/js/[name].[fullhash:8].js",
-      chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
+      filename: "assets/js/[name].[fullhash:8].js",
+      chunkFilename: "assets/js/[name].[chunkhash:8].chunk.js",
       pathinfo: !isProd,
       clean: true,
     },
@@ -111,7 +111,7 @@ module.exports = (env) => {
               loader: "url-loader",
               options: {
                 limit: 10000,
-                name: "static/images/[name].[fullhash:8].[ext]",
+                name: "assets/images/[name].[fullhash:8].[ext]",
               },
             },
             {
@@ -190,6 +190,9 @@ module.exports = (env) => {
             {
               test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
               type: "asset/resource",
+              generator: {
+                filename: 'assets/fonts/[hash][ext][query]'
+              }
             },
           ],
         },
@@ -232,7 +235,7 @@ module.exports = (env) => {
       }),
       new MiniCssExtractPlugin({
         filename: cssFilename,
-        chunkFilename: "static/css/[name].[fullhash:8].chunk.css",
+        chunkFilename: "assets/css/[name].[fullhash:8].chunk.css",
       }),
     ],
   };
