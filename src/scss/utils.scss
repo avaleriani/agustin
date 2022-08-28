@@ -19,6 +19,15 @@ body {
   -webkit-tap-highlight-color: transparent;
   letter-spacing: 3px;
   margin: 0;
+
+  h1:empty,
+  h2:empty,
+  h3:empty,
+  h4:empty,
+  h5:empty,
+  h6:empty {
+    visibility: hidden;
+  }
 }
 
 #page-container {
