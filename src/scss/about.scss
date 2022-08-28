@@ -26,6 +26,8 @@
   .columns {
     @include respondTo(mobile) {
       display: block;
+      margin-left: 10px;
+      margin-right: 10px;
     }
     @include respondTo(screen) {
       display: flex;
