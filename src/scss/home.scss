@@ -38,8 +38,8 @@
   .ocean {
     height: 5%;
     width: 100%;
-    position: absolute;
-    bottom: 160px;
+    position: relative;
+    top: -180px;
     left: 0;
     background-color: $colorBlack;
     transform: rotate(180deg);
