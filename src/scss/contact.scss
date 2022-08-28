@@ -7,6 +7,10 @@
     margin-bottom: 50px;
     padding: 0 60px;
     color: $colorSoftWhite;
+
+    @include respondTo(mobile) {
+      font-size: 24px;
+    }
   }
   .button {
     margin-top: 66px;
