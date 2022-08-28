@@ -21,6 +21,11 @@ body {
   margin: 0;
 }
 
+#page-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .no-scroll {
   position: fixed;
   overflow: hidden;

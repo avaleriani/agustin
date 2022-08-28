@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/avaleriani/agustin"
   },
-  "homepage": "http://agustinvaleriani.com",
+  "homepage": "https://agustinvaleriani.com",
   "scripts": {
     "dev": "webpack-dev-server --open --hot --env development",
     "build": "webpack --env production",
