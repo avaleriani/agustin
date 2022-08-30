@@ -23434,16 +23434,8 @@ document.addEventListener("DOMContentLoaded", function () {
   app.loadApplication();
   app.svgInjector();
   workViewer.init();
-  animate.scrollArrow(); // if (window.innerWidth === "1920") {
-  // TODO: fix mobile
-  // TODO/: check how the lines can work on mobile, maybe making it responsive based on resolution.
-  // hice = window.innerWidth * 1920
-  //          linesDrawer.createAllLine
-  // s('#lines-container');
-  //          linesDrawer.scrollAnimate();
-  //l     inesDrawer.mouseCoordinatesOnTitle();
-  // }
-
+  animate.scrollArrow();
+  y;
   app.worksFilter();
   animate.typingEffect();
   animate.hideMoreBtnMobile();
