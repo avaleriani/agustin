@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-      <svg version="1.1" id="brand-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="50%" y="50%"
+ <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="50%" y="50%"
       	 width="200px"
-      	 height="200px"
-      	 viewBox="0 0 590 600" xml:space="preserve">
+      	 height="200px" fill="#e3b673"
+      	 viewBox="0 0 600 600" xml:space="preserve">
       							<path id="icon" class="iconA" d="M376.866,391.209c-21.997,0-42.719-16.214-49.861-36.283c-19.418-57.628-38.211-115.965-56.977-174.246
       								c-1.956-6.491,0-7.767,5.839-7.767c23.301,0.652,47.906,20.098,55.02,43.398c13.607,42.746,27.213,85.521,40.819,128.267
       								c0.651,1.928,2.579,3.884,3.231,6.464c0.652-1.928,1.928-3.884,2.607-5.812c13.578-42.747,27.185-85.521,40.819-128.268
