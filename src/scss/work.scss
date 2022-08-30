@@ -113,7 +113,8 @@
     .close-icon {
       cursor: pointer;
       display: block;
-      font-family: "Roboto-bold", Arial, Helvetica, sans-serif;
+      font-family: $fontMain;
+      font-weight: 800;
       font-size: 40px;
       -webkit-font-smoothing: antialiased;
       -webkit-text-size-adjust: 100%;
