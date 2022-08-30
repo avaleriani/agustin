@@ -78,15 +78,19 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /\.svg/,
-          type: "asset/inline",
-        },
-        {
-          test: /\.(png|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
-          generator: {
-            filename: "assets/images/[contenthash][ext][query]",
-          },
+          oneOf: [
+            {
+              test: /\.svg$/,
+              type: "asset/inline",
+            },
+            {
+              test: /\.(png|jpg|jpeg|gif)$/i,
+              type: "asset/resource",
+              generator: {
+                filename: "assets/images/[contenthash][ext][query]",
+              },
+            },
+          ],
         },
         {
           test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
