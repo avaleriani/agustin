@@ -107,7 +107,7 @@ const animate = {
   postToGoogle: function (data) {
     const successMsg = "Thanks! I'll be in touch shortly.";
     const errorMsg =
-      "Sorry, there's been an error, please email me at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
+      "Sorry, there's been an error, please email me directly at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
     const message = $(".hidden-email-message");
     const image = $(".hidden-email-image");
     $.ajax({
@@ -128,6 +128,7 @@ const animate = {
           animate.showEmailSendFinished();
         },
         200: function () {
+          // TODO: if form error, display error and retry button.
           // $("#mail-loader").hide();
           // if (data.status === 'error') {
           //   message.html(errorMsg);
@@ -144,6 +145,7 @@ const animate = {
           animate.showEmailSendFinished();
         },
       },
+      // TODO: display email alternative only here
       // error: function() {
       //   $("#mail-loader").hide();
       //   message.html(errorMsg);
@@ -157,26 +159,37 @@ const animate = {
     $("#btn-send").on("click", function (e) {
       e.preventDefault();
 
-      $("#hidden-contactform")
-        .css("display", "block")
-        .velocity(
-          { height: "650px" },
-          {
-            duration: 1500,
-            easing: "easeOutExpo",
-          }
-        )
-        .find("#mail-loader")
-        .delay(500)
-        .show();
+      const name = $("#name").val();
+      const email = $("#email").val();
+      const subject = $("#subject").val();
+      const message = $("#message").val();
 
-      const data = {
-        name: $("#name").val(),
-        email: $("#email").val(),
-        subject: $("#subject").val(),
-        message: $("#message").val(),
-      };
-      animate.postToGoogle(data);
+      const isValid = name !== "" && email !== "" && subject !== "" && message !== "";
+
+      if (isValid) {
+        $("#hidden-contactform")
+          .css("display", "block")
+          .velocity(
+            { height: "730px" },
+            {
+              duration: 1500,
+              easing: "easeOutExpo",
+            }
+          )
+          .find("#mail-loader")
+          .delay(500)
+          .show();
+
+        const data = {
+          name,
+          email,
+          subject,
+          message,
+        };
+        animate.postToGoogle(data);
+      } else {
+        // TODO: validate empty form send
+      }
     });
   },
 

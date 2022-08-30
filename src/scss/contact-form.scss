@@ -18,6 +18,7 @@
 }
 
 .form-control {
+  font-family: $fontMain;
   outline: none !important;
   border-radius: 0;
   border-color: $colorCerebralGrey;
@@ -55,6 +56,7 @@
   width: 180px;
   height: 180px;
   margin: 65px auto auto auto;
+  display: none;
 
   &:after,
   &:before {

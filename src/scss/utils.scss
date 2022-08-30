@@ -55,18 +55,9 @@ a {
   transition: all 0.3s ease;
 }
 
-.img-responsive {
+.lazyload {
   width: 100%;
   height: 100%;
-}
-
-.handy {
-  right: 45px;
-  position: relative;
-  font-size: 28px;
-  color: $colorGrey;
-  top: 40px;
-  display: none;
 }
 
 /* RESPONSIVE MIXINS */

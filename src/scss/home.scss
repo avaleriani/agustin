@@ -4,31 +4,32 @@
   color: $colorSoftWhite;
   background-color: $colorBlack;
 
+  .container {
+    padding-bottom: 1px;
+    margin: 0 0 180px;
+  }
+
   .brand-logo {
-    #brand-logo {
-      width: 210px;
-      border: solid $colorOrange 5px;
-      img {
-        position: relative;
-        fill: $colorOrange;
-        transform-origin: center top;
-        transition: all 0.4s ease;
-      }
-    }
-    padding: 65px 0 20px 0;
-    #circle {
-      height: 240px;
-    }
+    width: 210px;
+    height: 210px;
+    border: solid $colorOrange 7px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transform-origin: center top;
+    transition: all 0.4s ease;
   }
 
   .h-01 {
     color: $colorOrange;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .copy-02 {
     color: $colorOrange;
-    margin-bottom: 180px;
+    margin-bottom: 90px;
     padding-top: 60px;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
       0 -1px rgba(0, 0, 0, 0.31);

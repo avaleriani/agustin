@@ -38,14 +38,11 @@
 
 #arrow-down {
   margin-bottom: 50px;
-  height: 48px;
-  width: 48px;
-  -webkit-animation: bounce 3s infinite ease alternate;
-  -moz-animation: bounce 3s infinite ease alternate;
-  animation: bounce 3s infinite ease alternate;
-  * {
-    fill: $colorOrange;
-  }
+  height: 60px;
+  width: 60px;
+  -webkit-animation: bounce 2s infinite ease alternate;
+  -moz-animation: bounce 2s infinite ease alternate;
+  animation: bounce 2s infinite ease alternate;
   #arrow {
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
