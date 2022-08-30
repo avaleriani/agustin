@@ -9,7 +9,7 @@ __  /| |__ | / /
 _  ___ |__ |/ /
 /_/  |_|_____/    by Agustin Valeriani. - built on 2016-03-02
 * https://github.com/avaleriani/agustin
-* Copyright (c) 2016 Agustin Valeriani; Licensed MIT
+* Copyright (c) 2016 Agustin Valeriani
 -->
 <html lang="en">
   <head>
@@ -23,6 +23,10 @@ _  ___ |__ |/ /
     />
     <meta name="author" content="Agustin Valeriani" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta property="ix:host" content="agu.imgix.net" />
+    <meta property="ix:srcAttribute" content="data-src" />
+    <meta property="ix:srcsetAttribute" content="data-srcset" />
+    <meta property="ix:sizesAttribute" content="data-sizes" />
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
 
@@ -52,6 +56,7 @@ _  ___ |__ |/ /
     <meta name="msapplication-wide310x150logo" content="assets/images/favicon/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="assets/images/favicon/mstile-310x310.png" />
 
+    <!--    TODO: remove this style?-->
     <style>
       .hidden {
         visibility: hidden;
@@ -59,6 +64,7 @@ _  ___ |__ |/ /
     </style>
   </head>
   <body>
+    <!--  TODO: remove loader and page-container hidden?-->
     <div id="loader" class="loading-bar"></div>
     <section id="page-container" class="hidden">
       <!-- HOME -->
@@ -67,7 +73,7 @@ _  ___ |__ |/ /
           <header>
             <div class="brand-logo">
               <div id="circle">
-                <img src="assets/images/brand-logo.svg" class="inject-me" alt="logo" />
+                <img src="assets/images/brand-logo.svg" alt="logo" />
               </div>
             </div>
           </header>
@@ -82,7 +88,7 @@ _  ___ |__ |/ /
             <br />
             <a href="#" class="arrow-down" aria-label="arrow down">
               <span class="lnr lnr-pointer-right handy"></span>
-              <img src="assets/images/arrow-down.svg" class="inject-me" alt="arrow" />
+              <img src="assets/images/arrow-down.svg" alt="arrow" />
             </a>
           </h1>
         </div>
@@ -114,7 +120,7 @@ _  ___ |__ |/ /
           <div class="columns">
             <aside>
               <div class="me-img">
-                <img src="assets/images/icons/SVG/glasses.svg" class="inject-me" alt="glasses" />
+                <img src="assets/images/icons/SVG/glasses.svg" alt="glasses" />
               </div>
               <h3 class="heading h-03">ME.</h3>
 
@@ -124,7 +130,9 @@ _  ___ |__ |/ /
               </p>
             </aside>
             <aside>
-              <div class="me-img"><img src="assets/images/icons/SVG/atom.svg" class="inject-me" alt="atom" /></div>
+              <div class="me-img">
+                <img src="assets/images/icons/SVG/atom.svg" alt="atom" />
+              </div>
 
               <h3 class="heading h-03">CODING.</h3>
 
@@ -133,7 +141,7 @@ _  ___ |__ |/ /
 
             <aside>
               <div class="me-img">
-                <img src="assets/images/icons/SVG/checkboard-graph.svg" alt="graph" class="inject-me" />
+                <img src="assets/images/icons/SVG/checkboard-graph.svg" alt="graph" />
               </div>
 
               <h3 class="heading h-03">QUALITY.</h3>
@@ -210,7 +218,10 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-techo.png"
+                      srcset="assets/images/work/logo/logo-techo.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-techo.png"
                       alt="logo"
                     />
@@ -230,9 +241,15 @@ _  ___ |__ |/ /
                   <div class="overlay-title"><span class="overlay-title-text">Colecta Techo 2015</span></div>
                   <div class="overlay-imagecontainer">
                     <img
+                      height="200"
+                      width="300"
+                      ix-src="assets/images/work/projects/techo/main.jpg"
+                      srcset="
+                        assets/images/work/projects/techo/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
                       src="assets/images/work/projects/techo/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
+                      class="img-responsive lazyload"
                       alt="project image"
                     />
                   </div>
@@ -275,8 +292,11 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
+                      ix-src="assets/images/work/logo/logo-ginebra.png"
+                      srcset="assets/images/work/logo/logo-ginebra.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-ginebra.png"
-                      loading="lazy"
                       alt="ginebra-logo"
                     />
                   </figure>
@@ -295,9 +315,13 @@ _  ___ |__ |/ /
                   <div class="overlay-title"><span class="overlay-title-text">Ginebra</span></div>
                   <div class="overlay-imagecontainer">
                     <img
-                      loading="lazy"
+                      ix-src="assets/images/work/projects/ginebra/main.png"
+                      srcset="
+                        assets/images/work/projects/ginebra/main.jpgg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/projects/ginebra/main.jpg"
-                      class="img-responsive"
                       alt="project image"
                     />
                   </div>
@@ -332,7 +356,10 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-mmx.png"
+                      srcset="assets/images/work/logo/logo-mmx.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-mmx.png"
                       alt="logo-mmx"
                     />
@@ -352,9 +379,11 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/mmx/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/mmx/main.png"
+                      srcset="assets/images/work/projects/mmx/main.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="mmx project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -392,7 +421,10 @@ _  ___ |__ |/ /
                       height="200"
                       width="300"
                       src="assets/images/work/logo/logo-mc.png"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-mc.png"
+                      srcset="assets/images/work/logo/logo-mc.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       alt="maria casado logo"
                     />
                   </figure>
@@ -413,9 +445,11 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/mc/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/mc/main.png"
+                      srcset="assets/images/work/projects/mc/main.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="maria casado project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -447,7 +481,10 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-picea.png"
+                      srcset="assets/images/work/logo/logo-picea.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-picea.png"
                       alt="picea logo"
                     />
@@ -467,9 +504,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/picea/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/picea/main.png"
+                      srcset="
+                        assets/images/work/projects/picea/main.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="picea project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -502,7 +543,16 @@ _  ___ |__ |/ /
               <div class="work-item view view-second" data-groups='["all", "full"]'>
                 <div class="project-box">
                   <figure class="image-container">
-                    <img height="200" width="300" loading="lazy" src="assets/images/work/logo/logo-on.png" alt="on" />
+                    <img
+                      height="200"
+                      width="300"
+                      ix-src="assets/images/work/logo/logo-on.png"
+                      srcset="assets/images/work/logo/logo-on.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      src="assets/images/work/logo/logo-on.png"
+                      alt="on logo"
+                    />
                   </figure>
                   <div class="mask"></div>
                   <div class="content">
@@ -518,10 +568,14 @@ _  ___ |__ |/ /
                   <div class="overlay-title"><span class="overlay-title-text">ON - Hair Boutique</span></div>
                   <div class="overlay-imagecontainer">
                     <img
-                      src="assets/images/work/projects/snapmodels/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      src="assets/images/work/projects/onhair/main.jpg"
+                      ix-src="assets/images/work/projects/onhair/main.jpg"
+                      srcset="
+                        assets/images/work/projects/onhair/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="snap models project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -550,9 +604,12 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-snap.png"
+                      srcset="assets/images/work/logo/logo-snap.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-snap.png"
-                      alt="snap"
+                      alt="snap models logo"
                     />
                   </figure>
                   <div class="mask"></div>
@@ -570,9 +627,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/snapmodels/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/snapmodels/main.jpg"
+                      srcset="
+                        assets/images/work/projects/snapmodels/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="snap models project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -605,12 +666,21 @@ _  ___ |__ |/ /
               <div class="work-item view view-second" data-groups='["all", "full"]'>
                 <div class="project-box">
                   <figure class="image-container">
-                    <img height="200" width="300" loading="lazy" src="assets/images/work/logo/logo-stm.png" alt="stm" />
+                    <img
+                      height="200"
+                      width="300"
+                      ix-src="assets/images/work/logo/logo-stm.png"
+                      srcset="assets/images/work/logo/logo-stm.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      src="assets/images/work/logo/logo-stm.png"
+                      alt="stm logo"
+                    />
                   </figure>
                   <div class="mask"></div>
                   <div class="content">
                     <h3 class="heading h-02">Overplan - STM</h3>
-                    <p>Overplan STM is is a CRM to improve performance of your sales team.</p>
+                    <p>Overplan STM is a CRM created to improve the performance of your sales team.</p>
                     <a href="#" class="info">+ More</a>
                   </div>
                 </div>
@@ -622,9 +692,11 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/stm/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/stm/main.jpg"
+                      srcset="assets/images/work/projects/stm/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="overplan stm project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -651,7 +723,16 @@ _  ___ |__ |/ /
               <div class="work-item view view-second" data-groups='["all", "full"]'>
                 <div class="project-box">
                   <figure class="image-container">
-                    <img height="200" width="300" loading="lazy" src="assets/images/work/logo/logo-tb.png" alt="tb" />
+                    <img
+                      height="200"
+                      width="300"
+                      ix-src="assets/images/work/logo/logo-tb.png"
+                      srcset="assets/images/work/logo/logo-tb.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      src="assets/images/work/logo/logo-tb.png"
+                      alt="tickebureau logo"
+                    />
                   </figure>
                   <div class="mask"></div>
                   <div class="content">
@@ -668,9 +749,11 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/tb/main.png"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/tb/main.png"
+                      srcset="assets/images/work/projects/tb/main.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="ticket bureau project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -698,7 +781,16 @@ _  ___ |__ |/ /
               <div class="work-item view view-second" data-groups='["all", "maintenance"]'>
                 <div class="project-box">
                   <figure class="image-container">
-                    <img height="200" width="300" loading="lazy" src="assets/images/work/logo/logo-td.png" alt="td" />
+                    <img
+                      height="200"
+                      width="300"
+                      ix-src="assets/images/work/logo/logo-td.png"
+                      srcset="assets/images/work/logo/logo-td.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      src="assets/images/work/logo/logo-td.png"
+                      alt="tienda shoes logo"
+                    />
                   </figure>
                   <div class="mask"></div>
                   <div class="content">
@@ -715,9 +807,11 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/no.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/no.jpg"
+                      srcset="assets/images/work/projects/no.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="tienda shoes project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -745,9 +839,12 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-caja.png"
+                      srcset="assets/images/work/logo/logo-caja.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-caja.png"
-                      alt="caja"
+                      alt="la caja logo"
                     />
                   </figure>
                   <div class="mask"></div>
@@ -765,9 +862,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/lacaja/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/lacaja/main.jpg"
+                      srcset="
+                        assets/images/work/projects/lacaja/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="la caja project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -794,9 +895,12 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-galat.png"
+                      srcset="assets/images/work/logo/logo-galat.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-galat.png"
-                      alt="galat"
+                      alt="galat lobo"
                     />
                   </figure>
                   <div class="mask"></div>
@@ -814,9 +918,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/galat/main.jpg"
-                      loading="lazy"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/galat/main.jpg"
+                      srcset="
+                        assets/images/work/projects/galat/main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="galat project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -851,7 +959,12 @@ _  ___ |__ |/ /
                     <img
                       height="200"
                       width="300"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-twittervr.png"
+                      srcset="
+                        assets/images/work/logo/logo-twittervr.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-twittervr.png"
                       alt="logo twitter vr"
                     />
@@ -871,9 +984,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/fun/twittervr-main.jpg"
-                      class="img-responsive"
-                      alt="project image"
-                      loading="lazy"
+                      ix-src="assets/images/work/projects/fun/twittervr-main.jpg"
+                      srcset="
+                        assets/images/work/projects/fun/twittervr-main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="twitter vr project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -906,7 +1023,12 @@ _  ___ |__ |/ /
                       width="300"
                       src="assets/images/work/logo/logo-picturepuzzle.png"
                       alt="logo picture puzzle"
-                      loading="lazy"
+                      ix-src="assets/images/work/logo/logo-picturepuzzle.png"
+                      srcset="
+                        assets/images/work/logo/logo-picturepuzzle.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
                     />
                   </figure>
                   <div class="mask"></div>
@@ -924,9 +1046,13 @@ _  ___ |__ |/ /
                   <div class="overlay-imagecontainer">
                     <img
                       src="assets/images/work/projects/fun/picturepuzzle-main.jpg"
-                      class="img-responsive"
-                      alt="project imgae"
-                      loading="lazy"
+                      ix-src="assets/images/work/projects/fun/picturepuzzle-main.jpg"
+                      srcset="
+                        assets/images/work/projects/fun/picturepuzzle-main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="picture puzzle project imgae"
                     />
                   </div>
                   <div class="overlay-description">
@@ -954,9 +1080,12 @@ _  ___ |__ |/ /
                 <div class="project-box">
                   <figure class="image-container">
                     <img
-                      loading="lazy"
                       height="200"
                       width="300"
+                      ix-src="assets/images/work/logo/logo-gifs.png"
+                      srcset="assets/images/work/logo/logo-gifs.png?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w"
+                      sizes="50vw"
+                      class="lazyload"
                       src="assets/images/work/logo/logo-gifs.png"
                       alt="logo gifs presenter"
                     />
@@ -975,10 +1104,14 @@ _  ___ |__ |/ /
                   <div class="overlay-title"><span class="overlay-title-text">Pixel Gif Presenter</span></div>
                   <div class="overlay-imagecontainer">
                     <img
-                      loading="lazy"
                       src="assets/images/work/projects/fun/gifspresenter-main.jpg"
-                      class="img-responsive"
-                      alt="project image"
+                      ix-src="assets/images/work/projects/fun/gifspresenter-main.jpg"
+                      srcset="
+                        assets/images/work/projects/fun/gifspresenter-main.jpg?w=300&amp;h=200&amp;fit=crop&amp;crop=right 100w
+                      "
+                      sizes="50vw"
+                      class="lazyload"
+                      alt="gifs presenter project image"
                     />
                   </div>
                   <div class="overlay-description">
@@ -1029,15 +1162,7 @@ _  ___ |__ |/ /
                       <label class="pencil-name form-label" for="name">Your Name</label>
                       <div class="iconicfill-pen-alt2 move-pen"></div>
                     </div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      tabindex="1"
-                      required
-                    />
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
                   </div>
                   <div class="form-group">
                     <div class="wrap-label">
@@ -1050,7 +1175,6 @@ _  ___ |__ |/ /
                       id="email"
                       name="email"
                       placeholder="Your Email"
-                      tabindex="2"
                       required
                     />
                   </div>
@@ -1059,14 +1183,7 @@ _  ___ |__ |/ /
                       <label class="pencil-name form-label" for="subject">Subject</label>
                       <div class="iconicfill-pen-alt2 move-pen"></div>
                     </div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="subject"
-                      name="subject"
-                      placeholder="Subject"
-                      tabindex="3"
-                    />
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" />
                   </div>
                   <div class="form-group">
                     <div class="wrap-label">
@@ -1080,7 +1197,6 @@ _  ___ |__ |/ /
                       class="form-control"
                       id="message"
                       placeholder="Message..."
-                      tabindex="4"
                       required
                     ></textarea>
                   </div>
@@ -1088,7 +1204,7 @@ _  ___ |__ |/ /
                     <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
                       <rect class="shape" height="40" width="150" />
                       <div class="text">
-                        <a href="#" id="btn-send" tabindex="5">
+                        <a href="#" id="btn-send">
                           <span class="spot"></span>
                           Send
                         </a>
@@ -1159,9 +1275,6 @@ _  ___ |__ |/ /
         </div>
         <p class="copy-02">©<span id="year"></span>. AV.</p>
       </section>
-
-      <link href="assets/css/devicon.css" rel="preload" as="style" onload="this.rel='stylesheet'" />
-      <noscript><link rel="stylesheet" href="assets/css/devicon.css" /></noscript>
 
       <script type="text/javascript">
         document.addEventListener(
