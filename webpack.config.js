@@ -33,7 +33,6 @@ module.exports = (env) => {
 
     output: {
       path: outputFolder,
-      publicPath: outputFolder,
       filename: "assets/js/app.[contenthash].js",
       clean: true,
     },
@@ -65,11 +64,11 @@ module.exports = (env) => {
         template: resolveApp("src/uses.html"),
         minify: minifyOpts,
       }),
-      new MiniCssExtractPlugin({
-        filename: "assets/css/styles.[contenthash].css",
-      }),
       new PurgecssPlugin({
         paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
+      }),
+      new MiniCssExtractPlugin({
+        filename: "assets/css/styles.[contenthash].css",
       }),
       new CopyPlugin({
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
