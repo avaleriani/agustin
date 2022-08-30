@@ -10,8 +10,8 @@
   src:
     local('Roboto Thin '),
     local('Roboto-Thin'),
-    url(/yassets/fonts/c2aa4ab115bf9c6057cb.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/a45108d3b34af91f9113.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/c2aa4ab115bf9c6057cb.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/a45108d3b34af91f9113.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-100italic - latin */
@@ -23,8 +23,8 @@
   src:
     local('Roboto Thin italic'),
     local('Roboto-Thinitalic'),
-    url(/yassets/fonts/7f839a8652da29745ce4.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/451d4e559d6f57cdf6a1.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/7f839a8652da29745ce4.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/451d4e559d6f57cdf6a1.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-300normal - latin */
@@ -36,8 +36,8 @@
   src:
     local('Roboto Light '),
     local('Roboto-Light'),
-    url(/yassets/fonts/37a7069dc30fc663c878.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/865f928cbabcc9f8f2b5.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/37a7069dc30fc663c878.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/865f928cbabcc9f8f2b5.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-300italic - latin */
@@ -49,8 +49,8 @@
   src:
     local('Roboto Light italic'),
     local('Roboto-Lightitalic'),
-    url(/yassets/fonts/c64e7e354c88e613c77c.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/bd5b7a13f2c52b531a2a.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/c64e7e354c88e613c77c.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/bd5b7a13f2c52b531a2a.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-400normal - latin */
@@ -62,8 +62,8 @@
   src:
     local('Roboto Regular '),
     local('Roboto-Regular'),
-    url(/yassets/fonts/176f8f5bd5f02b3abfcf.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/49ae34d4cc6b98c00c69.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/176f8f5bd5f02b3abfcf.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/49ae34d4cc6b98c00c69.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-400italic - latin */
@@ -75,8 +75,8 @@
   src:
     local('Roboto Regular italic'),
     local('Roboto-Regularitalic'),
-    url(/yassets/fonts/d022bc70dc1bf7b3425d.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/b1d9d9904bfca8802a63.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/d022bc70dc1bf7b3425d.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/b1d9d9904bfca8802a63.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-500normal - latin */
@@ -88,8 +88,8 @@
   src:
     local('Roboto Medium '),
     local('Roboto-Medium'),
-    url(/yassets/fonts/f5b74d7ffcdf85b9dd60.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/cea99d3e3e13a3a599a0.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/f5b74d7ffcdf85b9dd60.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/cea99d3e3e13a3a599a0.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-500italic - latin */
@@ -101,8 +101,8 @@
   src:
     local('Roboto Medium italic'),
     local('Roboto-Mediumitalic'),
-    url(/yassets/fonts/0d8bb5b3ee5f5dac9e44.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/18d00f739ff1e1c52db1.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/0d8bb5b3ee5f5dac9e44.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/18d00f739ff1e1c52db1.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-700normal - latin */
@@ -114,8 +114,8 @@
   src:
     local('Roboto Bold '),
     local('Roboto-Bold'),
-    url(/yassets/fonts/c18ee39fb002ad58b6dc.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/2267169ee7270a22a963.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/c18ee39fb002ad58b6dc.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/2267169ee7270a22a963.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-700italic - latin */
@@ -127,8 +127,8 @@
   src:
     local('Roboto Bold italic'),
     local('Roboto-Bolditalic'),
-    url(/yassets/fonts/7d8125ff7f707231fd89.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/9360531f9bb817f917f0.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/7d8125ff7f707231fd89.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/9360531f9bb817f917f0.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-900normal - latin */
@@ -140,8 +140,8 @@
   src:
     local('Roboto Black '),
     local('Roboto-Black'),
-    url(/yassets/fonts/870c8c1486f76054301a.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/bac8362e7a6ea60b6983.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/870c8c1486f76054301a.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/bac8362e7a6ea60b6983.woff) format('woff'); /* Modern Browsers */
 }
 
 /* roboto-900italic - latin */
@@ -153,8 +153,8 @@
   src:
     local('Roboto Black italic'),
     local('Roboto-Blackitalic'),
-    url(/yassets/fonts/cb5ad999740e9d8a8bd1.woff2) format('woff2'), /* Super Modern Browsers */
-    url(/yassets/fonts/c20d916c1a1b094c1cec.woff) format('woff'); /* Modern Browsers */
+    url(../../assets/fonts/cb5ad999740e9d8a8bd1.woff2) format('woff2'), /* Super Modern Browsers */
+    url(../../assets/fonts/c20d916c1a1b094c1cec.woff) format('woff'); /* Modern Browsers */
 }
 
 
