@@ -70,12 +70,6 @@ module.exports = (env) => {
                   webp: {
                     quality: 90,
                   },
-                  // jpeg: {
-                  //   quality: 90,
-                  // },
-                  // png: {
-                  //   quality: 90,
-                  // },
                 },
               },
             },
