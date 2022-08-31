@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const appDirectory = fs.realpathSync(process.cwd());
@@ -40,7 +41,39 @@ module.exports = (env) => {
     },
 
     optimization: {
-      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+      minimizer: [
+        new TerserPlugin(),
+        new CssMinimizerPlugin(),
+        new ImageMinimizerPlugin({
+          minimizer: {
+            implementation: ImageMinimizerPlugin.sharpMinify,
+          },
+          generator: [
+            {
+              preset: "webp",
+              implementation: ImageMinimizerPlugin.sharpGenerate,
+              options: {
+                encodeOptions: {
+                  webp: {
+                    quality: 90,
+                  },
+                },
+              },
+            },
+            {
+              type: "asset",
+              implementation: ImageMinimizerPlugin.sharpGenerate,
+              options: {
+                encodeOptions: {
+                  webp: {
+                    quality: 90,
+                  },
+                },
+              },
+            },
+          ],
+        }),
+      ],
       minimize: true,
       splitChunks: {
         cacheGroups: {
@@ -74,10 +107,7 @@ module.exports = (env) => {
         paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
       }),
       new CopyPlugin({
-        patterns: [
-          { from: "src/assets/images", to: "assets/images" },
-          { from: "src/assets/js", to: "assets/js" },
-        ],
+        patterns: [{ from: "src/assets/images", to: "assets/images" }],
       }),
     ],
 
