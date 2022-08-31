@@ -32,10 +32,9 @@
 .project-link {
   display: block;
   width: auto;
-  margin: auto;
-  padding-top: 20px;
   color: $colorPurple;
   text-decoration: underline;
+  margin: 45px auto;
 }
 
 .overlay-title {
@@ -77,10 +76,26 @@
   float: left;
   opacity: 0;
   height: auto;
+  text-align: left;
 
   @include respondTo(mobile) {
     max-width: 100%;
     width: 100%;
+  }
+
+  .list {
+    text-align: left;
+    white-space: pre-line;
+    display: block;
+    margin-top: 45px;
+  }
+
+  .list-div {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 200;
+    font-size: 14px;
   }
 }
 
