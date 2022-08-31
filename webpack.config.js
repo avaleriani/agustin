@@ -38,6 +38,7 @@ module.exports = (env) => {
       path: outputFolder,
       filename: "assets/js/app.[contenthash].js",
       clean: true,
+      sourceMapFilename: "assets/js/app.[contenthash].map",
     },
 
     optimization: {
@@ -48,6 +49,7 @@ module.exports = (env) => {
           minimizer: {
             implementation: ImageMinimizerPlugin.sharpMinify,
           },
+          deleteOriginalAssets: false,
           generator: [
             {
               preset: "webp",
@@ -68,6 +70,12 @@ module.exports = (env) => {
                   webp: {
                     quality: 90,
                   },
+                  // jpeg: {
+                  //   quality: 90,
+                  // },
+                  // png: {
+                  //   quality: 90,
+                  // },
                 },
               },
             },
