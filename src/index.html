@@ -56,18 +56,9 @@ _  ___ |__ |/ /
     <meta name="msapplication-square150x150logo" content="assets/images/favicon/mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="assets/images/favicon/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="assets/images/favicon/mstile-310x310.png" />
-
-    <!--    TODO: remove this style?-->
-    <style>
-      .hidden {
-        visibility: hidden;
-      }
-    </style>
   </head>
   <body>
-    <!--  TODO: remove loader and page-container hidden?-->
-    <div id="loader" class="loading-bar"></div>
-    <section id="page-container" class="hidden">
+    <section id="page-container">
       <!-- HOME -->
       <section id="page-home">
         <div class="site-inner container">
@@ -1239,17 +1230,6 @@ _  ___ |__ |/ /
         </div>
         <p class="copy-02">©<span id="year"></span>. AV.</p>
       </section>
-
-      <script type="text/javascript">
-        document.addEventListener(
-          "DOMContentLoaded",
-          () => {
-            document.getElementById("page-container").classList.remove("hidden");
-            document.getElementById("loader").classList.add("hidden");
-          },
-          false
-        );
-      </script>
       <script>
         (function (i, s, o, g, r, a, m) {
           i["GoogleAnalyticsObject"] = r;
@@ -1268,6 +1248,7 @@ _  ___ |__ |/ /
         ga("create", "UA-65615399-2", "auto");
         ga("send", "pageview");
       </script>
+      <script type="text/javascript" src="assets/js/imgix.min.js"></script>
     </section>
   </body>
 </html>
