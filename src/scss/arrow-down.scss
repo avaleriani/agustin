@@ -1,63 +1,15 @@
-@-webkit-keyframes bounce {
-  from {
-    -webkit-transform: translateY(10px);
-  }
-
-  to {
-    -webkit-transform: translateY(0);
-  }
-}
-
-@-moz-keyframes bounce {
-  from {
-    -moz-transform: translateY(10px);
-  }
-
-  to {
-    -moz-transform: translateY(0);
-  }
-}
-
 @keyframes bounce {
   from {
-    -webkit-transform: translateY(10px);
-    -moz-transform: translateY(10px);
-    -ms-transform: translateY(10px);
-    -o-transform: translateY(10px);
     transform: translateY(10px);
   }
 
   to {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-#arrow-down {
-  margin-bottom: 50px;
-  height: 60px;
-  width: 60px;
-  -webkit-animation: bounce 2s infinite ease alternate;
-  -moz-animation: bounce 2s infinite ease alternate;
-  animation: bounce 2s infinite ease alternate;
-  #arrow {
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform-origin: center top;
-    -moz-transform-origin: center top;
-    -ms-transform-origin: center top;
-    -o-transform-origin: center top;
-    transform-origin: center top;
-  }
-  &:hover #arrow {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    transform: scale(1.5);
+.arrow-down {
+  img {
+    animation: bounce 2s infinite ease alternate;
   }
 }
