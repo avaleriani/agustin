@@ -1,5 +1,4 @@
 const $ = require("jquery");
-const SVGInjector = require("svg-injector");
 const fastClick = require("fastclick");
 import Shuffle from "shufflejs";
 
@@ -13,11 +12,6 @@ export const app = {
     if (touch) {
       return fastClick.attach(document.body);
     }
-  },
-
-  svgInjector: function () {
-    const mySVGsToInject = document.querySelectorAll("img.inject-me");
-    return SVGInjector(mySVGsToInject);
   },
 
   worksFilter: function () {

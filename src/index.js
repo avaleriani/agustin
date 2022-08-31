@@ -4,6 +4,7 @@ const workViewer = require("./js/work-viewer.js");
 const animate = require("./js/animate.js");
 import "typeface-roboto";
 import "lazysizes";
+import { ImgixJs } from "imgix.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   app.loadApplication();
