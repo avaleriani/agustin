@@ -128,30 +128,23 @@ const animate = {
           animate.showEmailSendFinished();
         },
         200: function () {
-          // TODO: if form error, display error and retry button.
-          // $("#mail-loader").hide();
-          // if (data.status === 'error') {
-          //   message.html(errorMsg);
-          //   image.attr('src', '/assets/images/error.png');
-          // } else {
-          //   message.html(successMsg);
-          //   image.attr('src', '/assets/images/success.png');
-          // }
-          // animate.showEmailSendFinished();
-
           $("#mail-loader").hide();
-          message.html(successMsg);
-          image.attr("src", "/assets/images/success.png");
+          if (data?.status === "error") {
+            message.html(errorMsg);
+            image.attr("src", "/assets/images/error.png");
+          } else {
+            message.html(successMsg);
+            image.attr("src", "/assets/images/success.png");
+          }
           animate.showEmailSendFinished();
         },
       },
-      // TODO: display email alternative only here
-      // error: function() {
-      //   $("#mail-loader").hide();
-      //   message.html(errorMsg);
-      //   image.attr('src', '/assets/images/error.png');
-      //   animate.showEmailSendFinished();
-      // }
+      error: function () {
+        $("#mail-loader").hide();
+        message.html(errorMsg);
+        image.attr("src", "/assets/images/error.png");
+        animate.showEmailSendFinished();
+      },
     });
   },
 
@@ -159,12 +152,12 @@ const animate = {
     $("#btn-send").on("click", function (e) {
       e.preventDefault();
 
-      const name = $("#name").val();
-      const email = $("#email").val();
-      const subject = $("#subject").val();
-      const message = $("#message").val();
+      const name = $("#name");
+      const email = $("#email");
+      const subject = $("#subject");
+      const message = $("#message");
 
-      const isValid = name !== "" && email !== "" && subject !== "" && message !== "";
+      const isValid = name.val() !== "" && email.val() !== "" && subject.val() !== "" && message.val() !== "";
 
       if (isValid) {
         $("#hidden-contactform")
@@ -181,14 +174,22 @@ const animate = {
           .show();
 
         const data = {
-          name,
-          email,
-          subject,
-          message,
+          name: name.val(),
+          email: email.val(),
+          subject: subject.val(),
+          message: message.val(),
         };
         animate.postToGoogle(data);
       } else {
-        // TODO: validate empty form send
+        if (name.val() === "") name.css({ border: "1px solid red" });
+        if (email.val() === "") email.css({ border: "1px solid red" });
+        if (subject.val() === "") subject.css({ border: "1px solid red" });
+        if (message.val() === "") message.css({ border: "1px solid red" });
+
+        name.on("focus", () => name.attr("style", ""));
+        email.on("focus", () => email.attr("style", ""));
+        subject.on("focus", () => subject.attr("style", ""));
+        message.on("focus", () => message.attr("style", ""));
       }
     });
   },
