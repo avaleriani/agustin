@@ -235,7 +235,7 @@ const animate = {
       theater.addScene("typing:Hello", 200);
 
       //typing about
-      new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: false })
+      new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: true })
         .addTo(controller)
         .on("start", function () {
           theater.addActor("about");
@@ -243,7 +243,7 @@ const animate = {
         });
 
       //typing work
-      new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: false })
+      new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: true })
         .addTo(controller)
         .on("start", function () {
           theater.addActor("work");
@@ -251,7 +251,7 @@ const animate = {
         });
 
       //typing contact
-      new scrollMagic.Scene({ triggerElement: "#contact", duration: 200, offset: -150, reverse: false })
+      new scrollMagic.Scene({ triggerElement: "#contact", duration: 200, offset: -150, reverse: true })
         .addTo(controller)
         .on("start", function () {
           theater.addActor("contact", { accuracy: 0.4 });

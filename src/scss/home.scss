@@ -24,15 +24,14 @@
 
   .h-01 {
     color: $colorOrange;
-    margin-bottom: 80px;
+    padding: 60px 0 0 0;
   }
 
   .copy-02 {
     color: $colorOrange;
     margin-bottom: 90px;
-    padding-top: 60px;
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
-      0 -1px rgba(0, 0, 0, 0.31);
+    padding-top: 30px;
+    text-shadow: -1px 0 rgba(0, 0, 0, 0.31);
     font-weight: 200;
   }
 

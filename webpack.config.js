@@ -3,8 +3,11 @@ const fs = require("fs");
 const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const safePostCssParser = require("postcss-safe-parser");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
@@ -38,6 +41,7 @@ module.exports = (env) => {
     },
 
     optimization: {
+      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
       minimize: true,
       splitChunks: {
         cacheGroups: {
@@ -64,11 +68,11 @@ module.exports = (env) => {
         template: resolveApp("src/uses.html"),
         minify: minifyOpts,
       }),
-      new PurgecssPlugin({
-        paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
-      }),
       new MiniCssExtractPlugin({
         filename: "assets/css/styles.[contenthash].css",
+      }),
+      new PurgecssPlugin({
+        paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
       }),
       new CopyPlugin({
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
