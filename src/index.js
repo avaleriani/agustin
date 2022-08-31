@@ -3,7 +3,6 @@ import { app } from "./js/application.js";
 const workViewer = require("./js/work-viewer.js");
 const animate = require("./js/animate.js");
 import "typeface-roboto";
-import "lazysizes";
 
 document.addEventListener("DOMContentLoaded", function () {
   app.loadApplication();
