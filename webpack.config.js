@@ -74,7 +74,10 @@ module.exports = (env) => {
         paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
       }),
       new CopyPlugin({
-        patterns: [{ from: "src/assets/images", to: "assets/images" }],
+        patterns: [
+          { from: "src/assets/images", to: "assets/images" },
+          { from: "src/assets/js", to: "assets/js" },
+        ],
       }),
     ],
 
