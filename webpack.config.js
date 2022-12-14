@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const PurgecssPlugin = require("purgecss-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
@@ -31,7 +31,7 @@ module.exports = (env) => {
   };
 
   return {
-    entry: "./src/index.js",
+    entry: "./src/index.ts",
     mode: isProd ? "production" : "development",
 
     output: {
@@ -77,16 +77,59 @@ module.exports = (env) => {
         }),
       ],
       minimize: true,
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: "styles",
-            test: /\.css$/,
-            chunks: "all",
-            enforce: true,
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.ts(x)?$/,
+          loader: "ts-loader",
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                url: false,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        },
+        {
+          oneOf: [
+            {
+              test: /\.svg$/,
+              type: "asset/resource",
+            },
+            {
+              test: /\.(png|jpg|jpeg|gif)$/i,
+              type: "asset/resource",
+              generator: {
+                filename: "assets/images/[contenthash][ext][query]",
+              },
+            },
+          ],
+        },
+        {
+          test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
+          type: "asset/resource",
+          generator: {
+            filename: "assets/fonts/[contenthash][ext][query]",
           },
         },
-      },
+      ],
+    },
+
+    resolve: {
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
     },
 
     plugins: [
@@ -105,55 +148,12 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: "assets/css/styles.[contenthash].css",
       }),
-      new PurgecssPlugin({
+      new PurgeCSSPlugin({
         paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
       }),
       new CopyPlugin({
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
       }),
     ],
-
-    module: {
-      rules: [
-        {
-          oneOf: [
-            {
-              test: /\.svg$/,
-              type: "asset/inline",
-            },
-            {
-              test: /\.(png|jpg|jpeg|gif)$/i,
-              type: "asset/resource",
-              generator: {
-                filename: "assets/images/[contenthash][ext][query]",
-              },
-            },
-          ],
-        },
-        {
-          test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
-          type: "asset/resource",
-          generator: {
-            filename: "assets/fonts/[contenthash][ext][query]",
-          },
-        },
-        {
-          test: /\.css$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-              options: {
-                modules: true,
-              },
-            },
-          ],
-        },
-        {
-          test: /\.s[ac]ss$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        },
-      ],
-    },
   };
 };

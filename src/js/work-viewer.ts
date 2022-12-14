@@ -1,5 +1,5 @@
 const workViewer = {
-  init: function () {
+  init: () => {
     const elements = document.querySelectorAll(".work-item");
 
     for (let i = 0; i < elements.length; i++) {
@@ -13,8 +13,8 @@ const workViewer = {
     }
   },
 
-  activate: function () {
-    const currElem = this.nextElementSibling;
+  activate: (obj: any) => {
+    const currElem = obj.nextElementSibling;
     if (!currElem.classList.contains("open")) {
       //if it's closed
       document.addEventListener("keyup", workViewer.deactivateWithEscape, false);
@@ -24,22 +24,25 @@ const workViewer = {
     }
   },
 
-  deactivate: function () {
+  deactivate: () => {
     const elem = document.querySelector(".open");
-    elem.classList.remove("open");
-    document.body.style.overflowY = "auto";
-    elem.querySelector(".overlay-title-text").classList.remove("overlay-title-effect");
-  },
-
-  deactivateWithEscape: function (e) {
-    const code = e.keyCode || e.which;
-    if (code === 27) {
-      const elem = document.querySelector(".open");
+    if (elem) {
       elem.classList.remove("open");
       document.body.style.overflowY = "auto";
-      elem.querySelector(".overlay-title-text").classList.remove("overlay-title-effect");
+      const titleText = elem.querySelector(".overlay-title-text") as HTMLElement;
+      titleText.classList.remove("overlay-title-effect");
+    }
+  },
+
+  deactivateWithEscape: (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      const elem = document.querySelector(".open") as HTMLElement;
+      elem.classList.remove("open");
+      document.body.style.overflowY = "auto";
+      const overlayTitleText = elem.querySelector(".overlay-title-text") as HTMLElement;
+      overlayTitleText.classList.remove("overlay-title-effect");
     }
   },
 };
 
-module.exports = workViewer;
+export default workViewer;

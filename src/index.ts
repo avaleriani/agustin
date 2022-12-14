@@ -1,7 +1,7 @@
 require("./scss/main.scss");
-import { app } from "./js/application.js";
-const workViewer = require("./js/work-viewer.js");
-const animate = require("./js/animate.js");
+import app from "./js/application";
+const workViewer = require("./js/work-viewer.ts");
+const animate = require("./js/animate.ts");
 import "typeface-roboto";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,5 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
   animate.emailSend();
   animate.hexagonRotate();
 
-  document.getElementById("year").innerHTML = String(new Date().getFullYear());
+  const yearContainer = document.getElementById("year");
+  if (yearContainer) {
+    yearContainer.innerHTML = String(new Date().getFullYear());
+  }
 });
