@@ -1,46 +1,46 @@
-const $ = require("jquery");
-window.jQuery = window.$ = $;
-require("velocity-animate");
-delete window.jQuery;
-delete window.$;
+import * as $ from "jquery";
+import Velocity from "velocity-animate";
+import CONSTANTS from "./utils";
 const scrollMagic = require("scrollmagic");
 const theaterJS = require("theaterjs");
+($ as any).velocity = Velocity;
 
 const animate = {
-  inputAnimation: function () {
-    const that = this;
+  // TODO: fix, the object is always empty, find solution
+  inputAnimation: (object: any) => {
+    const that = object;
     $(".form-control")
-      .focusin(function () {
-        const obj = $(this).parent().find(".pencil-name");
-        if ($(this).val() === "") {
+      .on("focusin", (object) => {
+        const obj = $(object).parent().find(".pencil-name") as any;
+        if ($(object).val() === "") {
           obj.velocity({ y: "15px", opacity: 1 }, 500, "out");
           obj.next().velocity({ y: "0px" }, 500, "in");
         }
         that.visibilityToggle(obj.next());
       })
-      .focusout(function () {
-        const obj = $(this).parent().find(".pencil-name");
-        if ($(this).val() === "") {
+      .on("focusout", (object) => {
+        const obj = $(object).parent().find(".pencil-name") as any;
+        if ($(object).val() === "") {
           obj.velocity({ y: "0px", opacity: 0 }, 500, "in");
           obj.next().velocity({ y: "15px" }, 500, "out");
         }
         that.visibilityToggle(obj.next());
       });
 
-    $.support.placeholder = (function () {
+    $.support.placeholder = ((object) => {
       const i = document.createElement("input");
       return "placeholder" in i;
     })();
 
     if ($.support.placeholder) {
-      $(".form-label").each(function () {
-        $(this).addClass("js-hide-label");
+      $(".form-label").each(() => {
+        $(object).addClass("js-hide-label");
       });
 
       $(".form-group")
         .find("input, textarea")
         .on("keyup blur focus", function (e) {
-          const that = $(this),
+          const that = $(object),
             parent = that.parent().find("label");
 
           if (e.type === "keyup") {
@@ -64,7 +64,7 @@ const animate = {
     }
   },
 
-  visibilityToggle: function (obj) {
+  visibilityToggle: function (obj: any) {
     if (obj.css("visibility") === "hidden") {
       obj.css("visibility", "visible");
     } else {
@@ -72,46 +72,50 @@ const animate = {
     }
   },
 
-  rippleEffect: function () {
-    $(".svg-wrapper").on("click", function (event) {
+  rippleEffect: () => {
+    $(".svg-wrapper").on("click", (event, object) => {
       event.preventDefault();
 
-      const divCreated = $("<div/>"),
-        btnOffset = $(this).offset(),
-        xPos = event.pageX - btnOffset.left,
-        yPos = event.pageY - btnOffset.top;
+      const divCreated = $("<div/>");
+      const btnOffset = $(object).offset();
+      const xPos = btnOffset && event.pageX - btnOffset.left;
+      const yPos = btnOffset && event.pageY - btnOffset.top;
 
       divCreated.addClass("ripple-effect");
       const ripple = $(".ripple-effect");
 
-      ripple.css("height", $(this).height());
-      ripple.css("width", $(this).height());
-      divCreated
-        .css({
-          top: yPos - ripple.height() / 2,
-          left: xPos - ripple.width() / 2,
-          background: $(this).data("ripple-color"),
-        })
-        .appendTo($(this));
+      ripple.css("height", $(object).height() || 0);
+      ripple.css("width", $(object).height() || 0);
 
-      window.setTimeout(function () {
+      if (yPos && xPos && ripple) {
+        divCreated
+          .css({
+            top: yPos - (ripple.height() || 2) / 2,
+            left: xPos - (ripple.width() || 2) / 2,
+            background: $(object).data("ripple-color"),
+          })
+          .appendTo($(object));
+      }
+
+      window.setTimeout(() => {
         divCreated.remove();
       }, 2000);
     });
   },
 
-  showEmailSendFinished: function () {
-    $(".hidden-text-success").velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
+  showEmailSendFinished: () => {
+    const textArea = $(".hidden-text-success") as any;
+    textArea.velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
   },
 
-  postToGoogle: function (data) {
+  postToGoogle: (data: { name?: string; email?: string; message?: string; status?: any }) => {
     const successMsg = "Thanks! I'll be in touch shortly.";
     const errorMsg =
       "Sorry, there's been an error, please email me directly at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
     const message = $(".hidden-email-message");
     const image = $(".hidden-email-image");
     $.ajax({
-      url: "https://docs.google.com/forms/d/1U6VHwNJcCFZqyBwxjwsUvFNQyIOLhiJaCN4FOX8vwXM/formResponse",
+      url: CONSTANTS.GOOGLE_FORM_URL,
       data: {
         "entry.1592497313": data.name,
         "entry.335030587": data.email,
@@ -121,13 +125,13 @@ const animate = {
       type: "POST",
       dataType: "xml",
       statusCode: {
-        0: function () {
+        0: () => {
           $("#mail-loader").hide();
           message.html(successMsg);
           image.attr("src", "/assets/images/success.png");
           animate.showEmailSendFinished();
         },
-        200: function () {
+        200: () => {
           $("#mail-loader").hide();
           if (data?.status === "error") {
             message.html(errorMsg);
@@ -139,7 +143,7 @@ const animate = {
           animate.showEmailSendFinished();
         },
       },
-      error: function () {
+      error: () => {
         $("#mail-loader").hide();
         message.html(errorMsg);
         image.attr("src", "/assets/images/error.png");
@@ -148,7 +152,7 @@ const animate = {
     });
   },
 
-  emailSend: function () {
+  emailSend: () => {
     $("#btn-send").on("click", function (e) {
       e.preventDefault();
 
@@ -160,8 +164,8 @@ const animate = {
       const isValid = name.val() !== "" && email.val() !== "" && subject.val() !== "" && message.val() !== "";
 
       if (isValid) {
-        $("#hidden-contactform")
-          .css("display", "block")
+        const item = $("#hidden-contactform").css("display", "block") as any;
+        item
           .velocity(
             { height: "730px" },
             {
@@ -174,10 +178,10 @@ const animate = {
           .show();
 
         const data = {
-          name: name.val(),
-          email: email.val(),
-          subject: subject.val(),
-          message: message.val(),
+          name: name.val() as string,
+          email: email.val() as string,
+          subject: subject.val() as string,
+          message: message.val() as string,
         };
         animate.postToGoogle(data);
       } else {
@@ -194,40 +198,40 @@ const animate = {
     });
   },
 
-  hexagonRotate: function () {
+  hexagonRotate: () => {
     $(document).on(
       {
-        mouseenter: function () {
-          $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-          $(this).find(".hexagon").css("background-color", "#070606");
-          $(this).find(".hexagon-icon-position").css("color", "#E3B673");
+        mouseenter: (object) => {
+          $(object).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
+          $(object).find(".hexagon").css("background-color", "#070606");
+          $(object).find(".hexagon-icon-position").css("color", "#E3B673");
         },
 
-        mouseleave: function () {
-          $(this).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-          $(this).find(".hexagon").css("background-color", "#E3B673");
-          $(this).find(".hexagon-icon-position").css("color", "#070606");
+        mouseleave: (object) => {
+          $(object).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
+          $(object).find(".hexagon").css("background-color", "#E3B673");
+          $(object).find(".hexagon-icon-position").css("color", "#070606");
         },
       },
       ".hexagon-wrapper"
     );
   },
 
-  hideMoreBtnMobile: function () {
+  hideMoreBtnMobile: () => {
     //If is touchscreen, the "+ More" button in works is always visible
-    if (!!("ontouchstart" in window)) {
+    if ("ontouchstart" in window) {
       $(".info").addClass("work-button-mobile");
     } else {
       $(".info").removeClass("work-button-mobile");
     }
   },
 
-  typingEffect: function () {
+  typingEffect: () => {
     try {
       const controller = new scrollMagic.Controller();
 
       const theater = theaterJS();
-      theater.on("type:start, erase:start", function () {
+      theater.on("type:start, erase:start", () => {
         const actor = theater.getCurrentActor();
         actor.$element.classList.add("is-typing");
       });
@@ -236,25 +240,21 @@ const animate = {
       theater.addScene("typing:Hello", 200);
 
       //typing about
-      new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: true })
-        .addTo(controller)
-        .on("start", function () {
-          theater.addActor("about");
-          theater.addScene("about:About.", 300);
-        });
+      new scrollMagic.Scene({ triggerElement: "#about", duration: 200, offset: -150, reverse: true }).addTo(controller).on("start", () => {
+        theater.addActor("about");
+        theater.addScene("about:About.", 300);
+      });
 
       //typing work
-      new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: true })
-        .addTo(controller)
-        .on("start", function () {
-          theater.addActor("work");
-          theater.addScene("work:Work.", 300);
-        });
+      new scrollMagic.Scene({ triggerElement: "#work", duration: 200, offset: -150, reverse: true }).addTo(controller).on("start", () => {
+        theater.addActor("work");
+        theater.addScene("work:Work.", 300);
+      });
 
       //typing contact
       new scrollMagic.Scene({ triggerElement: "#contact", duration: 200, offset: -150, reverse: true })
         .addTo(controller)
-        .on("start", function () {
+        .on("start", () => {
           theater.addActor("contact", { accuracy: 0.4 });
           theater.addScene("contact:Contact.", 300);
         });
@@ -263,14 +263,20 @@ const animate = {
     }
   },
 
-  scrollArrow: function () {
-    $(".arrow-down").on("click", function (e) {
+  scrollArrow: () => {
+    $(".arrow-down").on("click", (e) => {
       e.preventDefault();
-      return $("html,body").animate({
-        scrollTop: $("#page-about").offset().top,
+
+      const position = $("#about").offset()?.top;
+
+      const body = $("html,body") as any;
+      body.velocity("scroll", {
+        duration: 3000,
+        offset: position,
+        easing: "easeOutQuart",
       });
     });
   },
 };
 
-module.exports = animate;
+export default animate;
