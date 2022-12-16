@@ -34,6 +34,11 @@ module.exports = (env) => {
     entry: "./src/index.ts",
     mode: isProd ? "production" : "development",
 
+    devServer: {
+      compress: true,
+      port: 8080,
+    },
+
     output: {
       path: outputFolder,
       filename: "assets/js/app.[contenthash].js",
@@ -45,6 +50,17 @@ module.exports = (env) => {
       minimizer: [
         new TerserPlugin(),
         new CssMinimizerPlugin(),
+        new ImageMinimizerPlugin({
+          minimizer: {
+            implementation: ImageMinimizerPlugin.svgoMinify,
+            options: {
+              encodeOptions: {
+                multipass: true,
+                plugins: ["preset-default"],
+              },
+            },
+          },
+        }),
         new ImageMinimizerPlugin({
           minimizer: {
             implementation: ImageMinimizerPlugin.sharpMinify,
@@ -107,7 +123,7 @@ module.exports = (env) => {
           oneOf: [
             {
               test: /\.svg$/,
-              type: "asset/resource",
+              type: "asset",
             },
             {
               test: /\.(png|jpg|jpeg|gif)$/i,

@@ -15,7 +15,7 @@ const app = {
     }
 
     const element = document.querySelector(".brand-logo") as HTMLElement;
-    VanillaTilt.init(element);
+    new VanillaTilt(element);
   },
 
   worksFilter: () => {

@@ -266,7 +266,6 @@ const animate = {
   scrollArrow: () => {
     $(".arrow-down").on("click", (e) => {
       e.preventDefault();
-
       const position = $("#about").offset()?.top;
 
       const body = $("html,body") as any;
