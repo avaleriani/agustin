@@ -4,11 +4,11 @@
 
 ## :heavy_plus_sign: Commands
 
-`yarn dev` : Launched development environment on http://localhost:3000
+`pnpm dev` : Launched development environment on http://localhost:3000
 
-`yarn build` : Builds production version
+`pnpm build` : Builds production version
 
-`yarn deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com 
+`pnpm deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com 
 
 
 ## :heavy_plus_sign: Description
@@ -25,3 +25,4 @@ Please check my other pinned projects for more up to date code samples.
 - :date: 25.08.2022 => A11y, packages and performance updates.
 - :date: 28.08.2022 => Added some for fun projects, projects images and fixes in general.
 - :date: 31.08.2022 => Improved site speed.
+- :date: 21.12.2022 => Replaced yarn with pnpm. Removed jquery and refactored js into typescript.

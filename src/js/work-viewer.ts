@@ -13,14 +13,19 @@ const workViewer = {
     }
   },
 
-  activate: (obj: any) => {
-    const currElem = obj.nextElementSibling;
+  activate: (event: Event) => {
+    const target = event?.currentTarget as HTMLElement;
+    const currElem: HTMLElement = target.nextElementSibling as HTMLElement;
+
     if (!currElem.classList.contains("open")) {
       //if it's closed
       document.addEventListener("keyup", workViewer.deactivateWithEscape, false);
       currElem.classList.add("open");
       document.body.style.overflowY = "hidden";
-      currElem.querySelector(".overlay-title-text").classList.add("overlay-title-effect");
+      const overlayText = currElem.querySelector(".overlay-title-text");
+      if (overlayText) {
+        overlayText.classList.add("overlay-title-effect");
+      }
     }
   },
 

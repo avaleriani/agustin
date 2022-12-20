@@ -1,21 +1,32 @@
-import * as $ from "jquery";
 import * as FastClick from "fastclick";
-import Shuffle from "shufflejs";
-import VanillaTilt from "vanilla-tilt";
+const Shuffle = require("shufflejs");
+const tiltjs = require("vanilla-tilt");
 
 const app = {
   loadApplication: () => {
     const touch = "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
-    $(".view").on("click", function (e) {
-      e.preventDefault();
-      return false;
+    Array.from(document.getElementsByClassName("view")).forEach((element) => {
+      element.addEventListener("click", (e: Event) => {
+        e.preventDefault();
+        return false;
+      });
     });
     if (touch) {
       return FastClick(document.body);
     }
 
-    const element = document.querySelector(".brand-logo") as HTMLElement;
-    new VanillaTilt(element);
+    const element = document.querySelector(".tilted") as HTMLElement;
+    const tiltConfig = {
+      reverse: false,
+      max: 22,
+      startX: 0,
+      startY: 10,
+      perspective: 1000,
+      speed: 200,
+      transition: true,
+      "mouse-event-element": "body",
+    };
+    tiltjs.init(element, tiltConfig);
   },
 
   worksFilter: () => {
@@ -38,7 +49,7 @@ const app = {
 
           if (!isActive) {
             group = btn.getElementsByTagName("a")[0].getAttribute("data-group") || undefined;
-            $(".active").removeClass("active");
+            Array.from(document.querySelectorAll(".active")).forEach((el) => el.classList.remove("active"));
             btn.classList.toggle("active");
             shfl.filter(group);
           }

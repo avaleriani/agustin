@@ -1,110 +1,109 @@
-import * as $ from "jquery";
 import Velocity from "velocity-animate";
-import CONSTANTS from "./utils";
+import CONSTANTS from "./constants";
+import { getOffset, validateEmail } from "./utils";
 const scrollMagic = require("scrollmagic");
 const theaterJS = require("theaterjs");
-($ as any).velocity = Velocity;
+
+Velocity.patch($, true);
+Velocity.patch($ && $.fn);
 
 const animate = {
-  // TODO: fix, the object is always empty, find solution
-  inputAnimation: (object: any) => {
-    const that = object;
-    $(".form-control")
-      .on("focusin", (object) => {
-        const obj = $(object).parent().find(".pencil-name") as any;
-        if ($(object).val() === "") {
-          obj.velocity({ y: "15px", opacity: 1 }, 500, "out");
-          obj.next().velocity({ y: "0px" }, 500, "in");
+  inputAnimation: () => {
+    const onFormGroupEvent = (event: Event) => {
+      const currentInput = event.currentTarget as HTMLInputElement;
+      const parentLabel = currentInput.parentNode?.querySelector("label") as HTMLElement;
+
+      if (event.type === "keyup") {
+        if (currentInput.value === "") {
+          parentLabel.classList.add("js-hide-label");
+        } else {
+          parentLabel.classList.remove("js-hide-label");
         }
-        that.visibilityToggle(obj.next());
-      })
-      .on("focusout", (object) => {
-        const obj = $(object).parent().find(".pencil-name") as any;
-        if ($(object).val() === "") {
-          obj.velocity({ y: "0px", opacity: 0 }, 500, "in");
-          obj.next().velocity({ y: "15px" }, 500, "out");
+      } else if (event.type === "blur") {
+        if (currentInput.value === "") {
+          parentLabel.classList.add("js-hide-label");
+        } else {
+          parentLabel.classList.remove("js-hide-label");
         }
-        that.visibilityToggle(obj.next());
+      }
+    };
+
+    const formControls = Array.from(document.getElementsByClassName("form-control"));
+    formControls.forEach((formControl) => {
+      formControl.addEventListener("focusin", (event: Event) => {
+        const selectedInput = event.currentTarget as HTMLElement;
+        const selectedPencil = selectedInput.previousElementSibling?.querySelector(".pencil-name") as any;
+        if ((selectedInput as HTMLInputElement).value === "") {
+          selectedPencil.velocity({ y: "15px", opacity: 1 }, 500, "out");
+          (selectedPencil.nextElementSibling as any).velocity({ y: "0px", opacity: 1 }, 500, "in");
+        }
+        animate.visibilityToggle(selectedPencil.nextElementSibling);
       });
 
-    $.support.placeholder = ((object) => {
-      const i = document.createElement("input");
-      return "placeholder" in i;
-    })();
+      formControl.addEventListener("focusout", (event: Event) => {
+        const selectedInput = event.currentTarget as HTMLElement;
+        const selectedPencil = selectedInput.previousElementSibling?.querySelector(".pencil-name") as any;
+        if ((selectedInput as HTMLInputElement).value === "") {
+          selectedPencil.velocity({ y: "0px", opacity: 0 }, 500, "in");
+          (selectedPencil.nextElementSibling as any).velocity({ y: "15px", opacity: 0 }, 500, "out");
+        }
+        animate.visibilityToggle(selectedPencil.nextElementSibling);
+      });
+    });
 
-    if ($.support.placeholder) {
-      $(".form-label").each(() => {
-        $(object).addClass("js-hide-label");
+    const isPlaceholderSupported = () => {
+      const input = document.createElement("input");
+      return "placeholder" in input;
+    };
+
+    if (isPlaceholderSupported()) {
+      Array.from(document.getElementsByClassName("form-label")).forEach((label) => {
+        label.classList.add("js-hide-label");
       });
 
-      $(".form-group")
-        .find("input, textarea")
-        .on("keyup blur focus", function (e) {
-          const that = $(object),
-            parent = that.parent().find("label");
-
-          if (e.type === "keyup") {
-            if (that.val() === "") {
-              parent.addClass("js-hide-label");
-            } else {
-              parent.removeClass("js-hide-label");
-            }
-          } else if (e.type === "blur") {
-            if (that.val() === "") {
-              parent.addClass("js-hide-label");
-            } else {
-              parent.removeClass("js-hide-label").addClass("js-unhighlight-label");
-            }
-          } else if (e.type === "focus") {
-            if (that.val() !== "") {
-              parent.removeClass("js-unhighlight-label");
-            }
-          }
-        });
+      Array.from(document.getElementsByClassName("form-group")).forEach((formGroup) => {
+        formGroup.querySelector("input, textarea")?.addEventListener("keyup", onFormGroupEvent);
+        formGroup.querySelector("input, textarea")?.addEventListener("blur", onFormGroupEvent);
+      });
     }
   },
 
-  visibilityToggle: function (obj: any) {
-    if (obj.css("visibility") === "hidden") {
-      obj.css("visibility", "visible");
+  visibilityToggle: (element: HTMLElement) => {
+    if (!element.style.visibility || element.style.visibility === "hidden") {
+      element.style.visibility = "visible";
     } else {
-      obj.css("visibility", "hidden");
+      element.style.visibility = "hidden";
     }
   },
 
   rippleEffect: () => {
-    $(".svg-wrapper").on("click", (event, object) => {
-      event.preventDefault();
+    Array.from(document.getElementsByClassName("svg-wrapper")).forEach((svgWrapper) => {
+      svgWrapper.addEventListener("click", (event: Event) => {
+        event.preventDefault();
 
-      const divCreated = $("<div/>");
-      const btnOffset = $(object).offset();
-      const xPos = btnOffset && event.pageX - btnOffset.left;
-      const yPos = btnOffset && event.pageY - btnOffset.top;
+        const buttonElement = event.currentTarget as HTMLElement;
 
-      divCreated.addClass("ripple-effect");
-      const ripple = $(".ripple-effect");
+        const divCreated = document.createElement("div");
+        const btnOffset = getOffset(buttonElement);
+        const xPos = btnOffset && (event as MouseEvent).pageX - btnOffset.left;
+        const yPos = btnOffset && (event as MouseEvent).pageY - btnOffset.top;
 
-      ripple.css("height", $(object).height() || 0);
-      ripple.css("width", $(object).height() || 0);
+        divCreated.classList.add("ripple-effect");
+        divCreated.style.top = `${yPos - buttonElement.clientHeight / 2 + 20}px`;
+        divCreated.style.left = `${xPos - buttonElement.clientHeight / 2 + 20}px`;
+        divCreated.style.background = "#e3b673";
 
-      if (yPos && xPos && ripple) {
-        divCreated
-          .css({
-            top: yPos - (ripple.height() || 2) / 2,
-            left: xPos - (ripple.width() || 2) / 2,
-            background: $(object).data("ripple-color"),
-          })
-          .appendTo($(object));
-      }
+        buttonElement.appendChild(divCreated);
 
-      window.setTimeout(() => {
-        divCreated.remove();
-      }, 2000);
+        window.setTimeout(() => {
+          divCreated.remove();
+        }, 2000);
+      });
     });
   },
 
   showEmailSendFinished: () => {
-    const textArea = $(".hidden-text-success") as any;
+    const textArea = document.getElementById("hidden-text-success") as HTMLElement;
     textArea.velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
   },
 
@@ -112,118 +111,131 @@ const animate = {
     const successMsg = "Thanks! I'll be in touch shortly.";
     const errorMsg =
       "Sorry, there's been an error, please email me directly at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
-    const message = $(".hidden-email-message");
-    const image = $(".hidden-email-image");
-    $.ajax({
-      url: CONSTANTS.GOOGLE_FORM_URL,
-      data: {
+    const message = document.getElementById("hidden-email-message") as HTMLElement;
+    const image = document.getElementById("hidden-email-image") as HTMLImageElement;
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
         "entry.1592497313": data.name,
         "entry.335030587": data.email,
         "entry.1421954823": data.email,
         "entry.1116466754": data.message,
+      }),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      type: "POST",
-      dataType: "xml",
-      statusCode: {
-        0: () => {
-          $("#mail-loader").hide();
-          message.html(successMsg);
-          image.attr("src", "/assets/images/success.png");
+    };
+
+    fetch(CONSTANTS.GOOGLE_FORM_URL, options)
+      .then((response) => {
+        if (response.status === 200) {
+          // Success
+          // Hide the loader, show success message and image
+          (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
+          message.innerHTML = successMsg;
+          image.src = "/assets/images/success.png";
           animate.showEmailSendFinished();
-        },
-        200: () => {
-          $("#mail-loader").hide();
-          if (data?.status === "error") {
-            message.html(errorMsg);
-            image.attr("src", "/assets/images/error.png");
-          } else {
-            message.html(successMsg);
-            image.attr("src", "/assets/images/success.png");
-          }
+        } else {
+          // Error
+          // Hide the loader, show error message and image
+          (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
+          message.innerHTML = errorMsg;
+          image.src = "/assets/images/error.png";
           animate.showEmailSendFinished();
-        },
-      },
-      error: () => {
-        $("#mail-loader").hide();
-        message.html(errorMsg);
-        image.attr("src", "/assets/images/error.png");
+        }
+      })
+      .catch(() => {
+        // Hide the loader, show error message and image
+        (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
+        message.innerHTML = errorMsg;
+        image.src = "/assets/images/error.png";
         animate.showEmailSendFinished();
-      },
-    });
+      });
   },
 
   emailSend: () => {
-    $("#btn-send").on("click", function (e) {
+    document.getElementById("btn-send")?.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const name = $("#name");
-      const email = $("#email");
-      const subject = $("#subject");
-      const message = $("#message");
+      const button = e.currentTarget as HTMLElement;
 
-      const isValid = name.val() !== "" && email.val() !== "" && subject.val() !== "" && message.val() !== "";
+      const name = document.getElementById("name") as HTMLInputElement;
+      const email = document.getElementById("email") as HTMLInputElement;
+      const subject = document.getElementById("subject") as HTMLInputElement;
+      const message = document.getElementById("message") as HTMLTextAreaElement;
+
+      const isValid = name.value !== "" && email.value !== "" && validateEmail(email.value) && subject.value !== "" && message.value !== "";
 
       if (isValid) {
-        const item = $("#hidden-contactform").css("display", "block") as any;
-        item
-          .velocity(
+        const item = document.getElementById("hidden-contactform");
+        const mailLoader = document.getElementById("mail-loader");
+        if (item && mailLoader) {
+          item.style.display = "block";
+          item.velocity(
             { height: "730px" },
             {
               duration: 1500,
               easing: "easeOutExpo",
             }
-          )
-          .find("#mail-loader")
-          .delay(500)
-          .show();
+          );
+          // TODO: confirm if is it chained to the previous item.
+          Velocity(mailLoader, { opacity: "1" }, { duration: 500, easing: "easeOutExpo" });
 
-        const data = {
-          name: name.val() as string,
-          email: email.val() as string,
-          subject: subject.val() as string,
-          message: message.val() as string,
-        };
-        animate.postToGoogle(data);
+          const data = {
+            name: name.value,
+            email: email.value,
+            subject: subject.value,
+            message: message.value,
+          };
+          animate.postToGoogle(data);
+        }
       } else {
-        if (name.val() === "") name.css({ border: "1px solid red" });
-        if (email.val() === "") email.css({ border: "1px solid red" });
-        if (subject.val() === "") subject.css({ border: "1px solid red" });
-        if (message.val() === "") message.css({ border: "1px solid red" });
+        if (name.value === "") name.style.border = "1px solid red";
+        if (email.value === "" || !validateEmail(email.value)) email.style.border = "1px solid red";
+        if (subject.value === "") subject.style.border = "1px solid red";
+        if (message.value === "") message.style.border = "1px solid red";
 
-        name.on("focus", () => name.attr("style", ""));
-        email.on("focus", () => email.attr("style", ""));
-        subject.on("focus", () => subject.attr("style", ""));
-        message.on("focus", () => message.attr("style", ""));
+        name.addEventListener("focus", () => (name.style.border = ""));
+        email.addEventListener("focus", () => (email.style.border = ""));
+        subject.addEventListener("focus", () => (subject.style.border = ""));
+        message.addEventListener("focus", () => (message.style.border = ""));
+
+        setTimeout(() => {
+          button.parentElement?.parentElement?.classList.remove("active");
+        }, 300);
       }
     });
   },
 
   hexagonRotate: () => {
-    $(document).on(
-      {
-        mouseenter: (object) => {
-          $(object).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-          $(object).find(".hexagon").css("background-color", "#070606");
-          $(object).find(".hexagon-icon-position").css("color", "#E3B673");
-        },
+    Array.from(document.getElementsByClassName(".hexagon-wrapper")).forEach((hexagon: Element) => {
+      hexagon.addEventListener("mouseenter", (event) => {
+        const currentHexagon = event.currentTarget as HTMLElement;
+        currentHexagon.classList.toggle("hexagon-hover-rotate");
+        currentHexagon.style.backgroundColor = "#070606";
+        currentHexagon.style.color = "#E3B673";
+      });
 
-        mouseleave: (object) => {
-          $(object).find(".hexagon-icon-position").toggleClass("hexagon-hover-rotate");
-          $(object).find(".hexagon").css("background-color", "#E3B673");
-          $(object).find(".hexagon-icon-position").css("color", "#070606");
-        },
-      },
-      ".hexagon-wrapper"
-    );
+      hexagon.addEventListener("mouseleave", (event) => {
+        const currentHexagon = event.currentTarget as HTMLElement;
+        currentHexagon.classList.toggle("hexagon-hover-rotate");
+        currentHexagon.style.backgroundColor = "#E3B673";
+        currentHexagon.style.color = "#070606";
+      });
+    });
   },
 
   hideMoreBtnMobile: () => {
+    const infos = Array.from(document.getElementsByClassName("info"));
     //If is touchscreen, the "+ More" button in works is always visible
-    if ("ontouchstart" in window) {
-      $(".info").addClass("work-button-mobile");
-    } else {
-      $(".info").removeClass("work-button-mobile");
-    }
+    infos.forEach((info) => {
+      if ("ontouchstart" in window) {
+        info.classList.add("work-button-mobile");
+      } else {
+        info.classList.remove("work-button-mobile");
+      }
+    });
   },
 
   typingEffect: () => {
@@ -264,15 +276,10 @@ const animate = {
   },
 
   scrollArrow: () => {
-    $(".arrow-down").on("click", (e) => {
+    document.getElementById("arrow-down")?.addEventListener("click", (e) => {
       e.preventDefault();
-      const position = $("#about").offset()?.top;
-
-      const body = $("html,body") as any;
-      body.velocity("scroll", {
-        duration: 3000,
-        offset: position,
-        easing: "easeOutQuart",
+      document.getElementById("about")?.scrollIntoView({
+        behavior: "smooth",
       });
     });
   },
