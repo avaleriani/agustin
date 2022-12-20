@@ -2,16 +2,16 @@ require("./scss/main.scss");
 import app from "./js/application";
 import workViewer from "./js/work-viewer";
 import animate from "./js/animate";
-import "typeface-roboto";
+import "@fontsource/roboto";
 
-document.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", () => {
   app.loadApplication();
   workViewer.init();
   animate.scrollArrow();
   app.worksFilter();
   animate.typingEffect();
   animate.hideMoreBtnMobile();
-  animate.inputAnimation({});
+  animate.inputAnimation();
   animate.rippleEffect();
   animate.emailSend();
   animate.hexagonRotate();
