@@ -7,7 +7,6 @@ export const validateEmail = (value: string) => {
   if (isEmpty(value)) {
     return null;
   }
-  console.log(value, EMAIL_REGEXP.test(value));
   return EMAIL_REGEXP.test(value);
 };
 

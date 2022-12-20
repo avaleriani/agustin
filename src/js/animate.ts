@@ -4,9 +4,6 @@ import { getOffset, validateEmail } from "./utils";
 const scrollMagic = require("scrollmagic");
 const theaterJS = require("theaterjs");
 
-Velocity.patch($, true);
-Velocity.patch($ && $.fn);
-
 const animate = {
   inputAnimation: () => {
     const onFormGroupEvent = (event: Event) => {
@@ -209,19 +206,21 @@ const animate = {
   },
 
   hexagonRotate: () => {
-    Array.from(document.getElementsByClassName(".hexagon-wrapper")).forEach((hexagon: Element) => {
-      hexagon.addEventListener("mouseenter", (event) => {
+    Array.from(document.getElementsByClassName("hexagon-wrapper")).forEach((hexagon: Element) => {
+      hexagon.addEventListener("mouseover", (event) => {
         const currentHexagon = event.currentTarget as HTMLElement;
-        currentHexagon.classList.toggle("hexagon-hover-rotate");
-        currentHexagon.style.backgroundColor = "#070606";
-        currentHexagon.style.color = "#E3B673";
+        const iconPosition = currentHexagon.querySelector(".hexagon-icon-position") as HTMLElement;
+        iconPosition?.classList.toggle("hexagon-hover-rotate");
+        (currentHexagon.querySelector(".hexagon") as HTMLElement).style.backgroundColor = "#070606";
+        iconPosition.style.color = "#E3B673";
       });
 
       hexagon.addEventListener("mouseleave", (event) => {
         const currentHexagon = event.currentTarget as HTMLElement;
-        currentHexagon.classList.toggle("hexagon-hover-rotate");
-        currentHexagon.style.backgroundColor = "#E3B673";
-        currentHexagon.style.color = "#070606";
+        const iconPosition = currentHexagon.querySelector(".hexagon-icon-position") as HTMLElement;
+        iconPosition?.classList.toggle("hexagon-hover-rotate");
+        (currentHexagon.querySelector(".hexagon") as HTMLElement).style.backgroundColor = "#E3B673";
+        iconPosition.style.color = "#070606";
       });
     });
   },
