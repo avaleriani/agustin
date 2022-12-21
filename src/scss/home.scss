@@ -20,6 +20,11 @@
     margin: auto;
     transform-origin: center top;
     transition: all 0.4s ease;
+
+    img {
+      filter: drop-shadow(3px 5px 2px rgba(240, 240, 240, 0.5));
+      box-shadow: 0 0 25px rgba(240, 240, 240, 0.5);
+    }
   }
 
   .h-01 {
@@ -46,7 +51,7 @@
   }
 
   .wave {
-    background: url(../assets/images/icons/SVG/wave.svg) repeat-x;
+    background: url(../assets/images/wave.svg) repeat-x;
     position: absolute;
     top: -158px;
     width: 6400px;
