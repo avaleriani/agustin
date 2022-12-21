@@ -1,19 +1,14 @@
-import * as FastClick from "fastclick";
 const Shuffle = require("shufflejs");
 const tiltjs = require("vanilla-tilt");
 
 const app = {
   loadApplication: () => {
-    const touch = "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
     Array.from(document.getElementsByClassName("view")).forEach((element) => {
       element.addEventListener("click", (e: Event) => {
         e.preventDefault();
         return false;
       });
     });
-    if (touch) {
-      return FastClick(document.body);
-    }
 
     const element = document.querySelector(".tilted") as HTMLElement;
     const tiltConfig = {

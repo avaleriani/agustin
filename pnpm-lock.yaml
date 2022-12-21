@@ -9,7 +9,6 @@ specifiers:
   copy-webpack-plugin: ^11.0.0
   css-loader: ^6.7.3
   css-minimizer-webpack-plugin: ^4.0.0
-  fastclick: ^1.0.6
   file-loader: ^6.2.0
   gh-pages: ^4.0.0
   html-webpack-plugin: ^5.5.0
@@ -38,7 +37,6 @@ specifiers:
 
 dependencies:
   '@fontsource/roboto': 4.5.8
-  fastclick: 1.0.6
   gh-pages: 4.0.0
   scrollmagic: 2.0.8
   shufflejs: 6.1.0
@@ -2935,10 +2933,6 @@ packages:
   /fast-json-stable-stringify/2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
-
-  /fastclick/1.0.6:
-    resolution: {integrity: sha512-cXyDBT4g0uWl/Xe75QspBDAgAWQ0lkPi/zgp6YFEUHj6WV6VIZl7R6TiDZhdOVU3W4ehp/8tG61Jev1jit+ztQ==}
-    dev: false
 
   /fastest-levenshtein/1.0.16:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}

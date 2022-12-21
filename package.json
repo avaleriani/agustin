@@ -55,7 +55,6 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.8",
-    "fastclick": "^1.0.6",
     "gh-pages": "^4.0.0",
     "scrollmagic": "^2.0.5",
     "shufflejs": "^6.1.0",
