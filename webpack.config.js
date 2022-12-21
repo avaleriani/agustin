@@ -33,6 +33,7 @@ module.exports = (env) => {
   return {
     entry: "./src/index.ts",
     mode: isProd ? "production" : "development",
+    devtool: isProd ? "source-map" : "eval",
 
     devServer: {
       compress: true,
