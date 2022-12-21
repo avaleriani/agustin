@@ -1,15 +1,10 @@
-@keyframes bounce {
-  from {
-    transform: translateY(10px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
 .arrow-down {
-  img {
-    animation: bounce 2s infinite ease alternate;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 1.2s ease-in-out;
+
+  :hover {
+    transform: scale(1.15);
   }
 }
