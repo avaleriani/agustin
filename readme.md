@@ -8,7 +8,7 @@
 
 `pnpm build` : Builds production version
 
-`pnpm deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com 
+`pnpm run deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com 
 
 
 ## :heavy_plus_sign: Description
