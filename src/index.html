@@ -101,7 +101,7 @@ _  ___ |__ |/ /
           <p class="copy-01"></p>
 
           <div class="columns">
-            <aside>
+            <div class="columns-item">
               <div class="me-img">
                 <img width="100%" height="100%" src="assets/images/icons/glasses.svg" alt="glasses" />
               </div>
@@ -112,8 +112,9 @@ _  ___ |__ |/ /
                 movies and TV shows, playing games, and coffee. I'm passionate about learning and constantly seeking new opportunities to
                 grow and improve.
               </p>
-            </aside>
-            <aside>
+            </div>
+
+            <div class="columns-item">
               <div class="me-img">
                 <img width="100%" height="100%" src="assets/images/icons/atom.svg" alt="atom" />
               </div>
@@ -128,9 +129,9 @@ _  ___ |__ |/ /
                 >
                 stack.
               </p>
-            </aside>
+            </div>
 
-            <aside>
+            <div class="columns-item">
               <div class="me-img">
                 <img width="100%" height="100%" src="assets/images/icons/checkboard-graph.svg" alt="graph" />
               </div>
@@ -142,7 +143,7 @@ _  ___ |__ |/ /
                 to smooth transitions and animations, I ensure that the user experience is seamless and enjoyable. I strive to create web
                 solutions that are both functional and visually appealing.
               </p>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
@@ -157,47 +158,55 @@ _  ___ |__ |/ /
           <a href="#" class="mobile-filter-select">Filter</a>
           <nav id="work-filter">
             <div class="svg-wrapper">
-              <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                <rect class="shape" height="40" width="150" />
-                <span class="text">
-                  <a href="#" id="btn-filter-all" class="filter-link active" data-group="all">
-                    <span class="spot"></span>
-                    All
-                  </a>
-                </span>
+              <svg height="40" width="150">
+                <path class="shape" d="M0 0h150v40H0z" />
+                <g>
+                  <span class="text">
+                    <a href="#" id="btn-filter-all" class="filter-link active" data-group="all">
+                      <span class="spot"></span>
+                      All
+                    </a>
+                  </span>
+                </g>
               </svg>
             </div>
             <div class="svg-wrapper">
-              <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                <rect class="shape" height="40" width="150" />
-                <span class="text">
-                  <a href="#" id="btn-filter-full" class="filter-link" data-group="full">
-                    <span class="spot"></span>
-                    Full stack
-                  </a>
-                </span>
+              <svg height="40" width="150">
+                <path class="shape" d="M0 0h150v40H0z" />
+                <g>
+                  <span class="text">
+                    <a href="#" id="btn-filter-full" class="filter-link active" data-group="full">
+                      <span class="spot"></span>
+                      Full stack
+                    </a>
+                  </span>
+                </g>
               </svg>
             </div>
             <div class="svg-wrapper">
-              <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                <rect class="shape" height="40" width="150" />
-                <span class="text">
-                  <a href="#" id="btn-filter-front" class="filter-link" data-group="maintenance">
-                    <span class="spot"></span>
-                    Maintenance
-                  </a>
-                </span>
+              <svg height="40" width="150">
+                <path class="shape" d="M0 0h150v40H0z" />
+                <g>
+                  <span class="text">
+                    <a href="#" id="btn-filter-front" class="filter-link active" data-group="maintenance">
+                      <span class="spot"></span>
+                      Maintenance
+                    </a>
+                  </span>
+                </g>
               </svg>
             </div>
             <div class="svg-wrapper">
-              <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                <rect class="shape" height="40" width="150" />
-                <span class="text">
-                  <a href="#" id="btn-filter-fun" class="filter-link" data-group="fun">
-                    <span class="spot"></span>
-                    For fun
-                  </a>
-                </span>
+              <svg height="40" width="150">
+                <path class="shape" d="M0 0h150v40H0z" />
+                <g>
+                  <span class="text">
+                    <a href="#" id="btn-filter-fun" class="filter-link active" data-group="fun">
+                      <span class="spot"></span>
+                      For fun
+                    </a>
+                  </span>
+                </g>
               </svg>
             </div>
           </nav>
@@ -254,16 +263,16 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="css3" class="devicon-css3-plain-wordmark colored -wordmark icon-skill"></i>
-                      <i title="git" class="devicon-git-plain colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
-                      <i title="trello" class="devicon-trello-plain-wordmark icon-skill"></i>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored -wordmark icon-skill"></span>
+                      <span title="git" class="devicon-git-plain colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
+                      <span title="trello" class="devicon-trello-plain-wordmark icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -318,17 +327,17 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="react" class="devicon-react-original-wordmark colored icon-skill"></i>
-                      <i title="laravel" class="devicon-laravel-plain-wordmark colored icon-skill"></i>
-                      <i title="doctrine" class="devicon-doctrine-line-wordmark colored icon-skill"></i>
-                      <i title="gulp" class="devicon-gulp-plain colored icon-skill"></i>
-                      <i title="photoshop" class="devicon-photoshop-line colored icon-skill"></i>
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="sass" class="devicon-sass-original colored icon-skill"></i>
-                      <i title="git" class="devicon-git-plain colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="react" class="devicon-react-original-wordmark colored icon-skill"></span>
+                      <span title="laravel" class="devicon-laravel-plain-wordmark colored icon-skill"></span>
+                      <span title="doctrine" class="devicon-doctrine-line-wordmark colored icon-skill"></span>
+                      <span title="gulp" class="devicon-gulp-plain colored icon-skill"></span>
+                      <span title="photoshop" class="devicon-photoshop-line colored icon-skill"></span>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="sass" class="devicon-sass-original colored icon-skill"></span>
+                      <span title="git" class="devicon-git-plain colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -396,15 +405,15 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="git" class="devicon-git-plain colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="postgresql" class="devicon-postgresql-plain-wordmark colored"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="git" class="devicon-git-plain colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="postgresql" class="devicon-postgresql-plain-wordmark colored"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -467,13 +476,13 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -528,15 +537,15 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
-                      <i title="trello" class="devicon-trello-plain-wordmark icon-skill"></i>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
+                      <span title="trello" class="devicon-trello-plain-wordmark icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -583,12 +592,12 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -643,14 +652,14 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="mysql" class="devicon-mysql-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -700,13 +709,13 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="postgresql" class="devicon-postgresql-plain-wordmark colored icon-skill"></i>
-                      <i title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></i>
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
+                      <span title="postgresql" class="devicon-postgresql-plain-wordmark colored icon-skill"></span>
+                      <span title="bootstrap" class="devicon-bootstrap-plain-wordmark colored icon-skill"></span>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -760,13 +769,13 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="svn" class="devicon-svn-plain colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="postgre" class="devicon-postgre-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="svn" class="devicon-svn-plain colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="postgre" class="devicon-postgre-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -817,13 +826,13 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="svn" class="devicon-svn-plain colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="postgre" class="devicon-postgre-plain-wordmark colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="svn" class="devicon-svn-plain colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="postgre" class="devicon-postgre-plain-wordmark colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -875,12 +884,12 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="jquery" class="devicon-jquery-plain colored icon-skill"></i>
-                      <i title="php" class="devicon-php-plain colored icon-skill"></i>
-                      <i title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></i>
+                      <span title="css3" class="devicon-css3-plain-wordmark colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="jquery" class="devicon-jquery-plain colored icon-skill"></span>
+                      <span title="php" class="devicon-php-plain colored icon-skill"></span>
+                      <span title="phpstorm" class="devicon-phpstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -939,8 +948,8 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle"></div>
                     <div class="overlay-icons">
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -993,12 +1002,12 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="react" class="devicon-react-plain-wordmark colored icon-skill"></i>
-                      <i title="threejs" class="devicon-threejs-original-wordmark colored icon-skill"></i>
-                      <i title="jest" class="devicon-jest-plain colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="webstorm" class="devicon-webstorm-plain colored icon-skill"></i>
+                      <span title="react" class="devicon-react-plain-wordmark colored icon-skill"></span>
+                      <span title="threejs" class="devicon-threejs-original-wordmark colored icon-skill"></span>
+                      <span title="jest" class="devicon-jest-plain colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="webstorm" class="devicon-webstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -1051,11 +1060,11 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="karma" class="devicon-karma-plain colored icon-skill"></i>
-                      <i title="webpack" class="devicon-webpack-plain-wordmark colored icon-skill"></i>
-                      <i title="sass" class="devicon-sass-original colored icon-skill"></i>
-                      <i title="webstorm" class="devicon-webstorm-original colored icon-skill"></i>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="karma" class="devicon-karma-plain colored icon-skill"></span>
+                      <span title="webpack" class="devicon-webpack-plain-wordmark colored icon-skill"></span>
+                      <span title="sass" class="devicon-sass-original colored icon-skill"></span>
+                      <span title="webstorm" class="devicon-webstorm-original colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -1108,10 +1117,10 @@ _  ___ |__ |/ /
                     </p>
                     <div class="overlay__subtitle">The technologies used in this project include:</div>
                     <div class="overlay-icons">
-                      <i title="javascript" class="devicon-javascript-plain colored icon-skill"></i>
-                      <i title="express" class="devicon-express-original colored icon-skill"></i>
-                      <i title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></i>
-                      <i title="webstorm" class="devicon-webstorm-plain colored icon-skill"></i>
+                      <span title="javascript" class="devicon-javascript-plain colored icon-skill"></span>
+                      <span title="express" class="devicon-express-original colored icon-skill"></span>
+                      <span title="html5" class="devicon-html5-plain-wordmark colored icon-skill"></span>
+                      <span title="webstorm" class="devicon-webstorm-plain colored icon-skill"></span>
                     </div>
                   </div>
                 </div>
@@ -1171,14 +1180,16 @@ _  ___ |__ |/ /
                     ></textarea>
                   </div>
                   <div class="svg-wrapper">
-                    <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                      <rect class="shape" height="40" width="150" />
-                      <div class="text">
-                        <a href="#" id="btn-send">
-                          <span class="spot"></span>
-                          Send
-                        </a>
-                      </div>
+                    <svg height="40" width="150">
+                      <path class="shape" d="M0 0h150v40H0z" />
+                      <g>
+                        <span class="text">
+                          <a href="#" id="btn-send" class="filter-link">
+                            <span class="spot"></span>
+                            Send
+                          </a>
+                        </span>
+                      </g>
                     </svg>
                   </div>
                 </form>
@@ -1202,25 +1213,25 @@ _  ___ |__ |/ /
         <h2>Currently, I am seeking engaging projects to which I may contribute.</h2>
         <div class="social-links">
           <a target="_blank" class="hexagon-wrapper" href="https://www.facebook.com/aguvaleriani" aria-label="link facebook">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-facebook"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-facebook"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://linkedin.com/in/aguvaleriani" aria-label="link linkedin">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-linkedin"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-linkedin"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://github.com/avaleriani" aria-label="link github">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-github"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-github"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://twitter.com/aguvaleriani" aria-label="link twitter">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-twitter"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-twitter"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://www.instagram.com/zagustinn/" aria-label="link instagram">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-instagram"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-instagram"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://codepen.io/avaleriani/" aria-label="link codepen">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-codepen"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-codepen"></span></div>
           </a>
           <a target="_blank" class="hexagon-wrapper" href="https://stackoverflow.com/users/2628378/agu-v/" aria-label="link overflow">
-            <div class="hexagon"><i class="hexagon-icon-position pe-so-stack-overflow"></i></div>
+            <div class="hexagon"><span role="img" class="hexagon-icon-position pe-so-stack-overflow"></span></div>
           </a>
         </div>
         <p class="copy-02">©<span id="year"></span>. AV.</p>

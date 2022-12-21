@@ -206,8 +206,8 @@ const animate = {
   },
 
   hexagonRotate: () => {
-    Array.from(document.getElementsByClassName("hexagon-wrapper")).forEach((hexagon: Element) => {
-      hexagon.addEventListener("mouseover", (event) => {
+    Array.from(document.getElementsByClassName("hexagon-wrapper")).forEach((hexagonWrapper: Element) => {
+      hexagonWrapper.addEventListener("mouseenter", (event) => {
         const currentHexagon = event.currentTarget as HTMLElement;
         const iconPosition = currentHexagon.querySelector(".hexagon-icon-position") as HTMLElement;
         iconPosition?.classList.toggle("hexagon-hover-rotate");
@@ -215,7 +215,7 @@ const animate = {
         iconPosition.style.color = "#E3B673";
       });
 
-      hexagon.addEventListener("mouseleave", (event) => {
+      hexagonWrapper.addEventListener("mouseleave", (event) => {
         const currentHexagon = event.currentTarget as HTMLElement;
         const iconPosition = currentHexagon.querySelector(".hexagon-icon-position") as HTMLElement;
         iconPosition?.classList.toggle("hexagon-hover-rotate");
