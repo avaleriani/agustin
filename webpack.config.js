@@ -8,6 +8,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
@@ -15,6 +16,10 @@ module.exports = (env) => {
   const isProd = env === "production";
   const outputFolder = resolveApp("dist");
   const appSrc = resolveApp("src");
+  const paths = [
+    '/',
+    '/uses/'
+  ];
 
   const minifyOpts = {
     removeComments: false,
@@ -172,6 +177,15 @@ module.exports = (env) => {
       new CopyPlugin({
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
       }),
+      new SitemapPlugin({
+        base: 'https://agustinvaleriani.com',
+        paths,
+        options: {
+          filename: 'sitemap.xml',
+          lastmod: true,
+          changefreq: 'monthly',
+       }
+      })
     ],
   };
 };
