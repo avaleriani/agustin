@@ -121,6 +121,7 @@ const animate = {
       }),
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
+        "mode": "no-cors"
       },
     };
 
