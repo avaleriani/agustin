@@ -8,7 +8,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const SitemapPlugin = require("sitemap-webpack-plugin").default;
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
@@ -16,10 +16,7 @@ module.exports = (env) => {
   const isProd = env === "production";
   const outputFolder = resolveApp("dist");
   const appSrc = resolveApp("src");
-  const paths = [
-    '/',
-    '/uses/'
-  ];
+  const paths = ["/", "/uses/"];
 
   const minifyOpts = {
     removeComments: false,
@@ -38,7 +35,7 @@ module.exports = (env) => {
   return {
     entry: "./src/index.ts",
     mode: isProd ? "production" : "development",
-    devtool: isProd ? "source-map" : "eval",
+    devtool: isProd ? "source-map" : "cheap-module-source-map",
 
     devServer: {
       compress: true,
@@ -178,14 +175,14 @@ module.exports = (env) => {
         patterns: [{ from: "src/assets/images", to: "assets/images" }],
       }),
       new SitemapPlugin({
-        base: 'https://agustinvaleriani.com',
+        base: "https://agustinvaleriani.com",
         paths,
         options: {
-          filename: 'sitemap.xml',
+          filename: "sitemap.xml",
           lastmod: true,
-          changefreq: 'monthly',
-       }
-      })
+          changefreq: "monthly",
+        },
+      }),
     ],
   };
 };
