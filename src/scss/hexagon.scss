@@ -1,3 +1,5 @@
+@use "utils";
+
 .hexagon-wrapper {
   text-align: center;
   margin: 20px;
@@ -9,8 +11,8 @@
 }
 
 .hexagon {
-  background-color: $colorOrange;
-  border: 1px solid $colorBlack;
+  background-color: utils.$colorOrange;
+  border: 1px solid utils.$colorBlack;
   height: 100%;
   width: calc(100% * 0.57735);
   display: inline-block;
@@ -24,8 +26,8 @@
     content: "";
     transform: rotateZ(60deg);
     z-index: 3;
-    border-top: 1px solid $colorBlack;
-    border-bottom: 1px solid $colorBlack;
+    border-top: 1px solid utils.$colorBlack;
+    border-bottom: 1px solid utils.$colorBlack;
   }
   &:after {
     position: absolute;
@@ -37,13 +39,13 @@
     content: "";
     transform: rotateZ(-60deg);
     z-index: 3;
-    border-top: 1px solid $colorBlack;
-    border-bottom: 1px solid $colorBlack;
+    border-top: 1px solid utils.$colorBlack;
+    border-bottom: 1px solid utils.$colorBlack;
   }
 }
 
 .hexagon-icon-position {
-  color: $colorBlack;
+  color: utils.$colorBlack;
   position: relative;
   z-index: 4;
   top: 12px;

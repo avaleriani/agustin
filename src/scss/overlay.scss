@@ -1,3 +1,5 @@
+@use "utils";
+
 /* Overlay style */
 
 .overlay {
@@ -6,7 +8,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: $colorWhite;
+  background-color: utils.$colorWhite;
   z-index: 99;
   overflow: scroll;
 }
@@ -17,7 +19,7 @@
   padding-right: 10%;
   min-height: 550px;
 
-  @include respondTo(mobile) {
+  @include utils.respondTo(mobile) {
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 40px;
@@ -32,7 +34,7 @@
 .project-link {
   display: block;
   width: auto;
-  color: $colorPurple;
+  color: utils.$colorPurple;
   text-decoration: underline;
   margin: 45px auto;
 }
@@ -45,7 +47,7 @@
   opacity: 0;
   margin: auto;
 
-  @include respondTo(mobile) {
+  @include utils.respondTo(mobile) {
     max-width: 90%;
   }
 }
@@ -78,7 +80,7 @@
   height: auto;
   text-align: left;
 
-  @include respondTo(mobile) {
+  @include utils.respondTo(mobile) {
     max-width: 100%;
     width: 100%;
   }
@@ -106,7 +108,7 @@
   opacity: 0;
   overflow: hidden;
 
-  @include respondTo(mobile) {
+  @include utils.respondTo(mobile) {
     max-width: 100%;
     width: 100%;
     display: block;
@@ -152,7 +154,7 @@
   &:hover {
     &::before,
     &::after {
-      background: $colorGrey;
+      background: utils.$colorGrey;
     }
   }
   &::before,
@@ -164,7 +166,7 @@
     top: 50%;
     left: 0;
     margin-top: -1px;
-    background: $colorBlack;
+    background: utils.$colorBlack;
   }
   &::before {
     transform: rotate(45deg);
@@ -199,7 +201,7 @@
     -webkit-transition: opacity 1s ease-in-out;
   }
   &.open .overlay-title-effect {
-    color: $colorBlack;
+    color: utils.$colorBlack;
     font-weight: 800;
     animation: 1.5s 0.7s float infinite ease;
     height: auto;
