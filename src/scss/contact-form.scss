@@ -1,3 +1,5 @@
+@use "utils";
+
 #contact-form {
   max-width: 600px;
   margin: auto;
@@ -10,7 +12,7 @@
 
 .form-label {
   font-size: 14px;
-  color: $colorBlackBay;
+  color: utils.$colorBlackBay;
   padding-top: 5px;
   display: block;
   opacity: 1;
@@ -18,10 +20,10 @@
 }
 
 .form-control {
-  font-family: $fontMain;
+  font-family: utils.$fontMain;
   outline: none !important;
   border-radius: 0;
-  border-color: $colorCerebralGrey;
+  border-color: utils.$colorCerebralGrey;
   border-width: 0 0 2px;
   border-style: none none solid;
   box-shadow: none;
@@ -33,7 +35,7 @@
 
   &:focus {
     box-shadow: none;
-    border-color: $colorOrange;
+    border-color: utils.$colorOrange;
   }
 }
 
@@ -67,7 +69,7 @@
   &:after {
     height: 10px;
     width: 100px;
-    background-color: $colorDarkGrey;
+    background-color: utils.$colorDarkGrey;
     border-radius: 5px;
     top: 110px;
     left: 40px;
@@ -78,7 +80,7 @@
   &:before {
     height: 20px;
     width: 20px;
-    background-color: $colorDarkGrey;
+    background-color: utils.$colorDarkGrey;
     border-radius: 50%;
     top: 30px;
     left: 78px;

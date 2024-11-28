@@ -1,9 +1,11 @@
+@use "utils";
+
 .view {
   width: 270px;
   height: 180px;
   overflow: hidden;
   cursor: pointer;
-  background: $colorSoftWhite;
+  background: utils.$colorSoftWhite;
   margin-top: 15px;
   .mask,
   .content {
@@ -20,7 +22,7 @@
   }
   h2 {
     text-transform: uppercase;
-    color: $colorGrey;
+    color: utils.$colorGrey;
     text-align: center;
     position: relative;
     font-size: 17px;
@@ -32,7 +34,7 @@
     min-height: 50px;
     font-size: 11px;
     position: relative;
-    color: $colorSoftWhite;
+    color: utils.$colorSoftWhite;
     padding: 0 5px 5px;
     text-align: center;
   }
@@ -40,16 +42,16 @@
     display: inline-block;
     text-decoration: none;
     padding: 7px 14px;
-    background: $colorBlack;
-    color: $colorGrey;
+    background: utils.$colorBlack;
+    color: utils.$colorGrey;
     text-transform: uppercase;
-    -webkit-box-shadow: 0 0 1px $colorBlack;
-    -moz-box-shadow: 0 0 1px $colorBlack;
-    box-shadow: 0 0 1px $colorBlack;
+    -webkit-box-shadow: 0 0 1px utils.$colorBlack;
+    -moz-box-shadow: 0 0 1px utils.$colorBlack;
+    box-shadow: 0 0 1px utils.$colorBlack;
     &:hover {
-      -webkit-box-shadow: 0 0 5px $colorBlack;
-      -moz-box-shadow: 0 0 5px $colorBlack;
-      box-shadow: 0 0 5px $colorBlack;
+      -webkit-box-shadow: 0 0 5px utils.$colorBlack;
+      -moz-box-shadow: 0 0 5px utils.$colorBlack;
+      box-shadow: 0 0 5px utils.$colorBlack;
     }
   }
 }

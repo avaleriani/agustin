@@ -1,3 +1,5 @@
+@use "utils";
+
 #page-contactform {
   text-align: center;
   .h-01 {
@@ -6,9 +8,9 @@
   .copy-01 {
     margin-bottom: 50px;
     padding: 0 60px;
-    color: $colorSoftWhite;
+    color: utils.$colorSoftWhite;
 
-    @include respondTo(mobile) {
+    @include utils.respondTo(mobile) {
       font-size: 24px;
     }
   }
@@ -19,7 +21,7 @@
   input,
   textarea,
   .heading {
-    color: $colorGrey;
+    color: utils.$colorGrey;
   }
 }
 
@@ -31,7 +33,7 @@
   position: absolute;
   top: 125px;
   left: 0;
-  background-color: $colorWhite;
+  background-color: utils.$colorWhite;
 }
 
 .hidden-email-title {
@@ -40,7 +42,7 @@
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: $colorDarkGrey;
+  background-color: utils.$colorDarkGrey;
 }
 
 .hidden-email-message {

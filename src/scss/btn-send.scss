@@ -1,3 +1,5 @@
+@use "utils";
+
 .spot {
   position: absolute;
   width: 100%;
@@ -23,7 +25,7 @@
   display: block;
   stroke-width: 4px;
   fill: transparent;
-  stroke: $colorCerebralGrey;
+  stroke: utils.$colorCerebralGrey;
   stroke-dasharray: 85 400;
   stroke-dashoffset: -220;
   transition: 1.5s all ease;
@@ -34,10 +36,10 @@
   margin-top: -35px;
   text-align: center;
   .filter-link {
-    color: $colorDarkGrey;
+    color: utils.$colorDarkGrey;
     text-decoration: none;
     text-rendering: optimizeLegibility;
-    font-family: $fontMain;
+    font-family: utils.$fontMain;
     font-size: 14px;
     line-height: 1;
   }
@@ -47,12 +49,12 @@
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: $colorOrange;
+  stroke: utils.$colorOrange;
 }
 
 .active .shape {
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: $colorSoftWhite;
+  stroke: utils.$colorSoftWhite;
 }

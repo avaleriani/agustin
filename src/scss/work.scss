@@ -1,7 +1,9 @@
+@use "utils";
+
 #page-work {
   position: relative;
   text-align: center;
-  background-color: $colorBlack;
+  background-color: utils.$colorBlack;
   min-height: 1210px;
   height: auto;
 
@@ -21,20 +23,20 @@
   }
 
   .h-01 {
-    color: $colorOrange;
+    color: utils.$colorOrange;
     margin-bottom: 50px;
   }
 
   .h-02 {
     visibility: hidden;
-    color: $colorSoftWhite;
+    color: utils.$colorSoftWhite;
     margin: 15px 0 -25px 0;
     font-weight: 800;
   }
 
   .copy-03,
   .filter-link {
-    color: $colorOrange;
+    color: utils.$colorOrange;
   }
 
   .shuffle__sizer {
@@ -52,7 +54,7 @@
   }
 
   .filter-link {
-    color: $colorOrange;
+    color: utils.$colorOrange;
   }
 
   .work-item {
@@ -88,7 +90,7 @@
     &:hover {
       .h-02 {
         visibility: visible;
-        color: $colorBlack;
+        color: utils.$colorBlack;
         transition: color 750ms linear;
       }
     }
@@ -100,7 +102,7 @@
 
   #work-detail {
     display: none;
-    background: $colorHighBlue;
+    background: utils.$colorHighBlue;
     text-align: left;
     position: absolute;
     top: 0;
@@ -113,7 +115,7 @@
     .close-icon {
       cursor: pointer;
       display: block;
-      font-family: $fontMain;
+      font-family: utils.$fontMain;
       font-weight: 800;
       font-size: 40px;
       -webkit-font-smoothing: antialiased;
@@ -124,7 +126,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      color: $colorOrange;
+      color: utils.$colorOrange;
     }
 
     .inner {

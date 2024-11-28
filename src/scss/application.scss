@@ -1,3 +1,5 @@
+@use "utils";
+
 .site-inner {
   position: relative;
   margin-left: auto;
@@ -15,7 +17,7 @@
 }
 
 .heading {
-  color: $colorGrey;
+  color: utils.$colorGrey;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -28,7 +30,7 @@
     min-height: 90px;
   }
   &.h-02 {
-    font-family: $fontMain;
+    font-family: utils.$fontMain;
     font-size: 19px;
     font-weight: normal;
     line-height: 1;
@@ -42,17 +44,17 @@
 
 .copy-01 {
   text-rendering: optimizeLegibility;
-  font-family: $fontMain;
+  font-family: utils.$fontMain;
   font-size: 26px;
-  color: $colorBlackBay;
+  color: utils.$colorBlackBay;
   line-height: 42px;
 }
 
 .copy-02 {
   text-rendering: optimizeLegibility;
-  font-family: $fontMain;
+  font-family: utils.$fontMain;
   font-size: 18px;
-  color: $colorBlackBay;
+  color: utils.$colorBlackBay;
   line-height: 30px;
   text-align: center;
 }
@@ -62,7 +64,7 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: $fontMain;
+  font-family: utils.$fontMain;
   font-size: 14px;
   line-height: 1;
 }
@@ -74,15 +76,15 @@
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &.main {
-    background: $colorPurple;
-    color: $colorOrange;
-    font-family: $fontMain;
+    background: utils.$colorPurple;
+    color: utils.$colorOrange;
+    font-family: utils.$fontMain;
     font-size: 14px;
   }
   &.white {
-    background: $colorOrange;
-    color: $colorMetal;
-    font-family: $fontMain;
+    background: utils.$colorOrange;
+    color: utils.$colorMetal;
+    font-family: utils.$fontMain;
     font-size: 14px;
   }
   &.rounded {

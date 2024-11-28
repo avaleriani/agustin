@@ -8,8 +8,7 @@
 
 `pnpm build` : Builds production version
 
-`pnpm run deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com 
-
+`pnpm run deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com
 
 ## :heavy_plus_sign: Description
 
@@ -21,8 +20,9 @@ Please check my other pinned projects for more up to date code samples.
 
 ## :heavy_plus_sign: Changelog
 
-- :date: 05.11.2020 => Created /uses page to show the tools I use for work.
-- :date: 25.08.2022 => A11y, packages and performance updates.
-- :date: 28.08.2022 => Added some for fun projects, projects images and fixes in general.
-- :date: 31.08.2022 => Improved site speed.
+- :date: 28.11.2024 => Fixed accessibility issues.
 - :date: 21.12.2022 => Replaced yarn with pnpm. Removed jquery and refactored js into typescript.
+- :date: 31.08.2022 => Improved site speed.
+- :date: 28.08.2022 => Added some for fun projects, projects images and fixes in general.
+- :date: 25.08.2022 => A11y, packages and performance updates.
+- :date: 05.11.2020 => Created /uses page to show the tools I use for work.

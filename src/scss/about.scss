@@ -1,3 +1,5 @@
+@use "utils";
+
 #page-about {
   .copy-01 {
     text-align: center;
@@ -5,51 +7,50 @@
     padding: 0 20px;
   }
   .h-01 {
-    @include respondTo(smartphone) {
+    @include utils.respondTo(smartphone) {
       margin: 40px 0 40px 0;
     }
-    @include respondTo(tablet) {
+    @include utils.respondTo(tablet) {
       margin: 15px 0 90px 0;
     }
     padding-top: 35px;
     text-align: center;
   }
   .h-03 {
-    @include respondTo(mobile) {
+    text-align: center;
+    @include utils.respondTo(mobile) {
       margin-bottom: 10px;
     }
-    @include respondTo(screen) {
+    @include utils.respondTo(screen) {
       margin-bottom: 18px;
     }
-    text-align: center;
   }
   .columns {
-    @include respondTo(mobile) {
-      display: block;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    @include respondTo(screen) {
-      display: flex;
-    }
     align-items: stretch;
     flex-direction: row;
     justify-content: flex-start;
     margin-left: 50px;
     margin-right: 50px;
+
+    @include utils.respondTo(mobile) {
+      display: block;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    @include utils.respondTo(screen) {
+      display: flex;
+    }
   }
 
-.columns-item {
+  .columns-item {
     float: none;
     width: 100%;
     padding: 0 20px;
     margin: 0 0 30px 0;
     text-align: center;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    @include respondTo(screen) {
+    @include utils.respondTo(screen) {
       flex: 1;
       width: 285px;
       float: left;
@@ -58,6 +59,14 @@
     &:last-child {
       margin: 0;
     }
+  }
+}
+
+.link {
+  color: utils.$colorBlack;
+  text-decoration: underline;
+  &:hover {
+    color: utils.$colorOrange;
   }
 }
 

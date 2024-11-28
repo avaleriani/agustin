@@ -1,8 +1,10 @@
+@use "utils";
+
 #page-uses {
   text-align: left;
   min-height: 100vh;
-  color: $colorSoftWhite;
-  background-color: $colorBlack;
+  color: utils.$colorSoftWhite;
+  background-color: utils.$colorBlack;
   padding: 0 20%;
   height: 100%;
   display: flex;
@@ -15,7 +17,7 @@
     align-items: center;
 
     h1 {
-      color: $colorOrange;
+      color: utils.$colorOrange;
       text-align: left;
       font-size: 30px;
       margin: 0;
@@ -27,7 +29,7 @@
     }
   }
   .uses-list {
-    color: $colorOrange;
+    color: utils.$colorOrange;
     margin-bottom: 180px;
     padding-top: 90px;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.31), 0 1px rgba(0, 0, 0, 0.31), 1px 0 rgba(0, 0, 0, 0.31),
@@ -35,7 +37,7 @@
 
     h1 {
       font-size: 25px;
-      color: $colorSoftWhite;
+      color: utils.$colorSoftWhite;
     }
 
     h3 {

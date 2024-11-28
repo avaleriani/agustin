@@ -1,8 +1,10 @@
+@use "utils";
+
 #page-home {
   text-align: center;
   height: 100%;
-  color: $colorSoftWhite;
-  background-color: $colorBlack;
+  color: utils.$colorSoftWhite;
+  background-color: utils.$colorBlack;
 
   .container {
     padding-bottom: 1px;
@@ -12,7 +14,7 @@
   .brand-logo {
     width: 210px;
     height: 210px;
-    border: solid $colorOrange 7px;
+    border: solid utils.$colorOrange 7px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -28,12 +30,12 @@
   }
 
   .h-01 {
-    color: $colorOrange;
+    color: utils.$colorOrange;
     padding: 60px 0 0 0;
   }
 
   .copy-02 {
-    color: $colorOrange;
+    color: utils.$colorOrange;
     margin-bottom: 90px;
     padding-top: 30px;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.31);
@@ -46,7 +48,7 @@
     position: relative;
     top: -180px;
     left: 0;
-    background-color: $colorBlack;
+    background-color: utils.$colorBlack;
     transform: rotate(180deg);
   }
 

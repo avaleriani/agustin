@@ -1,9 +1,11 @@
+@use "utils";
+
 .ripple-effect {
   position: absolute;
   border-radius: 50%;
   width: 10px;
   height: 10px;
-  background: $colorCerebralGrey;
+  background: utils.$colorCerebralGrey;
   animation: ripple-animation 2s;
 }
 
