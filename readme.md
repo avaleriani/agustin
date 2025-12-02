@@ -14,7 +14,7 @@
 
 This project is my portfolio created in 2014 based on Scotch-box. Since then all php code has been removed.
 Unfortunately I didn't have much time to keep it up to date.
-Currently, you can find me working on NextJs and React (no jquery :smile:).
+Currently, you can find me working on NextJs, React, Python and NodeJs.
 
 Please check my other pinned projects for more up to date code samples.
 

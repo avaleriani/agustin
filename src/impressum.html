@@ -37,7 +37,6 @@ _  ___ |__ |/ /
           <h2>Contact</h2>
           <p>
             Email: <canvas id="emailCanvas" class="email-canvas" width="300" height="20"></canvas><br />
-            Phone: <span class="obfuscated" data-phone="cmVibnVOIGVub2hQIHJ1b1lb">]rebmuN enohP ruoY[</span>
           </p>
 
           <h2>Disclaimer</h2>
@@ -66,14 +65,14 @@ _  ___ |__ |/ /
     </section>
     <script>
       // Decode base64 encoded data
-      function d(s) { return atob(s); }
+      function d(s) { return decodeURIComponent(escape(atob(s))); }
       
       // Render email on canvas (harder to scrape)
       window.addEventListener('load', function() {
         var canvas = document.getElementById('emailCanvas');
         var ctx = canvas.getContext('2d');
         ctx.font = '16px Arial';
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = '#fff';
         ctx.fillText(d('aW1wcmVzc3VtQGFndXN0aW52YWxlcmlhbmkuY29t'), 0, 15);
         
         // Decode personal information

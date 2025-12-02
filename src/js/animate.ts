@@ -104,19 +104,33 @@ const animate = {
     textArea.velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
   },
 
-  openGitHubIssue: (data: { name?: string; email?: string; subject?: string; message?: string }) => {
-    const title = encodeURIComponent(data.subject || "Contact Form Submission");
-    const body = encodeURIComponent(
-      `**From:** ${data.name}\n**Email:** ${data.email}\n\n**Message:**\n${data.message}`
-    );
-    const labels = encodeURIComponent("contact-form");
-    
-    const url = `${CONSTANTS.GITHUB_ISSUES_URL}?title=${title}&body=${body}&labels=${labels}`;
-    window.open(url, "_blank");
+  submitContactForm: async (data: { name?: string; email?: string; subject?: string; message?: string }): Promise<boolean> => {
+    const title = `Contact: ${data.subject || "Form submission"} from ${data.name}`;
+    const body = `**From:** ${data.name}\n**Email:** ${data.email}\n\n**Message:**\n${data.message}`;
+
+    try {
+      const response = await fetch(CONSTANTS.GITHUB_API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `token ${CONSTANTS.GITHUB_PAT}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          body,
+          labels: ["contact-form"],
+        }),
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error("Failed to submit contact form:", error);
+      return false;
+    }
   },
 
   emailSend: () => {
-    document.getElementById("btn-send")?.addEventListener("click", (e) => {
+    document.getElementById("btn-send")?.addEventListener("click", async (e) => {
       e.preventDefault();
 
       const button = e.currentTarget as HTMLElement;
@@ -140,7 +154,6 @@ const animate = {
               easing: "easeOutExpo",
             }
           );
-          // TODO: confirm if is it chained to the previous item.
           Velocity(mailLoader, { opacity: "1" }, { duration: 500, easing: "easeOutExpo" });
 
           const data = {
@@ -149,7 +162,21 @@ const animate = {
             subject: subject.value,
             message: message.value,
           };
-          animate.openGitHubIssue(data);
+
+          const success = await animate.submitContactForm(data);
+          
+          Velocity(mailLoader, { opacity: "0" }, { duration: 300 });
+          
+          if (success) {
+            animate.showEmailSendFinished();
+            // Clear form
+            name.value = "";
+            email.value = "";
+            subject.value = "";
+            message.value = "";
+          } else {
+            alert("Failed to send message. Please try again.");
+          }
         }
       } else {
         if (name.value === "") name.style.border = "1px solid red";
