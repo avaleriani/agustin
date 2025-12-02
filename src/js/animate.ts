@@ -104,52 +104,15 @@ const animate = {
     textArea.velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
   },
 
-  postToGoogle: (data: { name?: string; email?: string; message?: string; status?: any }) => {
-    const successMsg = "Thanks! I'll be in touch shortly.";
-    const errorMsg =
-      "Sorry, there's been an error, please email me directly at <a href='mailto:hello@agustinvaleriani.com'>hello@agustinvaleriani.com</a>";
-    const message = document.getElementById("hidden-email-message") as HTMLElement;
-    const image = document.getElementById("hidden-email-image") as HTMLImageElement;
-
-    const options = {
-      method: "POST",
-      body: JSON.stringify({
-        "entry.1592497313": data.name,
-        "entry.335030587": data.email,
-        "entry.1421954823": data.email,
-        "entry.1116466754": data.message,
-      }),
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "mode": "no-cors"
-      },
-    };
-
-    fetch(CONSTANTS.GOOGLE_FORM_URL, options)
-      .then((response) => {
-        if (response.status === 200) {
-          // Success
-          // Hide the loader, show success message and image
-          (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
-          message.innerHTML = successMsg;
-          image.src = "/assets/images/success.png";
-          animate.showEmailSendFinished();
-        } else {
-          // Error
-          // Hide the loader, show error message and image
-          (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
-          message.innerHTML = errorMsg;
-          image.src = "/assets/images/error.png";
-          animate.showEmailSendFinished();
-        }
-      })
-      .catch(() => {
-        // Hide the loader, show error message and image
-        (document.getElementById("mail-loader") as HTMLElement).style.display = "none";
-        message.innerHTML = errorMsg;
-        image.src = "/assets/images/error.png";
-        animate.showEmailSendFinished();
-      });
+  openGitHubIssue: (data: { name?: string; email?: string; subject?: string; message?: string }) => {
+    const title = encodeURIComponent(data.subject || "Contact Form Submission");
+    const body = encodeURIComponent(
+      `**From:** ${data.name}\n**Email:** ${data.email}\n\n**Message:**\n${data.message}`
+    );
+    const labels = encodeURIComponent("contact-form");
+    
+    const url = `${CONSTANTS.GITHUB_ISSUES_URL}?title=${title}&body=${body}&labels=${labels}`;
+    window.open(url, "_blank");
   },
 
   emailSend: () => {
@@ -186,7 +149,7 @@ const animate = {
             subject: subject.value,
             message: message.value,
           };
-          animate.postToGoogle(data);
+          animate.openGitHubIssue(data);
         }
       } else {
         if (name.value === "") name.style.border = "1px solid red";

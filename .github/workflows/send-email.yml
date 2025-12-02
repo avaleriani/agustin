@@ -1,0 +1,30 @@
+name: Send Email From Form
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USER }}
+          password: ${{ secrets.MAIL_PASS }}
+          subject: "New Contact Form Submission - ${{ github.event.issue.title }}"
+          to: webform@agustinvaleriani.com
+          from: ${{ secrets.MAIL_USER }}
+          body: |
+            New contact form submission from agustinvaleriani.com
+            
+            Subject: ${{ github.event.issue.title }}
+            
+            Message:
+            ${{ github.event.issue.body }}
+            
+            ---
+            This email was automatically sent from your GitHub repository contact form.

@@ -165,6 +165,12 @@ module.exports = (env) => {
         template: resolveApp("src/uses.html"),
         minify: minifyOpts,
       }),
+      new HtmlWebpackPlugin({
+        filename: "impressum.html",
+        inject: true,
+        template: resolveApp("src/impressum.html"),
+        minify: minifyOpts,
+      }),
       new MiniCssExtractPlugin({
         filename: "assets/css/styles.[contenthash].css",
       }),

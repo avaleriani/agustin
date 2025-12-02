@@ -20,6 +20,7 @@ Please check my other pinned projects for more up to date code samples.
 
 ## :heavy_plus_sign: Changelog
 
+- :date: 02.12.2025 => Added new required pages.
 - :date: 28.11.2024 => Fixed accessibility issues.
 - :date: 21.12.2022 => Replaced yarn with pnpm. Removed jquery and refactored js into typescript.
 - :date: 31.08.2022 => Improved site speed.

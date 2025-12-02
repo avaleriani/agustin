@@ -1,0 +1,56 @@
+@use "utils";
+
+#page-impressum {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  line-height: 1.8;
+  min-height: 100vh;
+  background: utils.$colorBlack;
+}
+
+.impressum-content {
+  h1 {
+    color: utils.$colorWhite;
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: utils.$colorOrange;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    color: utils.$colorHighBlue;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  p {
+    color: utils.$colorMetal;
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+
+  a {
+    color: utils.$colorPurple;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: utils.$colorHighBlue;
+    }
+  }
+}
