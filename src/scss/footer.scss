@@ -40,4 +40,16 @@
     font-size: 12px;
     color: utils.$colorMetal;
   }
+
+  .legal-link {
+    font-size: 9px;
+    opacity: 0.4;
+    color: #575757;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

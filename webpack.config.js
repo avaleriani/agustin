@@ -16,7 +16,7 @@ module.exports = (env) => {
   const isProd = env === "production";
   const outputFolder = resolveApp("dist");
   const appSrc = resolveApp("src");
-  const paths = ["/", "/uses/"];
+  const paths = ["/", "/uses/", "/privacy/", "/impressum/"];
 
   const minifyOpts = {
     removeComments: false,
@@ -169,6 +169,12 @@ module.exports = (env) => {
         filename: "impressum.html",
         inject: true,
         template: resolveApp("src/impressum.html"),
+        minify: minifyOpts,
+      }),
+      new HtmlWebpackPlugin({
+        filename: "privacy.html",
+        inject: true,
+        template: resolveApp("src/privacy.html"),
         minify: minifyOpts,
       }),
       new MiniCssExtractPlugin({

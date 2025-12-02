@@ -1,6 +1,6 @@
 @use "utils";
 
-#page-impressum {
+#page-privacy {
   max-width: 800px;
   margin: 0 auto;
   padding: 60px 20px;
@@ -8,18 +8,13 @@
   min-height: 100vh;
   background: utils.$colorBlack;
 
-  .obfuscated {
-    unicode-bidi: bidi-override;
-    direction: rtl;
-  }
-
   .email-canvas {
     display: inline-block;
     vertical-align: middle;
   }
 }
 
-.impressum-content {
+.privacy-content {
   h1 {
     color: utils.$colorWhite;
     font-size: 32px;
@@ -50,6 +45,19 @@
     font-size: 13px;
     margin-bottom: 10px;
     line-height: 1.8;
+  }
+
+  ul {
+    color: utils.$colorMetal;
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+
+  .effective-date {
+    color: utils.$colorMetal;
+    font-style: italic;
+    opacity: 0.7;
   }
 
   a {
