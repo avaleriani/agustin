@@ -10,8 +10,8 @@
   "homepage": "https://agustinvaleriani.com",
   "scripts": {
     "dev": "webpack serve --open --hot --env development",
-    "build": "NODE_ENV=production && webpack --env production",
-    "deploy": "pnpm build && echo 'agustinvaleriani.com' > ./dist/CNAME && gh-pages -d dist"
+    "build": "webpack --env production",
+    "deploy": "pnpm build && echo agustinvaleriani.com> ./dist/CNAME && gh-pages -d dist"
   },
   "author": "Agustin Valeriani",
   "license": "ISC",
