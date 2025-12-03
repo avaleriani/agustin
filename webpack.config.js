@@ -13,7 +13,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = (env) => {
-  const isProd = env === "production";
+  const isProd = env && env.production;
   const outputFolder = resolveApp("dist");
   const appSrc = resolveApp("src");
   const paths = ["/", "/uses/", "/privacy/", "/impressum/"];
@@ -167,6 +167,9 @@ module.exports = (env) => {
         inject: true,
         template: resolveApp("src/index.html"),
         minify: minifyOpts,
+        templateParameters: {
+          cssPreload: '<link rel="preload" href="assets/css/styles.[contenthash].css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="assets/css/styles.[contenthash].css"></noscript>',
+        },
       }),
       new HtmlWebpackPlugin({
         filename: "uses.html",

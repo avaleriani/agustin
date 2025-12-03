@@ -2,7 +2,8 @@ require("./scss/main.scss");
 import app from "./js/application";
 import workViewer from "./js/work-viewer";
 import animate from "./js/animate";
-import "@fontsource/roboto";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/700.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   app.loadApplication();
