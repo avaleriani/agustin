@@ -112,13 +112,13 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           include: /node_modules/,
-          use: [isProd ? MiniCssExtractPlugin.loader : "style-loader", "css-loader"],
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
         {
           test: /\.css$/,
           exclude: /node_modules/,
           use: [
-            isProd ? MiniCssExtractPlugin.loader : "style-loader",
+            MiniCssExtractPlugin.loader,
             {
               loader: "css-loader",
               options: {
@@ -130,7 +130,7 @@ module.exports = (env) => {
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [isProd ? MiniCssExtractPlugin.loader : "style-loader", "css-loader", "sass-loader"],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           oneOf: [
