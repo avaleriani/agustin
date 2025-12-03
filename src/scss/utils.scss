@@ -15,6 +15,10 @@ $colorCerebralGrey: #cccccc;
 
 $fontMain: "Roboto", Helvetica, sans-serif;
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: $fontMain;
   -webkit-tap-highlight-color: transparent;

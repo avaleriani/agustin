@@ -21,7 +21,7 @@ const workViewer = {
       //if it's closed
       document.addEventListener("keyup", workViewer.deactivateWithEscape, false);
       currElem.classList.add("open");
-      document.body.style.overflowY = "hidden";
+      document.documentElement.style.overflowY = "hidden";
       const overlayText = currElem.querySelector(".overlay-title-text");
       if (overlayText) {
         overlayText.classList.add("overlay-title-effect");
@@ -33,7 +33,7 @@ const workViewer = {
     const elem = document.querySelector(".open");
     if (elem) {
       elem.classList.remove("open");
-      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowY = "";
       const titleText = elem.querySelector(".overlay-title-text") as HTMLElement;
       titleText.classList.remove("overlay-title-effect");
     }
@@ -43,7 +43,7 @@ const workViewer = {
     if (e.key === "Escape") {
       const elem = document.querySelector(".open") as HTMLElement;
       elem.classList.remove("open");
-      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowY = "";
       const overlayTitleText = elem.querySelector(".overlay-title-text") as HTMLElement;
       overlayTitleText.classList.remove("overlay-title-effect");
     }

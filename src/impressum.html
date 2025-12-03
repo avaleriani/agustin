@@ -28,15 +28,23 @@ _  ___ |__ |/ /
           
           <h2>Information according to § 5 TMG</h2>
           <p>
-            <span id="name-field"></span><br />
-            <span id="co-field"></span><br />
-            <span id="street-field"></span><br />
-            <span id="city-field"></span>
+            <canvas id="nameCanvas" class="info-canvas" width="300" height="20"></canvas><br />
+            <canvas id="coCanvas" class="info-canvas" width="300" height="20"></canvas><br />
+            <canvas id="streetCanvas" class="info-canvas" width="300" height="20"></canvas><br />
+            <canvas id="cityCanvas" class="info-canvas" width="300" height="20"></canvas>
           </p>
 
           <h2>Contact</h2>
           <p>
-            Email: <canvas id="emailCanvas" class="email-canvas" width="300" height="20"></canvas><br />
+            <canvas id="emailCanvas" class="info-canvas" width="350" height="20"></canvas>
+          </p>
+
+          <h2>Contact Form</h2>
+          <p>
+            When you use the contact form on this website, the data you provide (name, email address, and message) will be transmitted via email for the purpose of responding to your inquiry. 
+            The legal basis for processing is Art. 6(1)(f) GDPR (legitimate interest in communication). 
+            Your data will not be shared with third parties and will only be used to respond to your request. 
+            For more details, please refer to our <a href="privacy.html">Privacy Policy</a>.
           </p>
 
           <h2>Disclaimer</h2>
@@ -67,20 +75,34 @@ _  ___ |__ |/ /
       // Decode base64 encoded data
       function d(s) { return decodeURIComponent(escape(atob(s))); }
       
-      // Render email on canvas (harder to scrape)
-      window.addEventListener('load', function() {
-        var canvas = document.getElementById('emailCanvas');
+      // Get font size based on screen width
+      function getFontSize() {
+        return window.innerWidth < 600 ? 13 : 16;
+      }
+      
+      // Render text on canvas with auto-width
+      function renderCanvas(id, text) {
+        var canvas = document.getElementById(id);
         var ctx = canvas.getContext('2d');
-        ctx.font = '16px Arial';
+        var fontSize = getFontSize();
+        ctx.font = fontSize + 'px Arial';
+        canvas.width = ctx.measureText(text).width + 10;
+        canvas.height = fontSize + 6;
+        ctx.font = fontSize + 'px Arial';
         ctx.fillStyle = '#fff';
-        ctx.fillText(d('aW1wcmVzc3VtQGFndXN0aW52YWxlcmlhbmkuY29t'), 0, 15);
-        
-        // Decode personal information
-        document.getElementById('name-field').textContent = d('QWd1c3RpbiBWYWxlcmlhbmk=');
-        document.getElementById('co-field').textContent = d('Yy9vIEF1dG9yZW5nbMO8Y2sgIzY0MDE1');
-        document.getElementById('street-field').textContent = d('QWxiZXJ0LUVpbnN0ZWluLVN0cmHDn2UgNDc=');
-        document.getElementById('city-field').textContent = d('MDI5NzcgSG95ZXJzd2VyZGE=');
-      });
+        ctx.fillText(text, 0, fontSize);
+      }
+      
+      function renderAll() {
+        renderCanvas('nameCanvas', d('QWd1c3RpbiBWYWxlcmlhbmk='));
+        renderCanvas('coCanvas', d('Yy9vIEF1dG9yZW5nbMO8Y2sgIzY0MDE1'));
+        renderCanvas('streetCanvas', d('QWxiZXJ0LUVpbnN0ZWluLVN0cmHDn2UgNDc='));
+        renderCanvas('cityCanvas', d('MDI5NzcgSG95ZXJzd2VyZGE='));
+        renderCanvas('emailCanvas', 'Email: ' + d('aW1wcmVzc3VtQGFndXN0aW52YWxlcmlhbmkuY29t'));
+      }
+      
+      window.addEventListener('load', renderAll);
+      window.addEventListener('resize', renderAll);
     </script>
   </body>
 </html>

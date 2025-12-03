@@ -104,25 +104,21 @@ const animate = {
     textArea.velocity({ opacity: "1" }, { duration: 1500, easing: "easeOutExpo" });
   },
 
-  submitContactForm: async (data: { name?: string; email?: string; subject?: string; message?: string }): Promise<boolean> => {
-    const title = `Contact: ${data.subject || "Form submission"} from ${data.name}`;
-    const body = `**From:** ${data.name}\n**Email:** ${data.email}\n\n**Message:**\n${data.message}`;
+  submitContactForm: async (data: { name: string; email: string; subject: string; message: string }): Promise<boolean> => {
+    const formData = new FormData();
+    formData.append("access_key", CONSTANTS.WEB3FORMS_KEY);
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("subject", data.subject);
+    formData.append("message", data.message);
 
     try {
-      const response = await fetch(CONSTANTS.GITHUB_API_URL, {
+      const response = await fetch(CONSTANTS.WEB3FORMS_URL, {
         method: "POST",
-        headers: {
-          "Authorization": `token ${CONSTANTS.GITHUB_PAT}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          body,
-          labels: ["contact-form"],
-        }),
+        body: formData,
       });
-
-      return response.ok;
+      const result = await response.json();
+      return response.ok && result.success;
     } catch (error) {
       console.error("Failed to submit contact form:", error);
       return false;
@@ -156,20 +152,17 @@ const animate = {
           );
           Velocity(mailLoader, { opacity: "1" }, { duration: 500, easing: "easeOutExpo" });
 
-          const data = {
+          const success = await animate.submitContactForm({
             name: name.value,
             email: email.value,
             subject: subject.value,
             message: message.value,
-          };
+          });
 
-          const success = await animate.submitContactForm(data);
-          
           Velocity(mailLoader, { opacity: "0" }, { duration: 300 });
-          
+
           if (success) {
             animate.showEmailSendFinished();
-            // Clear form
             name.value = "";
             email.value = "";
             subject.value = "";

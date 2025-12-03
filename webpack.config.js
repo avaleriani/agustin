@@ -41,6 +41,9 @@ module.exports = (env) => {
       compress: true,
       port: 8080,
       hot: true,
+      static: [
+        { directory: path.join(appDirectory, "src/assets"), publicPath: "/assets" },
+      ],
     },
 
     output: {
@@ -109,13 +112,13 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           include: /node_modules/,
-          use: [MiniCssExtractPlugin.loader, "css-loader"],
+          use: [isProd ? MiniCssExtractPlugin.loader : "style-loader", "css-loader"],
         },
         {
           test: /\.css$/,
           exclude: /node_modules/,
           use: [
-            MiniCssExtractPlugin.loader,
+            isProd ? MiniCssExtractPlugin.loader : "style-loader",
             {
               loader: "css-loader",
               options: {
@@ -127,7 +130,7 @@ module.exports = (env) => {
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+          use: [isProd ? MiniCssExtractPlugin.loader : "style-loader", "css-loader", "sass-loader"],
         },
         {
           oneOf: [
@@ -190,7 +193,10 @@ module.exports = (env) => {
         paths: glob.sync(`${appSrc}/**/*`, { nodir: true }),
       }),
       new CopyPlugin({
-        patterns: [{ from: "src/assets/images", to: "assets/images" }],
+        patterns: [
+          { from: "src/assets/images", to: "assets/images" },
+          { from: "src/assets/icons", to: "assets/icons" },
+        ],
       }),
       new SitemapPlugin({
         base: "https://agustinvaleriani.com",

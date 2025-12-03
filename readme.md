@@ -4,11 +4,13 @@
 
 ## :heavy_plus_sign: Commands
 
-`pnpm dev` : Launched development environment on http://localhost:3000
+`pnpm dev` : Launches development environment on http://localhost:8080
 
 `pnpm build` : Builds production version
 
-`pnpm run deploy`: Creates a new build and releases into gh-pages and https://agustinvaleriani.com
+`pnpm generate-icons` : Generates skill icons from simple-icons into `src/assets/icons/`
+
+`pnpm deploy` : Creates a new build and releases into gh-pages and https://agustinvaleriani.com
 
 ## :heavy_plus_sign: Description
 

@@ -50,7 +50,7 @@ _  ___ |__ |/ /
             and to lodge a complaint with a supervisory authority.
           </p>
           <p>
-            Contact: <canvas id="emailCanvas" class="email-canvas" width="300" height="20"></canvas>
+            Contact: <canvas id="emailCanvas" class="email-canvas" width="350" height="20"></canvas>
           </p>
 
           <h2>4. External Links</h2>
@@ -66,16 +66,29 @@ _  ___ |__ |/ /
       </section>
     </section>
     <script>
-      // Render email on canvas
-      window.addEventListener('load', function() {
+      // Get font size based on screen width
+      function getFontSize() {
+        return window.innerWidth < 600 ? 13 : 16;
+      }
+      
+      // Render email on canvas with auto-width
+      function renderEmail() {
         var canvas = document.getElementById('emailCanvas');
         if (canvas) {
           var ctx = canvas.getContext('2d');
-          ctx.font = '16px Arial';
+          var text = atob('aW1wcmVzc3VtQGFndXN0aW52YWxlcmlhbmkuY29t');
+          var fontSize = getFontSize();
+          ctx.font = fontSize + 'px Arial';
+          canvas.width = ctx.measureText(text).width + 10;
+          canvas.height = fontSize + 6;
+          ctx.font = fontSize + 'px Arial';
           ctx.fillStyle = '#fff';
-          ctx.fillText(atob('aW1wcmVzc3VtQGFndXN0aW52YWxlcmlhbmkuY29t'), 0, 15);
+          ctx.fillText(text, 0, fontSize);
         }
-      });
+      }
+      
+      window.addEventListener('load', renderEmail);
+      window.addEventListener('resize', renderEmail);
     </script>
   </body>
 </html>
