@@ -1,0 +1,322 @@
+/*!
+ * ScrollMagic v2.0.8 (2020-08-14)
+ * The javascript library for magical scroll interactions.
+ * (c) 2020 Jan Paepke (@janpaepke)
+ * Project Website: http://scrollmagic.io
+ * 
+ * @version 2.0.8
+ * @license Dual licensed under MIT license and GPL.
+ * @author Jan Paepke - e-mail@janpaepke.de
+ *
+ * @file ScrollMagic main library.
+ */
+
+/*! !!../../../../css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/cjs.js!./index.css */
+
+/*! !!../../node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@16.0.6_node-sas_c29a0dd3d3adecd9ff725dd1adeec05a/node_modules/sass-loader/dist/cjs.js!./main.scss */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertBySelector.js */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertStyleElement.js */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleDomAPI.js */
+
+/*! !../../../../style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleTagTransform.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertBySelector.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertStyleElement.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleDomAPI.js */
+
+/*! !../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleTagTransform.js */
+
+/*! ../../../../css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/api.js */
+
+/*! ../../../../css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/getUrl.js */
+
+/*! ../../../../css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/sourceMaps.js */
+
+/*! ../../node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/api.js */
+
+/*! ../../node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/getUrl.js */
+
+/*! ../../node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/sourceMaps.js */
+
+/*! ../assets/images/pen.svg */
+
+/*! ../assets/images/wave.svg */
+
+/*! ./constants */
+
+/*! ./dist/theater.js */
+
+/*! ./files/roboto-cyrillic-400-normal.woff */
+
+/*! ./files/roboto-cyrillic-400-normal.woff2 */
+
+/*! ./files/roboto-cyrillic-ext-400-normal.woff */
+
+/*! ./files/roboto-cyrillic-ext-400-normal.woff2 */
+
+/*! ./files/roboto-greek-400-normal.woff */
+
+/*! ./files/roboto-greek-400-normal.woff2 */
+
+/*! ./files/roboto-greek-ext-400-normal.woff */
+
+/*! ./files/roboto-greek-ext-400-normal.woff2 */
+
+/*! ./files/roboto-latin-400-normal.woff */
+
+/*! ./files/roboto-latin-400-normal.woff2 */
+
+/*! ./files/roboto-latin-ext-400-normal.woff */
+
+/*! ./files/roboto-latin-ext-400-normal.woff2 */
+
+/*! ./files/roboto-math-400-normal.woff */
+
+/*! ./files/roboto-math-400-normal.woff2 */
+
+/*! ./files/roboto-symbols-400-normal.woff */
+
+/*! ./files/roboto-symbols-400-normal.woff2 */
+
+/*! ./files/roboto-vietnamese-400-normal.woff */
+
+/*! ./files/roboto-vietnamese-400-normal.woff2 */
+
+/*! ./js/animate */
+
+/*! ./js/application */
+
+/*! ./js/work-viewer */
+
+/*! ./scss/main.scss */
+
+/*! ./utils */
+
+/*! @fontsource/roboto */
+
+/*! fonts/pe-icon-social.eot */
+
+/*! fonts/pe-icon-social.svg */
+
+/*! fonts/pe-icon-social.ttf */
+
+/*! fonts/pe-icon-social.woff */
+
+/*! scrollmagic */
+
+/*! shufflejs */
+
+/*! theaterjs */
+
+/*! vanilla-tilt */
+
+/*! velocity-animate */
+
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+
+/*!*************************!*\
+  !*** ./src/js/utils.ts ***!
+  \*************************/
+
+/*!***************************!*\
+  !*** ./src/js/animate.ts ***!
+  \***************************/
+
+/*!****************************!*\
+  !*** ./src/scss/main.scss ***!
+  \****************************/
+
+/*!*****************************!*\
+  !*** ./src/js/constants.ts ***!
+  \*****************************/
+
+/*!*******************************!*\
+  !*** ./src/js/application.ts ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ./src/js/work-viewer.ts ***!
+  \*******************************/
+
+/*!***********************************!*\
+  !*** ./src/assets/images/pen.svg ***!
+  \***********************************/
+
+/*!************************************!*\
+  !*** ./src/assets/images/wave.svg ***!
+  \************************************/
+
+/*!*******************************************!*\
+  !*** ./src/scss/fonts/pe-icon-social.eot ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/scss/fonts/pe-icon-social.svg ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/scss/fonts/pe-icon-social.ttf ***!
+  \*******************************************/
+
+/*!********************************************!*\
+  !*** ./src/scss/fonts/pe-icon-social.woff ***!
+  \********************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/.pnpm/theaterjs@3.2.0/node_modules/theaterjs/index.js ***!
+  \****************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/.pnpm/shufflejs@6.1.2/node_modules/shufflejs/dist/shuffle.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/.pnpm/theaterjs@3.2.0/node_modules/theaterjs/dist/theater.js ***!
+  \***********************************************************************************/
+
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/vanilla-tilt@1.8.1/node_modules/vanilla-tilt/lib/vanilla-tilt.js ***!
+  \*********************************************************************************************/
+
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/index.css ***!
+  \***********************************************************************************************/
+
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/velocity-animate@2.0.6/node_modules/velocity-animate/velocity.es5.js ***!
+  \*************************************************************************************************/
+
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/api.js ***!
+  \*********************************************************************************************************/
+
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \************************************************************************************************************/
+
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/scrollmagic@2.0.8/node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js ***!
+  \***************************************************************************************************************/
+
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/runtime/sourceMaps.js ***!
+  \****************************************************************************************************************/
+
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \*********************************************************************************************************************/
+
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-math-400-normal.woff ***!
+  \***********************************************************************************************************************/
+
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-greek-400-normal.woff ***!
+  \************************************************************************************************************************/
+
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff ***!
+  \************************************************************************************************************************/
+
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-math-400-normal.woff2 ***!
+  \************************************************************************************************************************/
+
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-greek-400-normal.woff2 ***!
+  \*************************************************************************************************************************/
+
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff2 ***!
+  \*************************************************************************************************************************/
+
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-symbols-400-normal.woff ***!
+  \**************************************************************************************************************************/
+
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \**************************************************************************************************************************/
+
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-cyrillic-400-normal.woff ***!
+  \***************************************************************************************************************************/
+
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-symbols-400-normal.woff2 ***!
+  \***************************************************************************************************************************/
+
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \***************************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-cyrillic-400-normal.woff2 ***!
+  \****************************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-greek-ext-400-normal.woff ***!
+  \****************************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-latin-ext-400-normal.woff ***!
+  \****************************************************************************************************************************/
+
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \****************************************************************************************************************************/
+
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-greek-ext-400-normal.woff2 ***!
+  \*****************************************************************************************************************************/
+
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-latin-ext-400-normal.woff2 ***!
+  \*****************************************************************************************************************************/
+
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-vietnamese-400-normal.woff ***!
+  \*****************************************************************************************************************************/
+
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-vietnamese-400-normal.woff2 ***!
+  \******************************************************************************************************************************/
+
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-400-normal.woff ***!
+  \*******************************************************************************************************************************/
+
+/*!********************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-400-normal.woff2 ***!
+  \********************************************************************************************************************************/
+
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \**********************************************************************************************************************************/
+
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/style-loader@4.0.0_webpack@5.103.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \****************************************************************************************************************************************/
+
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/@fontsource+roboto@5.2.9/node_modules/@fontsource/roboto/index.css ***!
+  \*****************************************************************************************************************************************************************************************/
+
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.103.0/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/sass-loader@16.0.6_node-sas_c29a0dd3d3adecd9ff725dd1adeec05a/node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
