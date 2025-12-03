@@ -9,6 +9,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const SitemapPlugin = require("sitemap-webpack-plugin").default;
+const Critters = require("critters-webpack-plugin");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
@@ -167,9 +168,6 @@ module.exports = (env) => {
         inject: true,
         template: resolveApp("src/index.html"),
         minify: minifyOpts,
-        templateParameters: {
-          cssPreload: '<link rel="preload" href="assets/css/styles.[contenthash].css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"><noscript><link rel="stylesheet" href="assets/css/styles.[contenthash].css"></noscript>',
-        },
       }),
       new HtmlWebpackPlugin({
         filename: "uses.html",
@@ -210,6 +208,16 @@ module.exports = (env) => {
           changefreq: "monthly",
         },
       }),
+      ...(isProd ? [
+        new Critters({
+          preload: "swap",
+          pruneSource: true,
+          reduceInlineStyles: false,
+          mergeStylesheets: false,
+          external: false,
+          keyframes: "critical",
+        })
+      ] : []),
     ],
   };
 };

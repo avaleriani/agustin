@@ -9,9 +9,9 @@
   },
   "homepage": "https://agustinvaleriani.com",
   "scripts": {
-    "dev": "webpack serve --open --hot --env development",
-    "build": "webpack --env production",
-    "deploy": "pnpm build && echo agustinvaleriani.com> ./dist/CNAME && gh-pages -d dist",
+    "dev": "cross-env NODE_ENV=development webpack serve --open --hot --env development",
+    "build": "cross-env NODE_ENV=production webpack --env production",
+    "deploy": "pnpm build && node -e \"require('fs').writeFileSync('./dist/CNAME', 'agustinvaleriani.com')\" && gh-pages -d dist",
     "generate-icons": "node scripts/generate-icons.js"
   },
   "author": "Agustin Valeriani",
@@ -30,6 +30,8 @@
     "@babel/preset-env": "^7.28.5",
     "@types/node": "^24.10.1",
     "copy-webpack-plugin": "^13.0.1",
+    "cross-env": "^7.0.3",
+    "critters-webpack-plugin": "^3.0.2",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "html-webpack-plugin": "^5.6.5",
