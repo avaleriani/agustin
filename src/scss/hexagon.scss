@@ -49,7 +49,7 @@
   position: relative;
   z-index: 4;
   top: 12px;
-  -webkit-transition: -webkid-transform 0.25s ease;
+  -webkit-transition: -webkit-transform 0.25s ease;
   -moz-transition: -moz-transform 0.25s ease;
   -ms-transition: -ms-transform 0.25s ease;
   -o-transition: -o-transform 0.25s ease;
@@ -62,7 +62,7 @@
   -ms-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
-  -webkit-transition: -webkid-transform 0.25s ease;
+  -webkit-transition: -webkit-transform 0.25s ease;
   -moz-transition: -moz-transform 0.25s ease;
   -ms-transition: -ms-transform 0.25s ease;
   -o-transition: -o-transform 0.25s ease;
